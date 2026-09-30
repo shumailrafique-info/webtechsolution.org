@@ -8,6 +8,7 @@ import {
   DashboardIcon,
   FileTextIcon,
   ImageIcon,
+  InboxIcon,
   TerminalIcon,
 } from "@/components/icons";
 import {
@@ -37,6 +38,11 @@ const data = {
           url: "/admin/blogs/new",
         },
       ],
+    },
+    {
+      title: "Ideas",
+      url: "/admin/ideas",
+      icon: <InboxIcon />,
     },
     {
       title: "Page Content",

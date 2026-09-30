@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   BookOpenIcon,
   FileTextIcon,
+  InboxIcon,
   PlusIcon,
   QuestionIcon,
   UsersIcon,
@@ -90,7 +91,7 @@ export default async function Page() {
       </div>
 
       <div className="space-y-8 px-6 py-6 sm:px-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <StatCard
             label="Blog posts"
             value={stats.blogs.total}
@@ -111,6 +112,17 @@ export default async function Page() {
             detail={`across ${stats.faqs.pagesWithFaqs} pages`}
             icon={<QuestionIcon className="size-5" />}
             href="/admin/pages"
+          />
+          <StatCard
+            label="Ideas"
+            value={stats.ideas.total}
+            detail={
+              stats.ideas.unread > 0
+                ? `${stats.ideas.unread} unread`
+                : "all read"
+            }
+            icon={<InboxIcon className="size-5" />}
+            href="/admin/ideas"
           />
           <StatCard
             label="Users"

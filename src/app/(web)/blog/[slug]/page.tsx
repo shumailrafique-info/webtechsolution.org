@@ -2,6 +2,8 @@ import { and, desc, eq, ne } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { IdeaBox } from "@/components/blog/idea-box";
+import { TableOfContents } from "@/components/blog/table-of-contents";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { db } from "@/drizzle/db";
@@ -124,12 +126,15 @@ export default async function Page({
     ]),
   ]);
 
+  const { html: content, headings } = prepareProseHtml(post.html);
+
   return (
-    <div className="w-full mx-auto p-4 pt-0 pb-10">
+    <div className="w-full mx-auto pt-0 pb-10">
       <JsonLd data={schema} />
       <div className="w-full bg-[#F4F3EF]">
-        <div className="w-full max-w-5xl mx-auto flex items-center justify-between gap-6 py-14">
-          <header className="flex-1">
+        {/* Stacks on small screens; from md it is the two-column row. */}
+        <div className="w-full max-w-5xl px-4 mx-auto flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between md:py-14">
+          <header className="md:flex-1">
             <div className="flex items-center justify-start">
               {post.published_at ? (
                 <time
@@ -139,15 +144,14 @@ export default async function Page({
                   {dateFormatter.format(post.published_at)}
                 </time>
               ) : null}
-              {/* here comes time like 9:00PM  */}
             </div>
-            <h1 className="text-[26px] leading-[1.2] mt-1 font-semibold tracking-tight text-foreground sm:text-[25px]">
+            <h1 className="text-[22px] leading-[1.2] mt-1 font-semibold tracking-tight text-foreground sm:text-[25px]">
               {post.title}
             </h1>
             {post.author ? (
               <div className="flex mt-2 items-center gap-2.5">
                 {post.author.image ? (
-                  // biome-ignore lint/performance/noImgElement: <due>
+                  // biome-ignore lint/performance/noImgElement: remote avatar from the identity provider, not a bundled asset
                   <img
                     src={post.author.image}
                     alt=""
@@ -172,9 +176,9 @@ export default async function Page({
               </div>
             ) : null}
           </header>
-          <div className="flex-1">
+          <div className="md:flex-1">
             {post.cover_image?.url ? (
-              // biome-ignore lint/performance/noImgElement: <explanation
+              // biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL
               <img
                 src={post.cover_image.url}
                 alt={post.image_alt}
@@ -185,7 +189,7 @@ export default async function Page({
         </div>
       </div>
       {/* actual content  */}
-      <div className="w-full max-w-5xl mx-auto">
+      <div className="w-full max-w-5xl mx-auto px-4">
         <Breadcrumbs
           items={[
             { label: "Home", href: "/" },
@@ -194,24 +198,30 @@ export default async function Page({
           ]}
           className="w-full m-0! pt-5!"
         />
-        <div className="w-full grid grid-cols-24 gap-4 mt-6">
-          <div className="col-span-7 flex flex-col gap-5 relative">
-            <div className="bg-[#F4F3EF] p-3">suggestion box</div>
-            <div className="bg-[#F4F3EF] p-3 sticky top-18 left-0">
-              Table of Content
-            </div>
-          </div>
-          <div className="col-span-17 pb-10">
-            <article className="w-full">
-              <div
-                className={`${BLOG_PROSE}`}
-                // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
-                dangerouslySetInnerHTML={{
-                  __html: prepareProseHtml(post.html).html,
-                }}
-              />
-            </article>
-          </div>
+        {/*
+          Desktop keeps the two sidebar boxes stacked in the left column, with
+          the article beside them across both rows. On small screens the grid
+          collapses to one column and source order takes over, which is why
+          the contents come before the article and the idea box after it.
+        */}
+        <div className="w-full grid grid-cols-1 gap-5 mt-6 lg:grid-cols-24 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-4 lg:gap-y-5">
+          <TableOfContents
+            headings={headings}
+            className="lg:col-span-7 lg:col-start-1 lg:row-start-2 lg:sticky lg:top-18"
+          />
+
+          <article className="w-full pb-4 lg:col-span-17 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:pb-10">
+            <div
+              className={BLOG_PROSE}
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </article>
+
+          <IdeaBox
+            blogId={post.id}
+            className="lg:col-span-7 lg:col-start-1 lg:row-start-1"
+          />
         </div>
 
         {morePosts.length > 0 ? (

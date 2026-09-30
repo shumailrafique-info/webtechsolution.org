@@ -8,6 +8,7 @@ import { deleteBlog, getBlogs } from "@/app/(admin)/admin/blogs/actions";
 import { createBlog, updateBlog } from "@/app/(admin)/admin/blogs/new/actions";
 import type { BlogType } from "@/drizzle/types";
 import type { BlogSchemaValues } from "@/lib/validation/zod/blog.schema";
+import type { Paginated } from "@/types/global";
 
 export const QUERY_KEY_BLOG = "blogs" as const;
 
@@ -59,11 +60,11 @@ export function useBlogUpdate() {
   });
 }
 
-export function useBlogs(search: string) {
+export function useBlogs(search: string, page = 1) {
   return useQuery({
-    queryKey: [QUERY_KEY_BLOG, { search }],
+    queryKey: [QUERY_KEY_BLOG, { search, page }],
     queryFn: async () => {
-      const result = await getBlogs(search);
+      const result = await getBlogs(search, page);
 
       if (!result.success) {
         throw new Error(result.error);
@@ -92,13 +93,18 @@ export function useBlogDelete() {
     onMutate: async (id) => {
       await queryClient.cancelQueries({ queryKey: [QUERY_KEY_BLOG] });
 
-      const previousLists = queryClient.getQueriesData<BlogType[]>({
+      const previousLists = queryClient.getQueriesData<Paginated<BlogType>>({
         queryKey: [QUERY_KEY_BLOG],
       });
 
-      queryClient.setQueriesData<BlogType[]>(
+      queryClient.setQueriesData<Paginated<BlogType>>(
         { queryKey: [QUERY_KEY_BLOG] },
-        (current) => current?.filter((item) => item.id !== id),
+        (current) =>
+          current && {
+            ...current,
+            rows: current.rows.filter((item) => item.id !== id),
+            total: Math.max(0, current.total - 1),
+          },
       );
 
       return { previousLists };

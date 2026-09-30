@@ -1,6 +1,6 @@
 "use server";
 
-import { desc, eq } from "drizzle-orm";
+import { count, desc, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "@/drizzle/db";
 import { blog, idea } from "@/drizzle/schema";
@@ -10,13 +10,12 @@ import {
   type IdeaSchemaValues,
   ideaSchema,
 } from "@/lib/validation/zod/idea.schema";
-import type { ApiResponse } from "@/types/global";
+import {
+  ADMIN_PAGE_SIZE,
+  type ApiResponse,
+  type Paginated,
+} from "@/types/global";
 
-/**
- * Submitting an idea is open to any visitor, so this action validates the
- * payload itself rather than trusting the form, and stores only the three
- * fields the form collects. Reading, marking and deleting are admin-only.
- */
 export async function submitIdea(
   input: IdeaSchemaValues,
 ): Promise<ApiResponse<{ id: string }>> {
@@ -28,8 +27,6 @@ export async function submitIdea(
   const { name, email, message, blogId } = parsed.data;
 
   try {
-    // The post's title and slug are copied in, so a submission still reads
-    // sensibly if that post is later renamed or removed.
     const post = blogId
       ? await db.query.blog.findFirst({
           where: eq(blog.id, blogId),
@@ -59,15 +56,47 @@ export async function submitIdea(
   }
 }
 
-export async function getIdeas(): Promise<ApiResponse<IdeaType[]>> {
+export type IdeaFilter = "all" | "unread";
+
+export async function getIdeas(
+  page = 1,
+  filter: IdeaFilter = "all",
+): Promise<ApiResponse<Paginated<IdeaType> & { unread: number }>> {
   const guard = await ensureAdminAccess();
   if (!guard.session) {
     return { success: false, error: "Admin access required." };
   }
 
+  const current = Math.max(1, Math.trunc(page));
+  const where = filter === "unread" ? eq(idea.is_read, false) : undefined;
+
   try {
-    const rows = await db.select().from(idea).orderBy(desc(idea.created_at));
-    return { success: true, data: rows };
+    const [rows, [counted], [unreadCount]] = await Promise.all([
+      db
+        .select()
+        .from(idea)
+        .where(where)
+        .orderBy(desc(idea.created_at))
+        .limit(ADMIN_PAGE_SIZE)
+        .offset((current - 1) * ADMIN_PAGE_SIZE),
+
+      db.select({ total: count() }).from(idea).where(where),
+
+      db.select({ total: count() }).from(idea).where(eq(idea.is_read, false)),
+    ]);
+
+    const total = counted?.total ?? 0;
+
+    return {
+      success: true,
+      data: {
+        rows,
+        total,
+        page: current,
+        totalPages: Math.max(1, Math.ceil(total / ADMIN_PAGE_SIZE)),
+        unread: unreadCount?.total ?? 0,
+      },
+    };
   } catch (error) {
     console.error("getIdeas failed", error);
     return { success: false, error: "Could not load ideas." };

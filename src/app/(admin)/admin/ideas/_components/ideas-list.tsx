@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AdminPagination } from "@/app/(admin)/_components/admin-pagination";
 import {
   CheckIcon,
   ExternalLinkIcon,
@@ -18,6 +19,7 @@ import {
   useIdeas,
 } from "@/lib/react-query/hooks/use-ideas";
 import { cn } from "@/lib/utils";
+import type { IdeaFilter } from "@/server/actions/ideas";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
@@ -27,11 +29,10 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   minute: "2-digit",
 });
 
-type Filter = "all" | "unread";
-
 export function IdeasList() {
-  const [filter, setFilter] = useState<Filter>("all");
-  const { data, isPending, error } = useIdeas();
+  const [filter, setFilter] = useState<IdeaFilter>("all");
+  const [page, setPage] = useState(1);
+  const { data, isPending, error } = useIdeas(page, filter);
   const markRead = useIdeaRead();
   const remove = useIdeaDelete();
 
@@ -53,9 +54,8 @@ export function IdeasList() {
     );
   }
 
-  const ideas = data ?? [];
-  const unread = ideas.filter((idea) => !idea.is_read).length;
-  const visible = filter === "unread" ? ideas.filter((i) => !i.is_read) : ideas;
+  const visible = data?.rows ?? [];
+  const unread = data?.unread ?? 0;
 
   const onToggleRead = (idea: IdeaType) =>
     markRead.mutate(
@@ -77,7 +77,7 @@ export function IdeasList() {
     <div className="grid gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-muted-foreground">
-          {ideas.length} total
+          {data?.total ?? 0} {filter === "unread" ? "unread" : "total"}
           {unread > 0 ? (
             <>
               {" · "}
@@ -93,7 +93,10 @@ export function IdeasList() {
             <button
               key={value}
               type="button"
-              onClick={() => setFilter(value)}
+              onClick={() => {
+                setFilter(value);
+                setPage(1);
+              }}
               aria-pressed={filter === value}
               className={cn(
                 "rounded px-3 py-1.5 text-[13px] font-medium capitalize transition-colors",
@@ -209,6 +212,17 @@ export function IdeasList() {
           ))}
         </ul>
       )}
+
+      {data ? (
+        <AdminPagination
+          page={data.page}
+          totalPages={data.totalPages}
+          total={data.total}
+          label="ideas"
+          onPageChange={setPage}
+          className="px-0 sm:px-0"
+        />
+      ) : null}
     </div>
   );
 }

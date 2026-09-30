@@ -88,7 +88,7 @@ export async function BlogIndex({ page }: { page: number }) {
                   { label: `Page ${page}` },
                 ]
           }
-          className="w-full m-0! pt-5!"
+          className="w-full m-0! py-5!"
         />
 
         {posts.length === 0 ? (

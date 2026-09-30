@@ -1,16 +1,20 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { IdeaType } from "@/drizzle/types";
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import type { IdeaSchemaValues } from "@/lib/validation/zod/idea.schema";
 import {
   deleteIdea,
   getIdeas,
+  type IdeaFilter,
   setIdeaRead,
   submitIdea,
 } from "@/server/actions/ideas";
 
 export const QUERY_KEY_IDEA = "ideas" as const;
 
-/** Public: the idea box in a post's sidebar. */
 export function useIdeaSubmit() {
   return useMutation({
     mutationFn: async (input: IdeaSchemaValues) => {
@@ -21,16 +25,15 @@ export function useIdeaSubmit() {
   });
 }
 
-/* ------------------------------------------------------------- dashboard */
-
-export function useIdeas() {
-  return useQuery<IdeaType[]>({
-    queryKey: [QUERY_KEY_IDEA],
+export function useIdeas(page = 1, filter: IdeaFilter = "all") {
+  return useQuery({
+    queryKey: [QUERY_KEY_IDEA, { page, filter }],
     queryFn: async () => {
-      const result = await getIdeas();
+      const result = await getIdeas(page, filter);
       if (!result.success) throw new Error(result.error);
       return result.data;
     },
+    placeholderData: keepPreviousData,
   });
 }
 

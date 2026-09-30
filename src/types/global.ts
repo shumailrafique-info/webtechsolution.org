@@ -9,3 +9,12 @@ export type ApiResponse<T> =
       error: string;
       data?: never;
     };
+
+export type Paginated<T> = {
+  rows: T[];
+  total: number;
+  page: number;
+  totalPages: number;
+};
+
+export const ADMIN_PAGE_SIZE = 40;

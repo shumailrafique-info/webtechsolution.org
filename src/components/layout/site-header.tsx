@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { Brand } from "@/components/layout/brand";
-import { ModeToggle } from "@/components/layout/mode-toggle";
 import { cn } from "@/lib/utils";
 
-/**
- * `compact` links stay visible at every width; the rest drop below `sm`,
- * where three labels plus the theme toggle no longer fit beside the wordmark.
- * They remain reachable from the footer, which lists all of them.
- */
 const HEADER_LINKS = [
   { label: "Blog", href: "/blog", compact: true },
   { label: "Privacy Policy", href: "/privacy-policy", compact: false },
@@ -35,7 +29,6 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <ModeToggle />
         </nav>
       </div>
     </header>

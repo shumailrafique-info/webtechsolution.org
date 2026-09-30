@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AdminPagination } from "@/app/(admin)/_components/admin-pagination";
 import { PencilIcon, PlusIcon, SearchIcon, XIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,13 +37,15 @@ function StatusBadge({ status }: { status: BlogType["status"] }) {
 const BlogsList = () => {
   const [term, setTerm] = useState("");
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const timer = setTimeout(() => setSearch(term.trim()), 300);
     return () => clearTimeout(timer);
   }, [term]);
 
-  const { data: blogs, isPending, isError, error, refetch } = useBlogs(search);
+  const { data, isPending, isError, error, refetch } = useBlogs(search, page);
+  const blogs = data?.rows ?? [];
 
   return (
     <div className="w-full">
@@ -54,7 +57,7 @@ const BlogsList = () => {
           <p className="mt-1 text-sm text-muted-foreground">
             {isPending
               ? "Loading posts…"
-              : `${blogs?.length ?? 0} ${blogs?.length === 1 ? "post" : "posts"}${
+              : `${data?.total ?? 0} ${data?.total === 1 ? "post" : "posts"}${
                   search ? ` matching “${search}”` : ""
                 }`}
           </p>
@@ -75,7 +78,10 @@ const BlogsList = () => {
           <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             value={term}
-            onChange={(event) => setTerm(event.target.value)}
+            onChange={(event) => {
+              setTerm(event.target.value);
+              setPage(1);
+            }}
             placeholder="Search by title or slug"
             aria-label="Search blog posts by title or slug"
             className="h-10 pr-9 pl-9"
@@ -238,6 +244,16 @@ const BlogsList = () => {
           </div>
         )}
       </div>
+
+      {data ? (
+        <AdminPagination
+          page={data.page}
+          totalPages={data.totalPages}
+          total={data.total}
+          label="posts"
+          onPageChange={setPage}
+        />
+      ) : null}
     </div>
   );
 };

@@ -126,7 +126,7 @@ export default async function Page({
   ]);
 
   return (
-    <div className="space-y-10 w-full max-w-5xl mx-auto">
+    <div className="space-y-10 w-full max-w-5xl mx-auto p-4">
       <JsonLd data={schema} />
 
       <Breadcrumbs

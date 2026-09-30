@@ -51,17 +51,17 @@ export default async function Page() {
   ]);
 
   return (
-    <>
+    <div className="w-full max-w-5xl mx-auto p-4">
       <JsonLd data={schema} />
 
       <Breadcrumbs
         items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
       />
 
-      <article className="w-full max-w-5xl mx-auto space-y-2">
+      <article className="space-y-2">
         <PageContentHeader slug={SLUG} />
         <PageContentBody slug={SLUG} framed={false} />
       </article>
-    </>
+    </div>
   );
 }

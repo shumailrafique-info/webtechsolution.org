@@ -86,6 +86,8 @@ export default async function Page({
       title: blog.title,
       slug: blog.slug,
       excerpt: blog.excerpt,
+      cover_image: blog.cover_image,
+      image_alt: blog.image_alt,
     })
     .from(blog)
     .where(and(eq(blog.status, "PUBLISHED"), ne(blog.id, post.id)))
@@ -94,8 +96,6 @@ export default async function Page({
 
   const url = `/blog/${post.slug}`;
 
-  // Article structured data. dateModified comes from the row, so an edit in
-  // the dashboard is reflected without touching this file.
   const schema = graph([
     {
       "@type": "BlogPosting",
@@ -107,7 +107,6 @@ export default async function Page({
       image: post.cover_image?.url ? [post.cover_image.url] : undefined,
       datePublished: post.published_at?.toISOString(),
       dateModified: post.updated_at.toISOString(),
-      // A named byline when the post has an author, otherwise the site itself.
       author: post.author
         ? {
             "@type": "Person",
@@ -126,107 +125,129 @@ export default async function Page({
   ]);
 
   return (
-    <div className="space-y-10 w-full max-w-5xl mx-auto p-4">
+    <div className="w-full mx-auto p-4 pt-0 pb-10">
       <JsonLd data={schema} />
-
-      <Breadcrumbs
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Blog", href: "/blog" },
-          { label: post.title },
-        ]}
-        className="mx-auto max-w-[68ch]"
-      />
-
-      <article className="max-w-[68ch] mx-auto">
-        <header>
-          {post.published_at ? (
-            <time
-              dateTime={post.published_at.toISOString()}
-              className="text-[13px] text-muted-foreground"
-            >
-              {dateFormatter.format(post.published_at)}
-            </time>
-          ) : null}
-
-          <h1 className="mt-1.5 text-[26px] leading-[1.2] font-semibold tracking-tight text-foreground sm:text-[30px]">
-            {post.title}
-          </h1>
-
-          {post.author ? (
-            <div className="mt-3 flex items-center gap-2.5">
-              {post.author.image ? (
-                // biome-ignore lint/performance/noImgElement: <due>
-                <img
-                  src={post.author.image}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="size-8 rounded-full border border-border object-cover"
-                />
-              ) : (
-                <span
-                  aria-hidden
-                  className="flex size-8 items-center justify-center rounded-full border border-border bg-accent text-[13px] font-semibold text-primary"
+      <div className="w-full bg-[#F4F3EF]">
+        <div className="w-full max-w-5xl mx-auto flex items-center justify-between gap-6 py-14">
+          <header className="flex-1">
+            <div className="flex items-center justify-start">
+              {post.published_at ? (
+                <time
+                  dateTime={post.published_at.toISOString()}
+                  className="text-[13px] text-muted-foreground"
                 >
-                  {post.author.name.charAt(0).toUpperCase()}
-                </span>
-              )}
-              <span className="text-[14px] text-muted-foreground">
-                By{" "}
-                <span className="font-medium text-foreground">
-                  {post.author.name}
-                </span>
-              </span>
+                  {dateFormatter.format(post.published_at)}
+                </time>
+              ) : null}
+              {/* here comes time like 9:00PM  */}
             </div>
-          ) : null}
-
-          <p className="mt-2.5 text-[15px] leading-relaxed text-muted-foreground">
-            {post.excerpt}
-          </p>
-        </header>
-
-        {post.cover_image?.url ? (
-          // biome-ignore lint/performance/noImgElement: <explanation
-          <img
-            src={post.cover_image.url}
-            alt={post.image_alt}
-            className="mt-8 aspect-video w-full rounded-lg border border-border object-cover"
-          />
-        ) : null}
-
-        <div
-          className={`mt-8 ${BLOG_PROSE}`}
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
-          dangerouslySetInnerHTML={{ __html: prepareProseHtml(post.html).html }}
+            <h1 className="text-[26px] leading-[1.2] mt-1 font-semibold tracking-tight text-foreground sm:text-[25px]">
+              {post.title}
+            </h1>
+            {post.author ? (
+              <div className="flex mt-2 items-center gap-2.5">
+                {post.author.image ? (
+                  // biome-ignore lint/performance/noImgElement: <due>
+                  <img
+                    src={post.author.image}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="size-8 rounded-full border border-border object-cover"
+                  />
+                ) : (
+                  <span
+                    aria-hidden
+                    className="flex size-8 items-center justify-center rounded-full border border-border bg-accent text-[13px] font-semibold text-primary"
+                  >
+                    {post.author.name.charAt(0).toUpperCase()}
+                  </span>
+                )}
+                <span className="text-[14px] text-muted-foreground">
+                  By{" "}
+                  <span className="font-medium text-foreground">
+                    {post.author.name}
+                  </span>
+                </span>
+              </div>
+            ) : null}
+          </header>
+          <div className="flex-1">
+            {post.cover_image?.url ? (
+              // biome-ignore lint/performance/noImgElement: <explanation
+              <img
+                src={post.cover_image.url}
+                alt={post.image_alt}
+                className="aspect-video w-full rounded-lg border border-border object-cover"
+              />
+            ) : null}
+          </div>
+        </div>
+      </div>
+      {/* actual content  */}
+      <div className="w-full max-w-5xl mx-auto">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: post.title },
+          ]}
+          className="w-full m-0! pt-5!"
         />
-      </article>
+        <div className="w-full grid grid-cols-24 gap-4 mt-6">
+          <div className="col-span-7 flex flex-col gap-5 relative">
+            <div className="bg-[#F4F3EF] p-3">suggestion box</div>
+            <div className="bg-[#F4F3EF] p-3 sticky top-18 left-0">
+              Table of Content
+            </div>
+          </div>
+          <div className="col-span-17 pb-10">
+            <article className="w-full">
+              <div
+                className={`${BLOG_PROSE}`}
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
+                dangerouslySetInnerHTML={{
+                  __html: prepareProseHtml(post.html).html,
+                }}
+              />
+            </article>
+          </div>
+        </div>
 
-      {morePosts.length > 0 ? (
-        <section className="border-t border-border pt-8 max-w-[68ch] mx-auto">
-          <h2 className="mb-4 border-l-2 border-primary pl-3 text-[17px] font-semibold tracking-tight text-primary">
-            Read next
-          </h2>
+        {morePosts.length > 0 ? (
+          <section className="border-t border-border pt-8">
+            <h2 className="mb-6 border-l-2 border-primary pl-3 text-[17px] font-semibold tracking-tight text-primary">
+              Related Content
+            </h2>
 
-          <ul className="grid gap-4 sm:grid-cols-1">
-            {morePosts.map((item) => (
-              <li key={item.id}>
-                <Link
-                  href={`/blog/${item.slug}`}
-                  className="group block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
-                >
-                  <h3 className="text-[15px] leading-snug font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-[1.7] text-muted-foreground">
-                    {item.excerpt}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {morePosts.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    href={`/blog/${item.slug}`}
+                    className="group block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+                  >
+                    {item.cover_image?.url ? (
+                      // biome-ignore lint/performance/noImgElement: <explanation
+                      <img
+                        src={item.cover_image.url}
+                        alt={item.image_alt}
+                        className="aspect-video w-full rounded-lg border border-border object-cover"
+                      />
+                    ) : null}
+                    <h3 className="text-[15px] mt-2 leading-snug line-clamp-2 font-semibold text-foreground transition-colors group-hover:text-primary">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 line-clamp-2 text-[14px] leading-[1.7] text-muted-foreground">
+                      {item.excerpt}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+      </div>
     </div>
   );
 }

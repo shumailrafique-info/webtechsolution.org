@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -39,6 +40,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -81,6 +86,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Added for the dashboard: toast states and the editor's highlight mark. */
+  --success: oklch(0.62 0.15 155);
+  --success-foreground: oklch(0.99 0.005 155);
+  --warning: oklch(0.8 0.16 85);
+  --warning-foreground: oklch(0.3 0.06 85);
 }
 
 .dark {
@@ -115,6 +126,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Added for the dashboard: toast states and the editor's highlight mark. */
+  --success: oklch(0.72 0.15 155);
+  --success-foreground: oklch(0.2 0.04 155);
+  --warning: oklch(0.83 0.15 85);
+  --warning-foreground: oklch(0.22 0.05 85);
 }
 
 @layer base {
@@ -131,4 +148,90 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Editor content: tables, image selection, column resizing, placeholder. */
+.prose-tables .tableWrapper,
+.prose-tables .table-scroll {
+  display: grid;
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+.prose-tables table {
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.prose-tables th,
+.prose-tables td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-width: 4rem;
+}
+.prose-tables th:last-child,
+.prose-tables td:last-child {
+  border-right: 0;
+}
+.prose-tables tr:last-child > td,
+.prose-tables tr:last-child > th {
+  border-bottom: 0;
+}
+.prose-tables th {
+  background: var(--muted);
+  color: var(--foreground);
+  font-weight: 600;
+}
+.prose-tables tbody tr:nth-child(even) > td {
+  background: color-mix(in oklch, var(--muted) 45%, transparent);
+}
+.prose-tables td > p,
+.prose-tables th > p {
+  margin: 0;
+}
+
+.ProseMirror-selectednode {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+.ProseMirror table .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklch, var(--primary) 18%, transparent);
+  pointer-events: none;
+}
+.ProseMirror table td,
+.ProseMirror table th {
+  position: relative;
+}
+.ProseMirror .column-resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -2px;
+  width: 4px;
+  background: var(--primary);
+  pointer-events: none;
+}
+.ProseMirror.resize-cursor {
+  cursor: col-resize;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  height: 0;
 }

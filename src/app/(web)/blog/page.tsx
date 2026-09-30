@@ -127,7 +127,7 @@ export default async function Page() {
                     </time>
                   ) : null}
 
-                  <h2 className="mt-1 text-[17px] leading-snug font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                  <h2 className="mt-1 text-[17px] leading-snug line-clamp-2 font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
                     {post.title}
                   </h2>
 

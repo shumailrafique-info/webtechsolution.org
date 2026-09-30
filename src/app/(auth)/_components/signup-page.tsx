@@ -11,10 +11,7 @@ const SignUpPage = () => {
 
   return (
     <section className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 py-16">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      />
+      <div aria-hidden className="pointer-events-none absolute inset-0" />
 
       <div className="relative w-full max-w-sm">
         <div className="mb-6 flex justify-center">

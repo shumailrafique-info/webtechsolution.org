@@ -4,7 +4,6 @@ import type { NextRequest } from "next/server";
 const WIDTH = 1200;
 const HEIGHT = 630;
 
-/** Keeps a pasted essay from overflowing the card. */
 function clamp(value: string | null, max: number, fallback = "") {
   const text = (value ?? "").trim();
   if (!text) return fallback;
@@ -30,8 +29,6 @@ export function GET(request: NextRequest) {
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundColor: "#ffffff",
-        // An orange band down the left keeps the card recognisable at thumbnail
-        // size, where the text is too small to read.
         borderLeft: "24px solid #f4552b",
         padding: "72px 80px",
       }}

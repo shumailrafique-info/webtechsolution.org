@@ -159,7 +159,11 @@
   margin: 1.5rem 0;
 }
 .prose-tables table {
-  width: max-content;
+  /* Fill the column by default: a small table of short words should span the
+     content width rather than shrink to its text. Layout stays automatic, so
+     a table whose content is genuinely wider than the page still overflows
+     and scrolls inside the wrapper above. */
+  width: 100%;
   min-width: 100%;
   margin: 0;
   border-collapse: separate;
@@ -177,7 +181,11 @@
   vertical-align: top;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  min-width: 4rem;
+  /* A floor per column, which is also what decides when a table stops
+     fitting: while the columns fit, `width: 100%` above spreads them across
+     the container; once they do not, the table exceeds its wrapper and
+     scrolls there rather than squeezing every column to nothing. */
+  min-width: 8rem;
 }
 .prose-tables th:last-child,
 .prose-tables td:last-child {

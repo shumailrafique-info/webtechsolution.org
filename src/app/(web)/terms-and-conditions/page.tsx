@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { PageContentBody } from "@/components/page-content/page-content-body";
 import { PageContentHeader } from "@/components/page-content/page-content-header";
+import { PageFaq } from "@/components/page-content/page-faq";
 import { JsonLd } from "@/components/seo/json-ld";
 import { hasPageContent, parseFaqs } from "@/lib/page-content";
 import {
@@ -65,6 +66,10 @@ export default async function Page() {
         <PageContentHeader slug={SLUG} />
         <PageContentBody slug={SLUG} framed={false} />
       </article>
+
+      <div className="mt-12 sm:mt-16">
+        <PageFaq slug={SLUG} />
+      </div>
     </div>
   );
 }

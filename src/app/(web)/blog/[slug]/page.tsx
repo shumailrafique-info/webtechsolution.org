@@ -132,20 +132,19 @@ export default async function Page({
     <div className="w-full mx-auto pt-0 pb-10">
       <JsonLd data={schema} />
       <div className="w-full bg-[#F4F3EF]">
-        {/* Stacks on small screens; from md it is the two-column row. */}
         <div className="w-full max-w-5xl px-4 mx-auto flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between md:py-14">
           <header className="md:flex-1">
             <div className="flex items-center justify-start">
               {post.published_at ? (
                 <time
                   dateTime={post.published_at.toISOString()}
-                  className="text-[13px] text-muted-foreground"
+                  className="text-[13px] text-neutral-600"
                 >
                   {dateFormatter.format(post.published_at)}
                 </time>
               ) : null}
             </div>
-            <h1 className="text-[22px] leading-[1.2] mt-1 font-semibold tracking-tight text-foreground sm:text-[25px]">
+            <h1 className="text-[22px] leading-[1.2] mt-1 font-semibold tracking-tight text-neutral-900 sm:text-[25px]">
               {post.title}
             </h1>
             {post.author ? (
@@ -157,19 +156,19 @@ export default async function Page({
                     alt=""
                     width={32}
                     height={32}
-                    className="size-8 rounded-full border border-border object-cover"
+                    className="size-8 rounded-full border border-neutral-300 object-cover"
                   />
                 ) : (
                   <span
                     aria-hidden
-                    className="flex size-8 items-center justify-center rounded-full border border-border bg-accent text-[13px] font-semibold text-primary"
+                    className="flex size-8 items-center justify-center rounded-full border border-neutral-300 bg-white text-[13px] font-semibold text-primary"
                   >
                     {post.author.name.charAt(0).toUpperCase()}
                   </span>
                 )}
-                <span className="text-[14px] text-muted-foreground">
+                <span className="text-[14px] text-neutral-600">
                   By{" "}
-                  <span className="font-medium text-foreground">
+                  <span className="font-medium text-neutral-900">
                     {post.author.name}
                   </span>
                 </span>
@@ -198,12 +197,6 @@ export default async function Page({
           ]}
           className="w-full m-0! pt-5!"
         />
-        {/*
-          Desktop keeps the two sidebar boxes stacked in the left column, with
-          the article beside them across both rows. On small screens the grid
-          collapses to one column and source order takes over, which is why
-          the contents come before the article and the idea box after it.
-        */}
         <div className="w-full grid grid-cols-1 gap-5 mt-6 lg:grid-cols-24 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-4 lg:gap-y-5">
           <TableOfContents
             headings={headings}

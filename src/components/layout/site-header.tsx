@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { SearchDrawer } from "@/app/(web)/search/_components/search-drawer";
 import { ChevronDownIcon, MenuIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
@@ -213,6 +214,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-3">
+          <SearchDrawer />
           <Button
             nativeButton={false}
             render={<Link href="/contact-us" />}

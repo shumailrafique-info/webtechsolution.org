@@ -1,4 +1,4 @@
-import { relations, sql } from "drizzle-orm";
+import { type AnyColumn, relations, type SQL, sql } from "drizzle-orm";
 import {
   index,
   jsonb,
@@ -10,6 +10,13 @@ import {
 } from "drizzle-orm/pg-core";
 import type { UploadedFile } from "@/components/shared/image-upader";
 import { user } from "./auth-schema";
+
+export const blogSearchDocument = (columns: {
+  title: AnyColumn;
+  excerpt: AnyColumn;
+  html: AnyColumn;
+}): SQL =>
+  sql`(setweight(to_tsvector('english'::regconfig, coalesce(${columns.title}, '')), 'A') || setweight(to_tsvector('english'::regconfig, coalesce(${columns.excerpt}, '')), 'B') || setweight(to_tsvector('english'::regconfig, regexp_replace(coalesce(${columns.html}, ''), '<[^>]+>', ' ', 'g')), 'C'))`;
 
 export const postStatusEnum = pgEnum("post_status", ["DRAFT", "PUBLISHED"]);
 
@@ -55,6 +62,7 @@ export const blog = pgTable(
     ),
     index("blogs_slug_trgm_idx").using("gin", sql`${table.slug} gin_trgm_ops`),
     index("blogs_author_idx").on(table.author_id),
+    index("blogs_search_idx").using("gin", blogSearchDocument(table)),
   ],
 );
 

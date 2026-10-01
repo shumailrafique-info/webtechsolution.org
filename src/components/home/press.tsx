@@ -30,7 +30,7 @@ export function Press() {
   return (
     <section
       aria-labelledby="press-title"
-      className="bg-white py-12 md:py-14 border-y"
+      className="bg-white py-10 md:py-12 border-y"
     >
       <Container>
         <h2

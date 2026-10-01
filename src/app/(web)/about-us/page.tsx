@@ -64,7 +64,7 @@ export default function Page() {
 
       <section
         aria-labelledby="about-title"
-        className="overflow-hidden bg-white pt-6 pb-16 md:pb-24"
+        className="overflow-hidden bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -72,7 +72,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mt-10 grid items-center gap-14 md:mt-14 lg:grid-cols-12 lg:gap-x-12">
+          <div className="mt-10 grid items-center gap-10 md:mt-12 md:gap-14 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
               <Eyebrow className="enter">About us</Eyebrow>
               <h1
@@ -132,7 +132,10 @@ export default function Page() {
 
       <Stats />
 
-      <section aria-labelledby="who-title" className="bg-white py-20 md:py-28">
+      <section
+        aria-labelledby="who-title"
+        className="bg-white py-14 md:py-20 lg:py-24"
+      >
         <Container className="grid gap-10 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-5">
             <Eyebrow>About WebTech Solutions</Eyebrow>
@@ -169,7 +172,7 @@ export default function Page() {
 
       <section
         aria-label="Vision and mission"
-        className="border-y border-primary/10 bg-brand-tint py-20 md:py-28"
+        className="border-y border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
       >
         <Container className="grid gap-5 md:grid-cols-2">
           {[VISION, MISSION].map((item) => (
@@ -202,7 +205,10 @@ export default function Page() {
         </Container>
       </section>
 
-      <section aria-labelledby="team-title" className="bg-white py-20 md:py-28">
+      <section
+        aria-labelledby="team-title"
+        className="bg-white py-14 md:py-20 lg:py-24"
+      >
         <Container>
           <div className="reveal flex flex-wrap items-end justify-between gap-6">
             <div>

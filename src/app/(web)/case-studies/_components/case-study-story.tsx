@@ -21,7 +21,7 @@ export function CaseStudyStory({
       id={study.slug}
       aria-labelledby={`${study.slug}-title`}
       className={cn(
-        "scroll-mt-24 py-20 md:py-24",
+        "scroll-mt-24 py-14 md:py-20",
         tinted ? "border-y border-neutral-200/70 bg-neutral-50" : "bg-white",
       )}
     >

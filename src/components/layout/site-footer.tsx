@@ -46,9 +46,9 @@ const LINK =
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-6xl px-4 py-12 lg:py-14">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
+      <div className="mx-auto max-w-6xl px-4 py-10 md:py-12 lg:py-14">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-9 md:grid-cols-12 md:gap-10">
+          <div className="col-span-2 md:col-span-4">
             <Link
               href="/"
               aria-label="WebTech Solutions home"
@@ -116,7 +116,7 @@ export function SiteFooter() {
             </ul>
           </nav>
 
-          <div className="md:col-span-3">
+          <div className="col-span-2 md:col-span-3">
             <h2 className={HEADING}>Contact</h2>
 
             <ul className="mt-3 grid gap-3 text-[14px] text-muted-foreground">

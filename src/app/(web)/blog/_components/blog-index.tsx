@@ -64,7 +64,7 @@ export async function BlogIndex({ page }: { page: number }) {
 
       <section
         aria-labelledby="blog-title"
-        className="bg-white pt-6 pb-14 md:pb-16"
+        className="bg-white pt-6 pb-10 md:pb-14"
       >
         <Container>
           <Breadcrumbs
@@ -80,7 +80,7 @@ export async function BlogIndex({ page }: { page: number }) {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-12">
             <Eyebrow className="enter">Blog</Eyebrow>
             <h1
               id="blog-title"
@@ -112,7 +112,7 @@ export async function BlogIndex({ page }: { page: number }) {
 
       <section
         aria-label="Articles"
-        className="border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20"
+        className="border-t border-neutral-200/70 bg-neutral-50 py-12 md:py-16"
       >
         <Container className="grid gap-12">
           {posts.length === 0 ? (

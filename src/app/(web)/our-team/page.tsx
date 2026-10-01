@@ -78,7 +78,7 @@ export default function Page() {
       {/* Introduction. */}
       <section
         aria-labelledby="team-title"
-        className="border-b border-neutral-100 bg-white pt-6 pb-16 md:pb-20"
+        className="border-b border-neutral-100 bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -86,7 +86,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-12">
             <div className="enter flex justify-center">
               <ul className="flex -space-x-2.5">
                 {TEAM_MEMBERS.slice(0, 9).map((member) => (
@@ -160,7 +160,7 @@ export default function Page() {
       {/* Founder. */}
       <section
         aria-label="Founder"
-        className="border-b border-primary/10 bg-brand-tint py-20 md:py-28"
+        className="border-b border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
       >
         <Container>
           <Eyebrow className="reveal mb-10 md:mb-14">Leadership</Eyebrow>
@@ -191,8 +191,11 @@ export default function Page() {
       </section>
 
       {/* The team, by discipline. */}
-      <section aria-label="The team" className="bg-white py-20 md:py-28">
-        <Container className="grid gap-20 md:gap-24">
+      <section
+        aria-label="The team"
+        className="bg-white py-14 md:py-20 lg:py-24"
+      >
+        <Container className="grid gap-14 md:gap-20">
           {groups.map((group) => (
             <section
               key={group.id}
@@ -236,7 +239,7 @@ export default function Page() {
       <section
         id="join"
         aria-labelledby="join-title"
-        className="scroll-mt-28 bg-white pb-16 md:pb-20"
+        className="scroll-mt-28 bg-white pb-12 md:pb-16"
       >
         <Container>
           <div className="reveal grid gap-8 rounded-[28px] bg-linear-to-br from-primary to-brand-deep p-8 text-white md:p-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">

@@ -13,7 +13,7 @@ export function ServiceCta({
   return (
     <section
       aria-labelledby="service-cta-title"
-      className="bg-white pb-16 md:pb-20"
+      className="bg-white pb-12 md:pb-16"
     >
       <Container>
         <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-linear-to-br from-primary to-brand-deep p-8 text-white md:flex-row md:items-center md:p-12">

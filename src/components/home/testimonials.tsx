@@ -13,7 +13,7 @@ export function Testimonials() {
   return (
     <section
       aria-labelledby="testimonials-title"
-      className="bg-neutral-50 py-20 md:py-28"
+      className="bg-neutral-50 py-14 md:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -26,7 +26,7 @@ export function Testimonials() {
           }
         />
 
-        <ul className="mt-14 columns-1 gap-4 md:mt-16 md:columns-2 lg:columns-3">
+        <ul className="mt-10 columns-1 gap-4 md:mt-12 md:columns-2 lg:columns-3">
           {TESTIMONIALS.map((item) => (
             <li
               key={`${item.name}-${item.company ?? ""}`}

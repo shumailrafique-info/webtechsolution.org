@@ -83,7 +83,7 @@ export function ServiceDetail({ service }: { service: Service }) {
 
       <section
         aria-labelledby="service-title"
-        className="overflow-hidden bg-white pt-6 pb-16 md:pb-20"
+        className="overflow-hidden bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -95,7 +95,7 @@ export function ServiceDetail({ service }: { service: Service }) {
             className="mb-0"
           />
 
-          <div className="mt-10 grid items-center gap-12 md:mt-12 lg:grid-cols-12 lg:gap-x-12">
+          <div className="mt-10 grid items-center gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
               <Eyebrow className="enter">{groupLabel}</Eyebrow>
               <h1
@@ -155,9 +155,9 @@ export function ServiceDetail({ service }: { service: Service }) {
 
       <section
         aria-labelledby="offers-title"
-        className="border-t border-neutral-200/70 bg-neutral-50 py-20 md:py-28"
+        className="border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20 lg:py-24"
       >
-        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
               <Eyebrow className="reveal">What we offer</Eyebrow>
@@ -216,7 +216,7 @@ export function ServiceDetail({ service }: { service: Service }) {
 
       <section
         aria-labelledby="pillars-title"
-        className="border-y border-primary/10 bg-brand-tint py-20 md:py-24"
+        className="border-y border-primary/10 bg-brand-tint py-14 md:py-20"
       >
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
@@ -288,7 +288,7 @@ export function ServiceDetail({ service }: { service: Service }) {
 
       <section
         aria-labelledby="importance-title"
-        className="bg-white pt-20 md:pt-24"
+        className="bg-white pt-14 md:pt-20"
       >
         <Container>
           <div className="reveal grid gap-8 rounded-[28px] bg-heading p-8 text-white md:grid-cols-[1fr_1.5fr] md:items-start md:p-12">
@@ -308,7 +308,7 @@ export function ServiceDetail({ service }: { service: Service }) {
       {siblings.length > 0 ? (
         <section
           aria-labelledby="siblings-title"
-          className="bg-white pt-16 md:pt-20"
+          className="bg-white pt-12 md:pt-16"
         >
           <Container>
             <div className="flex flex-wrap items-end justify-between gap-4">

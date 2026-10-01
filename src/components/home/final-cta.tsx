@@ -16,7 +16,7 @@ export function FinalCta() {
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_100%_100%,color-mix(in_oklch,var(--primary)_28%,transparent),transparent_55%)]"
           />
 
-          <div className="relative grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+          <div className="relative grid gap-10 md:gap-12 lg:grid-cols-12 lg:items-end lg:gap-x-12">
             <div className="lg:col-span-7">
               <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[13px] font-medium text-neutral-300">
                 <span

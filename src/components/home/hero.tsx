@@ -34,7 +34,7 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative overflow-hidden border-b border-neutral-100 bg-[#F4F3EF]"
     >
-      <Container className="grid items-center gap-14 pt-10 pb-16 md:pt-14 lg:grid-cols-12 lg:gap-x-12 lg:pt-16 lg:pb-24">
+      <Container className="grid items-center gap-10 pt-8 pb-12 md:gap-14 md:pt-14 md:pb-16 lg:grid-cols-12 lg:gap-x-12 lg:pt-16 lg:pb-24">
         <div className="lg:col-span-7">
           <div className="enter flex items-center gap-3" style={delay(0)}>
             <ul className="flex -space-x-2.5">
@@ -84,7 +84,7 @@ export function Hero() {
           </p>
 
           <div
-            className="enter mt-9 flex flex-wrap items-center gap-3"
+            className="enter mt-8 flex flex-wrap items-center gap-3 md:mt-9"
             style={delay(320)}
           >
             <PrimaryButton href="/contact-us">Start a project</PrimaryButton>
@@ -104,7 +104,7 @@ export function Hero() {
           </p>
 
           <ul
-            className="enter mt-9 flex flex-wrap gap-x-6 gap-y-3"
+            className="enter mt-7 flex flex-wrap gap-x-5 gap-y-2.5 md:mt-9 md:gap-x-6 md:gap-y-3"
             style={delay(460)}
           >
             <TrustChip icon={CalendarIcon}>Since {FOUNDED.year}</TrustChip>
@@ -119,7 +119,7 @@ export function Hero() {
 
         <figure className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
           <div
-            className="enter-image relative aspect-4/5 overflow-hidden rounded-[28px] bg-neutral-200 shadow-[0_30px_70px_-35px_rgba(30,20,10,0.45)]"
+            className="enter-image relative aspect-5/4 overflow-hidden rounded-[28px] sm:aspect-4/5 bg-neutral-200 shadow-[0_30px_70px_-35px_rgba(30,20,10,0.45)]"
             style={delay(150)}
           >
             <Image
@@ -131,12 +131,9 @@ export function Hero() {
               className="object-cover object-[50%_35%]"
             />
           </div>
-          <figcaption className="mt-3 text-right text-[13px] text-neutral-500">
-            Fawad Mohsin, founder, at work with the team
-          </figcaption>
 
           <div
-            className="enter absolute bottom-14 -left-3 rounded-2xl border border-neutral-200 bg-white p-4 shadow-[0_18px_40px_-20px_rgba(30,20,10,0.35)] sm:-left-8 lg:-left-12"
+            className="enter relative z-10 mx-3 -mt-10 w-fit rounded-2xl border border-neutral-200 bg-white p-4 shadow-[0_18px_40px_-20px_rgba(30,20,10,0.35)] sm:absolute sm:bottom-14 sm:-left-8 sm:mx-0 sm:mt-0 lg:-left-12"
             style={delay(560)}
           >
             <p className="flex items-center gap-1.5 text-[12px] font-medium text-neutral-500">
@@ -149,6 +146,9 @@ export function Hero() {
               ))}
             </ul>
           </div>
+          <figcaption className="mt-3 text-right text-[13px] text-neutral-500">
+            Fawad Mohsin, founder, at work with the team
+          </figcaption>
         </figure>
       </Container>
     </section>

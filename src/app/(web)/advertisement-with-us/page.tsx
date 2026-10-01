@@ -89,7 +89,7 @@ export default function Page() {
 
       <section
         aria-labelledby="advertise-title"
-        className="bg-white pt-6 pb-16 md:pb-24"
+        className="bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -97,7 +97,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mt-10 grid items-start gap-12 md:mt-14 lg:grid-cols-12 lg:gap-x-12">
+          <div className="mt-10 grid items-start gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
               <Eyebrow className="enter">{INTRO.eyebrow}</Eyebrow>
               <h1
@@ -195,9 +195,9 @@ export default function Page() {
 
       <section
         aria-labelledby="audience-title"
-        className="border-y border-primary/10 bg-brand-tint py-20 md:py-28"
+        className="border-y border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
       >
-        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-5">
             <Eyebrow>{AUDIENCE.eyebrow}</Eyebrow>
             <h2
@@ -245,7 +245,7 @@ export default function Page() {
 
       <section
         aria-labelledby="types-title"
-        className="bg-white py-20 md:py-28"
+        className="bg-white py-14 md:py-20 lg:py-24"
       >
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
@@ -293,7 +293,7 @@ export default function Page() {
             ))}
           </ul>
 
-          <div className="reveal mt-20 flex flex-wrap items-end justify-between gap-4 border-b border-neutral-200 pb-6">
+          <div className="reveal mt-14 flex flex-wrap items-end justify-between gap-4 border-b border-neutral-200 pb-6">
             <h3 className="font-display text-[28px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[34px]">
               Other advertisement <Italic>opportunities</Italic>
             </h3>
@@ -323,7 +323,7 @@ export default function Page() {
 
       <section
         aria-labelledby="brief-title"
-        className="bg-white pb-20 md:pb-28"
+        className="bg-white pb-14 md:pb-20 lg:pb-24"
       >
         <Container>
           <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-heading p-8 text-white md:flex-row md:items-center md:p-12">
@@ -358,9 +358,9 @@ export default function Page() {
 
       <section
         aria-labelledby="ad-faq-title"
-        className="border-t border-neutral-200/70 bg-neutral-50 py-20 md:py-28"
+        className="border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20 lg:py-24"
       >
-        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-5">
             <Eyebrow>FAQ</Eyebrow>
             <h2

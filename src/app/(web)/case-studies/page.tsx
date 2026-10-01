@@ -44,7 +44,7 @@ export default function Page() {
 
       <section
         aria-labelledby="case-studies-title"
-        className="bg-white pt-6 pb-16 md:pb-20"
+        className="bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -52,7 +52,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-12">
             <Eyebrow className="enter">Case studies</Eyebrow>
             <h1
               id="case-studies-title"
@@ -104,7 +104,7 @@ export default function Page() {
 
       <section
         aria-labelledby="clients-title"
-        className="border-y border-primary/10 bg-brand-tint py-14 md:py-16"
+        className="border-y border-primary/10 bg-brand-tint py-10 md:py-14"
       >
         <Container>
           <h2
@@ -126,7 +126,7 @@ export default function Page() {
         />
       ))}
 
-      <section aria-labelledby="next-title" className="bg-white py-16 md:py-20">
+      <section aria-labelledby="next-title" className="bg-white py-12 md:py-16">
         <Container>
           <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-linear-to-br from-primary to-brand-deep p-8 text-white md:flex-row md:items-center md:p-12">
             <div>

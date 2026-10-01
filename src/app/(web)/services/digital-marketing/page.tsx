@@ -76,7 +76,7 @@ export default function Page() {
 
       <section
         aria-labelledby="dm-title"
-        className="overflow-hidden bg-white pt-6 pb-16 md:pb-20"
+        className="overflow-hidden bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -88,7 +88,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mt-10 grid items-center gap-12 md:mt-12 lg:grid-cols-12 lg:gap-x-12">
+          <div className="mt-10 grid items-center gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
               <Eyebrow className="enter">{DIGITAL_MARKETING.eyebrow}</Eyebrow>
               <h1
@@ -144,7 +144,7 @@ export default function Page() {
       <section
         id="channels"
         aria-labelledby="channels-title"
-        className="scroll-mt-24 border-t border-neutral-200/70 bg-neutral-50 py-20 md:py-24"
+        className="scroll-mt-24 border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20"
       >
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
@@ -168,7 +168,7 @@ export default function Page() {
 
       <section
         aria-labelledby="dm-why-title"
-        className="bg-white pt-20 md:pt-28"
+        className="bg-white pt-14 md:pt-20 lg:pt-24"
       >
         <Container className="grid gap-5 lg:grid-cols-2">
           <div className="reveal rounded-[28px] border border-neutral-200 bg-white p-8 md:p-10">

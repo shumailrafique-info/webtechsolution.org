@@ -44,7 +44,7 @@ export function Services() {
   return (
     <section
       aria-labelledby="services-title"
-      className="bg-white py-20 md:py-28"
+      className="bg-white py-14 md:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -58,7 +58,7 @@ export function Services() {
           lede="Most businesses arrive with one question: why aren’t more of the right people finding us? Search is the centre of our work, and the sites, apps and campaigns we build are designed to be found."
         />
 
-        <div className="mt-14 grid gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
           {/* Primary practice. */}
           <article className="reveal relative overflow-hidden rounded-[24px] bg-linear-to-br from-primary to-brand-deep p-7 text-white md:col-span-2 md:p-9">
             <div className="grid gap-9 md:grid-cols-[1fr_1.05fr] md:gap-10">

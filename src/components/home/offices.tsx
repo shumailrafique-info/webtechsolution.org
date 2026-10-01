@@ -7,7 +7,7 @@ export function Offices() {
   return (
     <section
       aria-labelledby="offices-title"
-      className="bg-neutral-50 py-20 md:py-28"
+      className="bg-neutral-50 py-14 md:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -21,7 +21,7 @@ export function Offices() {
           lede="One team working across Pakistan, the United Kingdom, Spain and the United States."
         />
 
-        <ul className="mt-14 grid gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-4">
           {OFFICES.map((office) => (
             <li
               key={office.city}
@@ -35,7 +35,7 @@ export function Offices() {
                   {office.countryCode}
                 </span>
               </div>
-              <h3 className="mt-8 font-display text-[28px] leading-none font-bold tracking-[-0.035em] text-heading">
+              <h3 className="mt-5 font-display md:mt-8 text-[28px] leading-none font-bold tracking-[-0.035em] text-heading">
                 {office.city}
               </h3>
               <address className="mt-4 flex gap-2 text-[14.5px] leading-[1.6] text-neutral-600 not-italic">
@@ -54,7 +54,7 @@ export function Offices() {
                   ) : null}
                 </span>
               </address>
-              <p className="mt-auto flex items-center gap-1.5 pt-6 text-[13px] font-medium text-neutral-500">
+              <p className="mt-auto flex items-center gap-1.5 pt-4 text-[13px] md:pt-6 font-medium text-neutral-500">
                 <ClockIcon aria-hidden className="size-3.5" />
                 {office.timezone}
               </p>

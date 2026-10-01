@@ -50,7 +50,7 @@ export default function Page() {
 
       <section
         aria-labelledby="faqs-title"
-        className="bg-white pt-6 pb-14 md:pb-16"
+        className="bg-white pt-6 pb-10 md:pb-14"
       >
         <Container>
           <Breadcrumbs
@@ -58,7 +58,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-12">
             <Eyebrow className="enter">{INTRO.eyebrow}</Eyebrow>
             <h1
               id="faqs-title"
@@ -93,9 +93,9 @@ export default function Page() {
 
       <section
         aria-label={`${total} questions`}
-        className="border-t border-primary/10 bg-brand-tint/60 py-16 md:py-24"
+        className="border-t border-primary/10 bg-brand-tint/60 py-14 md:py-20"
       >
-        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="grid gap-14 lg:col-span-8">
             {FAQ_GROUPS.map((group, groupIndex) => (
               <section

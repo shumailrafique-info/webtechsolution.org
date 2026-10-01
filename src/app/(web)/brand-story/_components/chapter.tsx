@@ -26,7 +26,7 @@ export function Chapter({
       id={id}
       aria-labelledby={`${id}-title`}
       className={cn(
-        "scroll-mt-28 border-t border-neutral-200 pt-12 first:border-t-0 first:pt-0",
+        "scroll-mt-28 border-t border-neutral-200 pt-10 first:border-t-0 first:pt-0 md:pt-12",
         className,
       )}
     >

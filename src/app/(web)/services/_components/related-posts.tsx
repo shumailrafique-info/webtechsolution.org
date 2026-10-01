@@ -26,7 +26,7 @@ export async function RelatedPosts({
   return (
     <section
       aria-labelledby="related-title"
-      className="bg-white py-16 md:py-20"
+      className="bg-white py-12 md:py-16"
     >
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">

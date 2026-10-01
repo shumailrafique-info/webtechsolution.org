@@ -65,7 +65,7 @@ export default function Page() {
 
       <section
         aria-labelledby="story-title"
-        className="bg-white pt-6 pb-16 md:pb-20"
+        className="bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -73,7 +73,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-4xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-4xl text-center md:mt-12">
             <Eyebrow className="enter">WebTech Solutions</Eyebrow>
             <h1
               id="story-title"
@@ -120,13 +120,13 @@ export default function Page() {
         </Container>
       </section>
 
-      <div className="border-t border-primary/10 bg-brand-tint/60 py-20 md:py-28">
-        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+      <div className="border-t border-primary/10 bg-brand-tint/60 py-14 md:py-20 lg:py-24">
+        <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <aside className="lg:col-span-3">
             <ChapterNav />
           </aside>
 
-          <div className="grid gap-20 lg:col-span-9">
+          <div className="grid gap-12 md:gap-16 lg:col-span-9">
             <Chapter
               id="early-years"
               title={EARLY_YEARS.title}

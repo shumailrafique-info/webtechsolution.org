@@ -40,7 +40,7 @@ export default function Page() {
 
       <section
         aria-labelledby="contact-title"
-        className="bg-white pt-6 pb-16 md:pb-24"
+        className="bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -48,7 +48,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mt-10 grid items-start gap-12 md:mt-14 lg:grid-cols-12 lg:gap-x-12">
+          <div className="mt-10 grid items-start gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-6">
               <Eyebrow className="enter">{INTRO.eyebrow}</Eyebrow>
               <h1
@@ -123,7 +123,7 @@ export default function Page() {
 
       <section
         aria-labelledby="locations-title"
-        className="border-t border-primary/10 bg-brand-tint py-20 md:py-28"
+        className="border-t border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
       >
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
@@ -156,7 +156,7 @@ export default function Page() {
                     </span>
                   )}
                 </div>
-                <h3 className="mt-8 font-display text-[26px] leading-none font-bold tracking-[-0.035em] text-heading">
+                <h3 className="mt-5 font-display text-[26px] md:mt-8 leading-none font-bold tracking-[-0.035em] text-heading">
                   {office.city}
                 </h3>
                 <address className="mt-4 flex gap-2 text-[14.5px] leading-[1.6] text-neutral-600 not-italic">

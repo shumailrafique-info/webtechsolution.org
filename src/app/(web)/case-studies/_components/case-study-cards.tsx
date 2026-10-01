@@ -93,16 +93,16 @@ export function MetricTiles({
   className?: string;
 }) {
   return (
-    <dl className={cn("grid grid-cols-3 gap-2.5", className)}>
+    <dl className={cn("grid grid-cols-3 gap-2 sm:gap-2.5", className)}>
       {metrics.map((metric) => (
         <div
           key={metric.label}
-          className="flex flex-col rounded-[16px] border border-neutral-200 bg-white p-3.5 md:p-4"
+          className="flex flex-col rounded-[16px] border border-neutral-200 bg-white p-3 sm:p-3.5 md:p-4"
         >
-          <dt className="text-[12.5px] leading-snug text-neutral-500">
+          <dt className="text-[11.5px] leading-snug text-neutral-500 sm:text-[12.5px]">
             {metric.label}
           </dt>
-          <dd className="order-first mb-1 bg-linear-to-b from-primary to-brand-deep bg-clip-text font-display text-[24px] leading-none font-bold tracking-[-0.04em] text-transparent md:text-[30px]">
+          <dd className="order-first mb-1 bg-linear-to-b from-primary to-brand-deep bg-clip-text font-display text-[20px] leading-none font-bold tracking-[-0.04em] text-transparent sm:text-[24px] md:text-[30px]">
             {metric.value}
           </dd>
         </div>

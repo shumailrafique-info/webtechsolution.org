@@ -16,7 +16,7 @@ export async function LatestPosts() {
   return (
     <section
       aria-labelledby="latest-posts-title"
-      className="border-t border-neutral-200/70 bg-white py-20 md:py-28"
+      className="border-t border-neutral-200/70 bg-white py-14 md:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -30,7 +30,7 @@ export async function LatestPosts() {
           lede="Expert insights, tips, and trends to grow your business and stay ahead in the digital world."
         />
 
-        <ul className="mt-14 grid gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
           {latest.map((post) => (
             <li key={post.id} className="reveal">
               <PostCard post={post} headingLevel="h3" />

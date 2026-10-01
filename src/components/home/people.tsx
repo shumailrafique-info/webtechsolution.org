@@ -6,7 +6,7 @@ export function People() {
   return (
     <section
       aria-labelledby="people-title"
-      className="border-y border-primary/10 bg-brand-tint py-20 md:py-28"
+      className="border-y border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
     >
       <Container>
         <div className="reveal max-w-3xl">
@@ -19,7 +19,7 @@ export function People() {
           </h2>
         </div>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-12 md:mt-12">
           <FounderFeature
             footer={
               <p className="mt-6 text-[13.5px] text-neutral-500">
@@ -40,7 +40,7 @@ export function People() {
         </div>
 
         {/* The team. */}
-        <div className="mt-20 border-t border-primary/15 pt-10 md:mt-24">
+        <div className="mt-14 border-t border-primary/15 pt-10 md:mt-16">
           <div className="reveal flex flex-wrap items-end justify-between gap-6">
             <h3 className="font-display text-[26px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[30px]">
               Alongside <Italic>Fawad</Italic>
@@ -57,7 +57,7 @@ export function People() {
           </ul>
         </div>
 
-        <DisciplinesPanel className="mt-16 md:mt-20" />
+        <DisciplinesPanel className="mt-12 md:mt-16" />
       </Container>
     </section>
   );

@@ -68,7 +68,7 @@ export default function Page() {
 
       <section
         aria-labelledby="pricing-title"
-        className="bg-white pt-6 pb-20 md:pb-28"
+        className="bg-white pt-6 pb-14 md:pb-20 lg:pb-24"
       >
         <Container>
           <Breadcrumbs
@@ -76,7 +76,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-12">
             <Eyebrow className="enter">Our pricing plans</Eyebrow>
             <h1
               id="pricing-title"
@@ -100,7 +100,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <ul className="mt-14 grid items-stretch gap-4 md:mt-16 lg:grid-cols-3">
+          <ul className="mt-10 grid items-stretch gap-4 md:mt-12 lg:grid-cols-3">
             {PLANS.map((plan, index) => (
               <li key={plan.id} className="enter">
                 <PlanCard plan={plan} featured={index === 1} />
@@ -116,7 +116,7 @@ export default function Page() {
 
       <section
         aria-labelledby="compare-title"
-        className="border-t border-neutral-200/70 bg-neutral-50 py-20 md:py-28"
+        className="border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20 lg:py-24"
       >
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
@@ -152,7 +152,7 @@ export default function Page() {
 
       <section
         aria-labelledby="partners-title"
-        className="border-y border-primary/10 bg-brand-tint py-16 md:py-20"
+        className="border-y border-primary/10 bg-brand-tint py-12 md:py-16"
       >
         <Container>
           <div className="reveal text-center">
@@ -173,9 +173,9 @@ export default function Page() {
       <section
         id="faq"
         aria-labelledby="pricing-faq-title"
-        className="scroll-mt-24 bg-white py-20 md:py-28"
+        className="scroll-mt-24 bg-white py-14 md:py-20 lg:py-24"
       >
-        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-5">
             <Eyebrow>FAQ</Eyebrow>
             <h2

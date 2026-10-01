@@ -276,6 +276,8 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    gap: 1.25rem 2rem;
+    padding-inline: 1rem;
   }
   .marquee-copy {
     display: none;

@@ -250,7 +250,7 @@ export default async function Page({
       {morePosts.length > 0 ? (
         <section
           aria-labelledby="more-title"
-          className="bg-white py-16 md:py-20"
+          className="bg-white py-12 md:py-16"
         >
           <Container>
             <div className="flex flex-wrap items-end justify-between gap-4">

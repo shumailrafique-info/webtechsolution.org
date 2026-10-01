@@ -81,7 +81,7 @@ export function Process() {
   return (
     <section
       aria-labelledby="process-title"
-      className="bg-neutral-50 py-20 md:py-28"
+      className="bg-neutral-50 py-14 md:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -95,7 +95,7 @@ export function Process() {
           lede="Every step has a clear output, so you always know what is happening, who is doing it and what comes next."
         />
 
-        <ol className="mt-14 grid gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
           {STEPS.map((step, index) => (
             <li
               key={step.accent}
@@ -114,11 +114,11 @@ export function Process() {
                 {step.body}
               </p>
 
-              <ul className="mt-auto grid gap-1.5 pt-7">
+              <ul className="mt-auto grid gap-1.5 pt-5 sm:pt-7">
                 {step.tasks.map((task) => (
                   <li
                     key={task}
-                    className="flex items-center justify-between rounded-full border border-neutral-200 bg-white py-1.5 pr-1.5 pl-4 text-[13.5px] font-medium text-neutral-700"
+                    className="hidden items-center justify-between rounded-full border border-neutral-200 bg-white py-1.5 pr-1.5 pl-4 text-[13.5px] font-medium text-neutral-700 sm:flex"
                   >
                     {task}
                     <span className="flex size-5 items-center justify-center rounded-full bg-neutral-100 text-neutral-500">

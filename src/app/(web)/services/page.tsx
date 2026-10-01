@@ -85,7 +85,7 @@ export default function Page() {
 
       <section
         aria-labelledby="services-title"
-        className="bg-white pt-6 pb-16 md:pb-20"
+        className="bg-white pt-6 pb-12 md:pb-16"
       >
         <Container>
           <Breadcrumbs
@@ -93,7 +93,7 @@ export default function Page() {
             className="mb-0"
           />
 
-          <div className="mx-auto mt-10 max-w-4xl text-center md:mt-14">
+          <div className="mx-auto mt-10 max-w-4xl text-center md:mt-12">
             <Eyebrow className="enter">{OVERVIEW.eyebrow}</Eyebrow>
             <h1
               id="services-title"
@@ -133,8 +133,8 @@ export default function Page() {
             aria-labelledby={`${groupId}-title`}
             className={
               index === 0
-                ? "scroll-mt-24 border-t border-neutral-200/70 bg-neutral-50 py-20 md:py-24"
-                : "scroll-mt-24 bg-white py-20 md:py-24"
+                ? "scroll-mt-24 border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20"
+                : "scroll-mt-24 bg-white py-14 md:py-20"
             }
           >
             <Container>
@@ -172,9 +172,9 @@ export default function Page() {
 
       <section
         aria-labelledby="why-title"
-        className="overflow-hidden bg-white py-20 md:py-28"
+        className="overflow-hidden bg-white py-14 md:py-20 lg:py-24"
       >
-        <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <Container className="grid items-center gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-6">
             <Eyebrow>{OVERVIEW.why.eyebrow}</Eyebrow>
             <h2

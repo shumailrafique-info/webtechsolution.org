@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Container } from "@/components/home/primitives";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { PageContentBody } from "@/components/page-content/page-content-body";
 import { PageContentHeader } from "@/components/page-content/page-content-header";
@@ -52,7 +53,7 @@ export default async function Page() {
   ]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4">
+    <Container className="py-4">
       <JsonLd data={schema} />
 
       <Breadcrumbs
@@ -67,6 +68,6 @@ export default async function Page() {
       <div className="mt-12 sm:mt-16">
         <PageFaq slug={SLUG} />
       </div>
-    </div>
+    </Container>
   );
 }

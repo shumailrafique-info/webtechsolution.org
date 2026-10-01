@@ -145,7 +145,7 @@ export default async function Page({ searchParams }: Props) {
 
       <section
         aria-label="Results"
-        className="border-t border-neutral-200/70 bg-neutral-50 py-12 md:py-16"
+        className="border-t border-neutral-200/70 bg-neutral-50 py-10 md:py-14"
       >
         <Container className="grid gap-10">
           {result && hasResults ? (

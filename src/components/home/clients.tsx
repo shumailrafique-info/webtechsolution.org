@@ -18,7 +18,7 @@ export function Clients() {
   return (
     <section
       aria-labelledby="clients-title"
-      className="bg-white py-20 md:py-28"
+      className="bg-white py-14 md:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -32,7 +32,7 @@ export function Clients() {
           lede={`A few of the ${PROJECTS_DELIVERED} projects delivered since ${FOUNDED.year}, for publishers and businesses across our four markets.`}
         />
 
-        <div className="mt-14 grid gap-4 md:mt-16">
+        <div className="mt-10 grid gap-4 md:mt-12">
           {featured ? <FeaturedStudy study={featured} /> : null}
 
           <ul className="grid gap-4 md:grid-cols-3">
@@ -44,7 +44,7 @@ export function Clients() {
           </ul>
         </div>
 
-        <div className="reveal mt-16 md:mt-20">
+        <div className="reveal mt-12 md:mt-16">
           <p className="text-center text-[13.5px] font-medium text-neutral-500">
             Clients and partners
           </p>

@@ -49,8 +49,11 @@ export const FAQS: Faq[] = [
 
 export function Faq() {
   return (
-    <section aria-labelledby="faq-title" className="bg-white py-20 md:py-28">
-      <Container className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+    <section
+      aria-labelledby="faq-title"
+      className="bg-white py-14 md:py-20 lg:py-24"
+    >
+      <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
         <div className="reveal lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
           <Eyebrow>FAQ</Eyebrow>
           <h2

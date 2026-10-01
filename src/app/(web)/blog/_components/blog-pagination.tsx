@@ -34,7 +34,10 @@ function pageItems(current: number, total: number): (number | null)[] {
 }
 
 const base =
-  "inline-flex h-9 min-w-9 items-center justify-center gap-1.5 rounded-md border px-3 text-[14px] font-medium transition-colors";
+  "inline-flex h-10 min-w-10 items-center justify-center gap-1.5 rounded-full border px-4 font-display text-[14.5px] font-semibold tracking-[-0.01em] transition-colors";
+const idle =
+  "border-neutral-200 bg-white text-heading hover:border-primary/40 hover:text-brand-deep";
+const disabled = "border-neutral-200 bg-white/60 text-neutral-300";
 
 export function BlogPagination({
   currentPage,
@@ -51,25 +54,19 @@ export function BlogPagination({
   return (
     <nav
       aria-label="Blog pages"
-      className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-6"
+      className="flex flex-wrap items-center justify-between gap-3 border-t border-neutral-200 pt-8"
     >
       {previousPage ? (
         <Link
           href={blogPageHref(previousPage)}
           rel="prev"
-          className={cn(
-            base,
-            "border-border text-foreground hover:border-primary hover:text-primary",
-          )}
+          className={cn(base, idle)}
         >
           <ChevronLeftIcon aria-hidden className="size-4" />
           Previous
         </Link>
       ) : (
-        <span
-          aria-disabled
-          className={cn(base, "border-border text-muted-foreground/50")}
-        >
+        <span aria-disabled className={cn(base, disabled)}>
           <ChevronLeftIcon aria-hidden className="size-4" />
           Previous
         </span>
@@ -82,7 +79,7 @@ export function BlogPagination({
               // biome-ignore lint/suspicious/noArrayIndexKey: gaps have no id of their own
               key={`gap-${index}`}
               aria-hidden
-              className="px-1 text-muted-foreground"
+              className="px-1 text-neutral-400"
             >
               &hellip;
             </li>
@@ -95,8 +92,8 @@ export function BlogPagination({
                 className={cn(
                   base,
                   page === currentPage
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border text-foreground hover:border-primary hover:text-primary",
+                    ? "border-transparent bg-linear-to-br from-primary to-brand-deep text-white shadow-[0_8px_20px_-10px_rgba(200,70,10,0.8)]"
+                    : idle,
                 )}
               >
                 {page}
@@ -110,19 +107,13 @@ export function BlogPagination({
         <Link
           href={blogPageHref(nextPage)}
           rel="next"
-          className={cn(
-            base,
-            "border-border text-foreground hover:border-primary hover:text-primary",
-          )}
+          className={cn(base, idle)}
         >
           Next
           <ChevronRightIcon aria-hidden className="size-4" />
         </Link>
       ) : (
-        <span
-          aria-disabled
-          className={cn(base, "border-border text-muted-foreground/50")}
-        >
+        <span aria-disabled className={cn(base, disabled)}>
           Next
           <ChevronRightIcon aria-hidden className="size-4" />
         </span>

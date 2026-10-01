@@ -1,9 +1,12 @@
 import { and, desc, eq, ne } from "drizzle-orm";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { IdeaBox } from "@/components/blog/idea-box";
-import { TableOfContents } from "@/components/blog/table-of-contents";
+import {
+  Accent,
+  ArrowLink,
+  Container,
+  Eyebrow,
+} from "@/components/home/primitives";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { db } from "@/drizzle/db";
@@ -19,13 +22,9 @@ import {
 } from "@/lib/seo";
 import { getPublishedPost } from "@/server/blog";
 import { ogImagePath } from "@/server/page-metadata";
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
+import { IdeaBox } from "../_components/idea-box";
+import { PostCard, postDate } from "../_components/post-card";
+import { TableOfContents } from "../_components/table-of-contents";
 
 export async function generateMetadata({
   params,
@@ -90,6 +89,7 @@ export default async function Page({
       excerpt: blog.excerpt,
       cover_image: blog.cover_image,
       image_alt: blog.image_alt,
+      published_at: blog.published_at,
     })
     .from(blog)
     .where(and(eq(blog.status, "PUBLISHED"), ne(blog.id, post.id)))
@@ -128,82 +128,111 @@ export default async function Page({
 
   const { html: content, headings } = prepareProseHtml(post.html);
 
+  const words = post.html
+    .replace(/<[^>]+>/g, " ")
+    .split(/s+/)
+    .filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 220));
+
   return (
-    <div className="w-full mx-auto pt-0 pb-10">
+    <>
       <JsonLd data={schema} />
-      <div className="w-full bg-[#F4F3EF]">
-        <div className="w-full max-w-6xl px-4 mx-auto flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between md:py-14">
-          <header className="md:flex-1">
-            <div className="flex items-center justify-start">
-              {post.published_at ? (
-                <time
-                  dateTime={post.published_at.toISOString()}
-                  className="text-[13px] text-neutral-600"
-                >
-                  {dateFormatter.format(post.published_at)}
-                </time>
-              ) : null}
-            </div>
-            <h1 className="text-[22px] leading-[1.2] mt-1 font-semibold tracking-tight text-neutral-900 sm:text-[35px]">
-              {post.title}
-            </h1>
-            {post.author ? (
-              <div className="flex mt-2 items-center gap-2.5">
-                {post.author.image ? (
-                  // biome-ignore lint/performance/noImgElement: remote avatar from the identity provider, not a bundled asset
-                  <img
-                    src={post.author.image}
-                    alt=""
-                    width={32}
-                    height={32}
-                    className="size-8 rounded-full border border-neutral-300 object-cover"
-                  />
-                ) : (
-                  <span
-                    aria-hidden
-                    className="flex size-8 items-center justify-center rounded-full border border-neutral-300 bg-white text-[13px] font-semibold text-primary"
-                  >
-                    {post.author.name.charAt(0).toUpperCase()}
-                  </span>
-                )}
-                <span className="text-[14px] text-neutral-600">
-                  By{" "}
-                  <span className="font-medium text-neutral-900">
-                    {post.author.name}
-                  </span>
-                </span>
-              </div>
-            ) : null}
-          </header>
-          <div className="md:flex-1">
-            {post.cover_image?.url ? (
-              // biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL
-              <img
-                src={post.cover_image.url}
-                alt={post.image_alt}
-                className="aspect-video w-full rounded-lg border border-border object-cover"
-              />
-            ) : null}
-          </div>
-        </div>
-      </div>
-      {/* actual content  */}
-      <div className="w-full max-w-6xl mx-auto px-4">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Blog", href: "/blog" },
-            { label: post.title },
-          ]}
-          className="w-full m-0! pt-5!"
-        />
-        <div className="w-full grid grid-cols-1 gap-5 mt-6 lg:grid-cols-24 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-4 lg:gap-y-5">
-          <TableOfContents
-            headings={headings}
-            className="lg:col-span-7 lg:col-start-1 lg:row-start-2 lg:sticky lg:top-18"
+
+      <section
+        aria-labelledby="post-title"
+        className="overflow-hidden bg-white pt-6 pb-12 md:pb-16"
+      >
+        <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Blog", href: "/blog" },
+              { label: post.title },
+            ]}
+            className="mb-0 [&_li:last-child]:max-w-[40ch] [&_li:last-child_span]:truncate"
           />
 
-          <article className="w-full pb-4 lg:col-span-17 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:pb-10">
+          <div className="mt-10 grid items-center gap-10 md:mt-12 lg:grid-cols-12 lg:gap-x-12">
+            <header
+              className={
+                post.cover_image?.url ? "lg:col-span-6" : "lg:col-span-9"
+              }
+            >
+              <div className="enter flex flex-wrap items-center gap-x-3 gap-y-2">
+                <Eyebrow>Blog</Eyebrow>
+                {post.published_at ? (
+                  <time
+                    dateTime={post.published_at.toISOString()}
+                    className="text-[13.5px] font-medium text-neutral-500"
+                  >
+                    {postDate.format(post.published_at)}
+                  </time>
+                ) : null}
+                <span aria-hidden className="text-neutral-300">
+                  ·
+                </span>
+                <span className="text-[13.5px] font-medium text-neutral-500">
+                  {minutes} min read
+                </span>
+              </div>
+              <h1
+                id="post-title"
+                className="enter mt-5 font-display text-[32px] leading-[1.06] font-bold tracking-[-0.04em] text-balance text-heading sm:text-[42px] lg:text-[48px]"
+              >
+                {post.title}
+              </h1>
+              {post.author ? (
+                <div className="enter mt-7 flex items-center gap-3">
+                  {post.author.image ? (
+                    // biome-ignore lint/performance/noImgElement: remote avatar from the identity provider, not a bundled asset
+                    <img
+                      src={post.author.image}
+                      alt=""
+                      referrerPolicy="no-referrer"
+                      width={40}
+                      height={40}
+                      className="size-10 rounded-full object-cover ring-2 ring-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden
+                      className="flex size-10 items-center justify-center rounded-full bg-linear-to-br from-primary to-brand-deep font-display text-[15px] font-bold text-white"
+                    >
+                      {post.author.name.charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                  <span className="text-[14.5px] leading-tight text-neutral-500">
+                    Written by
+                    <span className="block font-display text-[15.5px] font-bold tracking-[-0.01em] text-heading">
+                      {post.author.name}
+                    </span>
+                  </span>
+                </div>
+              ) : null}
+            </header>
+
+            {post.cover_image?.url ? (
+              <div className="enter-image lg:col-span-6">
+                {/* biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL */}
+                <img
+                  src={post.cover_image.url}
+                  alt={post.image_alt}
+                  className="aspect-video w-full rounded-[24px] border border-neutral-200 object-cover shadow-[0_30px_70px_-40px_rgba(30,20,10,0.45)]"
+                />
+              </div>
+            ) : null}
+          </div>
+        </Container>
+      </section>
+
+      <div className="border-t border-neutral-200/70 bg-neutral-50/70 py-10 md:py-14">
+        <Container className="grid grid-cols-1 gap-5 lg:grid-cols-24 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-8 lg:gap-y-5">
+          <TableOfContents
+            headings={headings}
+            className="lg:sticky lg:top-24 lg:col-span-7 lg:col-start-1 lg:row-start-2"
+          />
+
+          <article className="w-full rounded-[24px] border border-neutral-200 bg-white p-5 sm:p-8 md:p-10 lg:col-span-17 lg:col-start-8 lg:row-span-2 lg:row-start-1">
             <div
               className={BLOG_PROSE}
               // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
@@ -215,42 +244,34 @@ export default async function Page({
             blogId={post.id}
             className="lg:col-span-7 lg:col-start-1 lg:row-start-1"
           />
-        </div>
+        </Container>
+      </div>
 
-        {morePosts.length > 0 ? (
-          <section className="border-t border-border pt-8">
-            <h2 className="mb-6 border-l-2 border-primary pl-3 text-[17px] font-semibold tracking-tight text-primary">
-              Related Content
-            </h2>
-
-            <ul className="grid gap-4 sm:grid-cols-3">
+      {morePosts.length > 0 ? (
+        <section
+          aria-labelledby="more-title"
+          className="bg-white py-16 md:py-20"
+        >
+          <Container>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <h2
+                id="more-title"
+                className="font-display text-[30px] leading-tight font-bold tracking-[-0.035em] text-heading md:text-[38px]"
+              >
+                Keep <Accent>reading.</Accent>
+              </h2>
+              <ArrowLink href="/blog">All articles</ArrowLink>
+            </div>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {morePosts.map((item) => (
                 <li key={item.id}>
-                  <Link
-                    href={`/blog/${item.slug}`}
-                    className="group block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
-                  >
-                    {item.cover_image?.url ? (
-                      // biome-ignore lint/performance/noImgElement: <explanation
-                      <img
-                        src={item.cover_image.url}
-                        alt={item.image_alt}
-                        className="aspect-video w-full rounded-lg border border-border object-cover"
-                      />
-                    ) : null}
-                    <h3 className="text-[15px] mt-2 leading-snug line-clamp-2 font-semibold text-foreground transition-colors group-hover:text-primary">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1.5 line-clamp-2 text-[14px] leading-[1.7] text-muted-foreground">
-                      {item.excerpt}
-                    </p>
-                  </Link>
+                  <PostCard post={item} headingLevel="h3" />
                 </li>
               ))}
             </ul>
-          </section>
-        ) : null}
-      </div>
-    </div>
+          </Container>
+        </section>
+      ) : null}
+    </>
   );
 }

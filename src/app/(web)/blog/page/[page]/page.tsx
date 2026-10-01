@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
-import { BlogIndex } from "@/components/blog/blog-index";
+import { BlogIndex } from "@/app/(web)/blog/_components/blog-index";
 import { getPublishedPage } from "@/server/blog";
 import { ogImagePath } from "@/server/page-metadata";
 

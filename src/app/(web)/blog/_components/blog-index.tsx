@@ -1,6 +1,11 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlogPagination } from "@/components/blog/blog-pagination";
+import {
+  Accent,
+  Container,
+  Eyebrow,
+  TrustChip,
+} from "@/components/home/primitives";
+import { BookOpenIcon, CalendarIcon, FileTextIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
@@ -11,13 +16,8 @@ import {
   webSiteRef,
 } from "@/lib/seo";
 import { getPublishedPage, POSTS_PER_PAGE } from "@/server/blog";
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
+import { BlogPagination } from "./blog-pagination";
+import { FeaturedPostCard, PostCard } from "./post-card";
 
 export async function BlogIndex({ page }: { page: number }) {
   const { posts, total, totalPages } = await getPublishedPage(page);
@@ -26,6 +26,7 @@ export async function BlogIndex({ page }: { page: number }) {
 
   const from = (page - 1) * POSTS_PER_PAGE + 1;
   const to = Math.min(page * POSTS_PER_PAGE, total);
+  const [featured, ...rest] = posts;
 
   const schema = graph([
     {
@@ -58,93 +59,89 @@ export async function BlogIndex({ page }: { page: number }) {
   ]);
 
   return (
-    <div className="w-full mx-auto pt-0 pb-10">
+    <>
       <JsonLd data={schema} />
-      <div className="w-full bg-[#F4F3EF]">
-        <header className="w-full max-w-6xl px-4 mx-auto py-8 md:py-14">
-          <h1 className="text-[22px] leading-[1.2] font-semibold tracking-tight text-neutral-900 sm:text-[30px]">
-            Blog
-          </h1>
-          <p className="mt-2.5 max-w-[62ch] text-[15px] leading-relaxed text-neutral-600">
-            Notes on web development, design and the tools we build with.
-          </p>
-          {total > 0 ? (
-            <p className="mt-1 text-[13px] text-neutral-600">
-              Showing {from}&ndash;{to} of {total} articles
-              {totalPages > 1 ? ` · page ${page} of ${totalPages}` : null}
+
+      <section
+        aria-labelledby="blog-title"
+        className="bg-white pt-6 pb-14 md:pb-16"
+      >
+        <Container>
+          <Breadcrumbs
+            items={
+              page === 1
+                ? [{ label: "Home", href: "/" }, { label: "Blog" }]
+                : [
+                    { label: "Home", href: "/" },
+                    { label: "Blog", href: "/blog" },
+                    { label: `Page ${page}` },
+                  ]
+            }
+            className="mb-0"
+          />
+
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+            <Eyebrow className="enter">Blog</Eyebrow>
+            <h1
+              id="blog-title"
+              className="enter mt-6 font-display text-[42px] leading-none font-bold tracking-[-0.045em] text-balance text-heading sm:text-[56px] lg:text-[64px]"
+            >
+              Insights to help your business get <Accent>found.</Accent>
+            </h1>
+            <p className="enter mx-auto mt-6 max-w-[56ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
+              Guides, tool reviews and insights on SEO, digital marketing,
+              blogging, business and technology &mdash; shared openly, because
+              an informed client is a stronger partner.
             </p>
-          ) : null}
-        </header>
-      </div>
+            {total > 0 ? (
+              <ul className="enter mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3">
+                <TrustChip icon={BookOpenIcon}>{total} articles</TrustChip>
+                <TrustChip icon={FileTextIcon}>
+                  Showing {from}&ndash;{to}
+                </TrustChip>
+                {totalPages > 1 ? (
+                  <TrustChip icon={CalendarIcon}>
+                    Page {page} of {totalPages}
+                  </TrustChip>
+                ) : null}
+              </ul>
+            ) : null}
+          </div>
+        </Container>
+      </section>
 
-      <div className="w-full max-w-6xl mx-auto px-4 space-y-8">
-        <Breadcrumbs
-          items={
-            page === 1
-              ? [{ label: "Home", href: "/" }, { label: "Blog" }]
-              : [
-                  { label: "Home", href: "/" },
-                  { label: "Blog", href: "/blog" },
-                  { label: `Page ${page}` },
-                ]
-          }
-          className="w-full m-0! py-5!"
-        />
+      <section
+        aria-label="Articles"
+        className="border-t border-neutral-200/70 bg-neutral-50 py-14 md:py-20"
+      >
+        <Container className="grid gap-12">
+          {posts.length === 0 ? (
+            <p className="rounded-[20px] border border-dashed border-neutral-300 bg-white p-10 text-center text-[15px] text-neutral-500">
+              No posts published yet. Check back soon.
+            </p>
+          ) : (
+            <>
+              {featured ? (
+                <FeaturedPostCard
+                  post={featured}
+                  label={page === 1 ? "Latest article" : undefined}
+                />
+              ) : null}
+              {rest.length > 0 ? (
+                <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {rest.map((post) => (
+                    <li key={post.id}>
+                      <PostCard post={post} />
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </>
+          )}
 
-        {posts.length === 0 ? (
-          <p className="border-l-2 border-primary py-1 pl-3 text-[15px] text-muted-foreground">
-            No posts published yet. Check back soon.
-          </p>
-        ) : (
-          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <li key={post.id}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col gap-3 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
-                >
-                  {post.cover_image?.url ? (
-                    // biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL
-                    <img
-                      src={post.cover_image.url}
-                      alt={post.image_alt}
-                      loading="lazy"
-                      className="aspect-video w-full rounded-lg border border-border object-cover transition-colors group-hover:border-primary"
-                    />
-                  ) : (
-                    <div className="aspect-video w-full rounded-lg border border-dashed border-border bg-muted" />
-                  )}
-
-                  <div className="flex flex-1 flex-col">
-                    {post.published_at ? (
-                      <time
-                        dateTime={post.published_at.toISOString()}
-                        className="text-[13px] text-muted-foreground"
-                      >
-                        {dateFormatter.format(post.published_at)}
-                      </time>
-                    ) : null}
-
-                    <h2 className="mt-1 text-[17px] leading-snug line-clamp-2 font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                      {post.title}
-                    </h2>
-
-                    <p className="mt-2 line-clamp-3 text-[15px] leading-[1.7] text-muted-foreground">
-                      {post.excerpt}
-                    </p>
-
-                    <span className="mt-3 text-[13px] font-medium text-primary transition-colors group-hover:text-primary">
-                      Read article &rarr;
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <BlogPagination currentPage={page} totalPages={totalPages} />
-      </div>
-    </div>
+          <BlogPagination currentPage={page} totalPages={totalPages} />
+        </Container>
+      </section>
+    </>
   );
 }

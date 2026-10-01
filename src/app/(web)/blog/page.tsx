@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { BlogIndex } from "@/components/blog/blog-index";
 import { ogImagePath } from "@/server/page-metadata";
+import { BlogIndex } from "./_components/blog-index";
 
 export const metadata: Metadata = {
   title: "Blog",

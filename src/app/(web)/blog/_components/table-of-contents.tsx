@@ -5,20 +5,6 @@ import { ChevronDownIcon } from "@/components/icons";
 import type { ProseHeading } from "@/lib/prose-html";
 import { cn } from "@/lib/utils";
 
-/**
- * Contents for the current post, built from the headings the article actually
- * contains.
- *
- * Only h2 and h3 appear: one level of nesting, which is enough to show the
- * shape of a post without turning the list into an outline of everything.
- *
- * The entry nearest the top of the viewport is marked current as the reader
- * scrolls, and so is its parent - an active h3 also lights up the h2 it sits
- * under, so the reader can see where they are in the document rather than
- * just which line they are on.
- */
-
-/** How far below the sticky header a heading counts as "at the top". */
 const ACTIVE_OFFSET = 96;
 
 type Props = {
@@ -32,7 +18,6 @@ export function TableOfContents({ headings, className }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const frame = useRef(0);
 
-  /** Every heading's ancestors, so the chain can be highlighted in one lookup. */
   const ancestors = useMemo(() => {
     const map = new Map<string, string[]>();
     const trail: ProseHeading[] = [];
@@ -72,8 +57,6 @@ export function TableOfContents({ headings, className }: Props) {
         }
       }
 
-      // At the very bottom the last heading wins, even if it never reached
-      // the offset, so the list does not appear stuck one entry behind.
       const scrolledToEnd =
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 2;
@@ -82,9 +65,6 @@ export function TableOfContents({ headings, className }: Props) {
       setActiveId(current);
     };
 
-    // Frames do not run while the document is hidden, so fall back to a
-    // timeout there; otherwise coalesce scroll events into one measurement
-    // per frame.
     const schedule = () => {
       if (frame.current !== 0) return;
       frame.current = document.hidden
@@ -130,7 +110,10 @@ export function TableOfContents({ headings, className }: Props) {
   return (
     <nav
       aria-label="Table of contents"
-      className={cn("bg-[#F4F3EF]", className)}
+      className={cn(
+        "overflow-hidden rounded-[20px] border border-neutral-200 bg-white",
+        className,
+      )}
     >
       <h2>
         <button
@@ -138,51 +121,55 @@ export function TableOfContents({ headings, className }: Props) {
           onClick={() => setOpenState((open) => !open)}
           aria-expanded={openState}
           aria-controls={listId}
-          className="flex w-full items-center justify-between gap-3 bg-primary px-4 py-3 text-left text-[15px] font-semibold text-primary-foreground"
+          className="flex w-full items-center justify-between gap-3 border-b border-neutral-100 px-5 py-4 text-left font-display text-[16px] font-bold tracking-[-0.02em] text-heading"
         >
-          Table of Contents
-          <ChevronDownIcon
-            aria-hidden
-            className={cn(
-              "size-4 shrink-0 transition-transform duration-200",
-              openState && "rotate-180",
-            )}
-          />
+          <span className="flex items-center gap-2">
+            <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+            Table of Contents
+          </span>
+          <span className="flex size-7 items-center justify-center rounded-full border border-neutral-200 text-neutral-500">
+            <ChevronDownIcon
+              aria-hidden
+              className={cn(
+                "size-3.5 shrink-0 transition-transform duration-200",
+                openState && "rotate-180",
+              )}
+            />
+          </span>
         </button>
       </h2>
 
       <ol
         id={listId}
         hidden={!openState}
-        className="max-h-[70vh] overflow-y-auto px-4 py-3"
+        className="max-h-[70vh] overflow-y-auto px-3 py-3"
       >
         {headings.map((heading) => {
           const active = activeId === heading.id;
           const inTrail = activeTrail.has(heading.id);
 
           return (
-            <li key={heading.id} className={cn(heading.level === 3 && "ml-3")}>
+            <li key={heading.id} className={cn(heading.level === 3 && "ml-4")}>
               <a
                 href={`#${heading.id}`}
                 onClick={(event) => handleClick(event, heading.id)}
                 aria-current={active ? "location" : undefined}
                 className={cn(
-                  "flex items-start gap-2 py-1.5 text-[13.5px] leading-snug transition-colors",
+                  "flex items-start gap-2.5 rounded-[10px] px-2 py-1.5 text-[14px] leading-snug transition-colors",
+                  active && "bg-primary/[0.07]",
                   inTrail
-                    ? "font-medium text-primary"
-                    : "text-neutral-700 hover:text-primary",
+                    ? "font-semibold text-brand-deep"
+                    : "text-neutral-600 hover:bg-neutral-50 hover:text-heading",
                 )}
               >
                 <span
                   aria-hidden
                   className={cn(
-                    "mt-[7px] size-1.5 shrink-0 rounded-full transition-colors",
-                    inTrail ? "bg-primary" : "bg-primary/40",
+                    "mt-1.75 size-1.5 shrink-0 rounded-full transition-colors",
+                    inTrail ? "bg-primary" : "bg-neutral-300",
                   )}
                 />
-                <span className={cn(active && "underline underline-offset-2")}>
-                  {heading.text}
-                </span>
+                <span>{heading.text}</span>
               </a>
             </li>
           );

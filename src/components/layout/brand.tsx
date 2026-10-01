@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * The wordmark, used where the full header is not present - the sign-in and
- * sign-up pages. The mark is dark on transparent, so it is inverted for dark
- * mode rather than shipping a second file.
+ * sign-up pages. A separate file carries the dark-mode colouring; see the
+ * note in the header for why a CSS filter will not do.
  */
 export function Brand({
   className,
@@ -28,11 +28,20 @@ export function Brand({
       <Image
         src="/logo.webp"
         alt="WebTech Solutions"
-        width={Math.round(height * 3.52)}
+        width={Math.round(height * 3.475)}
+        height={height}
+        priority
+        className={cn("w-auto dark:hidden", size === "lg" ? "h-12" : "h-10")}
+      />
+      <Image
+        src="/logo-dark.webp"
+        alt=""
+        aria-hidden
+        width={Math.round(height * 3.475)}
         height={height}
         priority
         className={cn(
-          "w-auto dark:brightness-0 dark:invert",
+          "hidden w-auto dark:block",
           size === "lg" ? "h-12" : "h-10",
         )}
       />

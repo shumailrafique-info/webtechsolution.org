@@ -57,9 +57,19 @@ export function SiteFooter() {
               <Image
                 src="/logo.webp"
                 alt="WebTech Solutions"
-                width={176}
+                width={174}
                 height={50}
-                className="h-10 w-auto dark:brightness-0 dark:invert"
+                priority
+                className="h-10 w-auto dark:hidden"
+              />
+              <Image
+                src="/logo-dark.webp"
+                alt=""
+                aria-hidden
+                width={174}
+                height={50}
+                priority
+                className="hidden h-10 w-auto dark:block"
               />
             </Link>
 

@@ -69,7 +69,7 @@ export async function BlogIndex({ page }: { page: number }) {
             Notes on web development, design and the tools we build with.
           </p>
           {total > 0 ? (
-            <p className="mt-3 text-[13px] text-neutral-600">
+            <p className="mt-1 text-[13px] text-neutral-600">
               Showing {from}&ndash;{to} of {total} articles
               {totalPages > 1 ? ` · page ${page} of ${totalPages}` : null}
             </p>

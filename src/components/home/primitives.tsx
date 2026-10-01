@@ -19,9 +19,7 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div
-      className={cn("mx-auto w-full max-w-[1200px] px-4 md:px-8", className)}
-    >
+    <div className={cn("mx-auto w-full max-w-300 px-4 md:px-8", className)}>
       {children}
     </div>
   );
@@ -133,29 +131,47 @@ export function PrimaryButton({
   href,
   children,
   className,
+  icon = true,
+  iconclassName,
+  textclassName,
 }: {
   href: string;
+  icon?: boolean;
   children: ReactNode;
   className?: string;
+  textclassName?: string;
+  iconclassName?: string;
 }) {
   return (
     <Link
       href={href}
       className={cn(
-        "group inline-flex rounded-full bg-primary/20 p-[5px] transition-colors duration-300 hover:bg-primary/30",
+        "group inline-flex rounded-full bg-primary/20 p-1.25 transition-colors duration-300 hover:bg-primary/30",
         className,
       )}
     >
       <span className="flex items-center gap-2.5 rounded-full bg-linear-to-br from-primary to-brand-deep py-3 pr-3.5 pl-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] sm:py-3.5">
-        <span className="font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-white lg:text-[17px]">
+        <span
+          className={cn(
+            "font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-white lg:text-[17px]",
+            textclassName,
+          )}
+        >
           {children}
         </span>
-        <span className="flex size-6 items-center justify-center rounded-full bg-white/20">
-          <ArrowRightIcon
-            aria-hidden
-            className="size-3.5 text-white transition-transform duration-300 group-hover:translate-x-0.5"
-          />
-        </span>
+        {icon && (
+          <span
+            className={cn(
+              "flex size-6 items-center justify-center rounded-full bg-white/20",
+              iconclassName,
+            )}
+          >
+            <ArrowRightIcon
+              aria-hidden
+              className="size-3.5 text-white transition-transform duration-300 group-hover:translate-x-0.5"
+            />
+          </span>
+        )}
       </span>
     </Link>
   );

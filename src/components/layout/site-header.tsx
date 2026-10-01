@@ -44,7 +44,7 @@ function Brand({ className }: { className?: string }) {
 
 function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
   const linkClass = cn(
-    "rounded-md px-3 py-2 text-[14.5px] font-medium transition-colors",
+    "rounded-full px-3 py-1.5 text-[14.5px] font-medium transition-colors",
     active
       ? "text-primary"
       : "text-foreground/80 hover:bg-accent hover:text-accent-foreground",
@@ -75,13 +75,15 @@ function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
           </button>
         }
       />
-      <PopoverContent align="start" className="w-64 p-2">
+      <PopoverContent
+        align="start"
+        className="w-fit rounded-2xl! p-2 space-y-0 gap-0"
+      >
         <Link
           href={item.href}
-          className="mb-1 flex items-center justify-between rounded-md px-3 py-2 text-[12px] font-semibold tracking-[0.08em] text-primary uppercase transition-colors hover:bg-accent"
+          className="block rounded-full px-3 py-2 text-[14px] text-foreground/85 transition-colors hover:text-accent-foreground hover:bg-accent"
         >
-          All {item.label}
-          <span aria-hidden>&rarr;</span>
+          All {item.label} <span aria-hidden>&rarr;</span>
         </Link>
 
         <ul className="grid gap-0.5">
@@ -89,7 +91,7 @@ function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
             <li key={child.href}>
               <Link
                 href={child.href}
-                className="block rounded-md px-3 py-2 text-[14px] text-foreground/85 transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="block rounded-full px-3 py-2 text-[14px] text-foreground/85 transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 {child.label}
               </Link>
@@ -214,7 +216,7 @@ export function SiteHeader() {
           <Button
             nativeButton={false}
             render={<Link href="/contact-us" />}
-            className="hidden sm:inline-flex"
+            className="hidden sm:inline-flex bg-linear-to-br from-primary to-brand-deep rounded-full! py-2.5 h-fit px-5"
           >
             Get In Touch
           </Button>

@@ -1,10 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ClockIcon, MailIcon } from "@/components/icons";
+import {
+  ClockIcon,
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  MailIcon,
+  XLogoIcon,
+  YoutubeIcon,
+} from "@/components/icons";
 import { COMPANY_LINKS, RESOURCE_LINKS, SERVICES } from "@/lib/site-nav";
 
 const EMAIL = "info@webtechsolution.org";
 const FOUNDED = 2013;
+
+const SOCIAL = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/webtechsolutions7/",
+    Icon: FacebookIcon,
+  },
+  { label: "X", href: "https://x.com/webtechsolutio7", Icon: XLogoIcon },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/webtechsolution77/",
+    Icon: InstagramIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/webtechsolution7",
+    Icon: LinkedinIcon,
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@webtechsolution9638",
+    Icon: YoutubeIcon,
+  },
+];
 
 const HEADING =
   "text-[12px] font-semibold tracking-[0.08em] text-foreground uppercase";
@@ -36,12 +68,22 @@ export function SiteFooter() {
               and digital marketing services to help businesses grow online.
             </p>
 
-            <Link
-              href="/contact-us"
-              className="mt-5 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-[14px] font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Start a project
-            </Link>
+            <ul className="mt-5 flex flex-wrap items-center gap-2">
+              {SOCIAL.map(({ label, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="grid size-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Icon aria-hidden className="size-5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <nav aria-labelledby="footer-company" className="md:col-span-2">
@@ -96,9 +138,9 @@ export function SiteFooter() {
                   className="mt-0.5 size-4 shrink-0 text-primary"
                 />
                 <span>
-                  Mon &ndash; Sat, 09:00 &ndash; 05:00
+                  Mon &ndash; Sat (09:00 &ndash; 05:00)
                   <br />
-                  Sunday &ndash; Closed
+                  Sunday &ndash;(Closed)
                 </span>
               </li>
             </ul>

@@ -122,7 +122,7 @@ export default function Page() {
               project.
             </p>
 
-            <div className="enter mt-9 flex flex-wrap items-center justify-center gap-3">
+            <div className="enter mt-9 flex flex-nowrap items-center justify-center gap-2 sm:gap-3">
               <PrimaryButton href="/contact-us">Start a project</PrimaryButton>
               <SecondaryButton href="#join">Join the team</SecondaryButton>
             </div>

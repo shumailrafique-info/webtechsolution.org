@@ -3,14 +3,6 @@ import type { ComponentType, ReactNode } from "react";
 import { ArrowRightIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
-/**
- * The homepage's building blocks.
- *
- * Headlines are set in Bricolage Grotesque, tight and heavy; the one phrase
- * that carries the point is picked out in the orange gradient (`Accent`) or,
- * in smaller titles, in Playfair italic (`Italic`). Body copy stays in Inter.
- */
-
 export function Container({
   children,
   className,
@@ -25,7 +17,6 @@ export function Container({
   );
 }
 
-/** The orange gradient phrase inside a headline. */
 export function Accent({ children }: { children: ReactNode }) {
   return (
     <span className="bg-linear-to-b from-primary to-brand-deep box-decoration-clone bg-clip-text pr-0.5 text-transparent">
@@ -34,7 +25,6 @@ export function Accent({ children }: { children: ReactNode }) {
   );
 }
 
-/** The serif italic word inside a card title. */
 export function Italic({
   children,
   className,
@@ -49,7 +39,6 @@ export function Italic({
   );
 }
 
-/** A small pill that names the section above its headline. */
 export function Eyebrow({
   children,
   tone = "light",
@@ -75,7 +64,6 @@ export function Eyebrow({
   );
 }
 
-/** Eyebrow, headline and lede, centred over the section they open. */
 export function SectionHeading({
   id,
   eyebrow,
@@ -123,10 +111,6 @@ export function SectionHeading({
   );
 }
 
-/**
- * The primary call to action: a gradient pill inside a soft orange ring,
- * with the arrow in its own small disc.
- */
 export function PrimaryButton({
   href,
   children,
@@ -146,14 +130,14 @@ export function PrimaryButton({
     <Link
       href={href}
       className={cn(
-        "group inline-flex rounded-full bg-primary/20 p-1.25 transition-colors duration-300 hover:bg-primary/30",
+        "group inline-flex shrink-0 rounded-full bg-primary/20 p-1 transition-colors duration-300 hover:bg-primary/30 sm:p-1.25",
         className,
       )}
     >
-      <span className="flex items-center gap-2.5 rounded-full bg-linear-to-br from-primary to-brand-deep py-3 pr-3.5 pl-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] sm:py-3.5">
+      <span className="flex items-center gap-2 rounded-full bg-linear-to-br from-primary to-brand-deep py-3 pr-2.5 pl-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] max-[359px]:px-3.5 sm:gap-2.5 sm:py-3.5 sm:pr-3.5 sm:pl-6">
         <span
           className={cn(
-            "font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-white lg:text-[17px]",
+            "font-display text-[14.5px] leading-none font-semibold tracking-[-0.01em] whitespace-nowrap text-white max-[359px]:text-[13.5px] sm:text-[16px] lg:text-[17px]",
             textclassName,
           )}
         >
@@ -162,7 +146,7 @@ export function PrimaryButton({
         {icon && (
           <span
             className={cn(
-              "flex size-6 items-center justify-center rounded-full bg-white/20",
+              "flex size-5 items-center justify-center rounded-full bg-white/20 max-[359px]:hidden sm:size-6",
               iconclassName,
             )}
           >
@@ -177,7 +161,6 @@ export function PrimaryButton({
   );
 }
 
-/** The quieter alternative to `PrimaryButton`. */
 export function SecondaryButton({
   href,
   children,
@@ -191,7 +174,7 @@ export function SecondaryButton({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center rounded-full border-2 border-primary/25 bg-white px-6 py-3 font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-brand-deep transition-colors duration-300 hover:border-primary/50 hover:bg-primary/5 sm:py-3.5 lg:text-[17px]",
+        "inline-flex shrink-0 items-center justify-center rounded-full border-2 border-primary/25 bg-white px-4 py-3.5 font-display text-[14.5px] leading-none font-semibold tracking-[-0.01em] whitespace-nowrap text-brand-deep transition-colors duration-300 hover:border-primary/50 hover:bg-primary/5 max-[359px]:px-3 max-[359px]:text-[13.5px] sm:px-6 sm:text-[16px] lg:text-[17px]",
         className,
       )}
     >
@@ -200,7 +183,22 @@ export function SecondaryButton({
   );
 }
 
-/** A text link with an arrow that leans in on hover. */
+export function ButtonRow({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn("flex flex-nowrap items-center gap-2 sm:gap-3", className)}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function ArrowLink({
   href,
   children,
@@ -235,7 +233,6 @@ export function ArrowLink({
   );
 }
 
-/** An icon in a small square tile, followed by a short fact. */
 export function TrustChip({
   icon: Icon,
   children,
@@ -253,7 +250,6 @@ export function TrustChip({
   );
 }
 
-/** The round icon badge that heads a card, with the small orange tick. */
 export function IconBadge({
   icon: Icon,
   tone = "light",

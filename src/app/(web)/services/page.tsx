@@ -104,7 +104,7 @@ export default function Page() {
             <p className="enter mx-auto mt-6 max-w-[58ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
               {OVERVIEW.intro}
             </p>
-            <div className="enter mt-9 flex flex-wrap items-center justify-center gap-3">
+            <div className="enter mt-9 flex flex-nowrap items-center justify-center gap-2 sm:gap-3">
               <PrimaryButton href="/contact-us#query">
                 Start a project
               </PrimaryButton>

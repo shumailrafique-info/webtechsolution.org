@@ -109,7 +109,7 @@ export default function Page() {
               <p className="enter mt-6 max-w-[54ch] text-[17px] leading-[1.7] text-neutral-600 md:text-[18.5px]">
                 {INTRO.body}
               </p>
-              <div className="enter mt-9 flex flex-wrap items-center gap-3">
+              <div className="enter mt-9 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href={LINKS.inquiry}>Email us</PrimaryButton>
                 <SecondaryButton href={LINKS.contact}>
                   Contact page
@@ -326,7 +326,7 @@ export default function Page() {
         className="bg-white pb-14 md:pb-20 lg:pb-24"
       >
         <Container>
-          <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-heading p-8 text-white md:flex-row md:items-center md:p-12">
+          <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-heading p-6 sm:p-8 text-white md:flex-row md:items-center md:p-12">
             <div>
               <h2
                 id="brief-title"
@@ -341,13 +341,13 @@ export default function Page() {
                 {BRIEF.body}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
               <PrimaryButton href={LINKS.opportunities}>
                 Email now
               </PrimaryButton>
               <Link
                 href={LINKS.contact}
-                className="inline-flex items-center rounded-full border-2 border-white/25 px-6 py-3 font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-white transition-colors hover:border-white sm:py-3.5"
+                className="inline-flex shrink-0 items-center rounded-full border-2 border-white/25 px-4 py-3.5 font-display text-[14.5px] whitespace-nowrap max-[359px]:px-3 max-[359px]:text-[13.5px] sm:px-6 sm:text-[16px] leading-none font-semibold tracking-[-0.01em] text-white transition-colors hover:border-white sm:py-3.5"
               >
                 Contact form
               </Link>

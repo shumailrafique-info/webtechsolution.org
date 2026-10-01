@@ -369,7 +369,7 @@ export default function Page() {
                   ),
                 )}
               </div>
-              <div className="reveal mt-10 flex flex-wrap gap-3">
+              <div className="reveal mt-10 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href="/contact-us">Work with us</PrimaryButton>
                 <SecondaryButton href="/our-team">
                   Meet the team

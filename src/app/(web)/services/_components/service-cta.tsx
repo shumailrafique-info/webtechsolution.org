@@ -16,7 +16,7 @@ export function ServiceCta({
       className="bg-white pb-12 md:pb-16"
     >
       <Container>
-        <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-linear-to-br from-primary to-brand-deep p-8 text-white md:flex-row md:items-center md:p-12">
+        <div className="reveal flex flex-col items-start justify-between gap-8 rounded-[28px] bg-linear-to-br from-primary to-brand-deep p-6 sm:p-8 text-white md:flex-row md:items-center md:p-12">
           <div>
             <h2
               id="service-cta-title"
@@ -28,16 +28,16 @@ export function ServiceCta({
               {body}
             </p>
           </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
+          <div className="flex shrink-0 flex-nowrap items-center gap-2 sm:gap-3">
             <Link
               href="/contact-us#query"
-              className="inline-flex items-center rounded-full bg-white px-6 py-3.5 font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-brand-deep shadow-[0_12px_30px_-14px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-0.5"
+              className="inline-flex shrink-0 items-center rounded-full bg-white px-4 py-3.5 font-display text-[14.5px] whitespace-nowrap max-[359px]:px-3 max-[359px]:text-[13.5px] sm:px-6 sm:text-[16px] leading-none font-semibold tracking-[-0.01em] text-brand-deep shadow-[0_12px_30px_-14px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-0.5"
             >
               Start a project
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center rounded-full border-2 border-white/40 px-6 py-3 font-display text-[16px] leading-none font-semibold tracking-[-0.01em] text-white transition-colors hover:border-white"
+              className="inline-flex shrink-0 items-center rounded-full border-2 border-white/40 px-4 py-3 font-display text-[14.5px] whitespace-nowrap max-[359px]:px-3 max-[359px]:text-[13.5px] sm:px-6 sm:text-[16px] leading-none font-semibold tracking-[-0.01em] text-white transition-colors hover:border-white"
             >
               See pricing
             </Link>

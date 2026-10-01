@@ -84,7 +84,7 @@ export function Hero() {
           </p>
 
           <div
-            className="enter mt-8 flex flex-wrap items-center gap-3 md:mt-9"
+            className="enter mt-8 flex flex-nowrap items-center gap-2 sm:gap-3 md:mt-9"
             style={delay(320)}
           >
             <PrimaryButton href="/contact-us">Start a project</PrimaryButton>

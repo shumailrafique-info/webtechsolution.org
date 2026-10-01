@@ -101,7 +101,7 @@ export default function Page() {
               <p className="enter mt-6 max-w-[56ch] text-[17px] leading-[1.7] text-neutral-600 md:text-[18px]">
                 {DIGITAL_MARKETING.intro}
               </p>
-              <div className="enter mt-9 flex flex-wrap items-center gap-3">
+              <div className="enter mt-9 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href="/contact-us#query">
                   Start a campaign
                 </PrimaryButton>

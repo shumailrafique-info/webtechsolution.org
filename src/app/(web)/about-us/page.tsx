@@ -90,7 +90,7 @@ export default function Page() {
                 </strong>{" "}
                 handled by one team.
               </p>
-              <div className="enter mt-9 flex flex-wrap items-center gap-3">
+              <div className="enter mt-9 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href="/contact-us">Contact us</PrimaryButton>
                 <SecondaryButton href="/our-team">
                   Meet the team

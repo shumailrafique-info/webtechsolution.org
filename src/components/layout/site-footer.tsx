@@ -1,29 +1,142 @@
+import Image from "next/image";
 import Link from "next/link";
+import { ClockIcon, MailIcon } from "@/components/icons";
+import { COMPANY_LINKS, RESOURCE_LINKS, SERVICES } from "@/lib/site-nav";
 
-const FOOTER_LINKS = [
-  { label: "Blog", href: "/blog" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms", href: "/terms-and-conditions" },
-];
+const EMAIL = "info@webtechsolution.org";
+const FOUNDED = 2013;
+
+const HEADING =
+  "text-[12px] font-semibold tracking-[0.08em] text-foreground uppercase";
+const LINK =
+  "inline-block py-1 text-[14px] text-muted-foreground transition-colors hover:text-primary";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 px-4 py-6 text-[13px] text-muted-foreground sm:flex-row">
-        <p>
-          &copy; {new Date().getFullYear()} Web Tech Solutions. All rights
-          reserved.
-        </p>
-        <div className="flex items-center gap-4">
-          {FOOTER_LINKS.map((link) => (
+    <footer className="border-t border-border bg-muted/40">
+      <div className="mx-auto max-w-6xl px-4 py-12 lg:py-14">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-4">
             <Link
-              key={link.href}
-              href={link.href}
+              href="/"
+              aria-label="WebTech Solutions home"
+              className="inline-flex rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <Image
+                src="/logo.webp"
+                alt="WebTech Solutions"
+                width={176}
+                height={50}
+                className="h-10 w-auto dark:brightness-0 dark:invert"
+              />
+            </Link>
+
+            <p className="mt-4 max-w-[40ch] text-[14px] leading-relaxed text-muted-foreground">
+              Founded in 2013, WebTech Solutions provides app development, SEO
+              and digital marketing services to help businesses grow online.
+            </p>
+
+            <Link
+              href="/contact-us"
+              className="mt-5 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-[14px] font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Start a project
+            </Link>
+          </div>
+
+          <nav aria-labelledby="footer-company" className="md:col-span-2">
+            <h2 id="footer-company" className={HEADING}>
+              Company
+            </h2>
+            <ul className="mt-3 -my-1">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={LINK}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-labelledby="footer-services" className="md:col-span-3">
+            <h2 id="footer-services" className={HEADING}>
+              Our Services
+            </h2>
+            <ul className="mt-3 -my-1">
+              {SERVICES.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={LINK}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="md:col-span-3">
+            <h2 className={HEADING}>Contact</h2>
+
+            <ul className="mt-3 grid gap-3 text-[14px] text-muted-foreground">
+              <li className="flex items-start gap-2.5">
+                <MailIcon
+                  aria-hidden
+                  className="mt-0.5 size-4 shrink-0 text-primary"
+                />
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="transition-colors hover:text-primary"
+                >
+                  {EMAIL}
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <ClockIcon
+                  aria-hidden
+                  className="mt-0.5 size-4 shrink-0 text-primary"
+                />
+                <span>
+                  Mon &ndash; Sat, 09:00 &ndash; 05:00
+                  <br />
+                  Sunday &ndash; Closed
+                </span>
+              </li>
+            </ul>
+
+            <h2 className={`${HEADING} mt-6`}>Resources</h2>
+            <ul className="mt-3 -my-1">
+              {RESOURCE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={LINK}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-[13px] text-muted-foreground sm:flex-row">
+          <p>
+            &copy; WebTech Solutions {FOUNDED}&ndash;
+            {new Date().getFullYear()}. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy-policy"
               className="transition-colors hover:text-foreground"
             >
-              {link.label}
+              Privacy Policy
             </Link>
-          ))}
+            <Link
+              href="/terms-and-conditions"
+              className="transition-colors hover:text-foreground"
+            >
+              Terms
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

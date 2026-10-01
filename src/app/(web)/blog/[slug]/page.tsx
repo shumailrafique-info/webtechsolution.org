@@ -132,7 +132,7 @@ export default async function Page({
     <div className="w-full mx-auto pt-0 pb-10">
       <JsonLd data={schema} />
       <div className="w-full bg-[#F4F3EF]">
-        <div className="w-full max-w-5xl px-4 mx-auto flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between md:py-14">
+        <div className="w-full max-w-6xl px-4 mx-auto flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between md:py-14">
           <header className="md:flex-1">
             <div className="flex items-center justify-start">
               {post.published_at ? (
@@ -144,7 +144,7 @@ export default async function Page({
                 </time>
               ) : null}
             </div>
-            <h1 className="text-[22px] leading-[1.2] mt-1 font-semibold tracking-tight text-neutral-900 sm:text-[25px]">
+            <h1 className="text-[22px] leading-[1.2] mt-1 font-semibold tracking-tight text-neutral-900 sm:text-[35px]">
               {post.title}
             </h1>
             {post.author ? (
@@ -188,7 +188,7 @@ export default async function Page({
         </div>
       </div>
       {/* actual content  */}
-      <div className="w-full max-w-5xl mx-auto px-4">
+      <div className="w-full max-w-6xl mx-auto px-4">
         <Breadcrumbs
           items={[
             { label: "Home", href: "/" },

@@ -1,6 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+/**
+ * The wordmark, used where the full header is not present - the sign-in and
+ * sign-up pages. The mark is dark on transparent, so it is inverted for dark
+ * mode rather than shipping a second file.
+ */
 export function Brand({
   className,
   size = "md",
@@ -8,32 +14,28 @@ export function Brand({
   className?: string;
   size?: "md" | "lg";
 }) {
+  const height = size === "lg" ? 48 : 40;
+
   return (
     <Link
       href="/"
+      aria-label="WebTech Solutions home"
       className={cn(
-        "inline-flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "inline-flex shrink-0 items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}
-      aria-label="Web Tech Solutions home"
     >
-      <span
-        aria-hidden
+      <Image
+        src="/logo.webp"
+        alt="WebTech Solutions"
+        width={Math.round(height * 3.52)}
+        height={height}
+        priority
         className={cn(
-          "grid shrink-0 place-items-center rounded-lg bg-primary font-semibold text-primary-foreground leading-none",
-          size === "lg" ? "size-10 text-[20px]" : "size-8 text-[16px]",
+          "w-auto dark:brightness-0 dark:invert",
+          size === "lg" ? "h-12" : "h-10",
         )}
-      >
-        W
-      </span>
-      <span
-        className={cn(
-          "font-semibold tracking-tight text-foreground leading-none",
-          size === "lg" ? "text-[22px]" : "text-[18px]",
-        )}
-      >
-        Web Tech <span className="text-primary">Solutions</span>
-      </span>
+      />
     </Link>
   );
 }

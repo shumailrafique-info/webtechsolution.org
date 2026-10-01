@@ -61,7 +61,7 @@ export async function BlogIndex({ page }: { page: number }) {
     <div className="w-full mx-auto pt-0 pb-10">
       <JsonLd data={schema} />
       <div className="w-full bg-[#F4F3EF]">
-        <header className="w-full max-w-5xl px-4 mx-auto py-8 md:py-14">
+        <header className="w-full max-w-6xl px-4 mx-auto py-8 md:py-14">
           <h1 className="text-[22px] leading-[1.2] font-semibold tracking-tight text-neutral-900 sm:text-[30px]">
             Blog
           </h1>
@@ -77,7 +77,7 @@ export async function BlogIndex({ page }: { page: number }) {
         </header>
       </div>
 
-      <div className="w-full max-w-5xl mx-auto px-4 space-y-8">
+      <div className="w-full max-w-6xl mx-auto px-4 space-y-8">
         <Breadcrumbs
           items={
             page === 1

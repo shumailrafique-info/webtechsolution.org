@@ -1,11 +1,11 @@
 "use server";
 
 import { count, desc, eq, ilike, or } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
 import { db } from "@/drizzle/db";
 import { blog } from "@/drizzle/schema";
 import type { BlogType } from "@/drizzle/types";
 import { ensureAdminAccess } from "@/lib/auth/guards";
+import { revalidateBlogContent } from "@/server/revalidate";
 import {
   ADMIN_PAGE_SIZE,
   type ApiResponse,
@@ -30,8 +30,6 @@ export async function getBlogs(
   const term = search?.trim();
   const current = Math.max(1, Math.trunc(page));
 
-  // The archive runs to hundreds of posts, so a page is fetched at a time
-  // rather than the whole table.
   const filter = term
     ? or(
         ilike(blog.title, `%${escapeLikeTerm(term)}%`),
@@ -91,9 +89,7 @@ export async function deleteBlog(
       return { success: false, error: "That blog post no longer exists." };
     }
 
-    revalidatePath("/admin/blogs");
-    revalidatePath("/blog");
-    revalidatePath(`/blog/${deleted.slug}`);
+    revalidateBlogContent();
 
     return { success: true, data: { id: deleted.id } };
   } catch (error) {

@@ -1,7 +1,6 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
 import { db } from "@/drizzle/db";
 import { blog } from "@/drizzle/schema";
 import type { BlogType } from "@/drizzle/types";
@@ -10,6 +9,7 @@ import {
   type BlogSchemaValues,
   blogSchema,
 } from "@/lib/validation/zod/blog.schema";
+import { revalidateBlogContent } from "@/server/revalidate";
 import type { ApiResponse } from "@/types/global";
 
 const UNIQUE_VIOLATION = "23505";
@@ -36,12 +36,6 @@ function toRow(values: BlogSchemaValues) {
     image_alt: values.image_alt,
     status: values.status,
   };
-}
-
-function revalidateBlogPaths(slug: string) {
-  revalidatePath("/admin/blogs");
-  revalidatePath("/blog");
-  revalidatePath(`/blog/${slug}`);
 }
 
 export async function createBlog(
@@ -79,8 +73,6 @@ export async function createBlog(
       .insert(blog)
       .values({
         ...row,
-        // Stamped once, on creation. updateBlog deliberately leaves it alone so
-        // a later edit by a different admin does not reassign the byline.
         author_id: guard.session.user.id,
         published_at: row.status === "PUBLISHED" ? new Date() : null,
       })
@@ -90,7 +82,7 @@ export async function createBlog(
       return { success: false, error: "Could not create the blog post." };
     }
 
-    revalidateBlogPaths(created.slug);
+    revalidateBlogContent();
     return { success: true, data: created };
   } catch (error) {
     if (isUniqueViolation(error)) {
@@ -150,8 +142,7 @@ export async function updateBlog(
       return { success: false, error: "Could not update the blog post." };
     }
 
-    revalidateBlogPaths(updated.slug);
-    if (existing.slug !== updated.slug) revalidateBlogPaths(existing.slug);
+    revalidateBlogContent();
 
     return { success: true, data: updated };
   } catch (error) {

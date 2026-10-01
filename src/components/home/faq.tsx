@@ -1,14 +1,8 @@
 import Link from "next/link";
+import { PRICING } from "@/app/(web)/pricing/_components/data";
 import { PlusIcon } from "@/components/icons";
-import { CONTACT, OFFICES, PRICING } from "./data";
+import { CONTACT, OFFICES } from "./data";
 import { Accent, Container, Eyebrow, PrimaryButton } from "./primitives";
-
-/**
- * The questions a buyer asks before getting in touch, answered from the
- * company's own FAQ, pricing and contact pages. Native `<details>`, so the
- * section works with no JavaScript, and the same text feeds the page's
- * FAQPage structured data.
- */
 
 export type Faq = {
   question: string;

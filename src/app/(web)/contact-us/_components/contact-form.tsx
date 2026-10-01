@@ -1,8 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useId, useState } from "react";
+import Link from "next/link";
+import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
+import { type Plan, planById } from "@/app/(web)/pricing/_components/data";
 import { Italic } from "@/components/home/primitives";
 import {
   ArrowRightIcon,
@@ -25,11 +27,13 @@ export function ContactForm({ className }: { className?: string }) {
   const emailId = useId();
   const messageId = useId();
   const [sentTo, setSentTo] = useState<string | null>(null);
+  const [plan, setPlan] = useState<Plan>();
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<ContactQuerySchemaValues>({
     resolver: zodResolver(contactQuerySchema),
@@ -37,6 +41,19 @@ export function ContactForm({ className }: { className?: string }) {
   });
 
   const { mutate, isPending, error } = useContactQuerySubmit();
+
+  // Arriving from a plan on /pricing: name the plan in the message.
+  useEffect(() => {
+    const chosen = planById(
+      new URLSearchParams(window.location.search).get("plan"),
+    );
+    if (!chosen) return;
+    setPlan(chosen);
+    setValue(
+      "message",
+      `I'm interested in the ${chosen.name} plan (${chosen.price}${chosen.unit}). `,
+    );
+  }, [setValue]);
 
   const onSubmit = handleSubmit((values) => {
     mutate(values, {
@@ -54,9 +71,10 @@ export function ContactForm({ className }: { className?: string }) {
 
   return (
     <section
+      id="query"
       aria-labelledby={headingId}
       className={cn(
-        "rounded-[28px] border border-neutral-200 bg-white p-6 shadow-[0_30px_70px_-45px_rgba(30,20,10,0.45)] md:p-8",
+        "scroll-mt-28 rounded-[28px] border border-neutral-200 bg-white p-6 shadow-[0_30px_70px_-45px_rgba(30,20,10,0.45)] md:p-8",
         className,
       )}
     >
@@ -67,6 +85,24 @@ export function ContactForm({ className }: { className?: string }) {
       >
         {FORM.title} <Italic>{FORM.accent}</Italic>
       </h2>
+
+      {plan && !sentTo ? (
+        <p className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-[14px] bg-primary/[0.07] px-4 py-3 text-[14px] text-heading ring-1 ring-primary/15">
+          <span>
+            Plan: <span className="font-semibold">{plan.name}</span>{" "}
+            <span className="text-neutral-500">
+              {plan.price}
+              {plan.unit}
+            </span>
+          </span>
+          <Link
+            href="/pricing"
+            className="text-[13px] font-semibold text-brand-deep hover:underline"
+          >
+            Change
+          </Link>
+        </p>
+      ) : null}
 
       {sentTo ? (
         <div

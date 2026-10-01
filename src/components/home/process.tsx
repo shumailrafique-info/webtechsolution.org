@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import { PRICING } from "@/app/(web)/pricing/_components/data";
 import {
   CheckIcon,
   CodeIcon,
@@ -8,7 +9,6 @@ import {
   RocketIcon,
   StrategyIcon,
 } from "@/components/icons";
-import { PRICING } from "./data";
 import {
   Accent,
   Container,
@@ -16,11 +16,6 @@ import {
   Italic,
   SectionHeading,
 } from "./primitives";
-
-/**
- * How a project runs, step by step. Each step lists what happens in it and
- * ends in the one thing it hands to the next - the orange row.
- */
 
 type Step = {
   icon: ComponentType<{ className?: string }>;
@@ -112,7 +107,7 @@ export function Process() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="mt-6 font-display text-[23px] leading-[1.1] font-bold tracking-[-0.025em] text-heading">
+              <h3 className="mt-6 font-display text-[23px] leading-[1.1] font-bold tracking-tight text-heading">
                 {step.title} <Italic>{step.accent}</Italic>
               </h3>
               <p className="mt-2.5 text-[14.5px] leading-[1.6] text-neutral-600">

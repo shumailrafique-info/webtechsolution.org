@@ -258,22 +258,6 @@ export const PRESS: { name: string; logo: string }[] = [
   { name: "NogenTech", logo: "/images/home/press/nogentech.png" },
 ];
 
-export const PRICING = {
-  consultation: { name: "Elite Business Consultation", price: "$349/hour" },
-  launch: {
-    name: "Pro Website Launch",
-    price: "$1,249/month",
-    support: "1 month",
-    bugFree: "2 months",
-  },
-  growth: {
-    name: "Ultimate Growth Package",
-    price: "$2,499/month",
-    support: "3 months",
-    bugFree: "3 months",
-  },
-} as const;
-
 export type Testimonial = {
   quote: string;
   name: string;

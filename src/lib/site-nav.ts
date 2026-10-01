@@ -73,8 +73,4 @@ export const COMPANY_LINKS: NavLink[] = [
 export const RESOURCE_LINKS: NavLink[] = [
   { label: "Pricing", href: "/pricing" },
   { label: "FAQs", href: "/faqs" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Our Projects", href: "/our-projects" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms and Conditions", href: "/terms-and-conditions" },
 ];

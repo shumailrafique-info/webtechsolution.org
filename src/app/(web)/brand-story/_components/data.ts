@@ -139,7 +139,7 @@ export const SERVICES = {
     {
       title: "Digital Marketing with Strategic Depth",
       body: "Relevance over visibility. Learn the business economics, audience, and competition before choosing channels and messaging. Keep every effort tied to measurable progress.",
-      href: "/digital-marketing",
+      href: "/services/digital-marketing",
     },
     {
       title: "SEO as a Long-Term Asset",

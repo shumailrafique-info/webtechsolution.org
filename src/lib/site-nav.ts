@@ -26,8 +26,7 @@ export const SERVICES: NavLink[] = [
   },
   { label: "Email Marketing", href: "/services/email-marketing" },
   { label: "Web Designing", href: "/services/web-designing" },
-  // The live site has this typo in its URL; keeping it preserves that page's
-  // existing rankings and inbound links.
+
   { label: "Web Development", href: "/services/web-develpment" },
   { label: "App Development", href: "/services/app-development" },
   { label: "GMB Listing", href: "/services/gmb" },
@@ -50,7 +49,7 @@ export const MAIN_NAV: NavItem[] = [
   { label: "Our Services", href: "/services", children: SERVICES },
   {
     label: "Digital Marketing",
-    href: "/digital-marketing",
+    href: "/services/digital-marketing",
     children: MARKETING,
   },
   { label: "Case Studies", href: "/case-studies" },

@@ -1,0 +1,212 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { FOUNDED, PROJECTS_DELIVERED } from "@/components/home/data";
+import {
+  Accent,
+  Container,
+  Eyebrow,
+  Italic,
+  PrimaryButton,
+  SecondaryButton,
+  TrustChip,
+} from "@/components/home/primitives";
+import { CalendarIcon, SealCheckIcon, UsersIcon } from "@/components/icons";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { JsonLd } from "@/components/seo/json-ld";
+import { absoluteUrl, breadcrumbList, graph, organizationRef } from "@/lib/seo";
+import {
+  DIGITAL_MARKETING,
+  imageOf,
+  serviceHref,
+  servicesIn,
+} from "../_components/data";
+import { RelatedPosts } from "../_components/related-posts";
+import { ServiceCard } from "../_components/service-card";
+import { ServiceCta } from "../_components/service-cta";
+
+const PATH = "/services/digital-marketing";
+
+export const metadata: Metadata = {
+  title: DIGITAL_MARKETING.metaTitle,
+  description: DIGITAL_MARKETING.metaDescription,
+  alternates: { canonical: PATH },
+  openGraph: {
+    title: DIGITAL_MARKETING.metaTitle,
+    description: DIGITAL_MARKETING.metaDescription,
+    url: PATH,
+  },
+};
+
+const marketing = servicesIn("marketing");
+
+const schema = graph([
+  breadcrumbList([
+    { name: "Home", path: "/" },
+    { name: "Our Services", path: "/services" },
+    { name: "Digital Marketing", path: PATH },
+  ]),
+  {
+    "@type": "Service",
+    "@id": `${absoluteUrl(PATH)}#service`,
+    name: DIGITAL_MARKETING.metaTitle,
+    serviceType: "Digital marketing",
+    description: DIGITAL_MARKETING.metaDescription,
+    url: absoluteUrl(PATH),
+    provider: organizationRef,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Digital marketing services",
+      itemListElement: marketing.map((service) => ({
+        "@type": "Offer",
+        url: absoluteUrl(serviceHref(service.slug)),
+        itemOffered: {
+          "@type": "Service",
+          name: service.name,
+          description: service.summary,
+        },
+      })),
+    },
+  },
+]);
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={schema} />
+
+      <section
+        aria-labelledby="dm-title"
+        className="overflow-hidden bg-white pt-6 pb-16 md:pb-20"
+      >
+        <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Our Services", href: "/services" },
+              { label: "Digital Marketing" },
+            ]}
+            className="mb-0"
+          />
+
+          <div className="mt-10 grid items-center gap-12 md:mt-12 lg:grid-cols-12 lg:gap-x-12">
+            <div className="lg:col-span-7">
+              <Eyebrow className="enter">{DIGITAL_MARKETING.eyebrow}</Eyebrow>
+              <h1
+                id="dm-title"
+                className="enter mt-6 font-display text-[40px] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-heading sm:text-[52px] lg:text-[60px]"
+              >
+                {DIGITAL_MARKETING.title}{" "}
+                <Accent>{DIGITAL_MARKETING.accent}</Accent>
+              </h1>
+              <p className="enter mt-6 max-w-[56ch] text-[17px] leading-[1.7] text-neutral-600 md:text-[18px]">
+                {DIGITAL_MARKETING.intro}
+              </p>
+              <div className="enter mt-9 flex flex-wrap items-center gap-3">
+                <PrimaryButton href="/contact-us#query">
+                  Start a campaign
+                </PrimaryButton>
+                <SecondaryButton href="#channels">See channels</SecondaryButton>
+              </div>
+              <ul className="enter mt-9 flex flex-wrap gap-x-6 gap-y-3">
+                <TrustChip icon={CalendarIcon}>Since {FOUNDED.year}</TrustChip>
+                <TrustChip icon={SealCheckIcon}>
+                  {PROJECTS_DELIVERED} projects delivered
+                </TrustChip>
+                <TrustChip icon={UsersIcon}>
+                  {marketing.length} marketing channels
+                </TrustChip>
+              </ul>
+            </div>
+
+            <div
+              aria-hidden
+              className="enter-image relative grid aspect-square grid-cols-2 gap-3 rounded-[32px] border border-primary/10 bg-brand-tint p-5 lg:col-span-5"
+            >
+              {marketing.slice(0, 4).map((service) => (
+                <div
+                  key={service.slug}
+                  className="relative overflow-hidden rounded-[22px] bg-white/70"
+                >
+                  <Image
+                    src={imageOf(service.slug)}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 18vw, 40vw"
+                    className="object-contain p-5"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section
+        id="channels"
+        aria-labelledby="channels-title"
+        className="scroll-mt-24 border-t border-neutral-200/70 bg-neutral-50 py-20 md:py-24"
+      >
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <Eyebrow>Channels</Eyebrow>
+            <h2
+              id="channels-title"
+              className="mt-5 font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-heading sm:text-[44px]"
+            >
+              Our digital marketing <Accent>services.</Accent>
+            </h2>
+          </div>
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {marketing.map((service) => (
+              <li key={service.slug} className="reveal">
+                <ServiceCard service={service} headingLevel="h3" />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section
+        aria-labelledby="dm-why-title"
+        className="bg-white pt-20 md:pt-28"
+      >
+        <Container className="grid gap-5 lg:grid-cols-2">
+          <div className="reveal rounded-[28px] border border-neutral-200 bg-white p-8 md:p-10">
+            <Eyebrow>{DIGITAL_MARKETING.why.eyebrow}</Eyebrow>
+            <h2
+              id="dm-why-title"
+              className="mt-5 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] text-balance text-heading md:text-[38px]"
+            >
+              {DIGITAL_MARKETING.why.title}{" "}
+              <Accent>{DIGITAL_MARKETING.why.accent}</Accent>
+            </h2>
+            <p className="mt-5 text-[16.5px] leading-[1.7] text-neutral-600">
+              {DIGITAL_MARKETING.why.body}
+            </p>
+          </div>
+          <div className="reveal flex flex-col justify-between rounded-[28px] bg-heading p-8 text-white md:p-10">
+            <h2 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[38px]">
+              {DIGITAL_MARKETING.approach.title}{" "}
+              <Italic className="text-primary">
+                {DIGITAL_MARKETING.approach.accent}
+              </Italic>
+            </h2>
+            <p className="mt-6 text-[17px] leading-[1.7] text-neutral-300">
+              {DIGITAL_MARKETING.approach.body}
+            </p>
+            <p className="mt-8 text-[14px] font-medium text-neutral-400">
+              {DIGITAL_MARKETING.why.badge}
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <RelatedPosts topic="digital marketing" />
+
+      <ServiceCta
+        title="Ready to reach the right audience?"
+        accent="Let’s plan your campaign."
+      />
+    </>
+  );
+}

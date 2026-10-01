@@ -10,7 +10,7 @@ export const WHO_WE_ARE_CLOSING =
 export const SPECIALISMS = [
   { label: "App Development", href: "/services/app-development" },
   { label: "SEO", href: "/services/seo" },
-  { label: "Digital Marketing", href: "/digital-marketing" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
 ];
 
 export const VISION = {

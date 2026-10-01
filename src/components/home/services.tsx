@@ -19,12 +19,6 @@ import {
   SectionHeading,
 } from "./primitives";
 
-/**
- * What the company sells, as a bento. Search is the primary practice, so it
- * takes the large orange card; the others sit around it, each with a small
- * drawing of the thing it produces rather than a stock illustration.
- */
-
 const SEO_INCLUDES = [
   "Keyword research",
   "Technical SEO",
@@ -154,7 +148,7 @@ export function Services() {
               </>
             }
             text="Reach you need now, alongside search work that compounds."
-            href="/digital-marketing"
+            href="/services/digital-marketing"
           >
             <ul className="flex flex-wrap gap-1.5">
               {MARKETING.map((item) => (
@@ -201,7 +195,7 @@ function ServiceCard({
           className="size-5 text-neutral-300 transition-[color,transform] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
         />
       </div>
-      <h3 className="mt-6 font-display text-[24px] leading-tight font-bold tracking-[-0.025em] text-heading">
+      <h3 className="mt-6 font-display text-[24px] leading-tight font-bold tracking-tight text-heading">
         <Link href={href} className="after:absolute after:inset-0">
           {title}
         </Link>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SERVICES } from "@/app/(web)/services/_components/data";
 import { MANAGED_PAGES } from "@/lib/page-content";
 import { absoluteUrl } from "@/lib/seo";
 import { getPublishedPage, getPublishedSitemapEntries } from "@/server/blog";
@@ -76,6 +77,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  const servicePages: MetadataRoute.Sitemap = [
+    "/services",
+    "/services/digital-marketing",
+    ...SERVICES.map((service) => `/services/${service.slug}`),
+  ].map((path) => ({
+    url: absoluteUrl(path),
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: path === "/services" ? 0.8 : 0.7,
+  }));
+
   const listingPages: MetadataRoute.Sitemap = Array.from(
     { length: Math.max(0, totalPages - 1) },
     (_, index) => ({
@@ -100,5 +112,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...listingPages, ...managedPages, ...postPages];
+  return [
+    ...staticPages,
+    ...servicePages,
+    ...listingPages,
+    ...managedPages,
+    ...postPages,
+  ];
 }

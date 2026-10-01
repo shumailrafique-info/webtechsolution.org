@@ -2,10 +2,6 @@ import { ClockIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { CONTACT } from "./data";
 import { Container, Italic, PrimaryButton } from "./primitives";
 
-/**
- * The close of the page: an invitation to a conversation, with every way to
- * reach the company and the hours someone will be there to answer.
- */
 export function FinalCta() {
   return (
     <section
@@ -13,7 +9,7 @@ export function FinalCta() {
       className="bg-white pt-4 pb-4 md:pb-6"
     >
       <Container>
-        <div className="reveal relative overflow-hidden rounded-[32px] bg-heading px-6 py-14 text-white md:px-12 md:py-20 lg:px-16">
+        <div className="reveal relative overflow-hidden rounded-[32px] bg-heading px-6 py-6 sm:px-8 sm:py-8 text-white">
           {/* A single warm light from the corner, nothing more. */}
           <div
             aria-hidden
@@ -47,25 +43,25 @@ export function FinalCta() {
             </div>
 
             <ul className="grid gap-3 lg:col-span-5">
-              <li className="rounded-[20px] border border-white/10 bg-white/[0.04] p-5">
+              <li className="rounded-[20px] border border-white/10 bg-white/4 p-5">
                 <p className="flex items-center gap-2 text-[13px] font-medium text-neutral-400">
                   <MailIcon aria-hidden className="size-4 text-primary" />
                   Email
                 </p>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="mt-2 block font-display text-[18px] font-semibold tracking-[-0.02em] break-words transition-colors hover:text-primary sm:text-[21px] md:text-[23px]"
+                  className="mt-2 block font-display text-[18px] font-semibold tracking-[-0.02em] wrap-break-word transition-colors hover:text-primary sm:text-[21px] md:text-[23px]"
                 >
                   {CONTACT.email}
                 </a>
                 <a
                   href={`mailto:${CONTACT.marketingEmail}`}
-                  className="mt-1 block text-[14.5px] break-words text-neutral-400 transition-colors hover:text-white"
+                  className="mt-1 block text-[14.5px] wrap-break-word text-neutral-400 transition-colors hover:text-white"
                 >
                   {CONTACT.marketingEmail}
                 </a>
               </li>
-              <li className="rounded-[20px] border border-white/10 bg-white/[0.04] p-5">
+              <li className="rounded-[20px] border border-white/10 bg-white/4 p-5">
                 <p className="flex items-center gap-2 text-[13px] font-medium text-neutral-400">
                   <PhoneIcon aria-hidden className="size-4 text-primary" />
                   Phone

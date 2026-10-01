@@ -3,6 +3,7 @@ import {
   BookOpenIcon,
   FileTextIcon,
   InboxIcon,
+  MailIcon,
   PlusIcon,
   QuestionIcon,
   UsersIcon,
@@ -91,7 +92,7 @@ export default async function Page() {
       </div>
 
       <div className="space-y-8 px-6 py-6 sm:px-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <StatCard
             label="Blog posts"
             value={stats.blogs.total}
@@ -123,6 +124,17 @@ export default async function Page() {
             }
             icon={<InboxIcon className="size-5" />}
             href="/admin/ideas"
+          />
+          <StatCard
+            label="Contact queries"
+            value={stats.queries.total}
+            detail={
+              stats.queries.unread > 0
+                ? `${stats.queries.unread} unread`
+                : "all read"
+            }
+            icon={<MailIcon className="size-5" />}
+            href="/admin/queries"
           />
           <StatCard
             label="Users"

@@ -9,6 +9,7 @@ import {
   FileTextIcon,
   ImageIcon,
   InboxIcon,
+  MailIcon,
   TerminalIcon,
 } from "@/components/icons";
 import {
@@ -43,6 +44,11 @@ const data = {
       title: "Ideas",
       url: "/admin/ideas",
       icon: <InboxIcon />,
+    },
+    {
+      title: "Contact Queries",
+      url: "/admin/queries",
+      icon: <MailIcon />,
     },
     {
       title: "Page Content",

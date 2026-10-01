@@ -16,7 +16,6 @@ const Loader = ({
 }: LoaderProps) => {
   return (
     <div
-      role="status"
       aria-live="polite"
       className={cn(
         fullScreen && "min-h-screen flex items-center justify-center",

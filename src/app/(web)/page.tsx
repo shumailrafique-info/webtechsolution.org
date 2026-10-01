@@ -3,6 +3,7 @@ import { Clients } from "@/components/home/clients";
 import { Faq } from "@/components/home/faq";
 import { FinalCta } from "@/components/home/final-cta";
 import { Hero } from "@/components/home/hero";
+import { LatestPosts } from "@/components/home/latest-posts";
 import { Offices } from "@/components/home/offices";
 import { People } from "@/components/home/people";
 import { Press } from "@/components/home/press";
@@ -24,6 +25,7 @@ export default function Home() {
       <People />
       <Testimonials />
       <Offices />
+      <LatestPosts />
       <Faq />
       <FinalCta />
     </>

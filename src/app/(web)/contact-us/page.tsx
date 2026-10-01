@@ -9,21 +9,22 @@ import {
 import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import { ContactForm } from "./_components/contact-form";
 import { HEAD_OFFICE_MAP, INTRO } from "./_components/data";
 
 const TITLE = "Contact Us";
 const PATH = "/contact-us";
-const DESCRIPTION =
-  "Talk to WebTech Solutions about SEO, web and app development or digital marketing. Email, call or send us your query — Monday to Saturday, 9am to 5pm.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: "Contact Us - Grow Your Business With WebTech Solutions",
+  description:
+    "WebTech Solutions provides free website audit, content writing, app development, web design and digital marketing services.",
+  path: "/contact-us",
+  cardTitle: "Let’s talk about your digital growth",
+  eyebrow: "Contact us",
+});
 
 const schema = graph([
   breadcrumbList([

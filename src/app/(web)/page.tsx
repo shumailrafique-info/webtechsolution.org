@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Approach } from "@/components/home/approach";
 import { Clients } from "@/components/home/clients";
 import { Faq } from "@/components/home/faq";
@@ -11,6 +12,16 @@ import { Process } from "@/components/home/process";
 import { Services } from "@/components/home/services";
 import { Stats } from "@/components/home/stats";
 import { Testimonials } from "@/components/home/testimonials";
+import { pageMetadata } from "@/lib/metadata";
+import { SITE_TAGLINE, SITE_TITLE } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: SITE_TITLE,
+  description: SITE_TAGLINE,
+  path: "/",
+  cardTitle: "Be the business people find first.",
+  eyebrow: "Since 2013",
+});
 
 export default function Home() {
   return (

@@ -18,6 +18,7 @@ import {
 } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import { ComparisonTable } from "./_components/comparison-table";
 import { PARTNERS, PLANS, PRICING_FAQS, planHref } from "./_components/data";
@@ -25,14 +26,15 @@ import { PlanCard } from "./_components/plan-card";
 
 const TITLE = "Pricing";
 const PATH = "/pricing";
-const DESCRIPTION = `WebTech Solutions pricing: ${PLANS.map((plan) => `${plan.name} ${plan.price}${plan.unit}`).join(", ")}. Choose the plan that fits your business growth.`;
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: "Pricing - WebTech Solutions – SEO & Digital Marketing Agency",
+  description:
+    "WebTech Solutions pricing: Elite Business Consultation $349/hour, Pro Website Launch $1,249/month and Ultimate Growth Package $2,499/month. Choose the plan that fits your growth.",
+  path: "/pricing",
+  cardTitle: "Pricing plans built for your business",
+  eyebrow: "Pricing",
+});
 
 const schema = graph([
   breadcrumbList([

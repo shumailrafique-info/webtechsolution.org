@@ -13,6 +13,7 @@ import {
   SearchIcon,
 } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { pageMetadata as buildPageMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import { getPublishedPage } from "@/server/blog";
 import {
@@ -44,10 +45,15 @@ export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
   const { query } = await readParams(searchParams);
-  return {
+  return buildPageMetadata({
     title: query ? `Search results for “${query}”` : "Search",
-    robots: { index: false, follow: true },
-  };
+    description:
+      "Search every published article on the WebTech Solutions blog.",
+    path: "/search",
+    cardTitle: "Search the blog",
+    eyebrow: "Search",
+    noindex: true,
+  });
 }
 
 function resultsHref(query: string, sort: SearchSort, page = 1) {

@@ -13,6 +13,7 @@ import {
 import { CalendarIcon, SealCheckIcon, UsersIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl, breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import {
   DIGITAL_MARKETING,
@@ -26,16 +27,14 @@ import { ServiceCta } from "../_components/service-cta";
 
 const PATH = "/services/digital-marketing";
 
-export const metadata: Metadata = {
-  title: DIGITAL_MARKETING.metaTitle,
-  description: DIGITAL_MARKETING.metaDescription,
-  alternates: { canonical: PATH },
-  openGraph: {
-    title: DIGITAL_MARKETING.metaTitle,
-    description: DIGITAL_MARKETING.metaDescription,
-    url: PATH,
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: "Digital Marketing Solutions Provider - WebTech Solutions",
+  description:
+    "WebTech Solutions offers tailored digital marketing solutions, and we create custom strategies for each of our clients based on their goals.",
+  path: "/services/digital-marketing",
+  cardTitle: "Digital marketing solutions built around your goals",
+  eyebrow: "Digital marketing",
+});
 
 const marketing = servicesIn("marketing");
 

@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "@/components/ui/toast";
-import { serverEnv } from "@/env/server";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
+import { ogImagePath } from "@/lib/metadata";
+import {
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_TITLE,
+  SITE_URL,
+  TWITTER_HANDLE,
+} from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import Providers from "@/providers";
 import "./globals.css";
@@ -23,12 +29,34 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(serverEnv.BETTER_AUTH_URL),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: SITE_NAME,
+    default: SITE_TITLE,
     template: `%s - ${SITE_NAME}`,
   },
   description: SITE_TAGLINE,
+  applicationName: SITE_NAME,
+  publisher: SITE_NAME,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_TAGLINE,
+    images: [{ url: ogImagePath(), width: 1200, height: 630, alt: SITE_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: TWITTER_HANDLE,
+    title: SITE_TITLE,
+    description: SITE_TAGLINE,
+    images: [ogImagePath()],
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: `${SITE_NAME} Blog` }],
+    },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

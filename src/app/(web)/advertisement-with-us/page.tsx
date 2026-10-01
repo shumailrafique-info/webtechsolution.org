@@ -27,6 +27,7 @@ import {
 } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import {
@@ -42,15 +43,16 @@ import {
 
 const TITLE = "Advertise With Us";
 const PATH = "/advertisement-with-us";
-const DESCRIPTION =
-  "Advertise with WebTech Solutions: sponsored articles, brand placements and banner spots for readers who care about SEO, marketing, blogging and tech.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle:
+    "Advertise With WebTech Solutions | Sponsorship & Brand Placement",
+  description:
+    "Advertise on WebTech Solutions. Explore sponsored posts, brand placements, banners, and custom packages for SEO, marketing, blogging, and tech audiences.",
+  path: "/advertisement-with-us",
+  cardTitle: "Advertise with WebTech Solutions",
+  eyebrow: "Advertising",
+});
 
 const schema = graph([
   breadcrumbList([

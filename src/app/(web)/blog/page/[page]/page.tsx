@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { BlogIndex } from "@/app/(web)/blog/_components/blog-index";
+import { pageMetadata } from "@/lib/metadata";
 import { getPublishedPage } from "@/server/blog";
-import { ogImagePath } from "@/server/page-metadata";
 
 type Props = { params: Promise<{ page: string }> };
 
@@ -23,28 +23,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = parsePage(raw);
   if (!page) return { robots: { index: false, follow: false } };
 
-  const title = `Blog - Page ${page}`;
-  const url = `/blog/page/${page}`;
-
-  return {
-    title,
+  return pageMetadata({
+    absoluteTitle: `WebTech Solutions: SEO & Digital Marketing Blog - Page ${page}`,
     description:
-      "Notes on web development, design and the tools we build with.",
-    alternates: { canonical: url },
-    robots: { index: true, follow: true },
-    openGraph: {
-      type: "website",
-      siteName: "Web Tech Solutions",
-      title,
-      url,
-      images: [{ url: ogImagePath("Blog"), width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      images: [ogImagePath("Blog")],
-    },
-  };
+      "The latest SEO, web development and digital marketing insights from WebTech Solutions. Stay updated with our experts’ opinions and advice.",
+    path: `/blog/page/${page}`,
+    cardTitle: "Insights to help your business get found",
+    eyebrow: `Blog · Page ${page}`,
+  });
 }
 
 export default async function Page({ params }: Props) {

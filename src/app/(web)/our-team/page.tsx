@@ -26,19 +26,21 @@ import {
 import { CalendarIcon, SealCheckIcon, UsersIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph, ORGANIZATION_ID } from "@/lib/seo";
 
 const TITLE = "Our Team";
 const PATH = "/our-team";
 const PEOPLE = TEAM_MEMBERS.length + 1;
-const DESCRIPTION = `Meet the ${PEOPLE} people behind WebTech Solutions: SEO, content, development, design and marketing specialists led by founder ${FOUNDER.name} since ${FOUNDED.year}.`;
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: "WebTech Solutions Team - Strategy & Digital Specialists",
+  description:
+    "Meet the team behind WebTech Solutions. Led by Founder & CEO Fawad Mohsin, our experienced digital experts work together to deliver trusted results.",
+  path: "/our-team",
+  cardTitle: "The people behind every project",
+  eyebrow: "Our team",
+});
 
 /** Applications go by email, as the company's FAQ asks. */
 const JOIN_HREF = `mailto:${CONTACT.email}?subject=${encodeURIComponent("Joining WebTech Solutions")}`;

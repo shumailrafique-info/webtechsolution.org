@@ -12,6 +12,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { db } from "@/drizzle/db";
 import { blog } from "@/drizzle/schema";
 import { BLOG_PROSE } from "@/lib/blogProse";
+import { pageMetadata } from "@/lib/metadata";
 import { prepareProseHtml } from "@/lib/prose-html";
 import {
   absoluteUrl,
@@ -21,7 +22,6 @@ import {
   webSiteRef,
 } from "@/lib/seo";
 import { getPublishedPost } from "@/server/blog";
-import { ogImagePath } from "@/server/page-metadata";
 import { IdeaBox } from "../_components/idea-box";
 import { PostCard, postDate } from "../_components/post-card";
 import { TableOfContents } from "../_components/table-of-contents";
@@ -40,32 +40,21 @@ export async function generateMetadata({
 
   const title = post.meta_title || post.title;
   const description = post.meta_description || post.excerpt;
-  const url = `/blog/${post.slug}`;
 
-  const image = post.cover_image?.url ?? ogImagePath(title, description);
-
-  return {
-    title,
+  return pageMetadata({
+    absoluteTitle: title,
     description,
-    alternates: { canonical: url },
-    robots: { index: true, follow: true },
-    openGraph: {
-      type: "article",
-      siteName: "Web Tech Solutions",
-      title,
-      description,
-      url,
-      publishedTime: post.published_at?.toISOString(),
-      modifiedTime: post.updated_at.toISOString(),
-      images: [{ url: image, alt: post.image_alt || title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
-    },
-  };
+    path: `/blog/${post.slug}`,
+    image: post.cover_image?.url
+      ? { url: post.cover_image.url, alt: post.image_alt || title }
+      : undefined,
+    cardTitle: post.title,
+    eyebrow: "Blog",
+    type: "article",
+    publishedTime: post.published_at?.toISOString(),
+    modifiedTime: post.updated_at.toISOString(),
+    authors: post.author ? [post.author.name] : undefined,
+  });
 }
 
 export default async function Page({

@@ -27,6 +27,7 @@ export type Service = {
   group: ServiceGroup;
   icon: ComponentType<{ className?: string }>;
   summary: string;
+  /** The full SEO title, as the live site used it. */
   metaTitle: string;
   metaDescription: string;
   hero: { title: string; accent: string; intro: string };
@@ -76,7 +77,7 @@ export const SERVICES: Service[] = [
     icon: SearchIcon,
     summary:
       "Improve your search rankings with tailored SEO strategies that drive organic traffic and conversions.",
-    metaTitle: "SEO Services",
+    metaTitle: "Affordable SEO Services - WebTech Solutions",
     metaDescription:
       "Boost your online presence with our professional SEO services. We drive traffic and help your business grow through SEO strategies.",
     hero: {
@@ -153,7 +154,7 @@ export const SERVICES: Service[] = [
     icon: PenNibIcon,
     summary:
       "Deliver compelling, SEO-friendly content that informs and converts.",
-    metaTitle: "SEO Content Writing Services",
+    metaTitle: "Best SEO Content Writing Services - WebTech Solutions",
     metaDescription:
       "Expert writers at WebTech Solutions write appealing, high-quality, and SEO-friendly content according to our clients’ target audience.",
     hero: {
@@ -199,7 +200,7 @@ export const SERVICES: Service[] = [
     group: "core",
     icon: LinkIcon,
     summary: "Ethical link-building campaigns that boost SEO performance.",
-    metaTitle: "White Label Link Building Services",
+    metaTitle: "Scalable White Label Link Building Services (13+ Years)",
     metaDescription:
       "Partner with a trusted white label link building team. Editorial links, digital PR, and long-term SEO growth backed by 13+ years.",
     hero: {
@@ -272,7 +273,7 @@ export const SERVICES: Service[] = [
     icon: ShareIcon,
     summary:
       "Engage, inspire, and convert audiences through impactful social media storytelling.",
-    metaTitle: "Social Media Marketing Services",
+    metaTitle: "Social Media Marketing Services - WebTech Solutions",
     metaDescription:
       "WebTech Solutions creates data-driven social media strategies and campaigns to increase brand visibility and drive traffic.",
     hero: {
@@ -319,7 +320,7 @@ export const SERVICES: Service[] = [
     icon: MailIcon,
     summary:
       "Nurture leads and build loyalty with personalized email campaigns.",
-    metaTitle: "Email Marketing Services",
+    metaTitle: "Email Marketing Services - WebTech Solutions",
     metaDescription:
       "WebTech Solutions’ email marketing service includes writing email content, audience segmentation and optimizing campaigns for better engagement.",
     hero: {
@@ -364,7 +365,7 @@ export const SERVICES: Service[] = [
     group: "core",
     icon: PencilRulerIcon,
     summary: "Modern, user-focused designs that elevate your online presence.",
-    metaTitle: "Web Designing Services",
+    metaTitle: "Web Designing Services - WebTech Solutions",
     metaDescription:
       "We create visually stunning, user-friendly, and responsive websites that provide a seamless user experience and drive business growth.",
     hero: {
@@ -413,7 +414,7 @@ export const SERVICES: Service[] = [
     icon: CodeIcon,
     summary:
       "Create fast, secure, and scalable websites built for performance.",
-    metaTitle: "Web Development Services",
+    metaTitle: "Web Development Services - WebTech Solutions",
     metaDescription:
       "Take your business to an advanced level using the professional web development services of WebTech Solutions and generate more revenue.",
     hero: {
@@ -461,7 +462,7 @@ export const SERVICES: Service[] = [
     icon: DeviceMobileIcon,
     summary:
       "Transform ideas into powerful mobile apps with seamless functionality.",
-    metaTitle: "Custom App Development Services",
+    metaTitle: "Custom App Development Services - WebTech Solutions",
     metaDescription:
       "Build custom Android and iOS apps with WebTech Solutions. We develop secure, scalable, and business-focused mobile applications tailored to your goals.",
     hero: {
@@ -507,7 +508,7 @@ export const SERVICES: Service[] = [
     icon: MapPinIcon,
     summary:
       "Attract nearby customers with a polished and professional GMB presence.",
-    metaTitle: "Google My Business Listing Services",
+    metaTitle: "Google My Business Listing Services | Rank Higher Locally",
     metaDescription:
       "Optimize your Google My Business listing to boost local SEO rankings, attract customers, and grow your business with our expert GMB services.",
     hero: {
@@ -553,7 +554,7 @@ export const SERVICES: Service[] = [
     icon: FileTextIcon,
     summary:
       "Build authority with strategic content campaigns that attract and convert.",
-    metaTitle: "Content Marketing Services",
+    metaTitle: "Content Marketing Services - WebTech Solutions",
     metaDescription:
       "Boost brand visibility, engage your audience, and drive conversions with our expert content marketing services tailored for growth.",
     hero: {
@@ -599,7 +600,7 @@ export const SERVICES: Service[] = [
     icon: CursorClickIcon,
     summary:
       "Generate instant leads with targeted PPC campaigns designed for ROI.",
-    metaTitle: "Pay-Per-Click (PPC) Advertising Services",
+    metaTitle: "Pay-Per-Click (PPC) Advertising - WebTech Solutions",
     metaDescription:
       "WebTech Solutions designs PPC campaigns that maximize results while minimizing costs through keyword research and ad optimization.",
     hero: {
@@ -648,7 +649,7 @@ export const SERVICES: Service[] = [
     icon: GoogleIcon,
     summary:
       "Reach your ideal customers with expertly managed Google Ads campaigns.",
-    metaTitle: "Google Ads Management Services",
+    metaTitle: "Google Ads Management Services - WebTech Solutions",
     metaDescription:
       "Our team specializes in keyword research, ad optimization, and budget management to maximize your brand’s ROI with Google Ads.",
     hero: {
@@ -695,7 +696,7 @@ export const SERVICES: Service[] = [
     group: "marketing",
     icon: HandshakeIcon,
     summary: "Drive sales through trusted affiliate networks and strategies.",
-    metaTitle: "Affiliate Marketing Services",
+    metaTitle: "Affiliate Marketing Services - WebTech Solutions",
     metaDescription:
       "WebTech Solutions designs and manages high-converting affiliate marketing programs tailored to your business to drive sustainable growth.",
     hero: {
@@ -742,7 +743,7 @@ export const SERVICES: Service[] = [
     group: "marketing",
     icon: VideoIcon,
     summary: "Tell your story with impactful videos that drive engagement.",
-    metaTitle: "Video Marketing Services",
+    metaTitle: "Video Marketing Services - WebTech Solutions",
     metaDescription:
       "WebTech Solutions creates quality, engaging video content strategies that align with your brand’s message and goals.",
     hero: {
@@ -790,7 +791,7 @@ export const SERVICES: Service[] = [
     icon: MegaphoneIcon,
     summary:
       "Reach customers on the go with mobile-first marketing strategies.",
-    metaTitle: "Mobile Marketing Services",
+    metaTitle: "Mobile Marketing Services - WebTech Solutions",
     metaDescription:
       "WebTech Solutions helps you design mobile marketing strategies that ensure your brand effectively reaches mobile users.",
     hero: {

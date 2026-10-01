@@ -6,18 +6,29 @@ export type WithContext<T extends Thing> = T & {
   "@context": "https://schema.org";
 };
 
-export const SITE_NAME = "Web Tech Solutions";
+export const SITE_NAME = "WebTech Solutions";
+export const SITE_TITLE = "WebTech Solutions – SEO & Digital Marketing Agency";
 export const SITE_TAGLINE =
-  "Web development, design and digital solutions for growing businesses";
+  "Founded on 1st January 2013, WebTech Solutions provides app development, SEO, and digital marketing services to help businesses grow online.";
+export const TWITTER_HANDLE = "@WebtechSolutio7";
 
-export const SITE_URL = serverEnv.BETTER_AUTH_URL;
+export const SOCIAL_PROFILES = [
+  "https://www.facebook.com/webtechsolutions7",
+  "https://x.com/WebtechSolutio7",
+  "https://www.instagram.com/webtechsolution77/",
+  "https://www.linkedin.com/company/webtechsolution7",
+  "https://www.youtube.com/@webtechsolution9638",
+];
+
+export const SITE_URL = serverEnv.BETTER_AUTH_URL.replace(/\/+$/, "");
+export const SITE_DOMAIN = new URL(SITE_URL).host.replace(/^www\./, "");
 
 export function absoluteUrl(path: string) {
-  return new URL(path, SITE_URL).toString();
+  return new URL(path, `${SITE_URL}/`).toString();
 }
 
-export const ORGANIZATION_ID = `${SITE_URL}#organization`;
-export const WEBSITE_ID = `${SITE_URL}#website`;
+export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const organizationRef = { "@id": ORGANIZATION_ID };
 export const webSiteRef = { "@id": WEBSITE_ID };

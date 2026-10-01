@@ -11,20 +11,21 @@ import {
 import { ArrowUpRightIcon, MailIcon, PlusIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
 import { FAQ_GROUPS, INTRO, MORE_ANSWERS } from "./_components/data";
 
 const TITLE = "FAQs";
 const PATH = "/faqs";
-const DESCRIPTION =
-  "Answers to common questions about SEO, our services, learning SEO, joining WebTech Solutions and submissions.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: "FAQs - WebTech Solutions – SEO & Digital Marketing Agency",
+  description:
+    "Answers to common questions about SEO, our services, learning SEO with WebTech Solutions, joining the team and submissions.",
+  path: "/faqs",
+  cardTitle: "Frequently asked questions",
+  eyebrow: "FAQs",
+});
 
 const schema = graph([
   breadcrumbList([

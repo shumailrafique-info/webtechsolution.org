@@ -13,6 +13,7 @@ import {
 import { CalendarIcon, FileTextIcon, SealCheckIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
 import { CaseStudyStory } from "./_components/case-study-story";
 import { CASE_STUDIES } from "./_components/data";
@@ -20,15 +21,16 @@ import { LogoWall } from "./_components/logo-wall";
 
 const TITLE = "Case Studies";
 const PATH = "/case-studies";
-const DESCRIPTION =
-  "How WebTech Solutions has helped publishers and businesses grow their search visibility: the problem, what we did, and what changed.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle:
+    "Case Studies - WebTech Solutions – SEO & Digital Marketing Agency",
+  description:
+    "Real projects from WebTech Solutions: the problem each business came with, what we did, and what changed in their search visibility and traffic.",
+  path: "/case-studies",
+  cardTitle: "Work that got businesses found",
+  eyebrow: "Case studies",
+});
 
 const schema = graph([
   breadcrumbList([

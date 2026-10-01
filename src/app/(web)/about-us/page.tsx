@@ -22,6 +22,7 @@ import { Stats } from "@/components/home/stats";
 import { BuildingsIcon, CalendarIcon, SealCheckIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import {
   ABOUT_TEAM,
@@ -35,15 +36,16 @@ import { TeamBioCard } from "./_components/team-bio-card";
 
 const TITLE = "About Us";
 const PATH = "/about-us";
-const DESCRIPTION =
-  "WebTech Solutions is a digital agency founded on 1st January 2013, specializing in App Development, SEO, and Digital Marketing for businesses in Pakistan, the UK, Spain and the USA.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle:
+    "About WebTech Solutions - Established Digital Agency Since 2013",
+  description:
+    "WebTech Solutions is a recognized digital agency founded in 2013, delivering expert SEO, app development, and digital marketing services.",
+  path: "/about-us",
+  cardTitle: "Market-leading digital agency expertise",
+  eyebrow: "About us",
+});
 
 const schema = graph([
   breadcrumbList([

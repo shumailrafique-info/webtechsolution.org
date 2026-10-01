@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { pageMetadata } from "@/lib/metadata";
 import { SERVICES, serviceBySlug, serviceHref } from "../_components/data";
 import { ServiceDetail } from "../_components/service-detail";
 
@@ -16,17 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = serviceBySlug(slug);
   if (!service) return {};
 
-  const url = serviceHref(service.slug);
-  return {
-    title: service.metaTitle,
+  return pageMetadata({
+    absoluteTitle: service.metaTitle,
     description: service.metaDescription,
-    alternates: { canonical: url },
-    openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
-      url,
-    },
-  };
+    path: serviceHref(service.slug),
+    cardTitle: `${service.hero.title} ${service.hero.accent}`,
+    eyebrow:
+      service.group === "marketing" ? "Digital marketing" : "Our services",
+  });
 }
 
 export default async function Page({ params }: Props) {

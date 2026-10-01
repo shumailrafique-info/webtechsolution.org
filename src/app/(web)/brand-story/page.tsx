@@ -22,6 +22,7 @@ import {
 } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { Chapter, ChapterNav } from "./_components/chapter";
@@ -39,15 +40,16 @@ import {
 
 const TITLE = "Brand Story";
 const PATH = "/brand-story";
-const DESCRIPTION =
-  "The story of WebTech Solutions: a strategy-first digital agency founded in 2013 by Fawad Mohsin, built on restraint, discipline and responsibility.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle:
+    "Brand Story of WebTech Solutions | Strategy-First Digital Agency",
+  description:
+    "Read the brand story of WebTech Solutions. Founded in 2013 by Fawad Mohsin, we help startups and growing businesses build strategy-driven digital systems with clarity and responsibility.",
+  path: "/brand-story",
+  cardTitle: "A brand built where strategy meets responsibility",
+  eyebrow: "Brand story",
+});
 
 const schema = graph([
   breadcrumbList([

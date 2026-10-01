@@ -21,6 +21,7 @@ import {
 } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl, breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import {
   GROUPS,
@@ -36,15 +37,16 @@ import { ServiceCta } from "./_components/service-cta";
 
 const TITLE = "Our Services";
 const PATH = "/services";
-const DESCRIPTION =
-  "WebTech Solutions offers tailored digital marketing solutions, including SEO, PPC, social media, web and app development, and expert online strategies.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: PATH },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH },
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle:
+    "Complete SEO and App Development Services - Expert Strategies",
+  description:
+    "WebTech Solutions offers tailored digital marketing solutions, including SEO, PPC, social media, app development, and expert online strategies.",
+  path: "/services",
+  cardTitle: "Accelerate your growth with expert digital marketing",
+  eyebrow: "Our services",
+});
 
 const schema = graph([
   breadcrumbList([

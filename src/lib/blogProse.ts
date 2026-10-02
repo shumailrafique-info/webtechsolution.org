@@ -20,6 +20,7 @@ export const BLOG_PROSE = [
   "prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg",
   "prose-a:font-medium prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-foreground",
   "prose-blockquote:rounded-r-md prose-blockquote:bg-muted/60 prose-blockquote:py-1 prose-blockquote:pr-4 prose-blockquote:not-italic",
+  "[&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none",
   "prose-code:rounded prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none",
   "prose-pre:rounded-lg prose-pre:border prose-pre:border-border",
   "prose-th:text-foreground",

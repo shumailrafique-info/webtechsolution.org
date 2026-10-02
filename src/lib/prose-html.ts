@@ -10,11 +10,39 @@ export function slugifyHeading(text: string) {
     .slice(0, 80);
 }
 
+const NAMED_ENTITIES: Record<string, string> = {
+  nbsp: " ",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  lsquo: "‘",
+  rsquo: "’",
+  ldquo: "“",
+  rdquo: "”",
+  ndash: "–",
+  mdash: "—",
+  hellip: "…",
+  copy: "©",
+  reg: "®",
+  trade: "™",
+};
+
+function decodeEntities(text: string) {
+  return text
+    .replace(/&#x([0-9a-f]+);/gi, (_m, hex: string) =>
+      String.fromCodePoint(Number.parseInt(hex, 16)),
+    )
+    .replace(/&#(\d+);/g, (_m, dec: string) =>
+      String.fromCodePoint(Number(dec)),
+    )
+    .replace(/&([a-z]+);/gi, (m, name: string) => NAMED_ENTITIES[name] ?? m)
+    .replace(/&amp;/g, "&");
+}
+
 function stripTags(html: string) {
   return html
     .replace(/<[^>]*>/g, "")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -39,8 +67,9 @@ export function prepareProseHtml(html: string): {
     (_m, level: string, attrs: string | undefined, inner: string) => {
       if (attrs && /\sid="/.test(attrs)) return _m;
 
-      const text = stripTags(inner);
-      const base = slugifyHeading(text) || "section";
+      const raw = stripTags(inner);
+      const text = decodeEntities(raw).replace(/\s+/g, " ").trim();
+      const base = slugifyHeading(raw) || "section";
       const count = seen.get(base) ?? 0;
       seen.set(base, count + 1);
       const id = count === 0 ? base : `${base}-${count + 1}`;

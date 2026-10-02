@@ -1,12 +1,14 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { BuildingsIcon, CalendarIcon, SealCheckIcon } from "@/components/icons";
 import {
-  BuildingsIcon,
-  CalendarIcon,
-  MapPinIcon,
-  SealCheckIcon,
-} from "@/components/icons";
-import { CONTACT, FOUNDED, OFFICES, PROJECTS_DELIVERED, TEAM } from "./data";
+  CONTACT,
+  FOUNDED,
+  FOUNDER,
+  OFFICES,
+  PROJECTS_DELIVERED,
+  TEAM,
+} from "./data";
 import {
   Accent,
   Container,
@@ -117,39 +119,55 @@ export function Hero() {
           </ul>
         </div>
 
-        <figure className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
-          <div
-            className="enter-image relative aspect-5/4 overflow-hidden rounded-[28px] sm:aspect-4/5 bg-neutral-200 shadow-[0_30px_70px_-35px_rgba(30,20,10,0.45)]"
+        <div className="relative mx-auto grid w-full max-w-md grid-cols-12 gap-2 sm:gap-4 lg:col-span-5 lg:max-w-none">
+          <figure
+            className="enter-image relative col-span-7 aspect-4/5 pt-8"
             style={delay(150)}
           >
             <Image
-              src="/images/home/studio.webp"
-              alt="Fawad Mohsin, founder of WebTech Solutions, working at a laptop with a member of the team"
+              src="/images/home/hero-founder.webp"
+              alt={`${FOUNDER.name}, founder of WebTech Solutions`}
               fill
               priority
-              sizes="(min-width: 1024px) 40vw, (min-width: 448px) 28rem, 100vw"
-              className="object-cover object-[50%_35%]"
+              sizes="(min-width: 1024px) 300px, (min-width: 448px) 260px, 58vw"
+              className="rounded-b-[26px] object-contain object-bottom"
             />
+          </figure>
+
+          <div
+            className="enter col-span-5 mt-auto flex flex-col justify-end rounded-[22px] border border-neutral-200 bg-white p-4 h-fit sm:p-5"
+            style={delay(300)}
+          >
+            <p className="font-display text-[40px] leading-none font-bold tracking-tighter text-heading sm:text-[54px]">
+              {PROJECTS_DELIVERED}
+            </p>
+            <p className="mt-3 text-[13px] leading-snug text-neutral-600 sm:text-[14px]">
+              Successful projects powered by experience
+            </p>
+            <span
+              aria-hidden
+              className="mt-4 block h-1 overflow-hidden rounded-full bg-neutral-100"
+            >
+              <span className="block h-full w-1/5 rounded-full bg-primary" />
+            </span>
           </div>
 
           <div
-            className="enter relative z-10 mx-3 -mt-10 w-fit rounded-2xl border border-neutral-200 bg-white p-4 shadow-[0_18px_40px_-20px_rgba(30,20,10,0.35)] sm:absolute sm:bottom-14 sm:-left-8 sm:mx-0 sm:mt-0 lg:-left-12"
-            style={delay(560)}
+            className="enter relative col-span-12 aspect-588/216 overflow-hidden rounded-[22px] bg-neutral-950"
+            style={delay(420)}
           >
-            <p className="flex items-center gap-1.5 text-[12px] font-medium text-neutral-500">
-              <MapPinIcon aria-hidden className="size-3.5 text-primary" />
-              Offices in
+            <Image
+              src="/images/home/hero-traffic.webp"
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 480px, (min-width: 448px) 28rem, 100vw"
+              className="object-cover"
+            />
+            <p className="relative flex h-full max-w-[58%] items-center pl-5 font-display text-[17px] leading-tight font-semibold tracking-[-0.02em] text-white sm:pl-7 sm:text-[24px]">
+              Drive more traffic and product sales
             </p>
-            <ul className="mt-2 grid grid-cols-2 gap-x-5 gap-y-1 font-display text-[15px] font-semibold tracking-[-0.01em] text-heading">
-              {OFFICES.map((office) => (
-                <li key={office.city}>{office.city}</li>
-              ))}
-            </ul>
           </div>
-          <figcaption className="mt-3 text-right text-[13px] text-neutral-500">
-            Fawad Mohsin, founder, at work with the team
-          </figcaption>
-        </figure>
+        </div>
       </Container>
     </section>
   );

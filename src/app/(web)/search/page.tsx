@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PostCard } from "@/app/(web)/blog/_components/post-card";
-import {
-  Accent,
-  Container,
-  Eyebrow,
-  Italic,
-} from "@/components/home/primitives";
+import { Accent, Container, Eyebrow } from "@/components/home/primitives";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -254,7 +249,7 @@ export default async function Page({ searchParams }: Props) {
                 ) : (
                   <>
                     <h2 className="font-display text-[24px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[28px]">
-                      What are you <Italic>looking for?</Italic>
+                      What are you looking for?
                     </h2>
                     <p className="mt-2 text-[15.5px] leading-[1.6] text-neutral-600">
                       Search every published article, or start from a topic.

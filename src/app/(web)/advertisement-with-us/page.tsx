@@ -5,7 +5,6 @@ import {
   Container,
   Eyebrow,
   IconBadge,
-  Italic,
   PrimaryButton,
   SecondaryButton,
 } from "@/components/home/primitives";
@@ -154,7 +153,7 @@ export default function Page() {
                   id="media-kit-title"
                   className="font-display text-[26px] leading-tight font-bold tracking-[-0.035em] text-heading"
                 >
-                  {MEDIA_KIT.title} <Italic>{MEDIA_KIT.accent}</Italic>
+                  {MEDIA_KIT.title} {MEDIA_KIT.accent}
                 </h2>
                 <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[12px] font-semibold text-brand-deep ring-1 ring-primary/20">
                   {MEDIA_KIT.note}
@@ -297,7 +296,7 @@ export default function Page() {
 
           <div className="reveal mt-14 flex flex-wrap items-end justify-between gap-4 border-b border-neutral-200 pb-6">
             <h3 className="font-display text-[28px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[34px]">
-              Other advertisement <Italic>opportunities</Italic>
+              Other advertisement opportunities
             </h3>
             <span className="rounded-full bg-neutral-100 px-3 py-1 text-[13px] font-semibold text-neutral-600">
               Extra
@@ -335,9 +334,7 @@ export default function Page() {
                 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[42px]"
               >
                 {BRIEF.title}{" "}
-                <Italic className="font-medium text-primary">
-                  {BRIEF.accent}
-                </Italic>
+                <span className="text-primary">{BRIEF.accent}</span>
               </h2>
               <p className="mt-3 max-w-[56ch] text-[16.5px] leading-[1.65] text-neutral-400">
                 {BRIEF.body}

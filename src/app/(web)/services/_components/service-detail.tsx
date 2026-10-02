@@ -6,7 +6,6 @@ import {
   Container,
   Eyebrow,
   IconBadge,
-  Italic,
   PrimaryButton,
   SecondaryButton,
   TrustChip,
@@ -179,7 +178,7 @@ export function ServiceDetail({ service }: { service: Service }) {
 
               <div className="reveal mt-8 rounded-[24px] bg-heading p-7 text-white">
                 <p className="font-display text-[20px] font-bold tracking-tight">
-                  Why choose <Italic className="text-primary">us</Italic>
+                  Why choose <span className="text-primary">us</span>
                 </p>
                 <p className="mt-2.5 text-[15.5px] leading-[1.65] text-neutral-300">
                   {service.why}

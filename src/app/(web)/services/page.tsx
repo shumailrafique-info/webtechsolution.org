@@ -6,7 +6,6 @@ import {
   ArrowLink,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
   SecondaryButton,
   TrustChip,
@@ -146,7 +145,7 @@ export default function Page() {
                     id={`${groupId}-title`}
                     className="font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-heading sm:text-[44px]"
                   >
-                    {group.title} <Italic>{group.accent}</Italic>
+                    {group.title} {group.accent}
                   </h2>
                   <p className="mt-3 max-w-[56ch] text-[16.5px] leading-[1.65] text-neutral-600">
                     {group.lede}

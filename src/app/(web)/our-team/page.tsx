@@ -13,7 +13,6 @@ import {
   Accent,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
   SecondaryButton,
   TrustChip,
@@ -183,10 +182,12 @@ export default function Page() {
             <p>
               He started the company on 1 January {FOUNDED.year} with a simple
               goal: to help businesses use smart digital solutions to grow{" "}
-              <Italic className="text-heading">with confidence.</Italic> Today
-              he leads the team, guides strategy and works closely with clients
-              to make sure every project delivers real value and measurable
-              results.
+              <strong className="font-semibold text-heading">
+                with confidence.
+              </strong>{" "}
+              Today he leads the team, guides strategy and works closely with
+              clients to make sure every project delivers real value and
+              measurable results.
             </p>
           </FounderFeature>
         </Container>
@@ -211,7 +212,7 @@ export default function Page() {
                     id={`${group.id}-title`}
                     className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] text-heading md:text-[38px]"
                   >
-                    {group.title} <Italic>{group.accent}</Italic>
+                    {group.title} {group.accent}
                   </h2>
                   <p className="mt-2.5 max-w-[56ch] text-[15.5px] leading-[1.6] text-neutral-600">
                     {group.lede}
@@ -254,7 +255,7 @@ export default function Page() {
                 id="join-title"
                 className="mt-5 font-display text-[32px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[44px]"
               >
-                Want to <Italic>join us?</Italic>
+                Want to join us?
               </h2>
               <p className="mt-4 max-w-[52ch] text-[16.5px] leading-[1.65] text-white/85">
                 We are always looking for talented people who are passionate

@@ -25,20 +25,6 @@ export function Accent({ children }: { children: ReactNode }) {
   );
 }
 
-export function Italic({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <em className={cn("font-serif font-semibold italic", className)}>
-      {children}
-    </em>
-  );
-}
-
 export function Eyebrow({
   children,
   tone = "light",

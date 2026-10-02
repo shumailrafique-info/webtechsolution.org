@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter, Playfair_Display } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toast";
 import { ogImagePath } from "@/lib/metadata";
 import {
@@ -18,13 +18,6 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bricolage",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -69,7 +62,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         "antialiased",
         inter.className,
         bricolage.variable,
-        playfair.variable,
       )}
     >
       <body className="min-h-full flex flex-col">

@@ -127,7 +127,7 @@ export function SiteFooter() {
                 />
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="transition-colors hover:text-primary"
+                  className="min-w-0 transition-colors [overflow-wrap:anywhere] hover:text-primary"
                 >
                   {EMAIL}
                 </a>

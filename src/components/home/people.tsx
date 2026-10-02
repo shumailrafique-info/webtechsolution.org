@@ -1,5 +1,5 @@
 import { FOUNDED, FOUNDER, TEAM } from "./data";
-import { Accent, ArrowLink, Container, Eyebrow, Italic } from "./primitives";
+import { Accent, ArrowLink, Container, Eyebrow } from "./primitives";
 import { DisciplinesPanel, FounderFeature, TeamCard } from "./team";
 
 export function People() {
@@ -30,7 +30,10 @@ export function People() {
             <p>
               Fawad founded WebTech Solutions on 1 January {FOUNDED.year} with a
               simple goal: to help businesses use smart digital solutions to
-              grow <Italic className="text-heading">with confidence.</Italic>
+              grow{" "}
+              <strong className="font-semibold text-heading">
+                with confidence.
+              </strong>
             </p>
             <p>
               He still leads the team and guides strategy, and works closely
@@ -43,7 +46,7 @@ export function People() {
         <div className="mt-14 border-t border-primary/15 pt-10 md:mt-16">
           <div className="reveal flex flex-wrap items-end justify-between gap-6">
             <h3 className="font-display text-[26px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[30px]">
-              Alongside <Italic>Fawad</Italic>
+              Alongside Fawad
             </h3>
             <ArrowLink href="/our-team">Meet the whole team</ArrowLink>
           </div>

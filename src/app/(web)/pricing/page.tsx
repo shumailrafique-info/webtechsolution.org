@@ -6,7 +6,6 @@ import {
   Accent,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
   TrustChip,
 } from "@/components/home/primitives";
@@ -137,8 +136,7 @@ export default function Page() {
           <div className="reveal mt-6 flex flex-col items-start justify-between gap-6 rounded-[24px] bg-heading p-7 text-white md:flex-row md:items-center md:p-9">
             <div>
               <h3 className="font-display text-[24px] leading-tight font-bold tracking-[-0.03em] md:text-[28px]">
-                Not sure which plan{" "}
-                <Italic className="text-primary">fits?</Italic>
+                Not sure which plan <span className="text-primary">fits?</span>
               </h3>
               <p className="mt-2 max-w-[56ch] text-[15.5px] leading-[1.6] text-neutral-400">
                 Start with a one-to-one {PLANS[0].name}. You will leave with a
@@ -162,7 +160,7 @@ export default function Page() {
               id="partners-title"
               className="font-display text-[26px] font-bold tracking-[-0.03em] text-heading md:text-[32px]"
             >
-              {PARTNERS.title} <Italic>{PARTNERS.accent}</Italic>
+              {PARTNERS.title} {PARTNERS.accent}
             </h2>
             <p className="mt-2 text-[15.5px] text-neutral-600">
               {PARTNERS.lede}

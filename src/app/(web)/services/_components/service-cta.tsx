@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container, Italic } from "@/components/home/primitives";
+import { Container } from "@/components/home/primitives";
 
 export function ServiceCta({
   title,
@@ -22,7 +22,7 @@ export function ServiceCta({
               id="service-cta-title"
               className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] text-balance md:text-[42px]"
             >
-              {title} <Italic>{accent}</Italic>
+              {title} {accent}
             </h2>
             <p className="mt-3 max-w-[50ch] text-[16.5px] leading-[1.65] text-white/85">
               {body}

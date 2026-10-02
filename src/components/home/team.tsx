@@ -2,7 +2,6 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { FOUNDER, type TeamMember } from "./data";
-import { Italic } from "./primitives";
 
 export const DISCIPLINES = [
   "Technical SEO",
@@ -33,7 +32,7 @@ export function TeamCard({
           alt={`${member.name}, ${member.role}`}
           fill
           sizes="(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 45vw"
-          className="object-cover grayscale-[0.85] contrast-[1.05] transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+          className="object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.03] "
         />
       </div>
       <p className="mt-4 font-display text-[17px] font-bold tracking-[-0.02em] text-heading">
@@ -93,7 +92,7 @@ export function DisciplinesPanel({ className }: { className?: string }) {
       )}
     >
       <h3 className="shrink-0 font-display text-[19px] font-bold tracking-[-0.02em] text-heading lg:w-52 lg:pt-1.5">
-        Disciplines <Italic>in-house</Italic>
+        Disciplines in-house
       </h3>
       <ul className="mt-5 flex flex-wrap gap-2 lg:mt-0">
         {DISCIPLINES.map((discipline) => (

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Italic } from "@/components/home/primitives";
 import { cn } from "@/lib/utils";
 import { CHAPTERS } from "./data";
 
@@ -37,7 +36,7 @@ export function Chapter({
         id={`${id}-title`}
         className="reveal mt-3 font-display text-[30px] leading-[1.06] font-bold tracking-[-0.035em] text-balance text-heading md:text-[40px]"
       >
-        {title} <Italic>{accent}</Italic>
+        {title} {accent}
       </h2>
       {lead ? (
         <p className="reveal mt-4 text-[18px] leading-normal font-medium text-neutral-500 md:text-[19px]">

@@ -1,11 +1,5 @@
 import { CheckIcon, SearchIcon, XIcon } from "@/components/icons";
-import { Accent, Container, Italic, SectionHeading } from "./primitives";
-
-/**
- * Problem, approach, solution, outcome. The drawing in the middle is a search
- * results page - the place the whole engagement is trying to change - with
- * the starting point on one side and the goal on the other.
- */
+import { Accent, Container, SectionHeading } from "./primitives";
 
 const PROBLEMS = [
   "Buried below competitors",
@@ -89,7 +83,7 @@ export function Approach() {
 
             <div className="reveal relative z-20 order-3 rounded-[20px] bg-linear-to-br from-primary to-brand-deep p-6 text-white shadow-[0_24px_50px_-28px_rgba(180,60,10,0.7)] lg:-ml-6 lg:-translate-y-6">
               <p className="font-display text-[19px] leading-tight font-semibold tracking-[-0.02em]">
-                Where we <Italic>take it</Italic>
+                Where we take it
               </p>
               <ul className="mt-4 grid gap-2.5">
                 {GOALS.map((item) => (
@@ -123,7 +117,7 @@ export function Approach() {
                   {stage.label}
                 </span>
               </div>
-              <h3 className="mt-5 font-display text-[20px] leading-[1.15] font-bold tracking-[-0.025em] text-heading">
+              <h3 className="mt-5 font-display text-[20px] leading-[1.15] font-bold tracking-tight text-heading">
                 {stage.title}
               </h3>
               <p className="mt-2.5 text-[14.5px] leading-[1.6] text-neutral-600">
@@ -153,7 +147,7 @@ function SearchSketch() {
         <span className="h-1.5 w-32 rounded-full bg-neutral-300" />
       </div>
 
-      <div className="mt-4 rounded-xl border border-primary/30 bg-primary/[0.06] p-3.5">
+      <div className="mt-4 rounded-xl border border-primary/30 bg-primary/6 p-3.5">
         <div className="flex items-center gap-2">
           <span className="size-4 rounded-full bg-linear-to-br from-primary to-brand-deep" />
           <span className="text-[12px] font-semibold text-brand-deep">

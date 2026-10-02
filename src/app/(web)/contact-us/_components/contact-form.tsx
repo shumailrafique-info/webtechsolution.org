@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
 import { type Plan, planById } from "@/app/(web)/pricing/_components/data";
-import { Italic } from "@/components/home/primitives";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -83,7 +82,7 @@ export function ContactForm({ className }: { className?: string }) {
         id={headingId}
         className="mt-1 font-display text-[28px] leading-[1.05] font-bold tracking-[-0.035em] text-heading md:text-[32px]"
       >
-        {FORM.title} <Italic>{FORM.accent}</Italic>
+        {FORM.title} {FORM.accent}
       </h2>
 
       {plan && !sentTo ? (

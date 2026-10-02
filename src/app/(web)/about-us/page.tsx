@@ -13,7 +13,6 @@ import {
   ArrowLink,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
   SecondaryButton,
   TrustChip,
@@ -145,7 +144,7 @@ export default function Page() {
               id="who-title"
               className="mt-5 font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-heading sm:text-[42px] lg:text-[50px]"
             >
-              Who <Italic>we are</Italic>
+              Who we are
             </h2>
             <ul className="mt-7 flex flex-wrap gap-2">
               {SPECIALISMS.map((item) => (
@@ -193,7 +192,7 @@ export default function Page() {
               </div>
               <div className="flex flex-1 flex-col p-7 md:p-9">
                 <h2 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] text-heading md:text-[38px]">
-                  {item.title} <Italic>{item.accent}</Italic>
+                  {item.title} {item.accent}
                 </h2>
                 <p className="mt-4 text-[16px] leading-[1.7] text-neutral-600">
                   {item.body}
@@ -251,7 +250,7 @@ export default function Page() {
                     ))}
                   </ul>
                   <h3 className="mt-6 font-display text-[28px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[34px]">
-                    Meet the whole <Italic>team</Italic>
+                    Meet the whole team
                   </h3>
                   <p className="mt-3 max-w-[44ch] text-[15.5px] leading-[1.6] text-white/85">
                     {TEAM_MEMBERS.length + 1} people across development,

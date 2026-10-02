@@ -15,7 +15,6 @@ import {
   ArrowLink,
   Container,
   IconBadge,
-  Italic,
   SectionHeading,
 } from "./primitives";
 
@@ -68,7 +67,7 @@ export function Services() {
                   Our primary practice
                 </p>
                 <h3 className="mt-1.5 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.03em] md:text-[36px]">
-                  Search engine <Italic>optimisation</Italic>
+                  Search engine optimisation
                 </h3>
                 <p className="mt-4 text-[15.5px] leading-[1.65] text-white/85">
                   Technical audits, on-page optimisation, content and ethical
@@ -103,11 +102,7 @@ export function Services() {
 
           <ServiceCard
             icon={PencilRulerIcon}
-            title={
-              <>
-                Web <Italic>design</Italic>
-              </>
-            }
+            title={<>Web design</>}
             text="User-focused layouts that make the next step obvious."
             href="/services/web-designing"
           >
@@ -116,11 +111,7 @@ export function Services() {
 
           <ServiceCard
             icon={CodeIcon}
-            title={
-              <>
-                Web <Italic>development</Italic>
-              </>
-            }
+            title={<>Web development</>}
             text="Fast, secure and scalable sites, built for performance."
             href="/services/web-develpment"
           >
@@ -129,11 +120,7 @@ export function Services() {
 
           <ServiceCard
             icon={DeviceMobileIcon}
-            title={
-              <>
-                App <Italic>development</Italic>
-              </>
-            }
+            title={<>App development</>}
             text="Mobile apps taken from idea to working product."
             href="/services/app-development"
           >
@@ -142,11 +129,7 @@ export function Services() {
 
           <ServiceCard
             icon={MegaphoneIcon}
-            title={
-              <>
-                Digital <Italic>marketing</Italic>
-              </>
-            }
+            title={<>Digital marketing</>}
             text="Reach you need now, alongside search work that compounds."
             href="/services/digital-marketing"
           >

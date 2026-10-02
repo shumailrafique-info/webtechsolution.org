@@ -1,6 +1,6 @@
 import { ClockIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { CONTACT } from "./data";
-import { Container, Italic, PrimaryButton } from "./primitives";
+import { Container, PrimaryButton } from "./primitives";
 
 export function FinalCta() {
   return (
@@ -30,9 +30,9 @@ export function FinalCta() {
                 className="mt-6 font-display text-[38px] leading-[1.02] font-bold tracking-[-0.04em] sm:text-[48px] lg:text-[60px]"
               >
                 Have a project in mind? Let&rsquo;s talk about{" "}
-                <Italic className="font-medium text-primary">
+                <span className="text-primary">
                   what you&rsquo;re building.
-                </Italic>
+                </span>
               </h2>
               <p className="mt-6 max-w-[48ch] text-[17px] leading-[1.7] text-neutral-400">
                 Tell us where the business is today and where you want it to be.

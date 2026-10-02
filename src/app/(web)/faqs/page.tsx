@@ -5,7 +5,6 @@ import {
   Accent,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
 } from "@/components/home/primitives";
 import { ArrowUpRightIcon, MailIcon, PlusIcon } from "@/components/icons";
@@ -109,7 +108,7 @@ export default function Page() {
                   id={`${group.id}-title`}
                   className="reveal font-display text-[28px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[34px]"
                 >
-                  {group.title} <Italic>{group.accent}</Italic>
+                  {group.title} {group.accent}
                 </h2>
                 <div className="reveal mt-6 overflow-hidden rounded-[24px] border border-neutral-200 bg-white">
                   {group.faqs.map((faq, index) => (
@@ -140,8 +139,7 @@ export default function Page() {
             <div className="grid gap-4 lg:sticky lg:top-28">
               <div className="reveal rounded-[24px] bg-heading p-7 text-white">
                 <h2 className="font-display text-[24px] leading-tight font-bold tracking-[-0.03em]">
-                  Still have a{" "}
-                  <Italic className="text-primary">question?</Italic>
+                  Still have a <span className="text-primary">question?</span>
                 </h2>
                 <p className="mt-2.5 text-[15px] leading-[1.6] text-neutral-400">
                   Send it to us and the team will get back to you.{" "}

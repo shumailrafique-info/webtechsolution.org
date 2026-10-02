@@ -5,7 +5,6 @@ import {
   Accent,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
   SecondaryButton,
   TrustChip,
@@ -186,9 +185,9 @@ export default function Page() {
           <div className="reveal flex flex-col justify-between rounded-[28px] bg-heading p-8 text-white md:p-10">
             <h2 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[38px]">
               {DIGITAL_MARKETING.approach.title}{" "}
-              <Italic className="text-primary">
+              <span className="text-primary">
                 {DIGITAL_MARKETING.approach.accent}
-              </Italic>
+              </span>
             </h2>
             <p className="mt-6 text-[17px] leading-[1.7] text-neutral-300">
               {DIGITAL_MARKETING.approach.body}

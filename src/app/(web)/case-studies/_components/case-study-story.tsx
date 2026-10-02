@@ -1,4 +1,4 @@
-import { Container, Italic } from "@/components/home/primitives";
+import { Container } from "@/components/home/primitives";
 import { cn } from "@/lib/utils";
 import { MetricTiles } from "./case-study-cards";
 import { ClientMark, ServicePills } from "./client-mark";
@@ -60,7 +60,7 @@ export function CaseStudyStory({
           <div className="grid gap-10 lg:col-span-7">
             <section className="reveal">
               <h3 className="font-display text-[22px] font-bold tracking-tight text-heading">
-                The <Italic>challenge</Italic>
+                The challenge
               </h3>
               <p className="mt-3 text-[16px] leading-[1.7] text-neutral-600">
                 {study.challenge}
@@ -69,7 +69,7 @@ export function CaseStudyStory({
 
             <section className="reveal">
               <h3 className="font-display text-[22px] font-bold tracking-tight text-heading">
-                What we <Italic>did</Italic>
+                What we did
               </h3>
               <ol className="mt-5 grid gap-3">
                 {study.approach.map((step, stepIndex) => (
@@ -98,7 +98,7 @@ export function CaseStudyStory({
 
             <section className="reveal">
               <h3 className="font-display text-[22px] font-bold tracking-tight text-heading">
-                The <Italic>result</Italic>
+                The result
               </h3>
               <p className="mt-3 text-[16px] leading-[1.7] text-neutral-600">
                 {study.outcome}

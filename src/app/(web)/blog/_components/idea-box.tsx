@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useId } from "react";
 import { useForm } from "react-hook-form";
-import { Italic } from "@/components/home/primitives";
 import { LoaderIcon } from "@/components/icons";
 import { toast } from "@/components/ui/toast";
 import { useIdeaSubmit } from "@/lib/react-query/hooks/use-ideas";
@@ -68,7 +67,7 @@ export function IdeaBox({
         id={headingId}
         className="font-display text-[19px] font-bold tracking-tight text-heading"
       >
-        Share your <Italic>idea</Italic>
+        Share your idea
       </h2>
       <p className="mt-1 text-[13.5px] leading-snug text-neutral-500">
         Suggest a topic or tell us what to cover next.

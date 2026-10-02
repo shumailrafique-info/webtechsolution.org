@@ -9,13 +9,7 @@ import {
   RocketIcon,
   StrategyIcon,
 } from "@/components/icons";
-import {
-  Accent,
-  Container,
-  IconBadge,
-  Italic,
-  SectionHeading,
-} from "./primitives";
+import { Accent, Container, IconBadge, SectionHeading } from "./primitives";
 
 type Step = {
   icon: ComponentType<{ className?: string }>;
@@ -108,7 +102,7 @@ export function Process() {
                 </span>
               </div>
               <h3 className="mt-6 font-display text-[23px] leading-[1.1] font-bold tracking-tight text-heading">
-                {step.title} <Italic>{step.accent}</Italic>
+                {step.title} {step.accent}
               </h3>
               <p className="mt-2.5 text-[14.5px] leading-[1.6] text-neutral-600">
                 {step.body}

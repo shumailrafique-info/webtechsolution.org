@@ -87,7 +87,7 @@ export default function Page() {
             <p className="enter mx-auto mt-6 max-w-[60ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
               {INTRO.opening}
             </p>
-            <blockquote className="enter mx-auto mt-8 max-w-[36ch] font-serif text-[26px] leading-[1.3] font-semibold text-heading italic md:text-[32px]">
+            <blockquote className="enter mx-auto mt-8 max-w-[36ch] font-display text-[26px] leading-[1.3] font-semibold tracking-[-0.02em] text-heading md:text-[32px]">
               <span aria-hidden className="text-primary">
                 &ldquo;
               </span>

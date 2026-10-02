@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { CONTACT, OFFICES } from "@/components/home/data";
-import {
-  Accent,
-  Container,
-  Eyebrow,
-  Italic,
-} from "@/components/home/primitives";
+import { Accent, Container, Eyebrow } from "@/components/home/primitives";
 import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -67,7 +62,7 @@ export default function Page() {
                   Email us
                 </p>
                 <h2 className="mt-1 font-display text-[22px] font-bold tracking-tight text-heading">
-                  Got a question? We&rsquo;re <Italic>happy to help</Italic>
+                  Got a question? We&rsquo;re happy to help
                 </h2>
               </div>
 

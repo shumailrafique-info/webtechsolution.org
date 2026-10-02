@@ -5,7 +5,6 @@ import {
   Accent,
   Container,
   Eyebrow,
-  Italic,
   PrimaryButton,
   SecondaryButton,
   TrustChip,
@@ -113,7 +112,7 @@ export default function Page() {
             id="clients-title"
             className="reveal text-center font-display text-[22px] font-bold tracking-tight text-heading md:text-[26px]"
           >
-            Clients and <Italic>partners</Italic>
+            Clients and partners
           </h2>
           <LogoWall className="reveal mt-8" />
         </Container>
@@ -136,7 +135,7 @@ export default function Page() {
                 id="next-title"
                 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[42px]"
               >
-                Want results <Italic>like these?</Italic>
+                Want results like these?
               </h2>
               <p className="mt-3 max-w-[50ch] text-[16.5px] leading-[1.65] text-white/85">
                 Tell us where your business is today and where you want it to

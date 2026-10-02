@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/home/final-cta";
 import { Hero } from "@/components/home/hero";
 import { LatestPosts } from "@/components/home/latest-posts";
 import { Offices } from "@/components/home/offices";
-import { People } from "@/components/home/people";
+import { Founder, People } from "@/components/home/people";
 import { Press } from "@/components/home/press";
 import { Process } from "@/components/home/process";
 import { Services } from "@/components/home/services";
@@ -30,6 +30,7 @@ export default function Home() {
       <Press />
       <Services />
       <Stats />
+      <Founder />
       <Approach />
       <Process />
       <Clients />

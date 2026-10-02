@@ -2,24 +2,24 @@ import { FOUNDED, FOUNDER, TEAM } from "./data";
 import { Accent, ArrowLink, Container, Eyebrow } from "./primitives";
 import { DisciplinesPanel, FounderFeature, TeamCard } from "./team";
 
-export function People() {
+export function Founder() {
   return (
     <section
-      aria-labelledby="people-title"
+      aria-labelledby="founder-title"
       className="border-y border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
     >
       <Container>
         <div className="reveal max-w-3xl">
-          <Eyebrow>People</Eyebrow>
+          <Eyebrow>Leadership</Eyebrow>
           <h2
-            id="people-title"
+            id="founder-title"
             className="mt-5 font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-balance text-heading sm:text-[42px] lg:text-[50px]"
           >
-            The people you&rsquo;ll <Accent>actually work with.</Accent>
+            Led by its founder, <Accent>since day one.</Accent>
           </h2>
         </div>
 
-        <div className="mt-12 md:mt-12">
+        <div className="mt-12">
           <FounderFeature
             footer={
               <p className="mt-6 text-[13.5px] text-neutral-500">
@@ -41,26 +41,40 @@ export function People() {
             </p>
           </FounderFeature>
         </div>
+      </Container>
+    </section>
+  );
+}
 
-        {/* The team. */}
-        <div className="mt-14 border-t border-primary/15 pt-10 md:mt-16">
-          <div className="reveal flex flex-wrap items-end justify-between gap-6">
-            <h3 className="font-display text-[26px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[30px]">
-              Alongside Fawad
-            </h3>
-            <ArrowLink href="/our-team">Meet the whole team</ArrowLink>
+export function People() {
+  return (
+    <section
+      aria-labelledby="people-title"
+      className="bg-white py-14 md:py-20 lg:py-24"
+    >
+      <Container>
+        <div className="reveal flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <Eyebrow>Team</Eyebrow>
+            <h2
+              id="people-title"
+              className="mt-5 font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-balance text-heading sm:text-[42px] lg:text-[50px]"
+            >
+              The people you&rsquo;ll <Accent>actually work with.</Accent>
+            </h2>
           </div>
-
-          <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-9 md:grid-cols-4 md:gap-x-5">
-            {TEAM.map((member) => (
-              <li key={member.name} className="reveal">
-                <TeamCard member={member} />
-              </li>
-            ))}
-          </ul>
+          <ArrowLink href="/our-team">Meet the whole team</ArrowLink>
         </div>
 
-        <DisciplinesPanel className="mt-12 md:mt-16" />
+        <ul className="mt-12 grid grid-cols-2 gap-x-4 gap-y-9 md:grid-cols-4 md:gap-x-5">
+          {TEAM.map((member) => (
+            <li key={member.name} className="reveal">
+              <TeamCard member={member} />
+            </li>
+          ))}
+        </ul>
+
+        <DisciplinesPanel className="mt-12 bg-neutral-50 md:mt-16" />
       </Container>
     </section>
   );

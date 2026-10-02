@@ -56,7 +56,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "wisetoast",
     client: "WiseToast",
     sector: "Lifestyle publication",
-    title: "A traffic surge through SEO optimisation",
+    title: "A traffic surge through SEO optimization",
     summary:
       "A content-rich site that search engines struggled to crawl. We fixed the technical foundations, rebuilt the internal linking around topic clusters and refreshed the posts that were closest to page one.",
     challenge:
@@ -112,7 +112,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: "Merged overlapping posts into complete guides and redirected the rest.",
       },
       {
-        title: "On-page optimisation",
+        title: "On-page optimization",
         body: "Rewrote titles, headings and internal links around how students and parents actually search.",
       },
     ],
@@ -136,13 +136,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     sector: "Technology media",
     title: "Scaling a technology publication’s reach",
     summary:
-      "An outreach programme and a faster, cleaner site structure for a growing tech news publisher.",
+      "An outreach program and a faster, cleaner site structure for a growing tech news publisher.",
     challenge:
       "NogenTech published quality technology coverage but competed with much larger outlets. It needed more authority, and a site that could keep up with a fast publishing schedule.",
     approach: [
       {
-        title: "Outreach programme",
-        body: "A steady programme of editorial outreach to technology and marketing sites.",
+        title: "Outreach program",
+        body: "A steady program of editorial outreach to technology and marketing sites.",
       },
       {
         title: "Site structure",
@@ -150,7 +150,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         title: "Speed",
-        body: "Image and script optimisation so pages load quickly on mobile.",
+        body: "Image and script optimization so pages load quickly on mobile.",
       },
     ],
     outcome:
@@ -182,7 +182,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         title: "Page speed",
-        body: "Optimised images, fonts and scripts to bring load times down on mobile.",
+        body: "Optimized images, fonts and scripts to bring load times down on mobile.",
       },
       {
         title: "Content plan",

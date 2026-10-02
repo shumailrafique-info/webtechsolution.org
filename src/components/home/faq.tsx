@@ -19,7 +19,7 @@ export const FAQS: Faq[] = [
   {
     question: "What SEO services do you offer?",
     answer:
-      "Keyword research, on-page and technical optimisation, link building and content creation, plus local SEO for visibility in regional searches. We run SEO audits to find what is holding a site back, and analytics and reporting keep you informed about progress. The aim is a strategy tailored to your business that drives sustainable growth.",
+      "Keyword research, on-page and technical optimization, link building and content creation, plus local SEO for visibility in regional searches. We run SEO audits to find what is holding a site back, and analytics and reporting keep you informed about progress. The aim is a strategy tailored to your business that drives sustainable growth.",
     link: { href: "/services/seo", label: "About our SEO service" },
   },
   {
@@ -27,13 +27,13 @@ export const FAQS: Faq[] = [
     answer: `Premium support is part of our website plans: ${PRICING.launch.support} with ${PRICING.launch.name} and ${PRICING.growth.support} with the ${PRICING.growth.name}, with a bug-free period of ${PRICING.launch.bugFree} and ${PRICING.growth.bugFree} respectively.`,
   },
   {
-    question: "Do you work with businesses outside Pakistan?",
+    question: "Do you work with businesses outside the United States?",
     answer: `Yes. We have offices in ${OFFICES.map((office) => office.city)
       .join(", ")
       .replace(
         /, ([^,]*)$/,
         " and $1",
-      )}, and work with clients in Pakistan, the United Kingdom, Spain and the United States.`,
+      )}, and work with clients in the United States, the United Kingdom, Spain and Pakistan.`,
   },
   {
     question: "When can we reach you?",

@@ -484,8 +484,8 @@ const TipTapMenuBar = ({
               type="button"
               variant="ghost"
               size="icon-sm"
-              aria-label="Text colour"
-              title="Text colour"
+              aria-label="Text color"
+              title="Text color"
               className="relative [&_svg]:size-4"
             />
           }
@@ -499,7 +499,7 @@ const TipTapMenuBar = ({
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-40">
           <DropdownMenuGroup>
-            <DropdownMenuLabel>Text colour</DropdownMenuLabel>
+            <DropdownMenuLabel>Text color</DropdownMenuLabel>
             {TEXT_COLORS.map((color) => (
               <DropdownMenuItem
                 key={color.label}

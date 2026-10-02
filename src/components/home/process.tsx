@@ -48,8 +48,8 @@ const STEPS: Step[] = [
   {
     icon: CodeIcon,
     title: "Build &",
-    accent: "optimise",
-    body: "Development and optimisation by the same team that planned it, so search is built in rather than added later.",
+    accent: "optimize",
+    body: "Development and optimization by the same team that planned it, so search is built in rather than added later.",
     tasks: ["Development", "On-page SEO", "Testing"],
     output: "Ready to launch",
   },

@@ -18,7 +18,7 @@ export function Offices() {
               Four offices. Clients on <Accent>three continents.</Accent>
             </>
           }
-          lede="One team working across Pakistan, the United Kingdom, Spain and the United States."
+          lede="One team working across the United States, the United Kingdom, Spain and Pakistan."
         />
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-4">

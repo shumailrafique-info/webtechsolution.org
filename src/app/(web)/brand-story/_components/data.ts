@@ -48,14 +48,9 @@ export const GLOBAL_PRESENCE = {
   body: "As results accumulated and trust deepened, WebTech Solutions expanded beyond borders. Clients from different regions brought new challenges, like different user behaviors, search ecosystems, compliance requirements, and performance expectations.",
   markets: [
     {
-      country: "Pakistan",
-      code: "PK",
-      note: "Local roots, deep relationships.",
-    },
-    {
-      country: "Australia",
-      code: "AU",
-      note: "Different user habits and market expectations.",
+      country: "United States",
+      code: "US",
+      note: "Competitive search and strong performance targets.",
     },
     {
       country: "United Kingdom",
@@ -68,9 +63,14 @@ export const GLOBAL_PRESENCE = {
       note: "Regional behavior and strategy adjustments.",
     },
     {
-      country: "United States",
-      code: "US",
-      note: "Competitive search and strong performance targets.",
+      country: "Australia",
+      code: "AU",
+      note: "Different user habits and market expectations.",
+    },
+    {
+      country: "Pakistan",
+      code: "PK",
+      note: "Local roots, deep relationships.",
     },
   ],
   closing:

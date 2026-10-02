@@ -21,7 +21,7 @@ import {
 const SEO_INCLUDES = [
   "Keyword research",
   "Technical SEO",
-  "On-page optimisation",
+  "On-page optimization",
   "Content creation",
   "Link building",
   "Local SEO & Business Profile",
@@ -54,7 +54,7 @@ export function Services() {
               Everything it takes to be <Accent>found online.</Accent>
             </>
           }
-          lede="Most businesses arrive with one question: why aren’t more of the right people finding us? Search is the centre of our work, and the sites, apps and campaigns we build are designed to be found."
+          lede="Most businesses arrive with one question: why aren’t more of the right people finding us? Search is the center of our work, and the sites, apps and campaigns we build are designed to be found."
         />
 
         <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
@@ -67,11 +67,11 @@ export function Services() {
                   Our primary practice
                 </p>
                 <h3 className="mt-1.5 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.03em] md:text-[36px]">
-                  Search engine optimisation
+                  Search engine optimization
                 </h3>
                 <p className="mt-4 text-[15.5px] leading-[1.65] text-white/85">
-                  Technical audits, on-page optimisation, content and ethical
-                  link building, run as one programme rather than a checklist
+                  Technical audits, on-page optimization, content and ethical
+                  link building, run as one program rather than a checklist
                   &mdash; for businesses whose customers search before they buy,
                   and local businesses that need to show up nearby.
                 </p>

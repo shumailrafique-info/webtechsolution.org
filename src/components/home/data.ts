@@ -21,14 +21,15 @@ export type Office = {
   timezone: string;
 };
 
+// The United States is the primary market, so it leads every list.
 export const OFFICES: Office[] = [
   {
-    country: "Pakistan",
-    countryCode: "PK",
-    city: "Faisalabad",
-    lines: ["Office 11, 2nd Floor", "Kohinoor 1 Plaza"],
-    postalCode: "38000",
-    timezone: "UTC+5",
+    country: "United States",
+    countryCode: "US",
+    city: "Las Vegas",
+    lines: ["3500 E Bonanza Rd"],
+    postalCode: "",
+    timezone: "Pacific Time",
   },
   {
     country: "United Kingdom",
@@ -47,12 +48,12 @@ export const OFFICES: Office[] = [
     timezone: "CET / CEST",
   },
   {
-    country: "United States",
-    countryCode: "US",
-    city: "Las Vegas",
-    lines: ["3500 E Bonanza Rd"],
-    postalCode: "",
-    timezone: "Pacific Time",
+    country: "Pakistan",
+    countryCode: "PK",
+    city: "Faisalabad",
+    lines: ["Office 11, 2nd Floor", "Kohinoor 1 Plaza"],
+    postalCode: "38000",
+    timezone: "UTC+5",
   },
 ];
 

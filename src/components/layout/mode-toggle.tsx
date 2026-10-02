@@ -33,7 +33,7 @@ export function ModeToggle() {
             variant="ghost"
             size="icon"
             className="size-9 rounded-full text-chrome-muted hover:bg-chrome-accent hover:text-chrome-foreground data-popup-open:bg-chrome-accent data-popup-open:text-chrome-foreground"
-            aria-label="Change colour theme"
+            aria-label="Change color theme"
           />
         }
       >

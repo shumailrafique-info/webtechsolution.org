@@ -37,6 +37,10 @@ export function SiteSchema() {
             alternateName: FOUNDER.formerName,
             jobTitle: FOUNDER.role,
           },
+          areaServed: OFFICES.map((office) => ({
+            "@type": "Country",
+            name: office.country,
+          })),
           email: CONTACT.email,
           telephone: CONTACT.phones.map((phone) => phone.href),
           address: OFFICES.map((office) => ({
@@ -63,7 +67,7 @@ export function SiteSchema() {
           url: `${SITE_URL}/`,
           description: SITE_TAGLINE,
           publisher: organizationRef,
-          inLanguage: "en",
+          inLanguage: "en-US",
           potentialAction: {
             "@type": "SearchAction",
             target: {

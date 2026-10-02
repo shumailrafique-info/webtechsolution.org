@@ -44,6 +44,8 @@ function Brand({ className }: { className?: string }) {
 }
 
 function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
   const linkClass = cn(
     "rounded-full px-3 py-1.5 text-[14.5px] font-medium transition-colors",
     active
@@ -64,7 +66,7 @@ function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
   }
 
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger
         render={
           <button
@@ -82,6 +84,7 @@ function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
       >
         <Link
           href={item.href}
+          onClick={close}
           className="block rounded-full px-3 py-2 text-[14px] text-foreground/85 transition-colors hover:text-accent-foreground hover:bg-accent"
         >
           All {item.label} <span aria-hidden>&rarr;</span>
@@ -92,6 +95,7 @@ function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
             <li key={child.href}>
               <Link
                 href={child.href}
+                onClick={close}
                 className="block rounded-full px-3 py-2 text-[14px] text-foreground/85 transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 {child.label}

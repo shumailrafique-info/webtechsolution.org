@@ -89,7 +89,7 @@ export async function deleteBlog(
       return { success: false, error: "That blog post no longer exists." };
     }
 
-    revalidateBlogContent();
+    revalidateBlogContent(deleted.slug);
 
     return { success: true, data: { id: deleted.id } };
   } catch (error) {

@@ -6,8 +6,6 @@ import { ServiceDetail } from "../_components/service-detail";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return SERVICES.map((service) => ({ slug: service.slug }));
 }

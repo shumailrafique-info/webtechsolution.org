@@ -21,10 +21,15 @@ import {
   organizationRef,
   webSiteRef,
 } from "@/lib/seo";
-import { getPublishedPost } from "@/server/blog";
+import { getPublishedPost, getPublishedSitemapEntries } from "@/server/blog";
 import { IdeaBox } from "../_components/idea-box";
 import { PostCard, postDate } from "../_components/post-card";
 import { TableOfContents } from "../_components/table-of-contents";
+
+export async function generateStaticParams() {
+  const posts = await getPublishedSitemapEntries();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({
   params,
@@ -119,7 +124,7 @@ export default async function Page({
 
   const words = post.html
     .replace(/<[^>]+>/g, " ")
-    .split(/s+/)
+    .split(/\s+/)
     .filter(Boolean).length;
   const minutes = Math.max(1, Math.round(words / 220));
 

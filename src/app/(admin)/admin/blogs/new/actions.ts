@@ -82,7 +82,7 @@ export async function createBlog(
       return { success: false, error: "Could not create the blog post." };
     }
 
-    revalidateBlogContent();
+    revalidateBlogContent(created.slug);
     return { success: true, data: created };
   } catch (error) {
     if (isUniqueViolation(error)) {
@@ -142,7 +142,7 @@ export async function updateBlog(
       return { success: false, error: "Could not update the blog post." };
     }
 
-    revalidateBlogContent();
+    revalidateBlogContent(existing.slug, updated.slug);
 
     return { success: true, data: updated };
   } catch (error) {

@@ -2,16 +2,12 @@ import { cn } from "@/lib/utils";
 import { FOUNDED, OFFICES, PRESS, PROJECTS_DELIVERED } from "./data";
 import { Container } from "./primitives";
 
-/**
- * The company in four figures. Each is counted from the data the rest of the
- * page uses, so the band can never disagree with the sections around it.
- */
 export function Stats() {
   const figures = [
-    { value: String(FOUNDED.year), label: "Founded, and still founder-led" },
-    { value: PROJECTS_DELIVERED, label: "Projects delivered" },
-    { value: String(OFFICES.length), label: "Offices on three continents" },
-    { value: String(PRESS.length), label: "Publications that featured us" },
+    { value: String(FOUNDED.year), label: "Established" },
+    { value: PROJECTS_DELIVERED, label: "Clients Served" },
+    { value: String(OFFICES.length), label: "Global Offices" },
+    { value: String(PRESS.length), label: "Years of Experience." },
   ];
 
   return (

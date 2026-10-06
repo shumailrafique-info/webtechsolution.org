@@ -187,13 +187,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     group: "content",
   },
   {
-    name: "Ali Raza",
-    role: "Senior Content Writer",
-    bio: "Ali crafts well-researched, engaging content for WebTech Solutions, helping explain ideas clearly and connect with the right audience.",
-    image: "/images/home/team/ali-raza.webp",
-    group: "content",
-  },
-  {
     name: "Abrar Khan",
     role: "Digital Marketer",
     bio: "Abrar focuses on paid ads and digital campaigns, helping WebTech Solutions reach the right audience and drive quality results for clients.",

@@ -1,6 +1,6 @@
+import { BuildingsIcon, CalendarIcon, SealCheckIcon } from "@/components/icons";
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import { BuildingsIcon, CalendarIcon, SealCheckIcon } from "@/components/icons";
 import {
   CONTACT,
   FOUNDED,
@@ -74,15 +74,16 @@ export function Hero() {
           </h1>
 
           <p
-            className="enter mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]"
+            className="enter mt-6 max-w-[54ch] text-[17px] leading-[1.65] tracking-tight text-neutral-600 md:text-[18.5px]"
             style={delay(200)}
           >
-            WebTech Solutions plans, builds and markets the online presence of
-            growing businesses &mdash;{" "}
+            WebTech Solutions helps businesses grow through{" "}
             <strong className="font-semibold text-heading">
-              search, websites, apps and campaigns
+              SEO, content marketing, digital PR, web development, and mobile
+              app development
             </strong>
-            , handled by one team for clients in {markets}.
+            , combining 13+ years of experience with AI-assisted, human-led
+            execution.
           </p>
 
           <div

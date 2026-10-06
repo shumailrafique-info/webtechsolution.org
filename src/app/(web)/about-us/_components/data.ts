@@ -31,7 +31,6 @@ export const MISSION = {
   cta: { label: "Our services", href: "/services" },
 };
 
-/** The team in the order the About page introduces them. */
 export const ABOUT_TEAM = [
   "Noman Sarwar",
   "Rana Wajahat",
@@ -44,7 +43,6 @@ export const ABOUT_TEAM = [
   "Arham Nayak",
   "Vicky Shah",
   "Hammad Ali",
-  "Ali Raza",
   "Afzaal Ahmed",
   "Talha Ashraf",
 ];

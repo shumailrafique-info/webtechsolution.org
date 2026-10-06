@@ -75,7 +75,7 @@ export function SiteFooter() {
               className="inline-flex rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Image
-                src="/logo.webp"
+                src="/logo-on-dark.webp"
                 alt="WebTech Solutions"
                 width={174}
                 height={50}

@@ -35,7 +35,7 @@ export function Press() {
       <Container>
         <h2
           id="press-title"
-          className="text-center text-[13.5px] font-medium text-neutral-500"
+          className="text-center text-[15px] font-bold text-neutral-500"
         >
           As featured in
         </h2>

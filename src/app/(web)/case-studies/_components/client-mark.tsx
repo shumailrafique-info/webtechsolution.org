@@ -15,8 +15,11 @@ export function ClientMark({
       alt={study.client}
       width={study.logo.width}
       height={study.logo.height}
-      sizes="200px"
-      className={cn("h-9 w-auto object-contain object-left", className)}
+      sizes="240px"
+      className={cn(
+        "h-9 w-auto max-w-60 object-contain object-left",
+        className,
+      )}
     />
   ) : (
     <span

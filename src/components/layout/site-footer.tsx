@@ -55,7 +55,7 @@ function ColumnTitle({ id, children }: { id?: string; children: string }) {
   return (
     <h2
       id={id}
-      className="flex items-center gap-2 font-display text-[15px] font-bold tracking-[-0.01em] text-heading"
+      className="flex items-center gap-2 font-display text-[15px] font-bold tracking-[-0.01em] text-white"
     >
       <span aria-hidden className="size-1.5 rounded-full bg-primary" />
       {children}
@@ -65,7 +65,7 @@ function ColumnTitle({ id, children }: { id?: string; children: string }) {
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden border-t border-neutral-200/80 bg-[#F4F3EF]">
+    <footer className="relative overflow-hidden border-t border-neutral-200/80 bg-[#17172f]">
       <Container className="pt-14 md:pt-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-4">
@@ -83,7 +83,7 @@ export function SiteFooter() {
               />
             </Link>
 
-            <p className="mt-5 max-w-[38ch] text-[15px] leading-[1.7] text-neutral-600">
+            <p className="mt-5 max-w-[38ch] text-[15px] leading-[1.7] text-[#b8b8b8]">
               Since {FOUNDED.year}, one in-house team planning, building and
               marketing the online presence of growing businesses.
             </p>
@@ -97,7 +97,7 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     title={label}
-                    className="grid size-10 place-items-center rounded-full border border-neutral-200 bg-white text-neutral-700 transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                    className="grid size-10 place-items-center rounded-full border border-neutral-400/50 bg-[#212140] text-white transition-colors hover:border-primary hover:bg-primary hover:text-white"
                   >
                     <Icon aria-hidden className="size-4.5" />
                   </a>
@@ -105,7 +105,7 @@ export function SiteFooter() {
               ))}
             </ul>
 
-            <ul className="mt-8 grid gap-3 text-[14.5px] text-neutral-600">
+            <ul className="mt-8 grid gap-3 text-[14.5px] text-[#b8b8b8]">
               <li className="flex items-start gap-2.5">
                 <MailIcon
                   aria-hidden
@@ -114,7 +114,7 @@ export function SiteFooter() {
                 <span className="grid min-w-0 gap-0.5">
                   <a
                     href={`mailto:${CONTACT.email}`}
-                    className="font-medium text-heading transition-colors wrap-anywhere hover:text-primary"
+                    className="font-medium transition-colors wrap-anywhere hover:text-primary"
                   >
                     {CONTACT.email}
                   </a>
@@ -136,12 +136,10 @@ export function SiteFooter() {
                     <a
                       key={phone.href}
                       href={`tel:${phone.href}`}
-                      className="transition-colors hover:text-primary"
+                      className="transition-colors hover:text-primary text-[#b8b8b8]"
                     >
-                      <span className="font-medium text-heading">
-                        {phone.display}
-                      </span>{" "}
-                      <span className="text-neutral-500">({phone.label})</span>
+                      <span className="font-medium ">{phone.display}</span>{" "}
+                      <span className="text-white">({phone.label})</span>
                     </a>
                   ))}
                 </span>
@@ -169,7 +167,7 @@ export function SiteFooter() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="inline-block py-1 text-[14.5px] text-neutral-600 transition-colors hover:text-primary"
+                        className="inline-block py-1 text-[14.5px] text-[#b8b8b8] transition-colors hover:text-primary"
                       >
                         {link.label}
                       </Link>
@@ -191,8 +189,8 @@ export function SiteFooter() {
         </p>
       </Container>
 
-      <div className="relative border-t border-neutral-200 bg-[#F4F3EF]">
-        <Container className="flex flex-col items-center justify-center sm:justify-between gap-3 py-6 text-[13.5px] text-neutral-500 sm:flex-row">
+      <div className="relative border-t border-neutral-200/20 bg-[#17172f]">
+        <Container className="flex flex-col items-center justify-center sm:justify-between gap-3 py-6 text-[13.5px] text-neutral-200 sm:flex-row">
           <p className="text-center sm:text-left">
             &copy; {FOUNDED.year}&ndash;{new Date().getFullYear()} WebTech
             Solutions. All rights reserved.
@@ -200,13 +198,13 @@ export function SiteFooter() {
           <div className="flex items-center gap-5">
             <Link
               href="/privacy-policy"
-              className="transition-colors hover:text-heading"
+              className="transition-colors hover:text-white hover:underline"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-and-conditions"
-              className="transition-colors hover:text-heading"
+              className="transition-colors hover:text-white hover:underline"
             >
               Terms &amp; Conditions
             </Link>

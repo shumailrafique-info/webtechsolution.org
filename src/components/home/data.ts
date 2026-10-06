@@ -241,7 +241,6 @@ export const PRESS: { name: string; logo: string }[] = [
   { name: "Yahoo Finance", logo: "/images/home/press/yahoo-finance.png" },
   { name: "Digital Journal", logo: "/images/home/press/digital-journal.png" },
   { name: "Inquirer.net", logo: "/images/home/press/inquirer.png" },
-  { name: "TechBullion", logo: "/images/home/press/techbullion.png" },
   {
     name: "Analytics Insight",
     logo: "/images/home/press/analytics-insight.png",

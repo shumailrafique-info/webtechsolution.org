@@ -37,7 +37,7 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[13px] font-medium",
+        "inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[13px] font-bold",
         tone === "light"
           ? "border-neutral-200 bg-white text-neutral-600"
           : "border-white/15 bg-white/5 text-neutral-300",

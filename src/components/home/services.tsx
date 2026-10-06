@@ -25,7 +25,6 @@ const SEO_INCLUDES = [
   "Content creation",
   "Link building",
   "Local SEO & Business Profile",
-  "SEO audits",
   "Analytics & reporting",
 ];
 
@@ -70,15 +69,13 @@ export function Services() {
                   Search engine optimization
                 </h3>
                 <p className="mt-4 text-[15.5px] leading-[1.65] text-white/85">
-                  Technical audits, on-page optimization, content and ethical
-                  link building, run as one program rather than a checklist
-                  &mdash; for businesses whose customers search before they buy,
-                  and local businesses that need to show up nearby.
+                  Improve search visibility through technical SEO, content
+                  strategy, on-page optimization, and authority building
                 </p>
                 <ArrowLink
                   href="/services/seo"
                   tone="dark"
-                  className="mt-auto pt-8"
+                  className="mt-auto pt-8 hover:text-white!"
                 >
                   Explore SEO
                 </ArrowLink>
@@ -102,8 +99,16 @@ export function Services() {
 
           <ServiceCard
             icon={PencilRulerIcon}
-            title={<>Web design</>}
-            text="User-focused layouts that make the next step obvious."
+            title={<>Content Marketing</>}
+            text="Research-led content built around real search intent, topical relevance, and your business goals."
+            href="/services/web-designing"
+          >
+            <BrowserSketch />
+          </ServiceCard>
+          <ServiceCard
+            icon={PencilRulerIcon}
+            title={<>Digital PR & Link Building</>}
+            text="Earn relevant mentions and authoritative links that strengthen brand visibility and search authority."
             href="/services/web-designing"
           >
             <BrowserSketch />
@@ -112,7 +117,7 @@ export function Services() {
           <ServiceCard
             icon={CodeIcon}
             title={<>Web development</>}
-            text="Fast, secure and scalable sites, built for performance."
+            text="Fast, responsive websites built around usability, performance, and business conversion goals."
             href="/services/web-develpment"
           >
             <QualityStack />
@@ -120,8 +125,8 @@ export function Services() {
 
           <ServiceCard
             icon={DeviceMobileIcon}
-            title={<>App development</>}
-            text="Mobile apps taken from idea to working product."
+            title={<>Mobile App Development</>}
+            text="Custom Android and iOS applications designed around real user needs and scalable business requirements."
             href="/services/app-development"
           >
             <PhoneSketch />
@@ -129,8 +134,8 @@ export function Services() {
 
           <ServiceCard
             icon={MegaphoneIcon}
-            title={<>Digital marketing</>}
-            text="Reach you need now, alongside search work that compounds."
+            title={<>Social Media Marketing</>}
+            text="Build a consistent brand presence with platform-specific content, campaigns, and audience engagement."
             href="/services/digital-marketing"
           >
             <ul className="flex flex-wrap gap-1.5">

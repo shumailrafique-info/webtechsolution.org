@@ -7,7 +7,7 @@ export function Stats() {
     { value: String(FOUNDED.year), label: "Established" },
     { value: PROJECTS_DELIVERED, label: "Clients Served" },
     { value: String(OFFICES.length), label: "Global Offices" },
-    { value: String(PRESS.length), label: "Years of Experience." },
+    { value: String(`13+`), label: "Years of Experience." },
   ];
 
   return (

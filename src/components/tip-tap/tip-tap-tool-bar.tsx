@@ -287,7 +287,6 @@ const TablePopover = ({
         <p className="mb-2 text-xs font-medium text-muted-foreground">
           Insert table
         </p>
-        {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse-leave only resets the hover preview; each cell is a real button */}
         <div
           className="grid gap-0.5"
           style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}

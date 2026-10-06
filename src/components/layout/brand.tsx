@@ -2,10 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-/**
- * The wordmark, used where the full header is not present - the sign-in and
- * sign-up pages.
- */
 export function Brand({
   className,
   size = "md",

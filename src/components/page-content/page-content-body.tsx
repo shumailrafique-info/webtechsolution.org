@@ -22,7 +22,6 @@ export async function PageContentBody({
         BLOG_PROSE,
         framed && "rounded-lg border border-border bg-card p-6 sm:p-8",
       )}
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
       dangerouslySetInnerHTML={{ __html: prepareProseHtml(content.html).html }}
     />
   );

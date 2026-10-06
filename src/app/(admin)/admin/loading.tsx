@@ -1,9 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-/**
- * Mirrors the dashboard's layout so the page does not jump when the stats
- * arrive - same header, same four cards, same two-column split.
- */
 export default function Loading() {
   return (
     <div className="w-full">

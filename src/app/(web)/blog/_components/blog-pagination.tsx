@@ -76,7 +76,6 @@ export function BlogPagination({
         {pageItems(currentPage, totalPages).map((page, index) =>
           page === null ? (
             <li
-              // biome-ignore lint/suspicious/noArrayIndexKey: gaps have no id of their own
               key={`gap-${index}`}
               aria-hidden
               className="px-1 text-neutral-400"

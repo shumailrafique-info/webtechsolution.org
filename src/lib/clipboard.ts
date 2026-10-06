@@ -4,9 +4,7 @@ export async function writeToClipboard(value: string): Promise<boolean> {
       await navigator.clipboard.writeText(value);
       return true;
     }
-  } catch {
-    // fall through to the legacy path
-  }
+  } catch {}
   try {
     const area = document.createElement("textarea");
     area.value = value;

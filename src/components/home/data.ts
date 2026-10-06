@@ -21,7 +21,6 @@ export type Office = {
   timezone: string;
 };
 
-// The United States is the primary market, so it leads every list.
 export const OFFICES: Office[] = [
   {
     country: "United States",

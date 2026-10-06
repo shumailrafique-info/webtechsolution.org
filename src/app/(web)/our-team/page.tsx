@@ -41,7 +41,6 @@ export const metadata: Metadata = pageMetadata({
   eyebrow: "Our team",
 });
 
-/** Applications go by email, as the company's FAQ asks. */
 const JOIN_HREF = `mailto:${CONTACT.email}?subject=${encodeURIComponent("Joining WebTech Solutions")}`;
 
 const schema = graph([
@@ -76,7 +75,6 @@ export default function Page() {
     <>
       <JsonLd data={schema} />
 
-      {/* Introduction. */}
       <section
         aria-labelledby="team-title"
         className="border-b border-neutral-100 bg-white pt-6 pb-12 md:pb-16"
@@ -137,7 +135,6 @@ export default function Page() {
             </ul>
           </div>
 
-          {/* Jump to a discipline. */}
           <nav
             aria-label="Teams"
             className="enter mt-12 flex flex-wrap justify-center gap-2"
@@ -158,7 +155,6 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* Founder. */}
       <section
         aria-label="Founder"
         className="border-b border-primary/10 bg-brand-tint py-14 md:py-20 lg:py-24"
@@ -193,7 +189,6 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* The team, by discipline. */}
       <section
         aria-label="The team"
         className="bg-white py-14 md:py-20 lg:py-24"
@@ -238,7 +233,6 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* Hiring. */}
       <section
         id="join"
         aria-labelledby="join-title"

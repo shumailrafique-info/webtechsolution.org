@@ -75,7 +75,6 @@ export async function GET(request: NextRequest) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
-          {/* biome-ignore lint/performance/noImgElement: ImageResponse renders plain img */}
           <img
             src={`data:image/png;base64,${logo}`}
             alt=""

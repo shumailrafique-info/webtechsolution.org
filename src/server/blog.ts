@@ -33,12 +33,6 @@ export type BlogCard = Pick<
   | "published_at"
 >;
 
-/**
- * One page of published posts, newest first.
- *
- * The count comes back with the rows so the caller can render the pager and
- * reject an out-of-range page without a second round trip.
- */
 export const getPublishedPage = cache(
   async (
     page: number,
@@ -55,7 +49,6 @@ export const getPublishedPage = cache(
           published_at: blog.published_at,
         })
         .from(blog)
-        // Drafts never reach the public site.
         .where(eq(blog.status, "PUBLISHED"))
         .orderBy(desc(blog.published_at))
         .limit(POSTS_PER_PAGE)
@@ -77,7 +70,6 @@ export const getPublishedPage = cache(
   },
 );
 
-/** Every published post, for the sitemap. */
 export const getPublishedSitemapEntries = cache(async () => {
   return db
     .select({

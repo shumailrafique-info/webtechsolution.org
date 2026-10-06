@@ -1,12 +1,6 @@
 import { TESTIMONIALS } from "./data";
 import { Accent, Container, SectionHeading } from "./primitives";
 
-/**
- * Client statements with full attribution.
- *
- * Renders nothing until genuine testimonials are added to `TESTIMONIALS` -
- * an unattributed quote does more damage to trust than an absent one.
- */
 export function Testimonials() {
   if (TESTIMONIALS.length === 0) return null;
 

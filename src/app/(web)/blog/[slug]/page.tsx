@@ -178,7 +178,6 @@ export default async function Page({
               {post.author ? (
                 <div className="enter mt-7 flex items-center gap-3">
                   {post.author.image ? (
-                    // biome-ignore lint/performance/noImgElement: remote avatar from the identity provider, not a bundled asset
                     <img
                       src={post.author.image}
                       alt=""
@@ -207,7 +206,6 @@ export default async function Page({
 
             {post.cover_image?.url ? (
               <div className="enter-image lg:col-span-6">
-                {/* biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL */}
                 <img
                   src={post.cover_image.url}
                   alt={post.image_alt}
@@ -229,7 +227,6 @@ export default async function Page({
           <article className="w-full rounded-[24px] border border-neutral-200 bg-white p-5 sm:p-8 md:p-10 lg:col-span-17 lg:col-start-8 lg:row-span-2 lg:row-start-1">
             <div
               className={BLOG_PROSE}
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </article>

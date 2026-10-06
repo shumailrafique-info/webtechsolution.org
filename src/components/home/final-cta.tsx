@@ -10,7 +10,6 @@ export function FinalCta() {
     >
       <Container>
         <div className="reveal relative overflow-hidden rounded-[32px] bg-heading px-6 py-6 sm:px-8 sm:py-8 text-white">
-          {/* A single warm light from the corner, nothing more. */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_100%_100%,color-mix(in_oklch,var(--primary)_28%,transparent),transparent_55%)]"

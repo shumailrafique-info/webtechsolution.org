@@ -34,7 +34,6 @@ import { deleteS3Objects } from "@/server/actions/delete-from-aws";
 import { getSignedURL } from "@/server/actions/upload-to-aws";
 import { toast } from "../ui/toast";
 
-// Types
 export type UploadedFile = {
   url: string;
   key: string;
@@ -71,7 +70,6 @@ type ImageUploaderProps = {
   acceptVideos?: boolean;
 };
 
-// Reducer
 type State = { files: UploadFile[] };
 type Action =
   | { type: "ADD_FILES"; payload: UploadFile[] }
@@ -189,7 +187,6 @@ function filesReducer(state: State, action: Action): State {
   }
 }
 
-// Helper: video preview component
 const VideoPreview = ({
   src,
   className,
@@ -207,7 +204,6 @@ const VideoPreview = ({
   />
 );
 
-// Sortable grid item
 const SortableImageItem = ({
   file,
   onDelete,
@@ -246,7 +242,6 @@ const SortableImageItem = ({
       return <VideoPreview src={src} className="w-full h-full object-cover" />;
     }
     return (
-      // biome-ignore lint/performance/noImgElement: due
       <img
         src={src}
         alt="Preview"
@@ -290,7 +285,6 @@ const SortableImageItem = ({
         {renderPreview()}
       </div>
 
-      {/* Status overlays */}
       {file.status === "uploading" && (
         <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
           <LoaderIcon className="w-5 h-5 animate-spin text-white mb-2" />
@@ -349,7 +343,6 @@ const SortableImageItem = ({
   );
 };
 
-// Non-sortable item
 const ImageItem = ({
   file,
   onDelete,
@@ -367,7 +360,6 @@ const ImageItem = ({
       return <VideoPreview src={src} className="w-full h-full object-cover" />;
     }
     return (
-      // biome-ignore lint/performance/noImgElement: due
       <img
         src={src}
         alt="Preview"
@@ -390,7 +382,6 @@ const ImageItem = ({
         {renderPreview()}
       </div>
 
-      {/* Status overlays */}
       {file.status === "uploading" && (
         <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
           <LoaderIcon className="w-5 h-5 animate-spin text-white mb-2" />
@@ -445,7 +436,6 @@ const ImageItem = ({
   );
 };
 
-// Main component
 export function MultiImageUploader({
   maxFiles = 5,
   maxSizeMB = 5,
@@ -480,7 +470,6 @@ export function MultiImageUploader({
     }),
   );
 
-  // Video MIME types and final accept list
   const videoMimeTypes = [
     "video/mp4",
     "video/webm",
@@ -496,12 +485,10 @@ export function MultiImageUploader({
     });
   }
 
-  // Sync with controlled value
   useEffect(() => {
     dispatch({ type: "SYNC_FROM_VALUE", payload: value });
   }, [value]);
 
-  // Notify parent of successful files (with order and type)
   useEffect(() => {
     const successful = files
       .filter((f) => f.status === "success" && f.url && f.key)
@@ -558,7 +545,6 @@ export function MultiImageUploader({
     }
     if (newFiles.length === 0) return;
     dispatch({ type: "ADD_FILES", payload: newFiles });
-    // biome-ignore lint/suspicious/useIterableCallbackReturn: due
     newFiles.forEach((f) => uploadFile(f.id, f.file));
   }
 
@@ -692,8 +678,6 @@ export function MultiImageUploader({
   return (
     <div className={cn("space-y-3", className)}>
       {!limitReached && !uploading && (
-        // biome-ignore lint/a11y/useKeyWithClickEvents: due
-        // biome-ignore lint/a11y/noStaticElementInteractions: due
         <div
           onClick={openFileDialog}
           onDragOver={(e) => {
@@ -786,7 +770,6 @@ export function MultiImageUploader({
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        // biome-ignore lint/performance/noImgElement: due
                         <img
                           src={
                             activeFile.url ||

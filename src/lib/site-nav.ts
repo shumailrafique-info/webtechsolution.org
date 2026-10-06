@@ -1,18 +1,9 @@
-/**
- * Site navigation: the links the header and footer render.
- *
- * Paths mirror the live WordPress site so the rebuild keeps the same URLs,
- * which is what preserves its search rankings. Only links live here - any
- * wording around them belongs in the component that shows it.
- */
-
 export type NavLink = {
   label: string;
   href: string;
 };
 
 export type NavItem = NavLink & {
-  /** Present when the item opens a panel rather than navigating straight away. */
   children?: NavLink[];
 };
 

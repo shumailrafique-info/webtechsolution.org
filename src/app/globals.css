@@ -68,7 +68,6 @@
   --primary-foreground: oklch(0.98 0.016 73.684);
   --brand-deep: oklch(47% 0.16 37);
   --heading: oklch(0.205 0 0);
-  /* A warm off-white, for a section that needs to stand apart. */
   --brand-tint: oklch(0.983 0.013 60);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);

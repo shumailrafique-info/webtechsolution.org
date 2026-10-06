@@ -41,7 +41,6 @@ export function ContactForm({ className }: { className?: string }) {
 
   const { mutate, isPending, error } = useContactQuerySubmit();
 
-  // Arriving from a plan on /pricing: name the plan in the message.
   useEffect(() => {
     const chosen = planById(
       new URLSearchParams(window.location.search).get("plan"),

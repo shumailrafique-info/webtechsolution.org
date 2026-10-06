@@ -186,7 +186,6 @@ const BlogsList = () => {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         {item.cover_image?.url ? (
-                          // biome-ignore lint/performance/noImgElement: due
                           <img
                             src={item.cover_image.url}
                             alt={item.image_alt}

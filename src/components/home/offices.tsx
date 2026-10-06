@@ -2,7 +2,6 @@ import { ClockIcon, MapPinIcon } from "@/components/icons";
 import { OFFICES } from "./data";
 import { Accent, Container, SectionHeading } from "./primitives";
 
-/** The four offices, with addresses exactly as the company publishes them. */
 export function Offices() {
   return (
     <section

@@ -1,9 +1,5 @@
 import { z } from "zod";
 
-/**
- * The idea box in a post's sidebar. The same schema validates the form in the
- * browser and the payload on the server, so the two cannot drift.
- */
 export const ideaSchema = z.object({
   name: z
     .string()
@@ -16,7 +12,6 @@ export const ideaSchema = z.object({
     .trim()
     .min(10, "Tell us a little more - at least 10 characters")
     .max(4000, "Please keep it under 4000 characters"),
-  /** Which post the idea came from; absent when submitted from elsewhere. */
   blogId: z.uuid().optional(),
 });
 

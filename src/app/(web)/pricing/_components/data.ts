@@ -72,7 +72,6 @@ export const planById = (id: string | null | undefined) =>
 
 export const planHref = (id: PlanId) => `/contact-us?plan=${id}#query`;
 
-/** The plan figures other sections quote, in one place. */
 export const PRICING = {
   consultation: { name: PLANS[0].name, price: `${PLANS[0].price}/hour` },
   launch: {

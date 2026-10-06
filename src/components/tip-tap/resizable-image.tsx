@@ -89,7 +89,6 @@ export const ResizableImage = BaseImage.extend({
         parseHTML: (element) =>
           element.getAttribute("data-description") ??
           element.getAttribute("title"),
-        // rendered via <figcaption> in renderHTML instead
         renderHTML: () => ({}),
       },
     };
@@ -145,12 +144,10 @@ export const ResizableImage = BaseImage.extend({
       },
     );
 
-    // No caption -> just render the <img>
     if (!description) {
       return ["img", imgAttributes];
     }
 
-    // With caption -> wrap in <figure> with a centered <figcaption>
     return [
       "figure",
       {
@@ -285,7 +282,6 @@ function ResizableImageView({
         )}
         style={{ width: shownWidth ? `${shownWidth}px` : undefined }}
       >
-        {/* biome-ignore lint/performance/noImgElement: editor preview of user content */}
         <img
           ref={image}
           src={src}
@@ -303,7 +299,6 @@ function ResizableImageView({
           }}
         />
 
-        {/* Caption – centered under the image */}
         {description ? (
           <div className="mt-2 text-center text-sm leading-snug text-muted-foreground">
             {description}

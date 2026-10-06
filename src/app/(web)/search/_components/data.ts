@@ -1,4 +1,3 @@
-/** Starting points offered before a search, from the blog's main categories. */
 export const POPULAR_TOPICS = [
   "SEO",
   "Digital marketing",
@@ -13,7 +12,6 @@ export const POPULAR_TOPICS = [
 export const searchHref = (query: string) =>
   `/search?q=${encodeURIComponent(query.trim())}`;
 
-/** Words worth highlighting: search operators and one-letter words dropped. */
 export function queryTerms(query: string): string[] {
   return [
     ...new Set(

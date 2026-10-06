@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noDocumentCookie: the sidebar state cookie is written directly, as shadcn ships it */
 "use client";
 
 import { mergeProps } from "@base-ui/react/merge-props";

@@ -35,5 +35,128 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "src/app/(admin)/admin/blogs/_components/blogs-list.tsx",
+        "src/app/(admin)/admin/media/_components/media-uploader.tsx",
+        "src/app/(web)/blog/*/page.tsx",
+        "src/app/(web)/blog/_components/post-card.tsx",
+        "src/app/(web)/search/_components/result-item.tsx",
+        "src/app/(web)/search/_components/search-drawer.tsx",
+        "src/app/og/route.tsx",
+        "src/components/shared/image-upader.tsx",
+        "src/components/tip-tap/resizable-image.tsx"
+      ],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noImgElement": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "src/app/(web)/blog/*/page.tsx",
+        "src/components/page-content/page-content-body.tsx",
+        "src/components/seo/json-ld.tsx"
+      ],
+      "linter": {
+        "rules": {
+          "security": {
+            "noDangerouslySetInnerHtml": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "src/app/(admin)/_components/admin-pagination.tsx",
+        "src/app/(web)/blog/_components/blog-pagination.tsx",
+        "src/app/(web)/search/_components/highlight.tsx"
+      ],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noArrayIndexKey": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/app/(web)/search/_components/search-drawer.tsx"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useExhaustiveDependencies": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/shared/image-upader.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "useIterableCallbackReturn": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/shared/image-upader.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useKeyWithClickEvents": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "src/components/shared/image-upader.tsx",
+        "src/components/tip-tap/tip-tap-tool-bar.tsx"
+      ],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noStaticElementInteractions": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/ui/field.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useSemanticElements": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/ui/label.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noLabelWithoutControl": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/ui/sidebar.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noDocumentCookie": "off"
+          }
+        }
+      }
+    }
+  ]
 }

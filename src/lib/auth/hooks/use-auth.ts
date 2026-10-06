@@ -12,19 +12,15 @@ export const useAuth = () => {
   const user = session?.user ?? null;
 
   return {
-    // core
     session,
     user,
-    // state
     isLoading: isPending,
     isPending,
     isRefetching,
     isAuthenticated: !!user,
     isGuest: !user && !isPending,
-    // error handling
     error,
     hasError: !!error,
-    // actions
     refetchSession: refetch,
   };
 };

@@ -33,7 +33,6 @@ function Cover({
       )}
     >
       {post.cover_image?.url ? (
-        // biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL
         <img
           src={post.cover_image.url}
           alt={post.image_alt}

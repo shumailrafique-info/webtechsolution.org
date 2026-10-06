@@ -56,7 +56,6 @@ export function Approach() {
           lede="Customers search before they buy. When they can’t find you, they find someone else — and you never hear about it. We start with that business problem, not with a deliverable."
         />
 
-        {/* Before and after, around the page they both happen on. */}
         <div className="relative mx-auto mt-10 max-w-5xl md:mt-12">
           <div className="grid items-center gap-4 lg:grid-cols-[1fr_1.35fr_1fr] lg:gap-0">
             <div className="reveal relative z-20 order-2 rounded-[20px] border border-neutral-200 bg-white p-6 shadow-[0_18px_40px_-28px_rgba(30,20,10,0.35)] lg:order-1 lg:-mr-6 lg:translate-y-6">
@@ -102,7 +101,6 @@ export function Approach() {
           </div>
         </div>
 
-        {/* The four stages, in order. */}
         <ol className="mt-12 grid gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
           {STAGES.map((stage, index) => (
             <li
@@ -135,7 +133,6 @@ export function Approach() {
   );
 }
 
-/** A search results page with one result lifted to the top. */
 function SearchSketch() {
   return (
     <div

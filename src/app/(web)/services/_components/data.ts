@@ -27,7 +27,6 @@ export type Service = {
   group: ServiceGroup;
   icon: ComponentType<{ className?: string }>;
   summary: string;
-  /** The full SEO title, as the live site used it. */
   metaTitle: string;
   metaDescription: string;
   hero: { title: string; accent: string; intro: string };
@@ -122,7 +121,6 @@ export const SERVICES: Service[] = [
         body: "Improve your online store’s visibility by optimizing product descriptions, category pages, and implementing structured data for better search engine understanding.",
       },
     ],
-    // Added: the live SEO page has no "importance" section.
     importance: {
       title: "Importance of SEO",
       body: "Most customers search before they buy. SEO puts your business in front of them at that exact moment — and unlike paid ads, the visibility keeps working long after the work is done. It is the foundation the rest of your marketing builds on.",
@@ -371,8 +369,6 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Web",
       accent: "designing",
-      // Written for this page: the live intro is the generic one every
-      // service page shared.
       intro:
         "We design visually striking, user-focused websites that look great on every device and make the next step obvious — from brand-new sites and redesigns to high-converting landing pages.",
     },
@@ -407,7 +403,6 @@ export const SERVICES: Service[] = [
     topic: "web design",
   },
   {
-    // The live URL keeps this typo; changing it would lose the page's links.
     slug: "web-develpment",
     name: "Web Development",
     group: "core",
@@ -420,8 +415,6 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Web",
       accent: "development",
-      // Written for this page: the live intro is the generic one every
-      // service page shared.
       intro:
         "We build fast, secure, and scalable websites — custom builds, online stores, and SEO-friendly development — and keep them updated and running smoothly after launch.",
     },
@@ -612,8 +605,6 @@ export const SERVICES: Service[] = [
     why: GENERIC_WHY,
     offersIntro:
       "From the first keyword to the final report, every part of the campaign is planned, managed, and measured.",
-    // Written for this page: the live list repeated the App Development
-    // services by mistake. Built from the page's own description.
     offers: [
       {
         title: "Keyword Research & Strategy",
@@ -655,8 +646,6 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Google",
       accent: "Ads",
-      // Written for this page: the live intro is the generic one every
-      // service page shared.
       intro:
         "We design and manage Google Ads campaigns across Search, Display, and YouTube that put your business in front of ready-to-buy customers and turn ad spend into measurable growth.",
     },
@@ -702,8 +691,6 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Affiliate",
       accent: "marketing",
-      // Written for this page: the live intro is the generic one every
-      // service page shared.
       intro:
         "We design and manage affiliate programs that reward partners for performance — from setup and recruitment to tracking and commissions — so your reach grows while costs stay under control.",
     },
@@ -749,8 +736,6 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Video",
       accent: "marketing",
-      // Written for this page: the live intro is the generic one every
-      // service page shared.
       intro:
         "We create and promote videos that tell your story — from short social clips and explainers to product demos and YouTube campaigns that drive engagement.",
     },
@@ -797,8 +782,6 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Mobile",
       accent: "marketing",
-      // Written for this page: the live intro is the generic one every
-      // service page shared.
       intro:
         "We help your brand reach customers on the go with SMS, push notifications, in-app ads, and location-based campaigns built for mobile-first audiences.",
     },
@@ -883,7 +866,6 @@ export const DIGITAL_MARKETING = {
   metaDescription:
     "WebTech Solutions offers tailored digital marketing solutions, creating custom strategies for each client based on their goals.",
   why: OVERVIEW.why,
-  // From the brand story: how the agency approaches digital marketing.
   approach: {
     title: "Digital marketing with strategic",
     accent: "depth",

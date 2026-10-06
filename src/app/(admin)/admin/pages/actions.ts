@@ -54,12 +54,8 @@ export async function upsertPageContent(
     return { success: false, error: "That page does not exist." };
   }
 
-  // Empty lists are stored as null, matching the other blank fields, so the
-  // public components can decide with one truthiness check.
   const faqs = parsed.data.faqs?.length ? parsed.data.faqs : null;
 
-  // No page here renders a related section, so anything sent for one is
-  // dropped rather than quietly stored where nothing reads it.
   const related = null;
 
   const values = {

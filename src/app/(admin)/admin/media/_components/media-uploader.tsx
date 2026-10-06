@@ -32,7 +32,6 @@ function UrlRow({ file }: { file: UploadedFile }) {
 
   return (
     <li className="flex items-center gap-3 px-4 py-3">
-      {/** biome-ignore lint/performance/noImgElement: <explanation */}
       <img
         src={file.url}
         alt=""

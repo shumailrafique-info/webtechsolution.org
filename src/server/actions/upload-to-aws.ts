@@ -19,8 +19,6 @@ export async function getSignedURL(
   checksum: string,
   name: string,
 ) {
-  // A Server Action is a public endpoint: without this, anyone who can reach
-  // the site could mint a presigned PUT and write to the bucket.
   const guard = await ensureAdminAccess();
   if (!guard.session) {
     return { success: false, error: "Admin access required." };

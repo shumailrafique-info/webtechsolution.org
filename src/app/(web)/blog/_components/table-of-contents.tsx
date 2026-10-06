@@ -44,8 +44,6 @@ export function TableOfContents({ headings, className }: Props) {
     const measure = () => {
       frame.current = 0;
 
-      // The active heading is the last one whose top has passed the offset;
-      // before the first one has, nothing is active.
       let current: string | null = null;
       for (const heading of headings) {
         const element = document.getElementById(heading.id);

@@ -9,13 +9,6 @@ import {
 } from "drizzle-orm/pg-core";
 import { blog } from "./blog-schema";
 
-/**
- * Ideas submitted from the box in a post's sidebar.
- *
- * The post is kept as a nullable reference plus its title at the time of
- * submission, so a submission still reads sensibly after the post it came
- * from is renamed or deleted.
- */
 export const idea = pgTable(
   "ideas",
   {

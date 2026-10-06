@@ -12,7 +12,6 @@ export function ResultItem({ post, query }: { post: BlogCard; query: string }) {
     >
       <div className="overflow-hidden rounded-[18px] bg-neutral-100 ring-1 ring-neutral-200/70">
         {post.cover_image?.url ? (
-          // biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL
           <img
             src={post.cover_image.url}
             alt={post.image_alt}

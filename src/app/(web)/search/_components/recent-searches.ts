@@ -1,7 +1,6 @@
 const KEY = "wts-recent-searches";
 const LIMIT = 6;
 
-/** Searches kept in this browser only. Storage can be blocked, so every call is guarded. */
 export function readRecentSearches(): string[] {
   try {
     const stored = JSON.parse(window.localStorage.getItem(KEY) ?? "[]");

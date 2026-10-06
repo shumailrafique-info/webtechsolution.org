@@ -74,7 +74,6 @@ export function AdminPagination({
           {pageItems(page, totalPages).map((item, index) =>
             item === null ? (
               <li
-                // biome-ignore lint/suspicious/noArrayIndexKey: gaps have no id of their own
                 key={`gap-${index}`}
                 aria-hidden
                 className="px-1 text-sm text-muted-foreground"

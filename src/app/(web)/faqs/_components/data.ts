@@ -68,7 +68,6 @@ export const FAQ_GROUPS: FaqGroup[] = [
   },
 ];
 
-/** Where else answers live on the site. */
 export const MORE_ANSWERS = [
   {
     title: "Pricing",

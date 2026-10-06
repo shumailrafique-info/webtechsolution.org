@@ -10,12 +10,6 @@ const STATEMENT_TIMEOUT_MS = Number(
   process.env.DATABASE_STATEMENT_TIMEOUT_MS ?? 30_000,
 );
 
-/**
- * Serverless Postgres suspends when idle, and waking it can take longer than
- * a connection usually would - long enough that a 10s limit made prerendering
- * fail on a cold database. Generous here, because the alternative is a page
- * built with no content.
- */
 const CONNECT_TIMEOUT_MS = Number(
   process.env.DATABASE_CONNECT_TIMEOUT_MS ?? 30_000,
 );

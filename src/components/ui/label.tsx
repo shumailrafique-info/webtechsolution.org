@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (
-    // biome-ignore lint/a11y/noLabelWithoutControl: because its util
     <label
       data-slot="label"
       className={cn(

@@ -57,7 +57,6 @@ export function Services() {
         />
 
         <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
-          {/* Primary practice. */}
           <article className="reveal relative overflow-hidden rounded-[24px] bg-linear-to-br from-primary to-brand-deep p-7 text-white md:col-span-2 md:p-9">
             <div className="grid gap-9 md:grid-cols-[1fr_1.05fr] md:gap-10">
               <div className="flex flex-col">
@@ -148,10 +147,6 @@ export function Services() {
   );
 }
 
-/**
- * A secondary service. The whole card is the link to its page. A `wide` card
- * spans the full row and sets its drawing beside the text.
- */
 function ServiceCard({
   icon,
   title,
@@ -242,7 +237,6 @@ function ContentSketch() {
   );
 }
 
-/** Publications linking to the client: authority flowing into one site. */
 function LinkSketch() {
   const sources = [
     { label: "News site", x: 6, y: 8 },
@@ -311,7 +305,6 @@ function LinkSketch() {
   );
 }
 
-/** A page wireframe with the qualities the build is held to. */
 function BrowserSketch() {
   return (
     <div
@@ -349,7 +342,6 @@ function BrowserSketch() {
   );
 }
 
-/** A phone with an app screen, between the two platforms it ships to. */
 function PhoneSketch() {
   return (
     <div aria-hidden className="flex items-center justify-center gap-3">
@@ -382,7 +374,6 @@ function PlatformTag({ children }: { children: string }) {
   );
 }
 
-/** A scheduled post with its engagement, and the channels it goes out on. */
 function SocialSketch() {
   const platforms = [
     { name: "Facebook", Icon: FacebookIcon },

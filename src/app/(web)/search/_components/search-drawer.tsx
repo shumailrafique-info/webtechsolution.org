@@ -76,7 +76,6 @@ export function SearchDrawer({ className }: { className?: string }) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: runs on route change only
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
@@ -237,7 +236,6 @@ export function SearchDrawer({ className }: { className?: string }) {
                           >
                             <span className="relative h-12 w-20 shrink-0 overflow-hidden rounded-[10px] bg-neutral-100 ring-1 ring-neutral-200/70">
                               {hit.cover_image?.url ? (
-                                // biome-ignore lint/performance/noImgElement: remote cover served from the media bucket at its stored URL
                                 <img
                                   src={hit.cover_image.url}
                                   alt=""

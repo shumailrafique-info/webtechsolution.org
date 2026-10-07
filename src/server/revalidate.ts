@@ -14,3 +14,8 @@ export function revalidateBlogContent(...slugs: string[]) {
   revalidatePath("/feed.xml");
   revalidatePath("/admin/blogs");
 }
+
+export function revalidateAuthorPosts(slugs: string[]) {
+  for (const slug of new Set(slugs)) revalidatePath(`/blog/${slug}`);
+  revalidatePath("/admin/authors");
+}

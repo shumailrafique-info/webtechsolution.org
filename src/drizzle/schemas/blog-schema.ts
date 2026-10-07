@@ -9,7 +9,7 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 import type { UploadedFile } from "@/components/shared/image-upader";
-import { user } from "./auth-schema";
+import { author } from "./author-schema";
 
 export const blogSearchDocument = (columns: {
   title: AnyColumn;
@@ -33,7 +33,7 @@ export const blog = pgTable(
     html: text("html").notNull(),
     cover_image: jsonb("cover_image").$type<UploadedFile>().notNull(),
     image_alt: text("image_alt").notNull(),
-    author_id: text("author_id").references(() => user.id, {
+    author_id: uuid("author_id").references(() => author.id, {
       onDelete: "set null",
     }),
     status: postStatusEnum("status").notNull().default("DRAFT"),
@@ -67,8 +67,8 @@ export const blog = pgTable(
 );
 
 export const blogRelations = relations(blog, ({ one }) => ({
-  author: one(user, {
+  author: one(author, {
     fields: [blog.author_id],
-    references: [user.id],
+    references: [author.id],
   }),
 }));

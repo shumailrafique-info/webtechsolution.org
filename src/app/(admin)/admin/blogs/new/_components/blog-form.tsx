@@ -21,6 +21,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
 import type { BlogType } from "@/drizzle/types";
+import { useAuthors } from "@/lib/react-query/hooks/use-authors";
 import { useBlogCreate, useBlogUpdate } from "@/lib/react-query/hooks/use-blog";
 import {
   type BlogSchemaValues,
@@ -32,6 +33,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
   const { mutate: createPost, isPending } = useBlogCreate();
   const { mutate: updatePost, isPending: isUpdating } = useBlogUpdate();
   const router = useRouter();
+  const { data: authors, isPending: authorsLoading } = useAuthors();
   const form = useForm<BlogSchemaValues>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
@@ -45,6 +47,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
       status: blog?.status ?? "DRAFT",
       cover_image: blog?.cover_image ? [blog?.cover_image] : [],
       image_alt: blog?.image_alt ?? "",
+      author_id: blog?.author_id ?? null,
     },
   });
 
@@ -276,6 +279,52 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
                 content={field.value}
                 onValueChange={field.onChange}
               />
+              {fieldState.invalid && (
+                <FieldError
+                  errors={[fieldState.error]}
+                  className="mt-1 text-[11px] text-destructive"
+                />
+              )}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="author_id"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid} className="gap-2">
+              <FieldLabel>Author</FieldLabel>
+              <Select
+                value={field.value ?? "none"}
+                onValueChange={(value) =>
+                  field.onChange(value === "none" ? null : value)
+                }
+                items={[
+                  { value: "none", label: "No author" },
+                  ...(authors ?? []).map((item) => ({
+                    value: item.id,
+                    label: item.name,
+                  })),
+                ]}
+              >
+                <SelectTrigger
+                  aria-invalid={fieldState.invalid}
+                  className="w-full"
+                  disabled={authorsLoading}
+                >
+                  <SelectValue placeholder="Select author" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="none">No author</SelectItem>
+                  {(authors ?? []).map((item) => (
+                    <SelectItem key={item.id} value={item.id}>
+                      {item.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}

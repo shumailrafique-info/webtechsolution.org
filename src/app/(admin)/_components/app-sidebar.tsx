@@ -11,6 +11,7 @@ import {
   InboxIcon,
   MailIcon,
   TerminalIcon,
+  UsersIcon,
 } from "@/components/icons";
 import {
   Sidebar,
@@ -37,6 +38,17 @@ const data = {
         {
           title: "Add Blog",
           url: "/admin/blogs/new",
+        },
+      ],
+    },
+    {
+      title: "Authors",
+      url: "/admin/authors",
+      icon: <UsersIcon />,
+      items: [
+        {
+          title: "Add Author",
+          url: "/admin/authors/new",
         },
       ],
     },

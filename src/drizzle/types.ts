@@ -1,5 +1,6 @@
 import type { InferSelectModel } from "drizzle-orm";
 import type {
+  author,
   blog,
   contactQuery,
   idea,
@@ -18,4 +19,6 @@ export type IdeaType = InferSelectModel<typeof idea>;
 
 export type ContactQueryType = InferSelectModel<typeof contactQuery>;
 
-export type BlogAuthor = Pick<UserType, "id" | "name" | "image">;
+export type AuthorType = InferSelectModel<typeof author>;
+
+export type BlogAuthor = Pick<AuthorType, "id" | "name" | "bio" | "image">;

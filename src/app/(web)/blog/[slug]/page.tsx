@@ -22,6 +22,7 @@ import {
   webSiteRef,
 } from "@/lib/seo";
 import { getPublishedPost, getPublishedSitemapEntries } from "@/server/blog";
+import { AuthorCard } from "../_components/author-card";
 import { IdeaBox } from "../_components/idea-box";
 import { PostCard, postDate } from "../_components/post-card";
 import { TableOfContents } from "../_components/table-of-contents";
@@ -107,7 +108,8 @@ export default async function Page({
         ? {
             "@type": "Person",
             name: post.author.name,
-            image: post.author.image ?? undefined,
+            image: post.author.image?.url,
+            description: post.author.bio || undefined,
           }
         : organizationRef,
       publisher: organizationRef,
@@ -177,9 +179,9 @@ export default async function Page({
               </h1>
               {post.author ? (
                 <div className="enter mt-7 flex items-center gap-3">
-                  {post.author.image ? (
+                  {post.author.image?.url ? (
                     <img
-                      src={post.author.image}
+                      src={post.author.image.url}
                       alt=""
                       referrerPolicy="no-referrer"
                       width={40}
@@ -229,6 +231,7 @@ export default async function Page({
               className={BLOG_PROSE}
               dangerouslySetInnerHTML={{ __html: content }}
             />
+            {post.author ? <AuthorCard author={post.author} /> : null}
           </article>
 
           <IdeaBox

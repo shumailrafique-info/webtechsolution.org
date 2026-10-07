@@ -30,6 +30,8 @@ export const blogSchema = z.object({
   image_alt: z.string().min(1, "Image alt text is required"),
 
   status: z.enum(["DRAFT", "PUBLISHED"]),
+
+  author_id: z.string().uuid().nullable(),
 });
 
 export type BlogSchemaValues = z.infer<typeof blogSchema>;

@@ -47,7 +47,9 @@
         "src/app/(web)/search/_components/search-drawer.tsx",
         "src/app/og/route.tsx",
         "src/components/shared/image-upader.tsx",
-        "src/components/tip-tap/resizable-image.tsx"
+        "src/components/tip-tap/resizable-image.tsx",
+        "src/app/(admin)/admin/authors/_components/author-avatar.tsx",
+        "src/app/(web)/blog/_components/author-card.tsx"
       ],
       "linter": {
         "rules": {

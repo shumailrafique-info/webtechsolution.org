@@ -35,6 +35,7 @@ function toRow(values: BlogSchemaValues) {
     cover_image: values.cover_image[0],
     image_alt: values.image_alt,
     status: values.status,
+    author_id: values.author_id,
   };
 }
 
@@ -73,7 +74,6 @@ export async function createBlog(
       .insert(blog)
       .values({
         ...row,
-        author_id: guard.session.user.id,
         published_at: row.status === "PUBLISHED" ? new Date() : null,
       })
       .returning();

@@ -11,27 +11,35 @@ import { ServicePillars } from "../_components/service-pillars";
 import { ServiceSchema } from "../_components/service-schema";
 
 const SLUG = "google-ads";
-const NAME = "Google Ads";
+const NAME = "PPC & Google Ads";
 const GROUP = "marketing";
 
-const META_TITLE = "Google Ads Management Services - WebTech Solutions";
+const META_TITLE = "PPC & Google Ads Management Services - WebTech Solutions";
 const META_DESCRIPTION =
-  "Our team specializes in keyword research, ad optimization, and budget management to maximize your brand’s ROI with Google Ads.";
+  "WebTech Solutions designs and manages PPC and Google Ads campaigns across Search, Display, and YouTube, with keyword research, ad optimization, and budget management that maximize ROI.";
 
 const HERO = {
-  title: "Google",
-  accent: "Ads",
+  title: "PPC & Google Ads",
+  accent: "management",
   intro:
-    "We design and manage Google Ads campaigns across Search, Display, and YouTube that put your business in front of ready-to-buy customers and turn ad spend into measurable growth.",
+    "We design and manage pay-per-click campaigns on Google Search, Display, and YouTube that reach the right audience at the right time, put your business in front of ready-to-buy customers, and turn ad spend into measurable growth.",
 };
 
 const WHY =
   "We design and manage Google Ads campaigns that maximize visibility, attract qualified leads, and deliver measurable business growth.";
 
 const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
+  "From the first keyword to the final report, every part of the campaign is planned, managed, and measured.";
 
 const OFFERS = [
+  {
+    title: "Keyword Research & Strategy",
+    body: "Find the searches your customers use and build campaigns around the ones that convert.",
+  },
+  {
+    title: "Campaign Setup & Management",
+    body: "Structure campaigns, ad groups, and targeting, then manage them day to day.",
+  },
   {
     title: "Search Ads",
     body: "Appear at the top of Google search results.",
@@ -49,8 +57,16 @@ const OFFERS = [
     body: "Re-engage visitors who have previously interacted with your brand.",
   },
   {
-    title: "Performance Tracking",
-    body: "Monitor and optimize campaigns for better ROI.",
+    title: "Ad Copy & Creative",
+    body: "Clear, compelling ads that earn the click and match the page they lead to.",
+  },
+  {
+    title: "Bid & Budget Optimization",
+    body: "Adjust bids and budgets so spend goes to the clicks that deliver returns.",
+  },
+  {
+    title: "Conversion Tracking & Reporting",
+    body: "Track leads and sales from every click, optimize campaigns for better ROI, and report results in plain language.",
   },
 ];
 
@@ -74,11 +90,11 @@ const PILLARS = [
 ];
 
 const IMPORTANCE = {
-  title: "Importance of Google Ads",
-  body: "Google Ads is one of the fastest ways to put your business in front of ready-to-buy customers, delivering measurable results and maximum ROI. Investing in Google Ads means investing in growth — turning ad spend into real, trackable revenue.",
+  title: "Importance of PPC & Google Ads",
+  body: "PPC advertising delivers instant visibility, driving qualified traffic with precision targeting, and Google Ads is one of the fastest ways to put your business in front of ready-to-buy customers. Every click is an opportunity — turning ad spend into real, trackable leads, sales, and growth.",
 };
 
-const BLOG_TOPIC = "Google Ads";
+const BLOG_TOPIC = "PPC";
 
 export const metadata: Metadata = pageMetadata({
   absoluteTitle: META_TITLE,

@@ -21,6 +21,9 @@ const nextConfig: NextConfig = {
       moved("/service/web-develpment", "/services/web-development"),
       moved("/services/gmb", "/services/google-business-profile"),
       moved("/gmb", "/services/google-business-profile"),
+      moved("/services/pay-per-click-ppc-advertising", "/services/google-ads"),
+      moved("/pay-per-click-ppc-advertising", "/services/google-ads"),
+      moved("/google-ads", "/services/google-ads"),
       permanent("/digital-marketing", "/services/digital-marketing"),
       permanent("/sitemap_index.xml", "/sitemap.xml"),
       permanent(

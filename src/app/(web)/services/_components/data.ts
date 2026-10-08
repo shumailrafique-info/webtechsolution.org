@@ -1,7 +1,6 @@
 import type { ComponentType } from "react";
 import {
   CodeIcon,
-  CursorClickIcon,
   DeviceMobileIcon,
   FileTextIcon,
   GoogleIcon,
@@ -112,20 +111,12 @@ export const SERVICES: ServiceSummary[] = [
       "Build authority with strategic content campaigns that attract and convert.",
   },
   {
-    slug: "pay-per-click-ppc-advertising",
-    name: "Pay-Per-Click (PPC)",
-    group: "marketing",
-    icon: CursorClickIcon,
-    summary:
-      "Generate instant leads with targeted PPC campaigns designed for ROI.",
-  },
-  {
     slug: "google-ads",
-    name: "Google Ads",
+    name: "PPC & Google Ads",
     group: "marketing",
     icon: GoogleIcon,
     summary:
-      "Reach your ideal customers with expertly managed Google Ads campaigns.",
+      "Generate instant leads with expertly managed PPC and Google Ads campaigns designed for ROI.",
   },
   {
     slug: "affiliate-marketing",

@@ -28,11 +28,7 @@ export const SERVICES: NavLink[] = [
 
 export const MARKETING: NavLink[] = [
   { label: "Content Marketing", href: "/services/content-marketing" },
-  {
-    label: "Pay-Per-Click (PPC)",
-    href: "/services/pay-per-click-ppc-advertising",
-  },
-  { label: "Google Ads", href: "/services/google-ads" },
+  { label: "PPC & Google Ads", href: "/services/google-ads" },
   { label: "Affiliate Marketing", href: "/services/affiliate-marketing" },
   { label: "Video Marketing", href: "/services/video-marketing" },
   { label: "Mobile Marketing", href: "/services/mobile-marketing" },

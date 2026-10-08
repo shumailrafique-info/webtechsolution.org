@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { imageOf, type Service, serviceHref } from "./data";
+import { imageOf, type ServiceSummary, serviceHref } from "./data";
 
 export function ServiceCard({
   service,
   headingLevel: Heading = "h3",
 }: {
-  service: Service;
+  service: ServiceSummary;
   headingLevel?: "h2" | "h3";
 }) {
   return (

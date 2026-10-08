@@ -1,5 +1,6 @@
 import "server-only";
 import { revalidatePath } from "next/cache";
+import { SERVICES, serviceHref } from "@/app/(web)/services/_components/data";
 
 export function revalidateBlogContent(...slugs: string[]) {
   for (const slug of new Set(slugs)) revalidatePath(`/blog/${slug}`);
@@ -9,7 +10,7 @@ export function revalidateBlogContent(...slugs: string[]) {
   revalidatePath("/(web)/blog/page/[page]", "page");
   revalidatePath("/services");
   revalidatePath("/services/digital-marketing");
-  revalidatePath("/(web)/services/[slug]", "page");
+  for (const service of SERVICES) revalidatePath(serviceHref(service.slug));
   revalidatePath("/sitemap.xml");
   revalidatePath("/feed.xml");
   revalidatePath("/admin/blogs");

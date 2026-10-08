@@ -24,7 +24,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl, breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import {
   GROUPS,
-  OVERVIEW,
   SERVICES,
   type ServiceGroup,
   serviceHref,
@@ -33,6 +32,21 @@ import {
 import { RelatedPosts } from "./_components/related-posts";
 import { ServiceCard } from "./_components/service-card";
 import { ServiceCta } from "./_components/service-cta";
+
+const OVERVIEW = {
+  eyebrow: "Our services",
+  title: "Accelerate your growth with our expert digital",
+  accent: "marketing solutions.",
+  intro:
+    "Tailored digital marketing solutions — SEO, PPC, social media, app development and expert online strategies — from one team, since 2013.",
+  why: {
+    eyebrow: "Why choose us?",
+    title: "Why choose WebTech Solutions for your",
+    accent: "startup!",
+    body: "We specialize in tailored digital marketing strategies that drive growth. Our expertise in SEO, social media, content marketing, and PPC ensures measurable results, helping your business stand out, engage customers, and achieve long-term success online.",
+    badge: "Trusted and reliable!",
+  },
+};
 
 const TITLE = "Our Services";
 const PATH = "/services";

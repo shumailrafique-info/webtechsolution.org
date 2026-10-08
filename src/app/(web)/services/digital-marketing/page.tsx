@@ -14,15 +14,33 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl, breadcrumbList, graph, organizationRef } from "@/lib/seo";
-import {
-  DIGITAL_MARKETING,
-  imageOf,
-  serviceHref,
-  servicesIn,
-} from "../_components/data";
+import { imageOf, serviceHref, servicesIn } from "../_components/data";
 import { RelatedPosts } from "../_components/related-posts";
 import { ServiceCard } from "../_components/service-card";
 import { ServiceCta } from "../_components/service-cta";
+
+const DIGITAL_MARKETING = {
+  eyebrow: "Digital marketing",
+  title: "Digital marketing solutions built around your",
+  accent: "goals.",
+  intro:
+    "We offer tailored digital marketing solutions, creating a custom strategy for each client based on their goals — then running the campaigns that reach the right people.",
+  metaTitle: "Digital Marketing Services",
+  metaDescription:
+    "WebTech Solutions offers tailored digital marketing solutions, creating custom strategies for each client based on their goals.",
+  why: {
+    eyebrow: "Why choose us?",
+    title: "Why choose WebTech Solutions for your",
+    accent: "startup!",
+    body: "We specialize in tailored digital marketing strategies that drive growth. Our expertise in SEO, social media, content marketing, and PPC ensures measurable results, helping your business stand out, engage customers, and achieve long-term success online.",
+    badge: "Trusted and reliable!",
+  },
+  approach: {
+    title: "Digital marketing with strategic",
+    accent: "depth",
+    body: "Relevance over visibility. We learn the business economics, audience, and competition before choosing channels and messaging — and keep every effort tied to measurable progress.",
+  },
+};
 
 const PATH = "/services/digital-marketing";
 

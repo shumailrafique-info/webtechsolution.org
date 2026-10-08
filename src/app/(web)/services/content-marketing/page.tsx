@@ -89,7 +89,7 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="From SEO-optimized blogs to multi-channel campaigns, we craft content that reflects your brand identity, resonates with your audience, and delivers measurable results."
         offers={OFFERS}
       />

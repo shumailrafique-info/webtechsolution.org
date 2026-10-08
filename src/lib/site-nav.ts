@@ -52,6 +52,10 @@ export const COMPANY_LINKS: NavLink[] = [
   { label: "Blog", href: "/blog" },
   { label: "Our Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
+  {
+    label: "Our Apps",
+    href: "https://play.google.com/store/apps/developer?id=WEB+TECH+SOLUTIONS",
+  },
   { label: "About Us", href: "/about-us" },
   { label: "Brand Story", href: "/brand-story" },
   { label: "Our Team", href: "/our-team" },

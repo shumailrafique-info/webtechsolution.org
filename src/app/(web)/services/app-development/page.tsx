@@ -89,7 +89,7 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="With 13 years of experience, WebTech Solutions builds mobile apps for iOS and Android using native development and Flutter. We handle store submission, testing, and first-month maintenance after launch."
         offers={OFFERS}
       />

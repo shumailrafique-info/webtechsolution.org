@@ -12,7 +12,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
-import { FAQ_GROUPS, MORE_ANSWERS } from "./_components/data";
+import { FAQS, MORE_ANSWERS } from "./_components/data";
 
 const TITLE = "FAQs";
 const PATH = "/faqs";
@@ -20,7 +20,7 @@ const PATH = "/faqs";
 export const metadata: Metadata = pageMetadata({
   title: "FAQs - WebTech Solutions – SEO & Digital Marketing Agency",
   description:
-    "Answers to common questions about SEO, our services, learning SEO with WebTech Solutions, joining the team and submissions.",
+    "Answers to common questions about WebTech Solutions pricing, how soon you see results, contracts, monthly reporting and white-label services for agencies.",
   path: "/faqs",
 });
 
@@ -31,7 +31,7 @@ const schema = graph([
   ]),
   {
     "@type": "FAQPage",
-    mainEntity: FAQ_GROUPS.flatMap((group) => group.faqs).map((faq) => ({
+    mainEntity: FAQS.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
@@ -40,8 +40,6 @@ const schema = graph([
 ]);
 
 export default function Page() {
-  const total = FAQ_GROUPS.reduce((sum, group) => sum + group.faqs.length, 0);
-
   return (
     <>
       <JsonLd data={schema} />
@@ -69,69 +67,36 @@ export default function Page() {
               WebTech Solutions. Can’t find your answer? Ask us directly.
             </p>
           </div>
-
-          <nav
-            aria-label="Topics"
-            className="enter mt-10 flex flex-wrap justify-center gap-2"
-          >
-            {FAQ_GROUPS.map((group) => (
-              <Link
-                key={group.id}
-                href={`#${group.id}`}
-                className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white py-1.5 pr-1.5 pl-4 text-[14px] font-medium text-neutral-700 transition-colors hover:border-primary/40 hover:text-brand-deep"
-              >
-                {group.title} {group.accent}
-                <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-neutral-100 px-1.5 text-[12px] font-semibold text-neutral-600">
-                  {group.faqs.length}
-                </span>
-              </Link>
-            ))}
-          </nav>
         </Container>
       </section>
 
       <section
-        aria-label={`${total} questions`}
+        aria-label={`${FAQS.length} questions`}
         className="border-t border-primary/10 bg-brand-tint/60 py-14 md:py-20"
       >
         <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
-          <div className="grid gap-14 lg:col-span-8">
-            {FAQ_GROUPS.map((group, groupIndex) => (
-              <section
-                key={group.id}
-                id={group.id}
-                aria-labelledby={`${group.id}-title`}
-                className="scroll-mt-28"
-              >
-                <h2
-                  id={`${group.id}-title`}
-                  className="reveal font-display text-[28px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[34px]"
+          <div className="lg:col-span-8">
+            <div className="reveal overflow-hidden rounded-[24px] border border-neutral-200 bg-white">
+              {FAQS.map((faq, index) => (
+                <details
+                  key={faq.question}
+                  open={index === 0}
+                  className="group border-b border-neutral-100 last:border-0"
                 >
-                  {group.title} {group.accent}
-                </h2>
-                <div className="reveal mt-6 overflow-hidden rounded-[24px] border border-neutral-200 bg-white">
-                  {group.faqs.map((faq, index) => (
-                    <details
-                      key={faq.question}
-                      open={groupIndex === 0 && index === 0}
-                      className="group border-b border-neutral-100 last:border-0"
-                    >
-                      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 transition-colors hover:bg-neutral-50/70 md:px-7 [&::-webkit-details-marker]:hidden">
-                        <h3 className="font-display text-[18px] leading-snug font-bold tracking-[-0.02em] text-heading md:text-[20px]">
-                          {faq.question}
-                        </h3>
-                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition-[transform,background-color,color,border-color] duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-primary group-open:text-white">
-                          <PlusIcon aria-hidden className="size-4" />
-                        </span>
-                      </summary>
-                      <p className="-mt-1 px-6 pb-6 text-[16px] leading-[1.7] text-neutral-600 md:px-7 md:pr-20">
-                        {faq.answer}
-                      </p>
-                    </details>
-                  ))}
-                </div>
-              </section>
-            ))}
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 transition-colors hover:bg-neutral-50/70 md:px-7 [&::-webkit-details-marker]:hidden">
+                    <h2 className="font-display text-[18px] leading-snug font-bold tracking-[-0.02em] text-heading md:text-[20px]">
+                      {faq.question}
+                    </h2>
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition-[transform,background-color,color,border-color] duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-primary group-open:text-white">
+                      <PlusIcon aria-hidden className="size-4" />
+                    </span>
+                  </summary>
+                  <p className="-mt-1 px-6 pb-6 text-[16px] leading-[1.7] text-neutral-600 md:px-7 md:pr-20">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
           </div>
 
           <aside className="lg:col-span-4">

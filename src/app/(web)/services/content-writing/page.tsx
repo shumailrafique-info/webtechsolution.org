@@ -93,7 +93,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         title={OFFERS_TITLE}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="High-quality, SEO-optimized, well-researched content using that aligns with Google’s E-E-A-T standards."
         offers={OFFERS}
       />

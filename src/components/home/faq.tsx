@@ -40,11 +40,6 @@ export const FAQS: Faq[] = [
     answer: `${CONTACT.hours}. Email ${CONTACT.email}, or call ${CONTACT.phones.map((phone) => `${phone.display} (${phone.label})`).join(" or ")}.`,
     link: { href: "/contact-us", label: "Contact us" },
   },
-  {
-    question: "Are you hiring?",
-    answer:
-      "We are always looking for talented people who are passionate about SEO. Email us with your interest, your experience and any relevant projects, along with your CV.",
-  },
 ];
 
 export function Faq() {

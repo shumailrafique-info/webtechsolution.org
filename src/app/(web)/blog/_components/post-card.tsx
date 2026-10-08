@@ -37,7 +37,7 @@ function Cover({
           src={post.cover_image.url}
           alt={post.image_alt}
           loading="lazy"
-          className="aspect-video size-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          className="aspect-video size-full object-cover object-left transition-transform duration-700 group-hover:scale-[1.03]"
         />
       ) : (
         <div className="aspect-video size-full bg-linear-to-br from-primary/15 to-primary/5" />

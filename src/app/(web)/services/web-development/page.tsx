@@ -89,7 +89,7 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="Custom websites and online stores built to load fast, stay secure, and scale with your business. Technical SEO is built in, and we maintain your site after launch. Get a free project quote ."
         offers={OFFERS}
       />

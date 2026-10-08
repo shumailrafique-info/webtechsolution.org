@@ -100,7 +100,7 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="Free SEO audit, WebTech Solutions’ experts with 13+ years of experience, keyword optimization, and technical audits to improve rankings and increase traffic."
         offers={OFFERS}
       />

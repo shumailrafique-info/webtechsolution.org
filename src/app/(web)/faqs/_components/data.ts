@@ -1,63 +1,30 @@
 export type Faq = { question: string; answer: string };
 
-export type FaqGroup = {
-  id: string;
-  title: string;
-  accent: string;
-  faqs: Faq[];
-};
-
-export const FAQ_GROUPS: FaqGroup[] = [
+export const FAQS: Faq[] = [
   {
-    id: "seo",
-    title: "About",
-    accent: "SEO",
-    faqs: [
-      {
-        question: "What is SEO and why is it important?",
-        answer:
-          "SEO, or Search Engine Optimization, is the practice of optimizing your website to rank higher in search engine results. It’s important because higher rankings lead to increased visibility, more traffic, and ultimately, more business.",
-      },
-      {
-        question: "What SEO services do you offer?",
-        answer:
-          "At WebTech Solutions, we provide a comprehensive range of SEO services, including keyword research, on-page and technical optimization, link building, and content creation. We also specialize in local SEO to enhance your visibility in regional searches. Our team conducts thorough SEO audits to assess performance and identify areas for improvement, while our analytics and reporting services keep you informed about progress and results. Our goal is to create a tailored SEO strategy that drives sustainable growth for your business.",
-      },
-      {
-        question: "How do you stay updated with SEO trends?",
-        answer:
-          "Join our newsletter or sign up to get the latest updates from WebTech Solutions, one of the most popular SEO agencies, to stay informed about the latest trends and insights in the SEO world!",
-      },
-    ],
+    question: "How much do your services cost?",
+    answer:
+      "Our plans start at $349 for a one-hour Elite Business Consultation, $1,249/month for a Pro Website Launch, and $2,499/month for the Ultimate Growth Package. Final pricing depends on your goals and scope — every quote is confirmed with you before any work begins.",
   },
   {
-    id: "learning-and-careers",
-    title: "Learning &",
-    accent: "careers",
-    faqs: [
-      {
-        question: "How can I learn SEO from WebTech Solutions?",
-        answer:
-          "You can learn SEO from WebTech Solutions through our comprehensive online courses, engaging webinars, and insightful blog articles. Additionally, you can contact us to schedule a one-on-one meeting with our top SEO experts, where you can receive personalized tips and tricks tailored to your needs. We also have a community forum where you can network and ask questions about SEO best practices.",
-      },
-      {
-        question: "How can I join WebTech Solutions?",
-        answer:
-          "To join WebTech Solutions, please send us an email detailing your interest, experience, and any relevant projects, along with your resume. We’re always looking for talented individuals who are passionate about SEO.",
-      },
-    ],
+    question: "How long before I see results?",
+    answer:
+      "PPC and Google Ads can bring traffic within days of launch. SEO typically shows movement in 2–3 months and compounds over 6–12 months. Content marketing builds quarter over quarter. We'll give you a realistic timeline for your goals before you sign anything.",
   },
   {
-    id: "submissions",
-    title: "Your",
-    accent: "submissions",
-    faqs: [
-      {
-        question: "Why didn’t you showcase my submission?",
-        answer:
-          "We appreciate every submission we receive and review them thoroughly. However, we prioritize showcasing content that aligns closely with our current focus and audience interests. If your submission wasn’t featured, it may be due to timing or relevance. We encourage you to keep sharing your ideas, as we value your contributions and may consider them for future showcases!",
-      },
-    ],
+    question: "Do I have to sign a long-term contract?",
+    answer:
+      "No. Consultations are one-time, website launches are project-based, and monthly retainers run month-to-month — pause or stop with 30 days' notice. No lock-ins, no hidden exit fees.",
+  },
+  {
+    question: "How will I know the work is actually happening?",
+    answer:
+      "You get a plain-language report every month: what was done, your rankings/traffic/leads numbers, and next month's plan. No jargon-filled PDFs — you'll always know what changed and why.",
+  },
+  {
+    question: "Do you offer white-label services for agencies?",
+    answer:
+      "Yes. Our link-building service is already white-label ready — we never contact your clients, and reports come unbranded or with your branding. Ask us about white-label SEO and content too.",
   },
 ];
 

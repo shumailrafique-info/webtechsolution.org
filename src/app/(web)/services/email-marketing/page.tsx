@@ -89,7 +89,7 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="We treat your growth like our own — and every strategy we use is backed by real results."
         offers={OFFERS}
       />

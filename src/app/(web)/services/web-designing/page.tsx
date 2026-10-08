@@ -89,7 +89,7 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
         why="Mobile-first website designs, wireframed around one conversion goal per page, so more visitors become customers. Mockups, revisions, and launch QA included."
         offers={OFFERS}
       />

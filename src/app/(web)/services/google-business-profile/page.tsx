@@ -14,22 +14,10 @@ const SLUG = "google-business-profile";
 const NAME = "GMB Listing";
 const GROUP = "core";
 
-const META_TITLE = "Google Business Profile Listing Services | Rank Higher Locally";
+const META_TITLE =
+  "Google Business Profile Listing Services | Rank Higher Locally";
 const META_DESCRIPTION =
   "Optimize your Google Business Profile listing to boost local SEO rankings, attract customers, and grow your business with our expert GMB services.";
-
-const HERO = {
-  title: "Google Business Profile",
-  accent: "(GMB) listing",
-  intro:
-    "At WebTech Solutions, we help businesses dominate local search with powerful Google Business Profile (GMB) optimization — so your business appears in Google Maps, local packs, and search results.",
-};
-
-const WHY =
-  "We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
 
 const OFFERS = [
   {
@@ -54,38 +42,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Audit",
+    body: "Profile completeness, NAP consistency and review analysis.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Optimize",
+    body: "Categories, services, photos and business description fixed.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Activate",
+    body: "Posts schedule, review-response strategy and Ask Maps readiness.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Report",
+    body: "Local rankings, calls and direction requests, monthly.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of a GMB Listing",
-  body: "Your GMB profile is often the first thing potential customers see when searching for products or services nearby. A fully optimized listing ensures your business appears in Google Maps, local packs, and search results — driving more calls, visits, and conversions.",
-};
-
-const BLOG_TOPIC = "Google Business Profile";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Our services",
 });
 
 export default function Page() {
@@ -104,21 +83,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={MapPinIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Google Business Profile"
+        accent="(GMB) listing"
+        intro="At WebTech Solutions, we help businesses dominate local search with powerful Google Business Profile (GMB) optimization — so your business appears in Google Maps, local packs, and search results."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of a GMB Listing"
+        body="Your GMB profile is often the first thing potential customers see when searching for products or services nearby. A fully optimized listing ensures your business appears in Google Maps, local packs, and search results — driving more calls, visits, and conversions."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="Google Business Profile" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

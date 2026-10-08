@@ -27,7 +27,6 @@ export async function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams;
   const title = clamp(params.get("title"), 96, SITE_NAME);
   const description = clamp(params.get("description"), 150, SITE_TAGLINE);
-  const eyebrow = clamp(params.get("eyebrow"), 40);
 
   const [bold, medium, logo] = await assets;
   const titleSize = title.length > 70 ? 56 : title.length > 42 ? 66 : 78;
@@ -82,22 +81,6 @@ export async function GET(request: NextRequest) {
             height={75}
             style={{ objectFit: "contain" }}
           />
-          {eyebrow ? (
-            <div
-              style={{
-                display: "flex",
-                marginLeft: 28,
-                padding: "8px 18px",
-                borderRadius: 999,
-                backgroundColor: "#fff1ec",
-                color: ORANGE_DEEP,
-                fontSize: 22,
-                fontWeight: 500,
-              }}
-            >
-              {eyebrow}
-            </div>
-          ) : null}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>

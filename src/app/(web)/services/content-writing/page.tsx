@@ -18,20 +18,7 @@ const META_TITLE = "Best SEO Content Writing Services - WebTech Solutions";
 const META_DESCRIPTION =
   "Expert writers at WebTech Solutions write appealing, high-quality, and SEO-friendly content according to our clients’ target audience.";
 
-const HERO = {
-  title: "SEO content",
-  accent: "writing services",
-  intro:
-    "Get high-quality, SEO-optimized content that aligns with Google’s E-E-A-T standards. At WebTech Solutions, we create authoritative, engaging blogs, web copy, and articles that boost rankings, drive traffic, and build audience trust with 13 years of experience.",
-};
-
-const WHY =
-  "High-quality, SEO-optimized, well-researched content using LSI keywords that aligns with Google’s E-E-A-T standards.";
-
 const OFFERS_TITLE = "Our content writing process";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
 
 const OFFERS = [
   {
@@ -56,38 +43,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Brief",
+    body: "Search intent, outline and angle approved by you before writing starts.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Research & draft",
+    body: "Expert sources, data and examples; written for E-E-A-T, not fluff.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Edit",
+    body: "Proofreading, plagiarism check and one revision round included.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Deliver & publish",
+    body: "Formatted with meta tags and headings, on a monthly content calendar.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Content Writing",
-  body: "SEO content writing transforms your website into a traffic magnet. By blending creativity with strategy, it boosts visibility, engages readers, and converts visitors into paying customers. It is how you turn words into visibility, clicks, and loyal customers. It’s not just writing — it’s growth powered by words.",
-};
-
-const BLOG_TOPIC = "content writing";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Our services",
 });
 
 export default function Page() {
@@ -107,22 +85,25 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={PenNibIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="SEO content"
+        accent="writing services"
+        intro="Get SEO content built to meet Google's E-E-A-T standards. For 13 years, we've written blogs, web copy, and articles that start with keyword and search-intent research, are checked against expert sources, and are edited to rank and earn reader trust."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
         title={OFFERS_TITLE}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="High-quality, SEO-optimized, well-researched content using that aligns with Google’s E-E-A-T standards."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Content Writing"
+        body="SEO content writing transforms your website into a traffic magnet. By blending creativity with strategy, it boosts visibility, engages readers, and converts visitors into paying customers. It is how you turn words into visibility, clicks, and loyal customers. It’s not just writing — it’s growth powered by words."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="content writing" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

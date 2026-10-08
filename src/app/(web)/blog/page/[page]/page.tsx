@@ -24,12 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) return { robots: { index: false, follow: false } };
 
   return pageMetadata({
-    absoluteTitle: `WebTech Solutions: SEO & Digital Marketing Blog - Page ${page}`,
+    title: `WebTech Solutions: SEO & Digital Marketing Blog - Page ${page}`,
     description:
       "The latest SEO, web development and digital marketing insights from WebTech Solutions. Stay updated with our experts’ opinions and advice.",
     path: `/blog/page/${page}`,
-    cardTitle: "Insights to help your business get found",
-    eyebrow: `Blog · Page ${page}`,
   });
 }
 

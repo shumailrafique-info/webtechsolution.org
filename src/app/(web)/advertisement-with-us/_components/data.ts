@@ -11,67 +11,29 @@ export const LINKS = {
   contact: "/contact-us",
 };
 
-export const INTRO = {
-  eyebrow: "Advertising, sponsorship, and brand placement",
-  title: "Advertise with",
-  accent: "WebTech Solutions.",
-  body: "Promote your product or service to readers who care about SEO, marketing, blogging, and tech. We offer placements that look natural, stay useful, and match the topic.",
-  facts: [
-    "Response time: usually within 1 business day",
-    "Agency since 2013",
-    "SEO, marketing, web and app services",
-  ],
-};
-
-export const MEDIA_KIT = {
-  title: "Media kit",
-  accent: "snapshot",
-  note: "For advertisers",
-  rows: [
-    {
-      label: "Blog topics",
-      value: "SEO, digital marketing, blogging, business, tech",
-    },
-    {
-      label: "Best fit",
-      value: "SaaS, marketing tools, hosting, WordPress, B2B services",
-    },
-    {
-      label: "Top content types",
-      value: "Tool lists, comparisons, how-to guides, case studies",
-    },
-    {
-      label: "Approval rule",
-      value:
-        "We accept only topic-matched offers. If it does not fit, we decline.",
-    },
-    {
-      label: "What to send",
-      value: "Website + offer + target topic/page + preferred timeline",
-    },
-  ],
-};
-
-export const AUDIENCE = {
-  eyebrow: "About our blog audience",
-  title: "Who reads our",
-  accent: "content?",
-  readers:
-    "Our readers are usually small business owners, founders, marketers, bloggers, and people building websites. They want simple guides, tools, comparisons, and step-by-step help.",
-  categoriesTitle: "Main content categories",
-  categories: [
-    "SEO",
-    "Digital marketing",
-    "Social media marketing",
-    "Content marketing",
-    "Blogging",
-    "Business",
-    "Technology",
-  ],
-  goodFit:
-    "Great fit: SaaS tools, marketing tools, hosting, WordPress products, ecommerce apps, and B2B services.",
-  rule: "We keep things topic-based. If it doesn’t match our readers, we will decline.",
-};
+export const MEDIA_KIT_ROWS = [
+  {
+    label: "Blog topics",
+    value: "SEO, digital marketing, blogging, business, tech",
+  },
+  {
+    label: "Best fit",
+    value: "SaaS, marketing tools, hosting, WordPress, B2B services",
+  },
+  {
+    label: "Top content types",
+    value: "Tool lists, comparisons, how-to guides, case studies",
+  },
+  {
+    label: "Approval rule",
+    value:
+      "We accept only topic-matched offers. If it does not fit, we decline.",
+  },
+  {
+    label: "What to send",
+    value: "Website + offer + target topic/page + preferred timeline",
+  },
+];
 
 export const AD_TYPES = [
   {
@@ -123,12 +85,6 @@ export const OTHER_OPPORTUNITIES = [
     body: "If you want a mix of placements and content, we can build a plan around your goal and timeline.",
   },
 ] as const;
-
-export const BRIEF = {
-  title: "Send a quick",
-  accent: "brief",
-  body: "Include your website, what you want to promote, your target audience, and the type you want (or just say Not sure and we will suggest the best match).",
-};
 
 export const FAQS = [
   {

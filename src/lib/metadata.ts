@@ -1,27 +1,19 @@
 import type { Metadata } from "next";
-import { SITE_NAME, TWITTER_HANDLE } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/seo";
 
-export function ogImagePath(
-  title?: string,
-  description?: string,
-  eyebrow?: string,
-) {
+export function ogImagePath(title?: string, description?: string) {
   const params = new URLSearchParams();
   if (title) params.set("title", title);
   if (description) params.set("description", description);
-  if (eyebrow) params.set("eyebrow", eyebrow);
   const query = params.toString();
   return query ? `/og?${query}` : "/og";
 }
 
 type PageMetadataInput = {
-  title?: string;
-  absoluteTitle?: string;
+  title: string;
   description: string;
   path: string;
   image?: { url: string; alt?: string; width?: number; height?: number };
-  cardTitle?: string;
-  eyebrow?: string;
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
@@ -31,45 +23,37 @@ type PageMetadataInput = {
 
 export function pageMetadata({
   title,
-  absoluteTitle,
   description,
   path,
   image,
-  cardTitle,
-  eyebrow,
   type = "website",
   publishedTime,
   modifiedTime,
   authors,
   noindex,
 }: PageMetadataInput): Metadata {
-  const fullTitle =
-    absoluteTitle ?? (title ? `${title} - ${SITE_NAME}` : SITE_NAME);
   const images = image
     ? [
         {
           url: image.url,
-          alt: image.alt ?? fullTitle,
+          alt: image.alt ?? title,
           width: image.width,
           height: image.height,
         },
       ]
     : [
         {
-          url: ogImagePath(
-            cardTitle ?? title ?? absoluteTitle,
-            description,
-            eyebrow,
-          ),
+          url: ogImagePath(title, description),
           width: 1200,
           height: 630,
-          alt: fullTitle,
+          alt: title,
         },
       ];
 
   return {
-    title: absoluteTitle ? { absolute: absoluteTitle } : title,
+    title: { absolute: title },
     description,
+    metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: path,
       types: {
@@ -86,7 +70,7 @@ export function pageMetadata({
       locale: "en_US",
       siteName: SITE_NAME,
       url: path,
-      title: fullTitle,
+      title: title,
       description,
       images,
       ...(type === "article" ? { publishedTime, modifiedTime, authors } : {}),
@@ -94,7 +78,7 @@ export function pageMetadata({
     twitter: {
       card: "summary_large_image",
       site: TWITTER_HANDLE,
-      title: fullTitle,
+      title: title,
       description,
       images: images.map((item) => item.url),
     },

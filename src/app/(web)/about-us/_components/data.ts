@@ -1,12 +1,3 @@
-export const WHO_WE_ARE = [
-  "Founded on 1st January 2013, WebTech Solutions is a trusted digital agency specializing in App Development, SEO, and Digital Marketing. From the beginning, our mission has been to help businesses build a strong online presence and grow with confidence.",
-  "Our team includes experienced developers, SEO specialists, and marketing professionals who genuinely care about your success. We take time to understand your goals, your market, and your challenges — then we create solutions that make real progress.",
-  "Whether we’re improving your search rankings, developing a user-friendly app, or managing your digital campaigns, we work like a partner by your side — guiding, supporting, and celebrating every milestone together.",
-];
-
-export const WHO_WE_ARE_CLOSING =
-  "For us, success isn’t just traffic or numbers — it’s helping your business move forward in the right direction.";
-
 export const SPECIALISMS = [
   { label: "App Development", href: "/services/app-development" },
   { label: "SEO", href: "/services/seo" },

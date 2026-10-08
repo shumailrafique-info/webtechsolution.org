@@ -41,12 +41,12 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const { query } = await readParams(searchParams);
   return buildPageMetadata({
-    title: query ? `Search results for “${query}”` : "Search",
+    title: query
+      ? `Search results for “${query}” - WebTech Solutions`
+      : "Search - WebTech Solutions",
     description:
       "Search every published article on the WebTech Solutions blog.",
     path: "/search",
-    cardTitle: "Search the blog",
-    eyebrow: "Search",
     noindex: true,
   });
 }

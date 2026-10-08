@@ -1,9 +1,5 @@
-import {
-  FeaturedStudy,
-  StudyCard,
-} from "@/app/(web)/case-studies/_components/case-study-cards";
+import { StudyCard } from "@/app/(web)/case-studies/_components/case-study-cards";
 import { CASE_STUDIES } from "@/app/(web)/case-studies/_components/data";
-import { LogoWall } from "@/app/(web)/case-studies/_components/logo-wall";
 import { FOUNDED, PROJECTS_DELIVERED } from "./data";
 import {
   Accent,
@@ -13,8 +9,6 @@ import {
 } from "./primitives";
 
 export function Clients() {
-  const [featured, ...rest] = CASE_STUDIES;
-
   return (
     <section
       aria-labelledby="clients-title"
@@ -33,22 +27,13 @@ export function Clients() {
         />
 
         <div className="mt-10 grid gap-4 md:mt-12">
-          {featured ? <FeaturedStudy study={featured} /> : null}
-
           <ul className="grid gap-4 md:grid-cols-3">
-            {rest.slice(0, 3).map((study) => (
+            {CASE_STUDIES.slice(0, 3).map((study) => (
               <li key={study.slug} className="reveal">
                 <StudyCard study={study} />
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="reveal mt-12 md:mt-16">
-          <p className="text-center text-[13.5px] font-medium text-neutral-500">
-            Clients and partners
-          </p>
-          <LogoWall className="mt-6" />
         </div>
 
         <div className="reveal mt-10 flex justify-center">

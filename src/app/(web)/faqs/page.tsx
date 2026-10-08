@@ -12,18 +12,16 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
-import { FAQ_GROUPS, INTRO, MORE_ANSWERS } from "./_components/data";
+import { FAQ_GROUPS, MORE_ANSWERS } from "./_components/data";
 
 const TITLE = "FAQs";
 const PATH = "/faqs";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: "FAQs - WebTech Solutions – SEO & Digital Marketing Agency",
+  title: "FAQs - WebTech Solutions – SEO & Digital Marketing Agency",
   description:
     "Answers to common questions about SEO, our services, learning SEO with WebTech Solutions, joining the team and submissions.",
   path: "/faqs",
-  cardTitle: "Frequently asked questions",
-  eyebrow: "FAQs",
 });
 
 const schema = graph([
@@ -59,15 +57,16 @@ export default function Page() {
           />
 
           <div className="mx-auto mt-10 max-w-3xl text-center md:mt-12">
-            <Eyebrow className="enter">{INTRO.eyebrow}</Eyebrow>
+            <Eyebrow className="enter">Help and FAQs</Eyebrow>
             <h1
               id="faqs-title"
               className="enter mt-6 font-display text-[42px] leading-none font-bold tracking-[-0.045em] text-balance text-heading sm:text-[56px] lg:text-[66px]"
             >
-              {INTRO.title} <Accent>{INTRO.accent}</Accent>
+              Frequently asked <Accent>questions.</Accent>
             </h1>
             <p className="enter mx-auto mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
-              {INTRO.body}
+              Everything you need to know about SEO and about working with
+              WebTech Solutions. Can’t find your answer? Ask us directly.
             </p>
           </div>
 

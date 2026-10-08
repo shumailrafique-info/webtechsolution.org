@@ -27,13 +27,10 @@ import { breadcrumbList, graph } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { Chapter, ChapterNav } from "./_components/chapter";
 import {
-  BLOG,
-  EARLY_YEARS,
+  COMMITMENTS,
   FACTS,
-  GLOBAL_PRESENCE,
-  GOING_FORWARD,
-  INTRO,
-  LEADERSHIP,
+  MARKETS,
+  PITFALLS,
   PRINCIPLES,
   SERVICES,
 } from "./_components/data";
@@ -42,13 +39,10 @@ const TITLE = "Brand Story";
 const PATH = "/brand-story";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle:
-    "Brand Story of WebTech Solutions | Strategy-First Digital Agency",
+  title: "Brand Story of WebTech Solutions | Strategy-First Digital Agency",
   description:
     "Read the brand story of WebTech Solutions. Founded in 2013 by Fawad Mohsin, we help startups and growing businesses build strategy-driven digital systems with clarity and responsibility.",
   path: "/brand-story",
-  cardTitle: "A brand built where strategy meets responsibility",
-  eyebrow: "Brand story",
 });
 
 const schema = graph([
@@ -85,13 +79,16 @@ export default function Page() {
               <Accent>responsibility.</Accent>
             </h1>
             <p className="enter mx-auto mt-6 max-w-[60ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
-              {INTRO.opening}
+              WebTech Solutions did not begin with the ambition to become the
+              biggest digital agency in the room. It began with a far more
+              difficult goal:
             </p>
             <blockquote className="enter mx-auto mt-8 max-w-[36ch] font-display text-[26px] leading-[1.3] font-semibold tracking-[-0.02em] text-heading md:text-[32px]">
               <span aria-hidden className="text-primary">
                 &ldquo;
               </span>
-              {INTRO.goal}
+              To be the most reliable digital marketing agency for early
+              startups and grown-up businesses.
               <span aria-hidden className="text-primary">
                 &rdquo;
               </span>
@@ -115,9 +112,18 @@ export default function Page() {
           </dl>
 
           <div className="reveal mx-auto mt-12 grid max-w-3xl gap-5 text-[17px] leading-[1.75] text-neutral-600">
-            {INTRO.body.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-            ))}
+            <p>
+              Founded in 2013 by Fawad Mohsin (professionally known as Fawad
+              Malik), WebTech Solutions was created at a time when digital
+              services were growing fast, but digital clarity was fading.
+              Businesses were promised rankings, traffic, installs, and
+              conversions, while very few were given structure, honest
+              expectations, or systems that could survive long-term growth.
+            </p>
+            <p>
+              What emerged was not just another agency, but a digital partner
+              built on restraint, discipline, and responsibility.
+            </p>
           </div>
         </Container>
       </section>
@@ -131,34 +137,53 @@ export default function Page() {
           <div className="grid gap-12 md:gap-16 lg:col-span-9">
             <Chapter
               id="early-years"
-              title={EARLY_YEARS.title}
-              accent={EARLY_YEARS.accent}
-              lead={EARLY_YEARS.lead}
+              title="The early years:"
+              accent="learning before scaling"
+              lead="Only offer what can be backed by experience, logic, and results."
             >
               <div className="reveal grid gap-5 text-[16.5px] leading-[1.75] text-neutral-600">
-                {EARLY_YEARS.body.map((paragraph) => (
-                  <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-                ))}
+                <p>
+                  In its earliest phase, WebTech Solutions operated with a
+                  simple but demanding mindset: Nothing would be offered unless
+                  it could be defended by experience, logic, and results.
+                </p>
+                <p>
+                  Rather than scaling aggressively, the agency spent its
+                  formative years working closely with real businesses across
+                  different markets, industries, and maturity levels. This
+                  period shaped the internal philosophy that still defines
+                  WebTech Solutions today.
+                </p>
               </div>
               <p className="reveal mt-8 rounded-[22px] bg-heading p-7 font-display text-[21px] leading-[1.4] font-semibold tracking-[-0.02em] text-white md:p-9 md:text-[25px]">
-                {EARLY_YEARS.truth}
+                The work revealed an uncomfortable truth: most failures were not
+                caused by a lack of tools or platforms, but by poor strategy and
+                fragmented execution.
               </p>
               <p className="reveal mt-8 text-[16.5px] leading-[1.75] text-neutral-600">
-                {EARLY_YEARS.closing}
+                WebTech Solutions positioned itself differently from the start.
+                It did not treat SEO, development, design, or content as
+                separate services. It treated them as interconnected components
+                of one digital ecosystem. That perspective became the agency’s
+                defining advantage.
               </p>
             </Chapter>
 
             <Chapter
               id="global-presence"
-              title={GLOBAL_PRESENCE.title}
-              accent={GLOBAL_PRESENCE.accent}
-              lead={GLOBAL_PRESENCE.lead}
+              title="Local roots to"
+              accent="global presence"
+              lead="Expansion across markets, without losing accountability."
             >
               <p className="reveal text-[16.5px] leading-[1.75] text-neutral-600">
-                {GLOBAL_PRESENCE.body}
+                As results accumulated and trust deepened, WebTech Solutions
+                expanded beyond borders. Clients from different regions brought
+                new challenges, like different user behaviors, search
+                ecosystems, compliance requirements, and performance
+                expectations.
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
-                {GLOBAL_PRESENCE.markets.map((market, index) => (
+                {MARKETS.map((market, index) => (
                   <li
                     key={market.code}
                     className={cn(
@@ -182,18 +207,20 @@ export default function Page() {
                 ))}
               </ul>
               <p className="reveal mt-8 text-[16.5px] leading-[1.75] text-neutral-600">
-                {GLOBAL_PRESENCE.closing}
+                This presence is not symbolic. It shapes how the agency thinks
+                and executes, while avoiding one-size-fits-all planning. Growth
+                has never come at the cost of quality or accountability.
               </p>
             </Chapter>
 
             <Chapter
               id="principles"
-              title={PRINCIPLES.title}
-              accent={PRINCIPLES.accent}
-              lead={PRINCIPLES.lead}
+              title="What WebTech Solutions"
+              accent="stands for"
+              lead="Principle-driven work, built for long-term trust."
             >
               <ul className="grid gap-3 sm:grid-cols-2">
-                {PRINCIPLES.items.map((item, index) => (
+                {PRINCIPLES.map((item, index) => (
                   <li
                     key={item.title}
                     className="reveal rounded-[22px] border border-neutral-200 bg-white p-6"
@@ -211,10 +238,12 @@ export default function Page() {
 
               <div className="reveal mt-5 rounded-[24px] bg-linear-to-br from-primary to-brand-deep p-7 text-white md:p-9">
                 <p className="max-w-[60ch] text-[17px] leading-[1.65] text-white/90">
-                  {PRINCIPLES.partnership}
+                  WebTech Solutions does not position itself as a vendor.
+                  Clients are treated as long-term partners, with open
+                  communication and realistic goal-setting from day one.
                 </p>
                 <ul className="mt-6 grid gap-2.5 md:grid-cols-3">
-                  {PRINCIPLES.commitments.map((item) => (
+                  {COMMITMENTS.map((item) => (
                     <li
                       key={item.title}
                       className="rounded-[18px] border border-white/15 bg-white/10 p-4"
@@ -236,15 +265,17 @@ export default function Page() {
 
             <Chapter
               id="services"
-              title={SERVICES.title}
-              accent={SERVICES.accent}
-              lead={SERVICES.lead}
+              title="Services offered: a unified approach to"
+              accent="digital growth"
+              lead="Strategy first. Connected execution after."
             >
               <p className="reveal text-[16.5px] leading-[1.75] text-neutral-600">
-                {SERVICES.body}
+                Services are treated as interdependent parts of one digital
+                system. Many businesses struggle because key pieces are built in
+                isolation:
               </p>
               <ul className="mt-6 grid gap-3 md:grid-cols-3">
-                {SERVICES.pitfalls.map((item) => (
+                {PITFALLS.map((item) => (
                   <li
                     key={item.title}
                     className="reveal rounded-[20px] border border-neutral-200 bg-white p-5"
@@ -263,11 +294,12 @@ export default function Page() {
                 ))}
               </ul>
               <p className="reveal mt-6 border-l-[3px] border-primary pl-5 font-display text-[19px] leading-[1.45] font-semibold tracking-[-0.015em] text-heading md:text-[21px]">
-                {SERVICES.objective}
+                The objective is simple: build resilient digital infrastructure
+                that supports sustainable business growth.
               </p>
 
               <ol className="mt-10 grid gap-3">
-                {SERVICES.items.map((item, index) => {
+                {SERVICES.map((item, index) => {
                   const body = (
                     <>
                       <span className="font-display text-[28px] leading-none font-bold tracking-[-0.04em] text-primary md:w-14">
@@ -309,10 +341,12 @@ export default function Page() {
               </ol>
             </Chapter>
 
-            <Chapter id="blog" title={BLOG.title} accent={BLOG.accent}>
+            <Chapter id="blog" title="WebTech Solutions’" accent="blog">
               <div className="reveal flex flex-col items-start gap-6 rounded-[24px] border border-neutral-200 bg-white p-7 md:flex-row md:items-center md:justify-between md:p-9">
                 <p className="max-w-[52ch] text-[16.5px] leading-[1.7] text-neutral-600">
-                  {BLOG.body}
+                  The agency shares insights and tool reviews openly because an
+                  informed client is a stronger partner. Trust is built through
+                  clarity, not persuasion.
                 </p>
                 <ArrowLink href="/blog" className="shrink-0">
                   Read the blog
@@ -322,9 +356,9 @@ export default function Page() {
 
             <Chapter
               id="leadership"
-              title={LEADERSHIP.title}
-              accent={LEADERSHIP.accent}
-              lead={LEADERSHIP.lead}
+              title="Fawad Malik’s"
+              accent="leadership"
+              lead="Systems over promises, responsibility over visibility."
             >
               <div className="reveal grid items-end gap-8 overflow-hidden rounded-[28px] border border-neutral-200 bg-white md:grid-cols-[1fr_1.3fr]">
                 <figure className="relative mx-auto aspect-4/5 w-full max-w-xs md:max-w-none">
@@ -339,7 +373,10 @@ export default function Page() {
                 </figure>
                 <div className="p-7 md:py-10 md:pr-10 md:pl-0">
                   <p className="text-[17px] leading-[1.75] text-neutral-600">
-                    {LEADERSHIP.body}
+                    WebTech Solutions is led by Fawad Malik. The agency culture
+                    is built around process, honesty, and accountability. It is
+                    a brand where systems matter more than promises, and
+                    responsibility matters more than visibility.
                   </p>
                   <p className="mt-6 font-display text-[18px] font-bold tracking-[-0.02em] text-heading">
                     {FOUNDER.name}
@@ -353,23 +390,27 @@ export default function Page() {
 
             <Chapter
               id="going-forward"
-              title={GOING_FORWARD.title}
-              accent={GOING_FORWARD.accent}
-              lead={GOING_FORWARD.lead}
+              title="The philosophy"
+              accent="going forward"
+              lead="Clarity, responsibility, and sustainable growth."
             >
               <div className="reveal grid gap-5 text-[16.5px] leading-[1.75] text-neutral-600">
-                {GOING_FORWARD.body.map((paragraph, index) =>
-                  index === 1 ? (
-                    <p
-                      key={paragraph.slice(0, 24)}
-                      className="font-display text-[22px] leading-[1.4] font-semibold tracking-[-0.02em] text-heading md:text-[26px]"
-                    >
-                      {paragraph}
-                    </p>
-                  ) : (
-                    <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-                  ),
-                )}
+                <p>
+                  WebTech Solutions exists to help businesses handle complexity
+                  with confidence, without overwhelming them with jargon or
+                  selling illusions. It builds digital systems that are
+                  intelligent, ethical, and built to last.
+                </p>
+                <p className="font-display text-[22px] leading-[1.4] font-semibold tracking-[-0.02em] text-heading md:text-[26px]">
+                  Platforms will change. Technology will advance. What will not
+                  change is WebTech Solutions’ commitment to clarity,
+                  responsibility, and sustainable growth.
+                </p>
+                <p>
+                  The agency continues to improve its methods, expand its
+                  expertise, and support businesses across global markets
+                  without compromising its values.
+                </p>
               </div>
               <div className="reveal mt-10 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href="/contact-us">Work with us</PrimaryButton>

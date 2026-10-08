@@ -18,19 +18,6 @@ const META_TITLE = "Email Marketing Services - WebTech Solutions";
 const META_DESCRIPTION =
   "WebTech Solutions’ email marketing service includes writing email content, audience segmentation and optimizing campaigns for better engagement.";
 
-const HERO = {
-  title: "Email",
-  accent: "marketing",
-  intro:
-    "Grow smarter with WebTech Solutions’ professional email marketing services. We create targeted, well-designed campaigns, automate customer journeys, and continuously optimize results to improve engagement, conversions, and ROI — understanding your goals, refining your message, and turning subscribers into long-term customers.",
-};
-
-const WHY =
-  "We treat your growth like our own — and every strategy we use is backed by real results.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
     title: "Email Campaign Strategy",
@@ -54,38 +41,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Audit",
+    body: "List health check, ESP setup and deliverability review.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Strategy",
+    body: "Segments and automation map: welcome, cart-recovery and re-engagement sequences.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Create & send",
+    body: "Copy, design and A/B tests on subject lines and content.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Report",
+    body: "Open, click and conversion rates plus list growth, monthly.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Email Marketing",
-  body: "Your customers check their inbox every day — email marketing ensures your brand is right there with them. From promotions to personalized updates, effective email campaigns keep your audience engaged, build trust, and turn subscribers into loyal buyers. Smart email marketing connects your brand with the right people, at the right time, with the right message.",
-};
-
-const BLOG_TOPIC = "email marketing";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Our services",
 });
 
 export default function Page() {
@@ -104,21 +82,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={MailIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Email"
+        accent="marketing"
+        intro="Grow smarter with WebTech Solutions’ professional email marketing services. We create targeted, well-designed campaigns, automate customer journeys, and continuously optimize results to improve engagement, conversions, and ROI — understanding your goals, refining your message, and turning subscribers into long-term customers."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="We treat your growth like our own — and every strategy we use is backed by real results."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Email Marketing"
+        body="Your customers check their inbox every day — email marketing ensures your brand is right there with them. From promotions to personalized updates, effective email campaigns keep your audience engaged, build trust, and turn subscribers into loyal buyers. Smart email marketing connects your brand with the right people, at the right time, with the right message."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="email marketing" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

@@ -33,12 +33,10 @@ const PATH = "/our-team";
 const PEOPLE = TEAM_MEMBERS.length + 1;
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: "WebTech Solutions Team - Strategy & Digital Specialists",
+  title: "WebTech Solutions Team - Strategy & Digital Specialists",
   description:
     "Meet the team behind WebTech Solutions. Led by Founder & CEO Fawad Mohsin, our experienced digital experts work together to deliver trusted results.",
   path: "/our-team",
-  cardTitle: "The people behind every project",
-  eyebrow: "Our team",
 });
 
 const JOIN_HREF = `mailto:${CONTACT.email}?subject=${encodeURIComponent("Joining WebTech Solutions")}`;
@@ -253,8 +251,8 @@ export default function Page() {
               </h2>
               <p className="mt-4 max-w-[52ch] text-[16.5px] leading-[1.65] text-white/85">
                 We are always looking for talented people who are passionate
-                about SEO. Email us with your interest, your experience and any
-                relevant projects, along with your CV.
+                about digital growth. Email us with your interest, your
+                experience and any relevant projects, along with your CV.
               </p>
             </div>
             <div className="flex flex-col items-start gap-3 lg:items-end">

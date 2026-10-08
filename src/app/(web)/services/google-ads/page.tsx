@@ -18,19 +18,6 @@ const META_TITLE = "PPC & Google Ads Management Services - WebTech Solutions";
 const META_DESCRIPTION =
   "WebTech Solutions designs and manages PPC and Google Ads campaigns across Search, Display, and YouTube, with keyword research, ad optimization, and budget management that maximize ROI.";
 
-const HERO = {
-  title: "PPC & Google Ads",
-  accent: "management",
-  intro:
-    "We design and manage pay-per-click campaigns on Google Search, Display, and YouTube that reach the right audience at the right time, put your business in front of ready-to-buy customers, and turn ad spend into measurable growth.",
-};
-
-const WHY =
-  "We design and manage Google Ads campaigns that maximize visibility, attract qualified leads, and deliver measurable business growth.";
-
-const OFFERS_INTRO =
-  "From the first keyword to the final report, every part of the campaign is planned, managed, and measured.";
-
 const OFFERS = [
   {
     title: "Keyword Research & Strategy",
@@ -70,38 +57,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Audit",
+    body: "Account structure, Quality Scores and tracking reviewed.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Restructure",
+    body: "Campaigns, ad groups, negative keywords and extensions rebuilt.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Manage",
+    body: "Search, Display, YouTube and remarketing with ongoing bid adjustments.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Report",
+    body: "Monthly ROI report with recommended next actions.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of PPC & Google Ads",
-  body: "PPC advertising delivers instant visibility, driving qualified traffic with precision targeting, and Google Ads is one of the fastest ways to put your business in front of ready-to-buy customers. Every click is an opportunity — turning ad spend into real, trackable leads, sales, and growth.",
-};
-
-const BLOG_TOPIC = "PPC";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Digital marketing",
 });
 
 export default function Page() {
@@ -120,21 +98,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={GoogleIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="PPC & Google Ads"
+        accent="management"
+        intro="We design and manage pay-per-click campaigns on Google Search, Display, and YouTube that reach the right audience at the right time, put your business in front of ready-to-buy customers, and turn ad spend into measurable growth."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="From the first keyword to the final report, every part of the campaign is planned, managed, and measured."
+        why="We design and manage Google Ads campaigns that maximize visibility, attract qualified leads, and deliver measurable business growth."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of PPC & Google Ads"
+        body="PPC advertising delivers instant visibility, driving qualified traffic with precision targeting, and Google Ads is one of the fastest ways to put your business in front of ready-to-buy customers. Every click is an opportunity — turning ad spend into real, trackable leads, sales, and growth."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="PPC" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

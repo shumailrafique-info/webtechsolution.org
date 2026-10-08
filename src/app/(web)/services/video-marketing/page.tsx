@@ -18,19 +18,6 @@ const META_TITLE = "Video Marketing Services - WebTech Solutions";
 const META_DESCRIPTION =
   "WebTech Solutions creates quality, engaging video content strategies that align with your brand’s message and goals.";
 
-const HERO = {
-  title: "Video",
-  accent: "marketing",
-  intro:
-    "We create and promote videos that tell your story — from short social clips and explainers to product demos and YouTube campaigns that drive engagement.",
-};
-
-const WHY =
-  "We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
     title: "Social Media Videos",
@@ -54,38 +41,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Concept",
+    body: "Goals, scripts and storyboards approved by you.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Produce",
+    body: "Shoot or animation, then professional editing.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Optimize",
+    body: "Captions, thumbnails and platform-specific formats.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Publish & report",
+    body: "Posting schedule with views and engagement reporting.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Video Marketing",
-  body: "People love watching videos — and that’s exactly why video marketing works. Whether it’s a product demo, a brand story, or customer testimonials, videos make complex ideas simple, engaging, and memorable. They help your audience connect with your brand on a deeper level and inspire action.",
-};
-
-const BLOG_TOPIC = "video marketing";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Digital marketing",
 });
 
 export default function Page() {
@@ -104,21 +82,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={VideoIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Video"
+        accent="marketing"
+        intro="We create and promote videos that tell your story — from short social clips and explainers to product demos and YouTube campaigns that drive engagement."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Video Marketing"
+        body="People love watching videos — and that’s exactly why video marketing works. Whether it’s a product demo, a brand story, or customer testimonials, videos make complex ideas simple, engaging, and memorable. They help your audience connect with your brand on a deeper level and inspire action."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="video marketing" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

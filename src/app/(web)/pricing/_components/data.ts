@@ -105,12 +105,6 @@ export const COMPARISON: { label: string; values: [Cell, Cell, Cell] }[] = [
   { label: "Long-term performance focus", values: [false, false, true] },
 ];
 
-export const PARTNERS = {
-  title: "Our working",
-  accent: "partners",
-  lede: "Exploring opportunities to deliver digital campaigns!",
-};
-
 export const PRICING_FAQS = [
   {
     question: "Which plan is right for me?",

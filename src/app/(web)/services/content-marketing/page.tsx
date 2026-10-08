@@ -18,19 +18,6 @@ const META_TITLE = "Content Marketing Services - WebTech Solutions";
 const META_DESCRIPTION =
   "Boost brand visibility, engage your audience, and drive conversions with our expert content marketing services tailored for growth.";
 
-const HERO = {
-  title: "Content",
-  accent: "marketing",
-  intro:
-    "Great content isn’t just about words — it’s about impact. We help your brand share stories, answer questions, and connect with audiences in ways that matter. Our content marketing turns casual readers into loyal customers.",
-};
-
-const WHY =
-  "From SEO-optimized blogs to multi-channel campaigns, we craft content that reflects your brand identity, resonates with your audience, and delivers measurable results.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
     title: "Blog Writing",
@@ -54,38 +41,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Research",
+    body: "Audience, competitors and topic clusters mapped.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Calendar",
+    body: "Quarterly editorial calendar approved by you.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Produce & distribute",
+    body: "Articles created and distributed across blog, social and email.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Report",
+    body: "Traffic, rankings and leads per quarter with next-quarter plan.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Content Marketing",
-  body: "Great content doesn’t just attract clicks — it builds connections. Content marketing helps your brand share stories, answer questions, and solve problems in ways that matter to your audience. When done right, it turns casual readers into loyal customers who trust your expertise.",
-};
-
-const BLOG_TOPIC = "content marketing";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Digital marketing",
 });
 
 export default function Page() {
@@ -104,21 +82,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={FileTextIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Content"
+        accent="marketing"
+        intro="Great content isn’t just about words — it’s about impact. We help your brand share stories, answer questions, and connect with audiences in ways that matter. Our content marketing turns casual readers into loyal customers."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="From SEO-optimized blogs to multi-channel campaigns, we craft content that reflects your brand identity, resonates with your audience, and delivers measurable results."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Content Marketing"
+        body="Great content doesn’t just attract clicks — it builds connections. Content marketing helps your brand share stories, answer questions, and solve problems in ways that matter to your audience. When done right, it turns casual readers into loyal customers who trust your expertise."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="content marketing" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

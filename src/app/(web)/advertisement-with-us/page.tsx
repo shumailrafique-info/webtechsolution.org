@@ -31,32 +31,24 @@ import { breadcrumbList, graph } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import {
   AD_TYPES,
-  AUDIENCE,
-  BRIEF,
   FAQS,
-  INTRO,
   LINKS,
-  MEDIA_KIT,
+  MEDIA_KIT_ROWS,
   OTHER_OPPORTUNITIES,
 } from "./_components/data";
 
 const TITLE = "Advertise With Us";
-const PATH = "/advertisement-with-us";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle:
-    "Advertise With WebTech Solutions | Sponsorship & Brand Placement",
+  title: "Advertise With WebTech Solutions | Sponsorship & Brand Placement",
   description:
     "Advertise on WebTech Solutions. Explore sponsored posts, brand placements, banners, and custom packages for SEO, marketing, blogging, and tech audiences.",
   path: "/advertisement-with-us",
-  cardTitle: "Advertise with WebTech Solutions",
-  eyebrow: "Advertising",
 });
 
 const schema = graph([
   breadcrumbList([
     { name: "Home", path: "/" },
-    { name: TITLE, path: PATH },
+    { name: TITLE, path: "/advertisement-with-us" },
   ]),
   {
     "@type": "FAQPage",
@@ -100,15 +92,19 @@ export default function Page() {
 
           <div className="mt-10 grid items-start gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
-              <Eyebrow className="enter">{INTRO.eyebrow}</Eyebrow>
+              <Eyebrow className="enter">
+                Advertising, sponsorship, and brand placement
+              </Eyebrow>
               <h1
                 id="advertise-title"
                 className="enter mt-6 font-display text-[42px] leading-none font-bold tracking-[-0.045em] text-balance text-heading sm:text-[56px] lg:text-[64px]"
               >
-                {INTRO.title} <Accent>{INTRO.accent}</Accent>
+                Advertise with <Accent>WebTech Solutions.</Accent>
               </h1>
               <p className="enter mt-6 max-w-[54ch] text-[17px] leading-[1.7] text-neutral-600 md:text-[18.5px]">
-                {INTRO.body}
+                Promote your product or service to readers who care about SEO,
+                marketing, blogging, and tech. We offer placements that look
+                natural, stay useful, and match the topic.
               </p>
               <div className="enter mt-9 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href={LINKS.inquiry}>Email us</PrimaryButton>
@@ -120,7 +116,11 @@ export default function Page() {
                 {LINKS.email}
               </p>
               <ul className="enter mt-8 grid gap-2.5">
-                {INTRO.facts.map((fact, index) => (
+                {[
+                  "Response time: usually within 1 business day",
+                  "Agency since 2013",
+                  "SEO, marketing, web and app services",
+                ].map((fact, index) => (
                   <li
                     key={fact}
                     className="flex items-center gap-2.5 text-[14.5px] text-neutral-600"
@@ -153,14 +153,14 @@ export default function Page() {
                   id="media-kit-title"
                   className="font-display text-[26px] leading-tight font-bold tracking-[-0.035em] text-heading"
                 >
-                  {MEDIA_KIT.title} {MEDIA_KIT.accent}
+                  Media kit snapshot
                 </h2>
                 <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[12px] font-semibold text-brand-deep ring-1 ring-primary/20">
-                  {MEDIA_KIT.note}
+                  For advertisers
                 </span>
               </div>
               <dl className="mt-6 grid">
-                {MEDIA_KIT.rows.map((row) => (
+                {MEDIA_KIT_ROWS.map((row) => (
                   <div
                     key={row.label}
                     className="grid gap-1 border-t border-neutral-100 py-3.5 sm:grid-cols-[8.5rem_1fr] sm:gap-4"
@@ -200,25 +200,35 @@ export default function Page() {
       >
         <Container className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-5">
-            <Eyebrow>{AUDIENCE.eyebrow}</Eyebrow>
+            <Eyebrow>About our blog audience</Eyebrow>
             <h2
               id="audience-title"
               className="mt-5 font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-heading sm:text-[42px] lg:text-[50px]"
             >
-              {AUDIENCE.title} <Accent>{AUDIENCE.accent}</Accent>
+              Who reads our <Accent>content?</Accent>
             </h2>
             <p className="mt-5 text-[17px] leading-[1.7] text-neutral-600">
-              {AUDIENCE.readers}
+              Our readers are usually small business owners, founders,
+              marketers, bloggers, and people building websites. They want
+              simple guides, tools, comparisons, and step-by-step help.
             </p>
           </div>
 
           <div className="grid gap-4 lg:col-span-7">
             <div className="reveal rounded-[24px] border border-neutral-200 bg-white p-6 md:p-8">
               <h3 className="font-display text-[19px] font-bold tracking-[-0.02em] text-heading">
-                {AUDIENCE.categoriesTitle}
+                Main content categories
               </h3>
               <ul className="mt-4 flex flex-wrap gap-2">
-                {AUDIENCE.categories.map((category) => (
+                {[
+                  "SEO",
+                  "Digital marketing",
+                  "Social media marketing",
+                  "Content marketing",
+                  "Blogging",
+                  "Business",
+                  "Technology",
+                ].map((category) => (
                   <li
                     key={category}
                     className="rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-[14px] font-medium text-neutral-700"
@@ -232,13 +242,15 @@ export default function Page() {
               <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-white text-brand-deep">
                 <CheckIcon aria-hidden className="size-3" />
               </span>
-              {AUDIENCE.goodFit}
+              Great fit: SaaS tools, marketing tools, hosting, WordPress
+              products, ecommerce apps, and B2B services.
             </p>
             <p className="reveal flex items-start gap-3 rounded-[20px] border border-neutral-200 bg-white p-5 text-[15px] leading-[1.6] text-neutral-600">
               <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-500">
                 <XIcon aria-hidden className="size-3" />
               </span>
-              {AUDIENCE.rule}
+              We keep things topic-based. If it doesn’t match our readers, we
+              will decline.
             </p>
           </div>
         </Container>
@@ -333,11 +345,12 @@ export default function Page() {
                 id="brief-title"
                 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[42px]"
               >
-                {BRIEF.title}{" "}
-                <span className="text-primary">{BRIEF.accent}</span>
+                Send a quick <span className="text-primary">brief</span>
               </h2>
               <p className="mt-3 max-w-[56ch] text-[16.5px] leading-[1.65] text-neutral-400">
-                {BRIEF.body}
+                Include your website, what you want to promote, your target
+                audience, and the type you want (or just say Not sure and we
+                will suggest the best match).
               </p>
             </div>
             <div className="flex flex-nowrap items-center gap-2 sm:gap-3">

@@ -1,13 +1,13 @@
 import { Accent, Container, IconBadge } from "@/components/home/primitives";
 import {
   CompassIcon,
+  GraphIcon,
   RocketIcon,
   StrategyIcon,
-  WrenchIcon,
 } from "@/components/icons";
 import type { Point } from "./data";
 
-const PILLAR_ICONS = [CompassIcon, StrategyIcon, RocketIcon, WrenchIcon];
+const PILLAR_ICONS = [CompassIcon, StrategyIcon, RocketIcon, GraphIcon];
 
 export function ServicePillars({ pillars }: { pillars: Point[] }) {
   return (

@@ -18,19 +18,6 @@ const META_TITLE = "Mobile Marketing Services - WebTech Solutions";
 const META_DESCRIPTION =
   "WebTech Solutions helps you design mobile marketing strategies that ensure your brand effectively reaches mobile users.";
 
-const HERO = {
-  title: "Mobile",
-  accent: "marketing",
-  intro:
-    "We help your brand reach customers on the go with SMS, push notifications, in-app ads, and location-based campaigns built for mobile-first audiences.",
-};
-
-const WHY =
-  "We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
     title: "SMS Marketing",
@@ -54,38 +41,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Setup",
+    body: "Consent-based opt-in lists and platform integration.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Plan",
+    body: "SMS/push calendar with consent records and opt-out compliance.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Send",
+    body: "Targeted, personalized campaigns to mobile audiences.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Report",
+    body: "Delivery, open and conversion rates per campaign.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Mobile Marketing",
-  body: "Your customers are always on their phones — mobile marketing makes sure your brand is too. Whether it’s a quick text, a personalized app notification, or mobile-friendly ads, this strategy keeps your business connected, relevant, and top-of-mind, creating direct, personalized connections that drive growth.",
-};
-
-const BLOG_TOPIC = "mobile marketing";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Digital marketing",
 });
 
 export default function Page() {
@@ -104,21 +82,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={MegaphoneIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Mobile"
+        accent="marketing"
+        intro="We help your brand reach customers on the go with SMS, push notifications, in-app ads, and location-based campaigns built for mobile-first audiences."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Mobile Marketing"
+        body="Your customers are always on their phones — mobile marketing makes sure your brand is too. Whether it’s a quick text, a personalized app notification, or mobile-friendly ads, this strategy keeps your business connected, relevant, and top-of-mind, creating direct, personalized connections that drive growth."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="mobile marketing" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

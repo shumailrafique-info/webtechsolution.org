@@ -18,19 +18,6 @@ const META_TITLE = "Web Designing Services - WebTech Solutions";
 const META_DESCRIPTION =
   "We create visually stunning, user-friendly, and responsive websites that provide a seamless user experience and drive business growth.";
 
-const HERO = {
-  title: "Web",
-  accent: "designing",
-  intro:
-    "We design visually striking, user-focused websites that look great on every device and make the next step obvious — from brand-new sites and redesigns to high-converting landing pages.",
-};
-
-const WHY =
-  "We create visually stunning, conversion-focused designs that capture attention and turn visitors into loyal customers.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
     title: "Website Design",
@@ -54,38 +41,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Discover",
+    body: "Business goals, audience and sitemap defined with you.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Wireframe",
+    body: "Page structures approved by you before visual design.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Design",
+    body: "Mockups with two revision rounds, mobile-first.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Handoff & QA",
+    body: "Design system delivered and launch QA done with the developers.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Web Designing",
-  body: "Your website is often the first impression customers have of your brand. Great web design makes that impression count by combining beauty with functionality. From mobile responsiveness to intuitive navigation, effective design keeps visitors engaged and encourages them to take action — whether that’s making a purchase, booking a service, or reaching out to you.",
-};
-
-const BLOG_TOPIC = "web design";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Our services",
 });
 
 export default function Page() {
@@ -104,21 +82,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={PencilRulerIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Web"
+        accent="designing"
+        intro="We design visually striking, user-focused websites that look great on every device and make the next step obvious — from brand-new sites and redesigns to high-converting landing pages."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="We create visually stunning, conversion-focused designs that capture attention and turn visitors into loyal customers."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Web Designing"
+        body="Your website is often the first impression customers have of your brand. Great web design makes that impression count by combining beauty with functionality. From mobile responsiveness to intuitive navigation, effective design keeps visitors engaged and encourages them to take action — whether that’s making a purchase, booking a service, or reaching out to you."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="web design" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

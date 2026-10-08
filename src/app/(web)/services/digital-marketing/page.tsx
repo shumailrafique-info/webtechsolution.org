@@ -18,39 +18,34 @@ import { imageOf, serviceHref, servicesIn } from "../_components/data";
 import { RelatedPosts } from "../_components/related-posts";
 import { ServiceCard } from "../_components/service-card";
 import { ServiceCta } from "../_components/service-cta";
+import { ServicePillars } from "../_components/service-pillars";
 
-const DIGITAL_MARKETING = {
-  eyebrow: "Digital marketing",
-  title: "Digital marketing solutions built around your",
-  accent: "goals.",
-  intro:
-    "We offer tailored digital marketing solutions, creating a custom strategy for each client based on their goals — then running the campaigns that reach the right people.",
-  metaTitle: "Digital Marketing Services",
-  metaDescription:
-    "WebTech Solutions offers tailored digital marketing solutions, creating custom strategies for each client based on their goals.",
-  why: {
-    eyebrow: "Why choose us?",
-    title: "Why choose WebTech Solutions for your",
-    accent: "startup!",
-    body: "We specialize in tailored digital marketing strategies that drive growth. Our expertise in SEO, social media, content marketing, and PPC ensures measurable results, helping your business stand out, engage customers, and achieve long-term success online.",
-    badge: "Trusted and reliable!",
+const HOW_WE_DELIVER = [
+  {
+    title: "Discover",
+    body: "Business goals, audience, competitors and budget mapped.",
   },
-  approach: {
-    title: "Digital marketing with strategic",
-    accent: "depth",
-    body: "Relevance over visibility. We learn the business economics, audience, and competition before choosing channels and messaging — and keep every effort tied to measurable progress.",
+  {
+    title: "Strategy",
+    body: "Channel mix and 90-day roadmap approved by you.",
   },
-};
+  {
+    title: "Execute",
+    body: "Campaigns run across SEO, ads, social and email as one plan.",
+  },
+  {
+    title: "Report",
+    body: "One dashboard: spend, traffic, leads and ROI, monthly.",
+  },
+];
 
 const PATH = "/services/digital-marketing";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: "Digital Marketing Solutions Provider - WebTech Solutions",
+  title: "Digital Marketing Solutions Provider - WebTech Solutions",
   description:
     "WebTech Solutions offers tailored digital marketing solutions, and we create custom strategies for each of our clients based on their goals.",
   path: "/services/digital-marketing",
-  cardTitle: "Digital marketing solutions built around your goals",
-  eyebrow: "Digital marketing",
 });
 
 const marketing = servicesIn("marketing");
@@ -64,9 +59,10 @@ const schema = graph([
   {
     "@type": "Service",
     "@id": `${absoluteUrl(PATH)}#service`,
-    name: DIGITAL_MARKETING.metaTitle,
+    name: "Digital Marketing Services",
     serviceType: "Digital marketing",
-    description: DIGITAL_MARKETING.metaDescription,
+    description:
+      "WebTech Solutions offers tailored digital marketing solutions, creating custom strategies for each client based on their goals.",
     url: absoluteUrl(PATH),
     provider: organizationRef,
     hasOfferCatalog: {
@@ -106,16 +102,18 @@ export default function Page() {
 
           <div className="mt-10 grid items-center gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
-              <Eyebrow className="enter">{DIGITAL_MARKETING.eyebrow}</Eyebrow>
+              <Eyebrow className="enter">Digital marketing</Eyebrow>
               <h1
                 id="dm-title"
                 className="enter mt-6 font-display text-[40px] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-heading sm:text-[52px] lg:text-[60px]"
               >
-                {DIGITAL_MARKETING.title}{" "}
-                <Accent>{DIGITAL_MARKETING.accent}</Accent>
+                Digital marketing solutions built around your{" "}
+                <Accent>goals.</Accent>
               </h1>
               <p className="enter mt-6 max-w-[56ch] text-[17px] leading-[1.7] text-neutral-600 md:text-[18px]">
-                {DIGITAL_MARKETING.intro}
+                We offer tailored digital marketing solutions, creating a custom
+                strategy for each client based on their goals — then running the
+                campaigns that reach the right people.
               </p>
               <div className="enter mt-9 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <PrimaryButton href="/contact-us#query">
@@ -182,36 +180,40 @@ export default function Page() {
         </Container>
       </section>
 
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+
       <section
         aria-labelledby="dm-why-title"
         className="bg-white pt-14 md:pt-20 lg:pt-24"
       >
         <Container className="grid gap-5 lg:grid-cols-2">
           <div className="reveal rounded-[28px] border border-neutral-200 bg-white p-8 md:p-10">
-            <Eyebrow>{DIGITAL_MARKETING.why.eyebrow}</Eyebrow>
+            <Eyebrow>Why choose us?</Eyebrow>
             <h2
               id="dm-why-title"
               className="mt-5 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] text-balance text-heading md:text-[38px]"
             >
-              {DIGITAL_MARKETING.why.title}{" "}
-              <Accent>{DIGITAL_MARKETING.why.accent}</Accent>
+              Why choose WebTech Solutions for your <Accent>startup!</Accent>
             </h2>
             <p className="mt-5 text-[16.5px] leading-[1.7] text-neutral-600">
-              {DIGITAL_MARKETING.why.body}
+              We specialize in tailored digital marketing strategies that drive
+              growth. Our expertise in SEO, social media, content marketing, and
+              PPC ensures measurable results, helping your business stand out,
+              engage customers, and achieve long-term success online.
             </p>
           </div>
           <div className="reveal flex flex-col justify-between rounded-[28px] bg-heading p-8 text-white md:p-10">
             <h2 className="font-display text-[30px] leading-[1.05] font-bold tracking-[-0.035em] md:text-[38px]">
-              {DIGITAL_MARKETING.approach.title}{" "}
-              <span className="text-primary">
-                {DIGITAL_MARKETING.approach.accent}
-              </span>
+              Digital marketing with strategic{" "}
+              <span className="text-primary">depth</span>
             </h2>
             <p className="mt-6 text-[17px] leading-[1.7] text-neutral-300">
-              {DIGITAL_MARKETING.approach.body}
+              Relevance over visibility. We learn the business economics,
+              audience, and competition before choosing channels and messaging —
+              and keep every effort tied to measurable progress.
             </p>
             <p className="mt-8 text-[14px] font-medium text-neutral-400">
-              {DIGITAL_MARKETING.why.badge}
+              Trusted and reliable!
             </p>
           </div>
         </Container>

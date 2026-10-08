@@ -18,19 +18,6 @@ const META_TITLE = "Web Development Services - WebTech Solutions";
 const META_DESCRIPTION =
   "Take your business to an advanced level using the professional web development services of WebTech Solutions and generate more revenue.";
 
-const HERO = {
-  title: "Web",
-  accent: "development",
-  intro:
-    "We build fast, secure, and scalable websites — custom builds, online stores, and SEO-friendly development — and keep them updated and running smoothly after launch.",
-};
-
-const WHY =
-  "Our web development process ensures functionality, scalability, and performance — crafted to meet your unique business goals.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
     title: "Custom Web Development",
@@ -54,38 +41,29 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We bring fresh, creative innovations to every project we take on.",
+    title: "Scope",
+    body: "Features, tech stack and timeline agreed in writing.",
   },
   {
-    title: "Action Plans",
-    body: "Our clear, strategic action plans turn ideas into impactful results.",
+    title: "Build",
+    body: "Clean, fast code on a staging link you can review anytime.",
   },
   {
-    title: "Big Projects",
-    body: "We confidently handle big projects with precision and expertise.",
+    title: "Test",
+    body: "Speed, mobile, technical SEO basics and bug fixing before launch.",
   },
   {
-    title: "Great Tests",
-    body: "Every solution we deliver passes great tests of quality and performance.",
+    title: "Launch & support",
+    body: "Go-live checklist, bug-free period and a maintenance plan.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of Web Development",
-  body: "Web development is the backbone of your digital presence — ensuring speed, security, and scalability for long-term success. Strong web development turns ideas into powerful online platforms that engage, convert, and grow your business.",
-};
-
-const BLOG_TOPIC = "web development";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
+  title: META_TITLE,
   description: META_DESCRIPTION,
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Our services",
 });
 
 export default function Page() {
@@ -104,21 +82,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={CodeIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Web"
+        accent="development"
+        intro="We build fast, secure, and scalable websites — custom builds, online stores, and SEO-friendly development — and keep them updated and running smoothly after launch."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="Our web development process ensures functionality, scalability, and performance — crafted to meet your unique business goals."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of Web Development"
+        body="Web development is the backbone of your digital presence — ensuring speed, security, and scalability for long-term success. Strong web development turns ideas into powerful online platforms that engage, convert, and grow your business."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="web development" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

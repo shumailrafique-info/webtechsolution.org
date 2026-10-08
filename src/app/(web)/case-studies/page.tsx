@@ -22,13 +22,10 @@ const TITLE = "Case Studies";
 const PATH = "/case-studies";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle:
-    "Case Studies - WebTech Solutions – SEO & Digital Marketing Agency",
+  title: "Case Studies - WebTech Solutions – SEO & Digital Marketing Agency",
   description:
     "Real projects from WebTech Solutions: the problem each business came with, what we did, and what changed in their search visibility and traffic.",
   path: "/case-studies",
-  cardTitle: "Work that got businesses found",
-  eyebrow: "Case studies",
 });
 
 const schema = graph([

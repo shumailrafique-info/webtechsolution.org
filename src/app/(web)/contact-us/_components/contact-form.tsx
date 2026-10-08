@@ -16,7 +16,6 @@ import {
   type ContactQuerySchemaValues,
   contactQuerySchema,
 } from "@/lib/validation/zod/contact-query.schema";
-import { FORM } from "./data";
 
 const EMPTY: ContactQuerySchemaValues = { name: "", email: "", message: "" };
 
@@ -76,12 +75,14 @@ export function ContactForm({ className }: { className?: string }) {
         className,
       )}
     >
-      <p className="text-[13px] font-medium text-neutral-500">{FORM.eyebrow}</p>
+      <p className="text-[13px] font-medium text-neutral-500">
+        Contact with us
+      </p>
       <h2
         id={headingId}
         className="mt-1 font-display text-[28px] leading-[1.05] font-bold tracking-[-0.035em] text-heading md:text-[32px]"
       >
-        {FORM.title} {FORM.accent}
+        Drop us your query
       </h2>
 
       {plan && !sentTo ? (

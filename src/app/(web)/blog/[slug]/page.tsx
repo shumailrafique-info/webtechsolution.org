@@ -48,14 +48,12 @@ export async function generateMetadata({
   const description = post.meta_description || post.excerpt;
 
   return pageMetadata({
-    absoluteTitle: title,
+    title: title,
     description,
     path: `/blog/${post.slug}`,
     image: post.cover_image?.url
       ? { url: post.cover_image.url, alt: post.image_alt || title }
       : undefined,
-    cardTitle: post.title,
-    eyebrow: "Blog",
     type: "article",
     publishedTime: post.published_at?.toISOString(),
     modifiedTime: post.updated_at.toISOString(),

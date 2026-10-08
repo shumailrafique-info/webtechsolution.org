@@ -14,27 +14,10 @@ const SLUG = "seo";
 const NAME = "SEO";
 const GROUP = "core";
 
-const META_TITLE = "Affordable SEO Services - WebTech Solutions";
-const META_DESCRIPTION =
-  "Boost your online presence with our professional SEO services. We drive traffic and help your business grow through SEO strategies.";
-
-const HERO = {
-  title: "Search engine",
-  accent: "optimization (SEO)",
-  intro:
-    "Boost your online visibility with WebTech Solutions’ expert SEO services. With 13 years of experience, we offer result-driven strategies, keyword optimization, and technical audits to improve rankings, increase traffic, and grow your business organically.",
-};
-
-const WHY =
-  "Free SEO audit, WebTech Solutions’ experts with 13+ years of experience, keyword optimization, and technical audits to improve rankings and increase traffic.";
-
-const OFFERS_INTRO =
-  "Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth.";
-
 const OFFERS = [
   {
-    title: "AI Assisted SEO",
-    body: "We use AI tools and smart data analysis to find keyword opportunities, improve content, automate routine SEO tasks, and make better decisions based on search performance.",
+    title: "AI Search Visibility (GEO/AEO)",
+    body: "Get your brand cited in Google's AI Overviews and AI Mode. We track where AI answers mention you, fix entity and brand-mention gaps, tune structured data and E-E-A-T for AI retrieval, and optimize for Preferred-Source selection.",
   },
   {
     title: "On-Page SEO",
@@ -66,38 +49,30 @@ const OFFERS = [
   },
 ];
 
-const PILLARS = [
+const HOW_WE_DELIVER = [
   {
-    title: "Innovations",
-    body: "We integrate the latest SEO tools and methodologies to craft innovative strategies that deliver measurable results.",
+    title: "Audit",
+    body: "Technical crawl, keyword gap and competitor analysis in weeks 1–2; you receive a prioritized issue list.",
   },
   {
-    title: "Action Plans",
-    body: "Our step-by-step action plans are designed to systematically improve your site’s SEO performance, ensuring long-term success.",
+    title: "Plan",
+    body: "Priority fixes plus a content map, agreed with you before work begins.",
   },
   {
-    title: "Big Projects",
-    body: "Equipped to handle large-scale SEO projects, we provide scalable solutions that align with your expanding business needs.",
+    title: "Execute",
+    body: "Technical fixes, on-page optimization, content and outreach delivered in monthly sprints.",
   },
   {
-    title: "Great Tests",
-    body: "Every strategy undergoes rigorous testing to ensure effectiveness, allowing us to refine our approach for optimal outcomes.",
+    title: "Report",
+    body: "Rankings, traffic and conversions in a plain-language monthly report.",
   },
 ];
 
-const IMPORTANCE = {
-  title: "Importance of SEO",
-  body: "Most customers search before they buy. SEO puts your business in front of them at that exact moment — and unlike paid ads, the visibility keeps working long after the work is done. It is the foundation the rest of your marketing builds on.",
-};
-
-const BLOG_TOPIC = "SEO";
-
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: META_TITLE,
-  description: META_DESCRIPTION,
+  title: "SEO Services - WebTech Solutions",
+  description:
+    "Boost your online presence with our professional SEO services. We drive traffic and help your business grow through SEO strategies.",
   path: `/services/${SLUG}`,
-  cardTitle: `${HERO.title} ${HERO.accent}`,
-  eyebrow: "Our services",
 });
 
 export default function Page() {
@@ -107,8 +82,10 @@ export default function Page() {
         slug={SLUG}
         name={NAME}
         group={GROUP}
-        metaTitle={META_TITLE}
-        metaDescription={META_DESCRIPTION}
+        metaTitle={"SEO Services - WebTech Solutions"}
+        metaDescription={
+          "Boost your online presence with our professional SEO services. We drive traffic and help your business grow through SEO strategies."
+        }
         offers={OFFERS}
       />
       <ServiceHero
@@ -116,21 +93,24 @@ export default function Page() {
         name={NAME}
         group={GROUP}
         icon={SearchIcon}
-        title={HERO.title}
-        accent={HERO.accent}
-        intro={HERO.intro}
+        title="Search engine"
+        accent="optimization (SEO)"
+        intro="Boost your online visibility with WebTech Solutions' expert SEO services. With 13 years of experience, we offer result-driven strategies, keyword optimization, and technical audits to improve rankings, increase traffic, and grow your business organically."
         offersCount={OFFERS.length}
       />
       <ServiceOffers
         name={NAME}
-        intro={OFFERS_INTRO}
-        why={WHY}
+        intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
+        why="Free SEO audit, WebTech Solutions’ experts with 13+ years of experience, keyword optimization, and technical audits to improve rankings and increase traffic."
         offers={OFFERS}
       />
-      <ServicePillars pillars={PILLARS} />
-      <ServiceImportance title={IMPORTANCE.title} body={IMPORTANCE.body} />
+      <ServicePillars pillars={HOW_WE_DELIVER} />
+      <ServiceImportance
+        title="Importance of SEO"
+        body="Most customers search before they buy. SEO puts your business in front of them at that exact moment — and unlike paid ads, the visibility keeps working long after the work is done. It is the foundation the rest of your marketing builds on."
+      />
       <MoreServices group={GROUP} current={SLUG} />
-      <RelatedPosts topic={BLOG_TOPIC} />
+      <RelatedPosts topic="SEO" />
       <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
     </>
   );

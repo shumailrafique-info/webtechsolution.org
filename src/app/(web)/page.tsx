@@ -16,11 +16,9 @@ import { pageMetadata } from "@/lib/metadata";
 import { SITE_TAGLINE, SITE_TITLE } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: SITE_TITLE,
+  title: SITE_TITLE,
   description: SITE_TAGLINE,
   path: "/",
-  cardTitle: "Be the business people find first.",
-  eyebrow: "Since 2013",
 });
 
 export default function Home() {

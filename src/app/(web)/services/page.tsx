@@ -33,38 +33,20 @@ import { RelatedPosts } from "./_components/related-posts";
 import { ServiceCard } from "./_components/service-card";
 import { ServiceCta } from "./_components/service-cta";
 
-const OVERVIEW = {
-  eyebrow: "Our services",
-  title: "Accelerate your growth with our expert digital",
-  accent: "marketing solutions.",
-  intro:
-    "Tailored digital marketing solutions — SEO, PPC, social media, app development and expert online strategies — from one team, since 2013.",
-  why: {
-    eyebrow: "Why choose us?",
-    title: "Why choose WebTech Solutions for your",
-    accent: "startup!",
-    body: "We specialize in tailored digital marketing strategies that drive growth. Our expertise in SEO, social media, content marketing, and PPC ensures measurable results, helping your business stand out, engage customers, and achieve long-term success online.",
-    badge: "Trusted and reliable!",
-  },
-};
-
 const TITLE = "Our Services";
-const PATH = "/services";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle:
-    "Complete SEO and App Development Services - Expert Strategies",
+  title:
+    "Our Services | SEO, Content, Ads, Web & App Development – WebTech Solutions",
   description:
     "WebTech Solutions offers tailored digital marketing solutions, including SEO, PPC, social media, app development, and expert online strategies.",
   path: "/services",
-  cardTitle: "Accelerate your growth with expert digital marketing",
-  eyebrow: "Our services",
 });
 
 const schema = graph([
   breadcrumbList([
     { name: "Home", path: "/" },
-    { name: TITLE, path: PATH },
+    { name: TITLE, path: "/services" },
   ]),
   {
     "@type": "ItemList",
@@ -109,15 +91,23 @@ export default function Page() {
           />
 
           <div className="mx-auto mt-10 max-w-4xl text-center md:mt-12">
-            <Eyebrow className="enter">{OVERVIEW.eyebrow}</Eyebrow>
+            <Eyebrow className="enter">Our services</Eyebrow>
             <h1
               id="services-title"
               className="enter mt-6 font-display text-[40px] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-heading sm:text-[54px] lg:text-[64px]"
             >
-              {OVERVIEW.title} <Accent>{OVERVIEW.accent}</Accent>
+              SEO, content, ads, web & apps —{" "}
+              <Accent>16 services, one in-house team </Accent>
             </h1>
             <p className="enter mx-auto mt-6 max-w-[58ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
-              {OVERVIEW.intro}
+              Sixteen services, one in-house team since 2013: SEO and AI-search
+              visibility, content writing and content marketing, link building
+              and digital PR, Google Ads and multi-platform PPC, social media,
+              email, affiliate and video marketing — plus web design, web
+              development, app development, and{" "}
+              <strong>Google Business Profile</strong> management. Every service
+              page below lists exactly what's included, how we deliver it, and
+              how we report it.
             </p>
             <div className="enter mt-9 flex flex-nowrap items-center justify-center gap-2 sm:gap-3">
               <PrimaryButton href="/contact-us#query">
@@ -191,15 +181,17 @@ export default function Page() {
       >
         <Container className="grid items-center gap-10 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="reveal lg:col-span-6">
-            <Eyebrow>{OVERVIEW.why.eyebrow}</Eyebrow>
+            <Eyebrow>Why choose us?</Eyebrow>
             <h2
               id="why-title"
               className="mt-5 font-display text-[34px] leading-[1.05] font-bold tracking-[-0.035em] text-balance text-heading sm:text-[44px]"
             >
-              {OVERVIEW.why.title} <Accent>{OVERVIEW.why.accent}</Accent>
+              Why choose <Accent>WebTech Solutions</Accent>
             </h2>
             <p className="mt-5 text-[17px] leading-[1.7] text-neutral-600">
-              {OVERVIEW.why.body}
+              One in-house team of 17 across the US, UK, Spain and Pakistan.
+              SEO, content, ads and web work planned together, so your site,
+              your content and your campaigns don't fight each other.
             </p>
             <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
               {[
@@ -233,10 +225,10 @@ export default function Page() {
             </div>
             <figcaption className="absolute bottom-4 left-4 rounded-2xl border border-neutral-200 bg-white px-4 py-3 shadow-[0_18px_40px_-20px_rgba(30,20,10,0.35)]">
               <span className="block font-display text-[16px] font-bold tracking-[-0.02em] text-heading">
-                {OVERVIEW.why.badge}
+                In-house since 2013
               </span>
               <span className="text-[13px] text-neutral-500">
-                One in-house team since {FOUNDED.year}
+                — no outsourcing your project to freelancers.
               </span>
             </figcaption>
           </figure>

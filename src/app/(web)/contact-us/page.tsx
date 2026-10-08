@@ -7,18 +7,16 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph, organizationRef } from "@/lib/seo";
 import { ContactForm } from "./_components/contact-form";
-import { HEAD_OFFICE_MAP, INTRO } from "./_components/data";
+import { HEAD_OFFICE_MAP } from "./_components/data";
 
 const TITLE = "Contact Us";
 const PATH = "/contact-us";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle: "Contact Us - Grow Your Business With WebTech Solutions",
+  title: "Contact Us - Grow Your Business With WebTech Solutions",
   description:
     "WebTech Solutions provides free website audit, content writing, app development, web design and digital marketing services.",
   path: "/contact-us",
-  cardTitle: "Let’s talk about your digital growth",
-  eyebrow: "Contact us",
 });
 
 const schema = graph([
@@ -46,15 +44,21 @@ export default function Page() {
 
           <div className="mt-10 grid items-start gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-6">
-              <Eyebrow className="enter">{INTRO.eyebrow}</Eyebrow>
+              <Eyebrow className="enter">Let’s work together</Eyebrow>
               <h1
                 id="contact-title"
                 className="enter mt-6 font-display text-[40px] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-heading sm:text-[52px] lg:text-[58px]"
               >
-                {INTRO.title} <Accent>{INTRO.accent}</Accent>
+                Let’s talk about your digital growth —{" "}
+                <Accent>the right way.</Accent>
               </h1>
               <p className="enter mt-6 max-w-[56ch] text-[17px] leading-[1.7] text-neutral-600">
-                {INTRO.body}
+                Whether you’re an agency, a growing business, or an established
+                brand, WebTech Solutions is here to help. With 13+ years of
+                hands-on experience, we work closely with our clients to
+                understand their goals and provide practical, trustworthy
+                digital solutions that support long-term growth and real
+                results.
               </p>
 
               <div className="enter mt-9">

@@ -53,46 +53,6 @@ const logoOf = (name: string) =>
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    slug: "wisetoast",
-    client: "WiseToast",
-    sector: "Lifestyle publication",
-    title: "A traffic surge through Search Engine optimization",
-    summary:
-      "A content-rich site that search engines struggled to crawl. We fixed the technical foundations, rebuilt the internal linking around topic clusters and refreshed the posts that were closest to page one.",
-    challenge:
-      "WiseToast had years of good articles, but most of them were invisible. Crawl errors, duplicate archive pages and thin category pages were spreading the site’s authority thin, and new posts took weeks to be indexed.",
-    approach: [
-      {
-        title: "Technical audit",
-        body: "Crawled the full site, fixed redirect chains and duplicate archives, and cut the pages competing for the same searches.",
-      },
-      {
-        title: "Topic clusters",
-        body: "Grouped posts into clusters with clear pillar pages and rebuilt the internal links around them.",
-      },
-      {
-        title: "Content refresh",
-        body: "Rewrote the posts already ranking on page two, where a small improvement moves the most traffic.",
-      },
-      {
-        title: "Link building",
-        body: "Earned links from relevant lifestyle publications to the pillar pages.",
-      },
-    ],
-    outcome:
-      "Within nine months organic sessions had more than tripled, and the pillar pages hold top-three positions for the searches that bring the site its readers.",
-    services: ["Technical SEO", "Content", "Link building"],
-    metrics: [
-      { value: "+212%", label: "Organic sessions" },
-      { value: "140+", label: "Keywords in the top 3" },
-      { value: "4.6×", label: "Search impressions" },
-    ],
-    duration: "9 months",
-    trend: [18, 20, 19, 24, 29, 33, 38, 45, 49, 56],
-    trendLabel: "Organic sessions",
-    placeholder: true,
-  },
-  {
     slug: "texttofont",
     client: "TextToFont.com",
     logo: { src: "/images/clients/texttofont.png", width: 279, height: 21 },

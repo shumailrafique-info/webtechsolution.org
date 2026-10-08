@@ -7,13 +7,6 @@ export type FaqGroup = {
   faqs: Faq[];
 };
 
-export const INTRO = {
-  eyebrow: "Help and FAQs",
-  title: "Frequently asked",
-  accent: "questions.",
-  body: "Everything you need to know about SEO and about working with WebTech Solutions. Can’t find your answer? Ask us directly.",
-};
-
 export const FAQ_GROUPS: FaqGroup[] = [
   {
     id: "seo",

@@ -23,27 +23,17 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph, organizationRef } from "@/lib/seo";
-import {
-  ABOUT_TEAM,
-  MISSION,
-  SPECIALISMS,
-  VISION,
-  WHO_WE_ARE,
-  WHO_WE_ARE_CLOSING,
-} from "./_components/data";
+import { ABOUT_TEAM, MISSION, SPECIALISMS, VISION } from "./_components/data";
 import { TeamBioCard } from "./_components/team-bio-card";
 
 const TITLE = "About Us";
 const PATH = "/about-us";
 
 export const metadata: Metadata = pageMetadata({
-  absoluteTitle:
-    "About WebTech Solutions - Established Digital Agency Since 2013",
+  title: "About WebTech Solutions - Established Digital Agency Since 2013",
   description:
     "WebTech Solutions is a recognized digital agency founded in 2013, delivering expert SEO, app development, and digital marketing services.",
   path: "/about-us",
-  cardTitle: "Market-leading digital agency expertise",
-  eyebrow: "About us",
 });
 
 const schema = graph([
@@ -161,11 +151,28 @@ export default function Page() {
           </div>
 
           <div className="reveal grid gap-5 text-[17px] leading-[1.75] text-neutral-600 lg:col-span-7">
-            {WHO_WE_ARE.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-            ))}
+            <p>
+              Founded on 1st January 2013, WebTech Solutions is a trusted
+              digital agency specializing in App Development, SEO, and Digital
+              Marketing. From the beginning, our mission has been to help
+              businesses build a strong online presence and grow with
+              confidence.
+            </p>
+            <p>
+              Our team includes experienced developers, SEO specialists, and
+              marketing professionals who genuinely care about your success. We
+              take time to understand your goals, your market, and your
+              challenges — then we create solutions that make real progress.
+            </p>
+            <p>
+              Whether we’re improving your search rankings, developing a
+              user-friendly app, or managing your digital campaigns, we work
+              like a partner by your side — guiding, supporting, and celebrating
+              every milestone together.
+            </p>
             <p className="mt-2 border-l-[3px] border-primary pl-5 font-display text-[22px] leading-[1.35] font-semibold tracking-[-0.02em] text-heading md:text-[26px]">
-              {WHO_WE_ARE_CLOSING}
+              For us, success isn’t just traffic or numbers — it’s helping your
+              business move forward in the right direction.
             </p>
           </div>
         </Container>

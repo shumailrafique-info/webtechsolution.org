@@ -55,7 +55,7 @@ export function SiteSchema() {
             telephone: phone.href,
             email: CONTACT.email,
             contactType: "customer service",
-            areaServed: phone.label === "Spain" ? "ES" : "PK",
+            areaServed: phone.countryCode,
             availableLanguage: ["English"],
           })),
           sameAs: SOCIAL_PROFILES,

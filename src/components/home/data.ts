@@ -6,8 +6,18 @@ export const CONTACT = {
   email: "info@webtechsolution.org",
   marketingEmail: "marketing@webtechsolution.org",
   phones: [
-    { label: "Pakistan", display: "+92 301 7277767", href: "+923017277767" },
-    { label: "Spain", display: "+34 631 060 869", href: "+34631060869" },
+    {
+      label: "USA",
+      display: "+1 (786) 927-5040",
+      href: "+17869275040",
+      countryCode: "US",
+    },
+    {
+      label: "Spain",
+      display: "+34 631 060 869",
+      href: "+34631060869",
+      countryCode: "ES",
+    },
   ],
   hours: "Monday to Saturday, 9:00 am – 5:00 pm",
 } as const;
@@ -212,12 +222,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/images/home/team/ali-hassan.webp",
     group: "design",
   },
-  {
-    name: "Ali Jutt",
-    role: "Graphic Designer",
-    image: "/images/home/team/ali-jutt.webp",
-    group: "design",
-  },
+
   {
     name: "Afzaal Ahmed",
     role: "Professional Accountant",

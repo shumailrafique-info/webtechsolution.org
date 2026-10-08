@@ -122,6 +122,6 @@ export const PRICING_FAQS = [
   {
     question: "When can I reach you?",
     answer:
-      "Monday to Saturday, 9:00 am – 5:00 pm. Email info@webtechsolution.org or call +92 301 7277767 (Pakistan) or +34 631 060 869 (Spain).",
+      "Monday to Saturday, 9:00 am – 5:00 pm. Email info@webtechsolution.org or call +1 (786) 927-5040 (USA) or +34 631 060 869 (Spain).",
   },
 ];

@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="With 13 years of experience, WebTech Solutions builds mobile apps for iOS and Android using native development and Flutter. We handle store submission, testing, and first-month maintenance after launch."
+        why="iOS and Android apps built in sprints and tested on real devices. Clickable prototype before coding, store submission and updates handled."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="app development" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Describe your app idea — we'll send a feature scope and store-launch plan."
+      />
     </>
   );
 }

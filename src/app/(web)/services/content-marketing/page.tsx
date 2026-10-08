@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="From SEO-optimized blogs to multi-channel campaigns, we craft content that reflects your brand identity, resonates with your audience, and delivers measurable results."
+        why="Topic-cluster strategies, not random posts. Quarterly editorial calendars with distribution across blog, social and email — and authority reporting."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="content marketing" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Tell us your goals — we'll draft a quarterly topic-cluster plan."
+      />
     </>
   );
 }

@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="We treat your growth like our own — and every strategy we use is backed by real results."
+        why="Full-service email: strategy, copy, design and deliverability. Automation sequences (welcome, cart-recovery, re-engagement) with A/B testing on every send."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="email marketing" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Share your list size — we'll map your first automation sequence free."
+      />
     </>
   );
 }

@@ -94,7 +94,7 @@ export default function Page() {
         name={NAME}
         title={OFFERS_TITLE}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="High-quality, SEO-optimized, well-researched content using that aligns with Google’s E-E-A-T standards."
+        why="In-house editorial team — every piece researched, expert-sourced and edited for E-E-A-T. Search-intent-mapped briefs with revision rounds and monthly calendars."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -104,7 +104,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="content writing" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Tell us your topics — we'll send a sample outline plus a monthly content plan."
+      />
     </>
   );
 }

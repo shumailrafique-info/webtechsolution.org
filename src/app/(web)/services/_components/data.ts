@@ -152,7 +152,7 @@ export const GROUPS: Record<
   core: {
     title: "Our",
     accent: "services",
-    lede: "Search, content, websites and apps: the foundations of being found online.",
+    lede: "SEO, paid ads, content, web design and app development, all under one roof.",
     href: "/services",
   },
   marketing: {

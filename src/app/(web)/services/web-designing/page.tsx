@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="Mobile-first website designs, wireframed around one conversion goal per page, so more visitors become customers. Mockups, revisions, and launch QA included."
+        why="Mobile-first designs built around one conversion goal per page. Wireframes first, then mockups with two revision rounds — launch QA included."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="web design" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Describe your business — we'll sketch a homepage wireframe concept."
+      />
     </>
   );
 }

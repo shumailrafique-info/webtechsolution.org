@@ -117,8 +117,8 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         title={OFFERS_TITLE}
-        intro="How WebTech Solutions delivers measurable results — from planning to reporting."
-        why="We rely on ethical, editorial link-earning methods focused on relevance and quality. Every campaign is built for long-term growth and supported by clear, transparent reporting you can trust."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
+        why="Relationship-based outreach since 2013 — editorial links and brand mentions, no link farms. Every placement reported with live URLs and domain metrics."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -133,7 +133,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="link building" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Send us your domain — we'll show you 10 relevant sites we can earn links from."
+      />
     </>
   );
 }

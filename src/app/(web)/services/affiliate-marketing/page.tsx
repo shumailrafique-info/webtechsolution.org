@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference."
+        why="Programs built for performance: setup, partner recruitment, commission structures and fraud monitoring — growth without upfront ad spend."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="affiliate marketing" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Tell us your product — we'll design your commission structure."
+      />
     </>
   );
 }

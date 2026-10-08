@@ -91,7 +91,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference."
+        why="Local-search specialists: profile optimization, review strategy and posts that follow Google's 2026 feature set — including Ask Maps readiness. "
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -101,7 +101,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="Google Business Profile" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Send your business name — we'll run a free profile audit with 5 quick wins."
+      />
     </>
   );
 }

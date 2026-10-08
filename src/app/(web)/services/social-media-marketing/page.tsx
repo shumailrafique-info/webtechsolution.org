@@ -89,8 +89,8 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="We create social media strategies that spark conversations, build loyal communities, and strengthen your brand presence across platforms."
-        why="We don’t just manage your social media — we grow it with strategy, creativity, and results you can actually see."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
+        why="Platform-specific strategies for Instagram, Facebook, LinkedIn and TikTok. Monthly calendars approved by you, with reports tied to traffic and leads — not just likes."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="social media marketing" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Tell us your platforms — we'll build a free 1-week content calendar sample."
+      />
     </>
   );
 }

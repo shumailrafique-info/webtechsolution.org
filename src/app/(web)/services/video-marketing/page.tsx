@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="We combine creativity, expertise, and results-driven strategies to deliver solutions that truly make a difference."
+        why="In-house video team: scripting, editing and platform optimization. Short-form clips, explainers, demos and YouTube campaigns with reporting."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="video marketing" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Describe your message — we'll script your first 60-second video concept."
+      />
     </>
   );
 }

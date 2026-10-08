@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="What's included, how we deliver it, and how we report it — listed below for this service."
-        why="Custom websites and online stores built to load fast, stay secure, and scale with your business. Technical SEO is built in, and we maintain your site after launch. Get a free project quote ."
+        why="Fast, secure, scalable builds with technical SEO baked in — not bolted on. Staging link for review, go-live checklist and a bug-free period after launch."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -100,7 +100,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="web development" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Send your requirements — we'll reply with a fixed quote and timeline."
+      />
     </>
   );
 }

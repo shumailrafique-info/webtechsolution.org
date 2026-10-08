@@ -105,8 +105,8 @@ export default function Page() {
       />
       <ServiceOffers
         name={NAME}
-        intro="From the first keyword to the final report, every part of the campaign is planned, managed, and measured."
-        why="We design and manage Google Ads campaigns that maximize visibility, attract qualified leads, and deliver measurable business growth."
+        intro="What's included, how we deliver it, and how we report it — listed below for this service."
+        why="Full-funnel paid media across Google (Search, Display, YouTube), Meta, TikTok and LinkedIn: keyword and audience builds, ad creative, structured ad groups, negative-keyword hygiene, bid management, remarketing and conversion tracking, with monthly ROI reports."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
@@ -116,7 +116,11 @@ export default function Page() {
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="PPC" />
-      <ServiceCta title={`Ready to grow with ${NAME}?`} accent="Let’s talk." />
+      <ServiceCta
+        title={`Ready to grow with ${NAME}?`}
+        accent="Let’s talk."
+        body="Share your monthly ad spend and read-only account access, and we'll send a free audit within 48 hours showing where your money leaks."
+      />
     </>
   );
 }

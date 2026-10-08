@@ -224,6 +224,7 @@ export default function Page() {
       <ServiceCta
         title="Ready to reach the right audience?"
         accent="Let’s plan your campaign."
+        body="Book a free strategy call — we'll map your 90-day channel plan."
       />
     </>
   );

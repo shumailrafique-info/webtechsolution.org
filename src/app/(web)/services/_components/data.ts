@@ -38,7 +38,7 @@ export const SERVICES: ServiceSummary[] = [
     group: "core",
     icon: SearchIcon,
     summary:
-      "Improve your search rankings with tailored SEO strategies that drive organic traffic and conversions.",
+      "Technical audits, keyword maps, on-page fixes, content plans and editorial link earning — monthly reporting on the searches that bring customers.",
   },
   {
     slug: "content-writing",
@@ -46,14 +46,15 @@ export const SERVICES: ServiceSummary[] = [
     group: "core",
     icon: PenNibIcon,
     summary:
-      "Deliver compelling, SEO-friendly content that informs and converts.",
+      "Human-written, search-intent-mapped articles and web copy: researched briefs, expert sourcing, E-E-A-T checks and revision rounds.",
   },
   {
     slug: "link-building",
     name: "Link Building",
     group: "core",
     icon: LinkIcon,
-    summary: "Ethical link-building campaigns that boost SEO performance.",
+    summary:
+      "Relationship-based outreach earning editorial links and brand mentions on relevant sites — no link farms; live placement reports.",
   },
   {
     slug: "social-media-marketing",
@@ -61,7 +62,7 @@ export const SERVICES: ServiceSummary[] = [
     group: "core",
     icon: ShareIcon,
     summary:
-      "Engage, inspire, and convert audiences through impactful social media storytelling.",
+      "Platform-specific content calendars, ad creative and community management for Instagram, Facebook, LinkedIn and TikTok — tracked to leads.",
   },
   {
     slug: "email-marketing",
@@ -69,14 +70,15 @@ export const SERVICES: ServiceSummary[] = [
     group: "core",
     icon: MailIcon,
     summary:
-      "Nurture leads and build loyalty with personalized email campaigns.",
+      "Segmented campaigns and automation: welcome, cart-recovery and re-engagement sequences, subject-line testing, deliverability management.",
   },
   {
     slug: "web-designing",
     name: "Web Designing",
     group: "core",
     icon: PencilRulerIcon,
-    summary: "Modern, user-focused designs that elevate your online presence.",
+    summary:
+      "Wireframed, mobile-first website designs built around one conversion goal per page — mockups, revisions and launch QA included.",
   },
   {
     slug: "web-development",
@@ -84,7 +86,7 @@ export const SERVICES: ServiceSummary[] = [
     group: "core",
     icon: CodeIcon,
     summary:
-      "Create fast, secure, and scalable websites built for performance.",
+      "Fast, secure, scalable website builds with technical SEO baked in — staging reviews, go-live QA and post-launch support.",
   },
   {
     slug: "app-development",
@@ -92,15 +94,15 @@ export const SERVICES: ServiceSummary[] = [
     group: "core",
     icon: DeviceMobileIcon,
     summary:
-      "Transform ideas into powerful mobile apps with seamless functionality.",
+      "iOS and Android apps: clickable prototype before coding, sprint-based builds tested on real devices, store submission handled.",
   },
   {
     slug: "google-business-profile",
-    name: "GMB Listing",
+    name: "Google Business Profile",
     group: "core",
     icon: MapPinIcon,
     summary:
-      "Attract nearby customers with a polished and professional GMB presence.",
+      "Profile optimization, review strategy, posts and photos managed for local rankings — Ask Maps ready, monthly local reports.",
   },
   {
     slug: "content-marketing",
@@ -108,7 +110,7 @@ export const SERVICES: ServiceSummary[] = [
     group: "marketing",
     icon: FileTextIcon,
     summary:
-      "Build authority with strategic content campaigns that attract and convert.",
+      "Topic-cluster content strategy: editorial calendars, distribution across blog/social/email, and quarterly authority reporting.",
   },
   {
     slug: "google-ads",
@@ -116,21 +118,23 @@ export const SERVICES: ServiceSummary[] = [
     group: "marketing",
     icon: GoogleIcon,
     summary:
-      "Generate instant leads with expertly managed PPC and Google Ads campaigns designed for ROI.",
+      "Google-only campaign management: Search, Display, YouTube and remarketing — structured ad groups, negative-keyword hygiene, monthly ROI reports.",
   },
   {
     slug: "affiliate-marketing",
     name: "Affiliate Marketing",
     group: "marketing",
     icon: HandshakeIcon,
-    summary: "Drive sales through trusted affiliate networks and strategies.",
+    summary:
+      "Affiliate program setup, partner recruitment, commission structures and fraud monitoring — performance-based growth without upfront ad spend.",
   },
   {
     slug: "video-marketing",
     name: "Video Marketing",
     group: "marketing",
     icon: VideoIcon,
-    summary: "Tell your story with impactful videos that drive engagement.",
+    summary:
+      "Short-form clips, explainers, product demos and YouTube campaigns — scripted, edited and published by our in-house video team.",
   },
   {
     slug: "mobile-marketing",
@@ -138,7 +142,7 @@ export const SERVICES: ServiceSummary[] = [
     group: "marketing",
     icon: MegaphoneIcon,
     summary:
-      "Reach customers on the go with mobile-first marketing strategies.",
+      "Consent-based SMS, push and in-app campaigns with opt-out compliance — targeted sends with delivery and conversion reporting.",
   },
 ];
 

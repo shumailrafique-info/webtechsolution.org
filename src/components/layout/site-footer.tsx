@@ -19,28 +19,39 @@ import {
   RESOURCE_LINKS,
   SERVICES,
 } from "@/lib/site-nav";
+import { cn } from "@/lib/utils";
 
 const SOCIAL = [
   {
     label: "Facebook",
     href: "https://www.facebook.com/webtechsolutions7/",
     Icon: FacebookIcon,
+    color: "bg-[#1877F2]",
   },
-  { label: "X", href: "https://x.com/webtechsolutio7", Icon: XLogoIcon },
+  {
+    label: "X",
+    href: "https://x.com/webtechsolutio7",
+    Icon: XLogoIcon,
+    color: "bg-black ring-1 ring-white/25",
+  },
   {
     label: "Instagram",
     href: "https://www.instagram.com/webtechsolution77/",
     Icon: InstagramIcon,
+    color:
+      "bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)]",
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/webtechsolution7",
     Icon: LinkedinIcon,
+    color: "bg-[#0A66C2]",
   },
   {
     label: "YouTube",
     href: "https://www.youtube.com/@webtechsolution9638",
     Icon: YoutubeIcon,
+    color: "bg-[#FF0000]",
   },
 ];
 
@@ -89,7 +100,7 @@ export function SiteFooter() {
             </p>
 
             <ul className="mt-6 flex flex-wrap items-center gap-2">
-              {SOCIAL.map(({ label, href, Icon }) => (
+              {SOCIAL.map(({ label, href, Icon, color }) => (
                 <li key={label}>
                   <a
                     href={href}
@@ -97,53 +108,57 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     title={label}
-                    className="grid size-10 place-items-center rounded-full border border-neutral-400/50 bg-[#212140] text-white transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                    className={cn(
+                      "grid size-10 place-items-center rounded-full text-white transition-[transform,filter] duration-200 hover:-translate-y-0.5 hover:brightness-110",
+                      color,
+                    )}
                   >
-                    <Icon aria-hidden className="size-4.5" />
+                    <Icon aria-hidden className="size-5.5" />
                   </a>
                 </li>
               ))}
             </ul>
 
-            <ul className="mt-8 grid gap-3 text-[14.5px] text-[#b8b8b8]">
+            <ul className="mt-8 grid gap-2.5 text-[14.5px] text-[#b8b8b8]">
               <li className="flex items-start gap-2.5">
                 <MailIcon
                   aria-hidden
                   className="mt-0.5 size-4 shrink-0 text-primary"
                 />
-                <span className="grid min-w-0 gap-0.5">
-                  <a
-                    href={`mailto:${CONTACT.email}`}
-                    className="font-medium transition-colors wrap-anywhere hover:text-primary"
-                  >
-                    {CONTACT.email}
-                  </a>
-                  <a
-                    href={`mailto:${CONTACT.marketingEmail}`}
-                    className="transition-colors wrap-anywhere hover:text-primary"
-                  >
-                    {CONTACT.marketingEmail}
-                  </a>
-                </span>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="min-w-0 font-medium transition-colors wrap-anywhere hover:text-primary"
+                >
+                  {CONTACT.email}
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <PhoneIcon
+                <MailIcon
                   aria-hidden
                   className="mt-0.5 size-4 shrink-0 text-primary"
                 />
-                <span className="grid gap-0.5">
-                  {CONTACT.phones.map((phone) => (
-                    <a
-                      key={phone.href}
-                      href={`tel:${phone.href}`}
-                      className="transition-colors hover:text-primary text-[#b8b8b8]"
-                    >
-                      <span className="font-medium ">{phone.display}</span>{" "}
-                      <span className="text-white">({phone.label})</span>
-                    </a>
-                  ))}
-                </span>
+                <a
+                  href={`mailto:${CONTACT.marketingEmail}`}
+                  className="min-w-0 transition-colors wrap-anywhere hover:text-primary"
+                >
+                  {CONTACT.marketingEmail}
+                </a>
               </li>
+              {CONTACT.phones.map((phone) => (
+                <li key={phone.href} className="flex items-start gap-2.5">
+                  <PhoneIcon
+                    aria-hidden
+                    className="mt-0.5 size-4 shrink-0 text-primary"
+                  />
+                  <a
+                    href={`tel:${phone.href}`}
+                    className="transition-colors hover:text-primary text-[#b8b8b8]"
+                  >
+                    <span className="font-medium ">{phone.display}</span>{" "}
+                    <span className="text-white">({phone.label})</span>
+                  </a>
+                </li>
+              ))}
               <li className="flex items-start gap-2.5">
                 <ClockIcon
                   aria-hidden

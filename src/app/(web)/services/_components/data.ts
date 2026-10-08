@@ -80,7 +80,7 @@ export const SERVICES: ServiceSummary[] = [
     summary: "Modern, user-focused designs that elevate your online presence.",
   },
   {
-    slug: "web-develpment",
+    slug: "web-development",
     name: "Web Development",
     group: "core",
     icon: CodeIcon,

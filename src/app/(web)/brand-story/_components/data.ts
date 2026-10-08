@@ -149,7 +149,7 @@ export const SERVICES = {
     {
       title: "Web Development Built for Purpose",
       body: "A site must have a job: lead engine, education hub, conversion system, or store. Keep performance and scalability as defaults, so growth never becomes a problem.",
-      href: "/services/web-develpment",
+      href: "/services/web-development",
     },
     {
       title: "Web Design That Communicates Trust",

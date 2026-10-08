@@ -6,10 +6,19 @@ const permanent = (source: string, destination: string) => ({
   permanent: true,
 });
 
+const moved = (source: string, destination: string) => ({
+  source,
+  destination,
+  statusCode: 301 as const,
+});
+
 const nextConfig: NextConfig = {
   reactCompiler: true,
   redirects() {
     return [
+      moved("/services/web-develpment", "/services/web-development"),
+      moved("/web-develpment", "/services/web-development"),
+      moved("/service/web-develpment", "/services/web-development"),
       permanent("/digital-marketing", "/services/digital-marketing"),
       permanent("/sitemap_index.xml", "/sitemap.xml"),
       permanent(

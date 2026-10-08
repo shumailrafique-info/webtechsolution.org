@@ -10,7 +10,7 @@ import { ServiceOffers } from "../_components/service-offers";
 import { ServicePillars } from "../_components/service-pillars";
 import { ServiceSchema } from "../_components/service-schema";
 
-const SLUG = "web-develpment";
+const SLUG = "web-development";
 const NAME = "Web Development";
 const GROUP = "core";
 

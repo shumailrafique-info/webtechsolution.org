@@ -18,7 +18,7 @@ export const SERVICES: NavLink[] = [
   { label: "Email Marketing", href: "/services/email-marketing" },
   { label: "Web Designing", href: "/services/web-designing" },
 
-  { label: "Web Development", href: "/services/web-develpment" },
+  { label: "Web Development", href: "/services/web-development" },
   { label: "App Development", href: "/services/app-development" },
   { label: "GMB Listing", href: "/services/gmb" },
 ];

@@ -118,7 +118,7 @@ export function Services() {
             icon={CodeIcon}
             title={<>Web Development</>}
             text="Fast, responsive websites built around usability, performance, and business conversion goals."
-            href="/services/web-develpment"
+            href="/services/web-development"
           >
             <BrowserSketch />
           </ServiceCard>

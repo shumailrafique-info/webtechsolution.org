@@ -96,7 +96,7 @@ export default function Page() {
       <ServicePillars pillars={HOW_WE_DELIVER} />
       <ServiceImportance
         title="Importance of Video Marketing"
-        body="People love watching videos — and that’s exactly why video marketing works. Whether it’s a product demo, a brand story, or customer testimonials, videos make complex ideas simple, engaging, and memorable. They help your audience connect with your brand on a deeper level and inspire action."
+        body="Short-form social clips, explainers, product demos and YouTube campaigns — scripted, edited and published by our in-house video team."
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="video marketing" />

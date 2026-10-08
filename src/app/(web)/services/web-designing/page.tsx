@@ -90,7 +90,7 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
-        why="We create visually stunning, conversion-focused designs that capture attention and turn visitors into loyal customers."
+        why="Mobile-first website designs, wireframed around one conversion goal per page, so more visitors become customers. Mockups, revisions, and launch QA included."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />

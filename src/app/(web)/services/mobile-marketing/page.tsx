@@ -96,7 +96,7 @@ export default function Page() {
       <ServicePillars pillars={HOW_WE_DELIVER} />
       <ServiceImportance
         title="Importance of Mobile Marketing"
-        body="Your customers are always on their phones — mobile marketing makes sure your brand is too. Whether it’s a quick text, a personalized app notification, or mobile-friendly ads, this strategy keeps your business connected, relevant, and top-of-mind, creating direct, personalized connections that drive growth."
+        body="SMS, push and in-app campaigns with consent-based lists and opt-out compliance — built for mobile-first audiences."
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="mobile marketing" />

@@ -84,9 +84,9 @@ export default function Page() {
               Pricing plans built for your <Accent>business.</Accent>
             </h1>
             <p className="enter mx-auto mt-6 max-w-[56ch] text-[17px] leading-[1.65] text-neutral-600 md:text-[18.5px]">
-              Choose the perfect plan for your business growth &mdash; from a
-              one-to-one consultation to a full website launch and long-term
-              SEO.
+              Three ways to work with us: a one-hour expert consultation ($349),
+              a website launch with SEO built in ($1,249/mo), or a full growth
+              retainer ($2,499/mo).
             </p>
             <ul className="enter mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3">
               <TrustChip icon={CalendarIcon}>Since {FOUNDED.year}</TrustChip>

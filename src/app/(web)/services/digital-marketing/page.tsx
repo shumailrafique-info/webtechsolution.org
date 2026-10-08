@@ -102,7 +102,7 @@ export default function Page() {
 
           <div className="mt-10 grid items-center gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7">
-              <Eyebrow className="enter">Digital marketing</Eyebrow>
+              <Eyebrow className="enter">Our Services</Eyebrow>
               <h1
                 id="dm-title"
                 className="enter mt-6 font-display text-[40px] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-heading sm:text-[52px] lg:text-[60px]"

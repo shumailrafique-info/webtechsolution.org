@@ -96,7 +96,7 @@ export default function Page() {
       <ServicePillars pillars={HOW_WE_DELIVER} />
       <ServiceImportance
         title="Importance of Affiliate Marketing"
-        body="Affiliate marketing turns partnerships into profits. With the right affiliates, your brand gains instant credibility, wider visibility, and measurable growth — all while keeping costs under control. It drives growth by rewarding partners for performance, expanding reach, and boosting sales efficiently."
+        body="We build affiliate programs where partners earn for performance: setup, recruitment, tracking, commission structures and fraud monitoring."
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="affiliate marketing" />

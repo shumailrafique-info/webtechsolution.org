@@ -12,7 +12,7 @@ import {
 } from "@/components/home/primitives";
 import { CalendarIcon, SealCheckIcon, UsersIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { GROUPS, groupLabel, imageOf, type ServiceGroup } from "./data";
+import { GROUPS, imageOf, type ServiceGroup } from "./data";
 
 export function ServiceHero({
   slug,
@@ -33,8 +33,6 @@ export function ServiceHero({
   intro: string;
   offersCount: number;
 }) {
-  const label = groupLabel(group);
-
   return (
     <section
       aria-labelledby="service-title"
@@ -44,7 +42,7 @@ export function ServiceHero({
         <Breadcrumbs
           items={[
             { label: "Home", href: "/" },
-            { label, href: GROUPS[group].href },
+            { label: "Our services", href: GROUPS[group].href },
             { label: name },
           ]}
           className="mb-0"
@@ -52,7 +50,7 @@ export function ServiceHero({
 
         <div className="mt-10 grid items-center gap-10 md:mt-12 md:gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-7">
-            <Eyebrow className="enter">{label}</Eyebrow>
+            <Eyebrow className="enter">Our services</Eyebrow>
             <h1
               id="service-title"
               className="enter mt-6 font-display text-[40px] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-heading sm:text-[52px] lg:text-[60px]"

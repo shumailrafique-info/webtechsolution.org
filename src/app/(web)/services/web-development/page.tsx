@@ -90,13 +90,13 @@ export default function Page() {
       <ServiceOffers
         name={NAME}
         intro="Discover our range of professional services designed to elevate your brand, boost engagement, and drive business growth."
-        why="Our web development process ensures functionality, scalability, and performance — crafted to meet your unique business goals."
+        why="Custom websites and online stores built to load fast, stay secure, and scale with your business. Technical SEO is built in, and we maintain your site after launch. Get a free project quote ."
         offers={OFFERS}
       />
       <ServicePillars pillars={HOW_WE_DELIVER} />
       <ServiceImportance
         title="Importance of Web Development"
-        body="Web development is the backbone of your digital presence — ensuring speed, security, and scalability for long-term success. Strong web development turns ideas into powerful online platforms that engage, convert, and grow your business."
+        body="Custom websites and online stores built to load fast, stay secure, and scale with your business. Technical SEO is built in, and we maintain your site after launch. Get a free project quote."
       />
       <MoreServices group={GROUP} current={SLUG} />
       <RelatedPosts topic="web development" />

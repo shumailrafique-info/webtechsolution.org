@@ -84,7 +84,7 @@ export default function Page() {
         icon={FileTextIcon}
         title="Content"
         accent="marketing"
-        intro="Great content isn’t just about words — it’s about impact. We help your brand share stories, answer questions, and connect with audiences in ways that matter. Our content marketing turns casual readers into loyal customers."
+        intro="Content marketing that builds topical authority: research-led editorial calendars, distribution across blog, social and email, and quarterly visibility reports."
         offersCount={OFFERS.length}
       />
       <ServiceOffers

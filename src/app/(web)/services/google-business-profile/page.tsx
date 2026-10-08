@@ -15,14 +15,14 @@ const NAME = "GMB Listing";
 const GROUP = "core";
 
 const META_TITLE =
-  "Google Business Profile Listing Services | Rank Higher Locally";
+  "Google Business Profile Management Services | Rank Higher Locally";
 const META_DESCRIPTION =
   "Optimize your Google Business Profile listing to boost local SEO rankings, attract customers, and grow your business with our expert GMB services.";
 
 const OFFERS = [
   {
     title: "GMB Profile Setup & Optimization",
-    body: "We help in creating and optimizing your GMB profile to rank higher on Google.",
+    body: "We create and optimize your Google Business Profile to rank higher on Google.",
   },
   {
     title: "Local SEO Strategy",
@@ -85,7 +85,7 @@ export default function Page() {
         icon={MapPinIcon}
         title="Google Business Profile"
         accent="(GMB) listing"
-        intro="At WebTech Solutions, we help businesses dominate local search with powerful Google Business Profile (GMB) optimization — so your business appears in Google Maps, local packs, and search results."
+        intro="We manage your Google Business Profile so nearby customers find you first: profile optimization, review strategy, posts, photos and local ranking reports."
         offersCount={OFFERS.length}
       />
       <ServiceOffers

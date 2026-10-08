@@ -22,7 +22,9 @@ export function CaseStudyStory({
       aria-labelledby={`${study.slug}-title`}
       className={cn(
         "scroll-mt-24 py-14 md:py-20",
-        tinted ? "border-y border-neutral-200/70 bg-neutral-50" : "bg-white",
+        tinted
+          ? "border-y border-neutral-200/70 bg-neutral-50"
+          : "bg-brand-tint",
       )}
     >
       <Container>
@@ -36,7 +38,7 @@ export function CaseStudyStory({
             >
               <ClientMark study={study} className="h-9" />
             </div>
-            <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-neutral-300">
+            <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-black">
               {String(index + 1).padStart(2, "0")} /{" "}
               {String(total).padStart(2, "0")}
             </span>
@@ -77,7 +79,7 @@ export function CaseStudyStory({
                     key={step.title}
                     className={cn(
                       "flex gap-4 rounded-[18px] border border-neutral-200 p-5",
-                      tinted ? "bg-white" : "bg-neutral-50/60",
+                      tinted ? "bg-white" : "bg-white",
                     )}
                   >
                     <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-heading font-display text-[13px] font-bold text-white">

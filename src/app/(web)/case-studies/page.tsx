@@ -16,7 +16,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbList, graph } from "@/lib/seo";
 import { CaseStudyStory } from "./_components/case-study-story";
 import { CASE_STUDIES } from "./_components/data";
-import { LogoWall } from "./_components/logo-wall";
 
 const TITLE = "Case Studies";
 const PATH = "/case-studies";
@@ -97,21 +96,6 @@ export default function Page() {
               </Link>
             ))}
           </nav>
-        </Container>
-      </section>
-
-      <section
-        aria-labelledby="clients-title"
-        className="border-y border-primary/10 bg-brand-tint py-10 md:py-14"
-      >
-        <Container>
-          <h2
-            id="clients-title"
-            className="reveal text-center font-display text-[22px] font-bold tracking-tight text-heading md:text-[26px]"
-          >
-            Clients and partners
-          </h2>
-          <LogoWall className="reveal mt-8" />
         </Container>
       </section>
 

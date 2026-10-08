@@ -310,9 +310,6 @@ export default function Page() {
             <h3 className="font-display text-[28px] leading-tight font-bold tracking-[-0.03em] text-heading md:text-[34px]">
               Other advertisement opportunities
             </h3>
-            <span className="rounded-full bg-neutral-100 px-3 py-1 text-[13px] font-semibold text-neutral-600">
-              Extra
-            </span>
           </div>
 
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

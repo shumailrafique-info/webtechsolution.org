@@ -64,6 +64,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         bricolage.variable,
       )}
     >
+      <head>
+        <meta
+          name="google-site-verification"
+          content="nLbSkJYcs6wRXfQZGONgqf565LD1tXp34X5IqdYm9JA"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <Providers>
           {children}

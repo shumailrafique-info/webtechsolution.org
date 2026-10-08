@@ -10,19 +10,19 @@ import { ServiceOffers } from "../_components/service-offers";
 import { ServicePillars } from "../_components/service-pillars";
 import { ServiceSchema } from "../_components/service-schema";
 
-const SLUG = "gmb";
+const SLUG = "google-business-profile";
 const NAME = "GMB Listing";
 const GROUP = "core";
 
-const META_TITLE = "Google My Business Listing Services | Rank Higher Locally";
+const META_TITLE = "Google Business Profile Listing Services | Rank Higher Locally";
 const META_DESCRIPTION =
-  "Optimize your Google My Business listing to boost local SEO rankings, attract customers, and grow your business with our expert GMB services.";
+  "Optimize your Google Business Profile listing to boost local SEO rankings, attract customers, and grow your business with our expert GMB services.";
 
 const HERO = {
-  title: "Google My Business",
+  title: "Google Business Profile",
   accent: "(GMB) listing",
   intro:
-    "At WebTech Solutions, we help businesses dominate local search with powerful Google My Business (GMB) optimization — so your business appears in Google Maps, local packs, and search results.",
+    "At WebTech Solutions, we help businesses dominate local search with powerful Google Business Profile (GMB) optimization — so your business appears in Google Maps, local packs, and search results.",
 };
 
 const WHY =

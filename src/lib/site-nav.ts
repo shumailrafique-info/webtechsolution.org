@@ -20,7 +20,10 @@ export const SERVICES: NavLink[] = [
 
   { label: "Web Development", href: "/services/web-development" },
   { label: "App Development", href: "/services/app-development" },
-  { label: "GMB Listing", href: "/services/gmb" },
+  {
+    label: "Google Business Profile",
+    href: "/services/google-business-profile",
+  },
 ];
 
 export const MARKETING: NavLink[] = [

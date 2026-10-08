@@ -96,7 +96,7 @@ export const SERVICES: ServiceSummary[] = [
       "Transform ideas into powerful mobile apps with seamless functionality.",
   },
   {
-    slug: "gmb",
+    slug: "google-business-profile",
     name: "GMB Listing",
     group: "core",
     icon: MapPinIcon,

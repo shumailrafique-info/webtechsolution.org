@@ -3,7 +3,10 @@ import { revalidatePath } from "next/cache";
 import { SERVICES, serviceHref } from "@/app/(web)/services/_components/data";
 
 export function revalidateBlogContent(...slugs: string[]) {
-  for (const slug of new Set(slugs)) revalidatePath(`/blog/${slug}`);
+  for (const slug of new Set(slugs)) {
+    revalidatePath(`/blog/${slug}`);
+    revalidatePath(`/${slug}`);
+  }
 
   revalidatePath("/");
   revalidatePath("/blog");
@@ -17,6 +20,9 @@ export function revalidateBlogContent(...slugs: string[]) {
 }
 
 export function revalidateAuthorPosts(slugs: string[]) {
-  for (const slug of new Set(slugs)) revalidatePath(`/blog/${slug}`);
+  for (const slug of new Set(slugs)) {
+    revalidatePath(`/blog/${slug}`);
+    revalidatePath(`/${slug}`);
+  }
   revalidatePath("/admin/authors");
 }

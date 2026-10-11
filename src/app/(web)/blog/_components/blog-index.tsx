@@ -8,6 +8,7 @@ import {
 import { BookOpenIcon, CalendarIcon, FileTextIcon } from "@/components/icons";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
+import { postPath } from "@/lib/blog-path";
 import {
   absoluteUrl,
   breadcrumbList,
@@ -38,9 +39,9 @@ export async function BlogIndex({ page }: { page: number }) {
       publisher: organizationRef,
       blogPost: posts.map((post) => ({
         "@type": "BlogPosting",
-        "@id": `${absoluteUrl(`/blog/${post.slug}`)}#post`,
+        "@id": `${absoluteUrl(postPath(post.slug))}#post`,
         headline: post.title,
-        url: absoluteUrl(`/blog/${post.slug}`),
+        url: absoluteUrl(postPath(post.slug)),
         datePublished: post.published_at?.toISOString(),
       })),
     },

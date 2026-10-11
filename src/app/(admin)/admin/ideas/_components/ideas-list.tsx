@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "@/components/ui/toast";
 import type { IdeaType } from "@/drizzle/types";
+import { postPath } from "@/lib/blog-path";
 import {
   useIdeaDelete,
   useIdeaRead,
@@ -191,7 +192,7 @@ export function IdeasList() {
                       on{" "}
                       {idea.blog_slug ? (
                         <a
-                          href={`/blog/${idea.blog_slug}`}
+                          href={postPath(idea.blog_slug)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 font-medium text-foreground transition-colors hover:text-primary"

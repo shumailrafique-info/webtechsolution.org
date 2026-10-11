@@ -16,6 +16,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { Skeleton } from "@/components/ui/skeleton";
+import { postPath } from "@/lib/blog-path";
 import { useSearchSuggestions } from "@/lib/react-query/hooks/use-search";
 import { cn } from "@/lib/utils";
 import { POPULAR_TOPICS, searchHref } from "./data";
@@ -227,7 +228,7 @@ export function SearchDrawer({ className }: { className?: string }) {
                       {hits.map((hit) => (
                         <li key={hit.id}>
                           <Link
-                            href={`/blog/${hit.slug}`}
+                            href={postPath(hit.slug)}
                             onClick={() => {
                               setRecent(saveRecentSearch(term));
                               setOpen(false);

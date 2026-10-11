@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LogoWall } from "@/app/(web)/case-studies/_components/logo-wall";
 import { FOUNDED, PROJECTS_DELIVERED } from "@/components/home/data";
 import {
   Accent,
@@ -145,26 +144,6 @@ export default function Page() {
               Book a consultation
             </PrimaryButton>
           </div>
-        </Container>
-      </section>
-
-      <section
-        aria-labelledby="partners-title"
-        className="border-y border-primary/10 bg-brand-tint py-12 md:py-16"
-      >
-        <Container>
-          <div className="reveal text-center">
-            <h2
-              id="partners-title"
-              className="font-display text-[26px] font-bold tracking-[-0.03em] text-heading md:text-[32px]"
-            >
-              Our working partners
-            </h2>
-            <p className="mt-2 text-[15.5px] text-neutral-600">
-              Exploring opportunities to deliver digital campaigns!
-            </p>
-          </div>
-          <LogoWall className="reveal mt-9" />
         </Container>
       </section>
 

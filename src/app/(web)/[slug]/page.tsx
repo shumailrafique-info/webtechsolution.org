@@ -11,6 +11,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { db } from "@/drizzle/db";
 import { blog } from "@/drizzle/schema";
+import { postPath } from "@/lib/blog-path";
 import { BLOG_PROSE } from "@/lib/blogProse";
 import { pageMetadata } from "@/lib/metadata";
 import { prepareProseHtml } from "@/lib/prose-html";
@@ -22,10 +23,10 @@ import {
   webSiteRef,
 } from "@/lib/seo";
 import { getPublishedPost, getPublishedSitemapEntries } from "@/server/blog";
-import { AuthorCard } from "../_components/author-card";
-import { IdeaBox } from "../_components/idea-box";
-import { PostCard, postDate } from "../_components/post-card";
-import { TableOfContents } from "../_components/table-of-contents";
+import { AuthorCard } from "../blog/_components/author-card";
+import { IdeaBox } from "../blog/_components/idea-box";
+import { PostCard, postDate } from "../blog/_components/post-card";
+import { TableOfContents } from "../blog/_components/table-of-contents";
 
 export async function generateStaticParams() {
   const posts = await getPublishedSitemapEntries();
@@ -50,7 +51,7 @@ export async function generateMetadata({
   return pageMetadata({
     title: title,
     description,
-    path: `/blog/${post.slug}`,
+    path: postPath(post.slug),
     image: post.cover_image?.url
       ? { url: post.cover_image.url, alt: post.image_alt || title }
       : undefined,
@@ -89,7 +90,7 @@ export default async function Page({
     .orderBy(desc(blog.published_at))
     .limit(3);
 
-  const url = `/blog/${post.slug}`;
+  const url = postPath(post.slug);
 
   const schema = graph([
     {
@@ -178,6 +179,7 @@ export default async function Page({
               {post.author ? (
                 <div className="enter mt-7 flex items-center gap-3">
                   {post.author.image?.url ? (
+                    // biome-ignore lint/performance/noImgElement: <explanation
                     <img
                       src={post.author.image.url}
                       alt=""
@@ -206,6 +208,7 @@ export default async function Page({
 
             {post.cover_image?.url ? (
               <div className="enter-image lg:col-span-6">
+                {/** biome-ignore lint/performance/noImgElement: <explanation */}
                 <img
                   src={post.cover_image.url}
                   alt={post.image_alt}
@@ -227,6 +230,7 @@ export default async function Page({
           <article className="w-full rounded-[24px] border border-neutral-200 bg-white p-5 sm:p-8 md:p-10 lg:col-span-17 lg:col-start-8 lg:row-span-2 lg:row-start-1">
             <div
               className={BLOG_PROSE}
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation
               dangerouslySetInnerHTML={{ __html: content }}
             />
             {post.author ? <AuthorCard author={post.author} /> : null}

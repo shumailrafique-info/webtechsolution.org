@@ -1,3 +1,4 @@
+import { postPath } from "@/lib/blog-path";
 import { absoluteUrl, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 import { getPublishedPage } from "@/server/blog";
 
@@ -16,7 +17,7 @@ export async function GET() {
 
   const items = posts
     .map((post) => {
-      const url = absoluteUrl(`/blog/${post.slug}`);
+      const url = absoluteUrl(postPath(post.slug));
       return [
         "<item>",
         `<title>${xmlEscape(post.title)}</title>`,

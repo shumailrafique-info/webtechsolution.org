@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/app/(web)/services/_components/data";
+import { postPath } from "@/lib/blog-path";
 import { MANAGED_PAGES } from "@/lib/page-content";
 import { absoluteUrl } from "@/lib/seo";
 import { getPublishedPage, getPublishedSitemapEntries } from "@/server/blog";
@@ -106,7 +107,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const postPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: absoluteUrl(`/blog/${post.slug}`),
+    url: absoluteUrl(postPath(post.slug)),
     lastModified: post.updated_at ?? post.published_at ?? now,
     changeFrequency: "monthly" as const,
     priority: 0.7,

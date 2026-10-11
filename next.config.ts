@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
       permanent("/author/:path*", "/our-team"),
       permanent("/page/:page(\\d+)", "/blog/page/:page"),
       permanent("/blog/page/1", "/blog"),
+      moved("/blog/:slug((?!page$)[^/]+)", "/:slug"),
       permanent("/our-projects", "/case-studies"),
       permanent("/testimonials", "/case-studies"),
       permanent("/about-fawad", "/our-team"),

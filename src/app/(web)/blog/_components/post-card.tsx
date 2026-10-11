@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/icons";
+import { postPath } from "@/lib/blog-path";
 import { cn } from "@/lib/utils";
 
 export type PostCardData = {
@@ -67,7 +68,7 @@ export function PostCard({
 }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={postPath(post.slug)}
       className="group flex h-full flex-col rounded-[24px] border border-neutral-200 bg-white p-2.5 outline-none transition-[border-color,box-shadow] duration-300 hover:border-neutral-300 hover:shadow-[0_20px_45px_-30px_rgba(30,20,10,0.3)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
     >
       <Cover post={post} />
@@ -103,7 +104,7 @@ export function FeaturedPostCard({
 }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={postPath(post.slug)}
       className="group grid overflow-hidden rounded-[28px] border border-neutral-200 bg-white outline-none transition-[border-color,box-shadow] duration-300 hover:border-neutral-300 hover:shadow-[0_30px_60px_-40px_rgba(30,20,10,0.35)] focus-visible:ring-2 focus-visible:ring-ring gap-6 p-4 focus-visible:ring-offset-4 md:grid-cols-[1.15fr_1fr] md:items-center"
     >
       <Cover post={post} className="rounded-[20px]" />

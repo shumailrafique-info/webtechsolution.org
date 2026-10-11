@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { postDate } from "@/app/(web)/blog/_components/post-card";
 import { ArrowRightIcon } from "@/components/icons";
+import { postPath } from "@/lib/blog-path";
 import type { BlogCard } from "@/server/blog";
 import { Highlight } from "./highlight";
 
 export function ResultItem({ post, query }: { post: BlogCard; query: string }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={postPath(post.slug)}
       className="group grid gap-4 rounded-[24px] border border-neutral-200 bg-white p-2.5 outline-none transition-[border-color,box-shadow] duration-300 hover:border-neutral-300 hover:shadow-[0_20px_45px_-30px_rgba(30,20,10,0.3)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 sm:grid-cols-[13rem_1fr] sm:items-center"
     >
       <div className="overflow-hidden rounded-[18px] bg-neutral-100 ring-1 ring-neutral-200/70">

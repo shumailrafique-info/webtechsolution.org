@@ -133,7 +133,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "nogentech-com",
     client: "NogenTech.com",
-    logo: { src: "/images/clients/nogentech-com.png", width: 567, height: 129 },
+    logo: { src: "/images/clients/nogentech.com.png", width: 567, height: 129 },
     sector: "SEO content platform",
     title: "Building search visibility for an SEO content platform",
     summary:

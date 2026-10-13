@@ -10,6 +10,7 @@ import {
   ImageIcon,
   InboxIcon,
   MailIcon,
+  TagIcon,
   TerminalIcon,
   UsersIcon,
 } from "@/components/icons";
@@ -38,6 +39,17 @@ const data = {
         {
           title: "Add Blog",
           url: "/admin/blogs/new",
+        },
+      ],
+    },
+    {
+      title: "Blog Categories",
+      url: "/admin/categories",
+      icon: <TagIcon />,
+      items: [
+        {
+          title: "Add Category",
+          url: "/admin/categories/new",
         },
       ],
     },

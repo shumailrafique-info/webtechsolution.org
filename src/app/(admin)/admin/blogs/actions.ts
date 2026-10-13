@@ -1,8 +1,8 @@
 "use server";
 
-import { count, desc, eq, ilike, or } from "drizzle-orm";
+import { count, desc, eq, getTableColumns, ilike, or } from "drizzle-orm";
 import { db } from "@/drizzle/db";
-import { blog } from "@/drizzle/schema";
+import { blog, blogCategory } from "@/drizzle/schema";
 import type { BlogType } from "@/drizzle/types";
 import { ensureAdminAccess } from "@/lib/auth/guards";
 import { revalidateBlogContent } from "@/server/revalidate";
@@ -11,6 +11,8 @@ import {
   type ApiResponse,
   type Paginated,
 } from "@/types/global";
+
+export type AdminBlogRow = BlogType & { category_name: string | null };
 
 const LIKE_ESCAPE = "\\";
 
@@ -21,7 +23,7 @@ function escapeLikeTerm(term: string) {
 export async function getBlogs(
   search?: string,
   page = 1,
-): Promise<ApiResponse<Paginated<BlogType>>> {
+): Promise<ApiResponse<Paginated<AdminBlogRow>>> {
   const guard = await ensureAdminAccess();
   if (!guard.session) {
     return { success: false, error: "Admin access required." };
@@ -40,8 +42,9 @@ export async function getBlogs(
   try {
     const [rows, [counted]] = await Promise.all([
       db
-        .select()
+        .select({ ...getTableColumns(blog), category_name: blogCategory.name })
         .from(blog)
+        .leftJoin(blogCategory, eq(blog.category_id, blogCategory.id))
         .where(filter)
         .orderBy(desc(blog.created_at))
         .limit(ADMIN_PAGE_SIZE)

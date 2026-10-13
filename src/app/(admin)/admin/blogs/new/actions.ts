@@ -36,6 +36,7 @@ function toRow(values: BlogSchemaValues) {
     image_alt: values.image_alt,
     status: values.status,
     author_id: values.author_id,
+    category_id: values.category_id,
   };
 }
 

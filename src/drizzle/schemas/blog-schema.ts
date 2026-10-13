@@ -10,6 +10,7 @@ import {
 } from "drizzle-orm/pg-core";
 import type { UploadedFile } from "@/components/shared/image-upader";
 import { author } from "./author-schema";
+import { blogCategory } from "./blog-category-schema";
 
 export const blogSearchDocument = (columns: {
   title: AnyColumn;
@@ -34,6 +35,9 @@ export const blog = pgTable(
     cover_image: jsonb("cover_image").$type<UploadedFile>().notNull(),
     image_alt: text("image_alt").notNull(),
     author_id: uuid("author_id").references(() => author.id, {
+      onDelete: "set null",
+    }),
+    category_id: uuid("category_id").references(() => blogCategory.id, {
       onDelete: "set null",
     }),
     status: postStatusEnum("status").notNull().default("DRAFT"),
@@ -62,6 +66,7 @@ export const blog = pgTable(
     ),
     index("blogs_slug_trgm_idx").using("gin", sql`${table.slug} gin_trgm_ops`),
     index("blogs_author_idx").on(table.author_id),
+    index("blogs_category_idx").on(table.category_id),
     index("blogs_search_idx").using("gin", blogSearchDocument(table)),
   ],
 );
@@ -70,5 +75,9 @@ export const blogRelations = relations(blog, ({ one }) => ({
   author: one(author, {
     fields: [blog.author_id],
     references: [author.id],
+  }),
+  category: one(blogCategory, {
+    fields: [blog.category_id],
+    references: [blogCategory.id],
   }),
 }));

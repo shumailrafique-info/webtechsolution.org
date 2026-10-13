@@ -18,7 +18,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MAIN_NAV, type NavItem } from "@/lib/site-nav";
+import { MAIN_NAV, type NavItem, type NavLink } from "@/lib/site-nav";
 import { cn } from "@/lib/utils";
 
 function Brand({ className }: { className?: string }) {
@@ -87,10 +87,17 @@ function DesktopItem({ item, active }: { item: NavItem; active: boolean }) {
           onClick={close}
           className="block rounded-full px-3 py-2 text-[14px] text-foreground/85 transition-colors hover:text-accent-foreground hover:bg-accent"
         >
-          All {item.label} <span aria-hidden>&rarr;</span>
+          {item.allLabel ?? `All ${item.label}`} <span aria-hidden>&rarr;</span>
         </Link>
 
-        <ul className="grid gap-0.5">
+        <ul
+          className={cn(
+            "grid gap-0.5",
+            item.children.length > 16
+              ? "grid-cols-3"
+              : item.children.length > 8 && "grid-cols-2",
+          )}
+        >
           {item.children.map((child) => (
             <li key={child.href}>
               <Link
@@ -156,7 +163,7 @@ function MobileItem({ item }: { item: NavItem }) {
                 />
               }
             >
-              All {item.label}
+              {item.allLabel ?? `All ${item.label}`}
             </SheetClose>
           </li>
           {item.children.map((child) => (
@@ -180,8 +187,17 @@ function MobileItem({ item }: { item: NavItem }) {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({
+  blogCategories = [],
+}: {
+  blogCategories?: NavLink[];
+}) {
   const pathname = usePathname();
+  const nav = MAIN_NAV.map((item) =>
+    item.href === "/blog" && blogCategories.length > 0
+      ? { ...item, allLabel: "All posts", children: blogCategories }
+      : item,
+  );
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -208,7 +224,7 @@ export function SiteHeader() {
           aria-label="Main"
           className="ml-auto hidden items-center gap-0.5 lg:flex"
         >
-          {MAIN_NAV.map((item) => (
+          {nav.map((item) => (
             <DesktopItem
               key={item.href}
               item={item}
@@ -245,7 +261,7 @@ export function SiteHeader() {
                 className="no-scrollbar overflow-y-auto px-3 py-4"
               >
                 <ul className="grid">
-                  {MAIN_NAV.map((item) => (
+                  {nav.map((item) => (
                     <MobileItem key={item.href} item={item} />
                   ))}
                 </ul>

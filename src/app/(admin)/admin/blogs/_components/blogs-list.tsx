@@ -162,6 +162,9 @@ const BlogsList = () => {
                   <th className="px-4 py-3 font-medium text-muted-foreground">
                     Post
                   </th>
+                  <th className="hidden px-4 py-3 font-medium text-muted-foreground sm:table-cell">
+                    Category
+                  </th>
                   <th className="px-4 py-3 font-medium text-muted-foreground">
                     Status
                   </th>
@@ -203,6 +206,10 @@ const BlogsList = () => {
                           </p>
                         </div>
                       </div>
+                    </td>
+
+                    <td className="hidden px-4 py-3 whitespace-nowrap text-muted-foreground sm:table-cell">
+                      {item.category_name ?? "—"}
                     </td>
 
                     <td className="px-4 py-3">

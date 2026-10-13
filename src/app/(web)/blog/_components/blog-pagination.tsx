@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
-export const blogPageHref = (page: number) =>
-  page <= 1 ? "/blog" : `/blog/page/${page}`;
+export const blogPageHref = (page: number, basePath = "/blog") =>
+  page <= 1 ? basePath : `${basePath}/page/${page}`;
 
 function pageItems(current: number, total: number): (number | null)[] {
   if (total <= 7) {
@@ -42,9 +42,11 @@ const disabled = "border-neutral-200 bg-white/60 text-neutral-300";
 export function BlogPagination({
   currentPage,
   totalPages,
+  basePath = "/blog",
 }: {
   currentPage: number;
   totalPages: number;
+  basePath?: string;
 }) {
   if (totalPages <= 1) return null;
 
@@ -58,7 +60,7 @@ export function BlogPagination({
     >
       {previousPage ? (
         <Link
-          href={blogPageHref(previousPage)}
+          href={blogPageHref(previousPage, basePath)}
           rel="prev"
           className={cn(base, idle)}
         >
@@ -85,7 +87,7 @@ export function BlogPagination({
           ) : (
             <li key={page}>
               <Link
-                href={blogPageHref(page)}
+                href={blogPageHref(page, basePath)}
                 aria-current={page === currentPage ? "page" : undefined}
                 aria-label={`Page ${page}`}
                 className={cn(
@@ -104,7 +106,7 @@ export function BlogPagination({
 
       {nextPage ? (
         <Link
-          href={blogPageHref(nextPage)}
+          href={blogPageHref(nextPage, basePath)}
           rel="next"
           className={cn(base, idle)}
         >

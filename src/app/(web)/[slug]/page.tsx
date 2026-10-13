@@ -1,5 +1,6 @@
 import { and, desc, eq, ne } from "drizzle-orm";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   Accent,
@@ -11,7 +12,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { db } from "@/drizzle/db";
 import { blog } from "@/drizzle/schema";
-import { postPath } from "@/lib/blog-path";
+import { categoryPath, postPath } from "@/lib/blog-path";
 import { BLOG_PROSE } from "@/lib/blogProse";
 import { pageMetadata } from "@/lib/metadata";
 import { prepareProseHtml } from "@/lib/prose-html";
@@ -111,12 +112,21 @@ export default async function Page({
             description: post.author.bio || undefined,
           }
         : organizationRef,
+      articleSection: post.category?.name,
       publisher: organizationRef,
       isPartOf: webSiteRef,
     },
     breadcrumbList([
       { name: "Home", path: "/" },
       { name: "Blog", path: "/blog" },
+      ...(post.category
+        ? [
+            {
+              name: post.category.name,
+              path: categoryPath(post.category.slug),
+            },
+          ]
+        : []),
       { name: post.title, path: url },
     ]),
   ]);
@@ -142,6 +152,14 @@ export default async function Page({
             items={[
               { label: "Home", href: "/" },
               { label: "Blog", href: "/blog" },
+              ...(post.category
+                ? [
+                    {
+                      label: post.category.name,
+                      href: categoryPath(post.category.slug),
+                    },
+                  ]
+                : []),
               { label: post.title },
             ]}
             className="mb-0 [&_li:last-child]:max-w-[40ch] [&_li:last-child_span]:truncate"
@@ -154,7 +172,16 @@ export default async function Page({
               }
             >
               <div className="enter flex flex-wrap items-center gap-x-3 gap-y-2">
-                <Eyebrow>Blog</Eyebrow>
+                {post.category ? (
+                  <Link
+                    href={categoryPath(post.category.slug)}
+                    className="rounded-full transition-opacity hover:opacity-80"
+                  >
+                    <Eyebrow>{post.category.name}</Eyebrow>
+                  </Link>
+                ) : (
+                  <Eyebrow>Blog</Eyebrow>
+                )}
                 {post.published_at ? (
                   <time
                     dateTime={post.published_at.toISOString()}

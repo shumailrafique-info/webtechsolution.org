@@ -23,6 +23,7 @@ import { toast } from "@/components/ui/toast";
 import type { BlogType } from "@/drizzle/types";
 import { useAuthors } from "@/lib/react-query/hooks/use-authors";
 import { useBlogCreate, useBlogUpdate } from "@/lib/react-query/hooks/use-blog";
+import { useBlogCategories } from "@/lib/react-query/hooks/use-blog-categories";
 import {
   type BlogSchemaValues,
   blogSchema,
@@ -34,6 +35,8 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
   const { mutate: updatePost, isPending: isUpdating } = useBlogUpdate();
   const router = useRouter();
   const { data: authors, isPending: authorsLoading } = useAuthors();
+  const { data: categories, isPending: categoriesLoading } =
+    useBlogCategories();
   const form = useForm<BlogSchemaValues>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
@@ -48,6 +51,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
       cover_image: blog?.cover_image ? [blog?.cover_image] : [],
       image_alt: blog?.image_alt ?? "",
       author_id: blog?.author_id ?? null,
+      category_id: blog?.category_id ?? null,
     },
   });
 
@@ -319,6 +323,52 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
                 <SelectContent>
                   <SelectItem value="none">No author</SelectItem>
                   {(authors ?? []).map((item) => (
+                    <SelectItem key={item.id} value={item.id}>
+                      {item.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {fieldState.invalid && (
+                <FieldError
+                  errors={[fieldState.error]}
+                  className="mt-1 text-[11px] text-destructive"
+                />
+              )}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="category_id"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid} className="gap-2">
+              <FieldLabel>Category</FieldLabel>
+              <Select
+                value={field.value ?? "none"}
+                onValueChange={(value) =>
+                  field.onChange(value === "none" ? null : value)
+                }
+                items={[
+                  { value: "none", label: "No category" },
+                  ...(categories ?? []).map((item) => ({
+                    value: item.id,
+                    label: item.name,
+                  })),
+                ]}
+              >
+                <SelectTrigger
+                  aria-invalid={fieldState.invalid}
+                  className="w-full"
+                  disabled={categoriesLoading}
+                >
+                  <SelectValue placeholder="Select category" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="none">No category</SelectItem>
+                  {(categories ?? []).map((item) => (
                     <SelectItem key={item.id} value={item.id}>
                       {item.name}
                     </SelectItem>

@@ -1,16 +1,22 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/app/(web)/services/_components/data";
-import { postPath } from "@/lib/blog-path";
+import { categoryPath, postPath } from "@/lib/blog-path";
 import { MANAGED_PAGES } from "@/lib/page-content";
 import { absoluteUrl } from "@/lib/seo";
-import { getPublishedPage, getPublishedSitemapEntries } from "@/server/blog";
+import {
+  getNavCategories,
+  getPublishedPage,
+  getPublishedSitemapEntries,
+  POSTS_PER_PAGE,
+} from "@/server/blog";
 
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [posts, { totalPages }] = await Promise.all([
+  const [posts, { totalPages }, categories] = await Promise.all([
     getPublishedSitemapEntries(),
     getPublishedPage(1),
+    getNavCategories(),
   ]);
 
   const now = new Date();
@@ -99,6 +105,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
+  const categoryPages: MetadataRoute.Sitemap = categories.flatMap((category) =>
+    Array.from(
+      { length: Math.max(1, Math.ceil(category.posts / POSTS_PER_PAGE)) },
+      (_, index) => ({
+        url: absoluteUrl(categoryPath(category.slug, index + 1)),
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: index === 0 ? 0.5 : 0.3,
+      }),
+    ),
+  );
+
   const managedPages: MetadataRoute.Sitemap = MANAGED_PAGES.map((page) => ({
     url: absoluteUrl(page.path),
     lastModified: now,
@@ -117,6 +135,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...servicePages,
     ...listingPages,
+    ...categoryPages,
     ...managedPages,
     ...postPages,
   ];

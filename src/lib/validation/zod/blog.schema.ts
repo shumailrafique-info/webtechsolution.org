@@ -32,6 +32,8 @@ export const blogSchema = z.object({
   status: z.enum(["DRAFT", "PUBLISHED"]),
 
   author_id: z.string().uuid().nullable(),
+
+  category_id: z.string().uuid().nullable(),
 });
 
 export type BlogSchemaValues = z.infer<typeof blogSchema>;

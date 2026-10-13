@@ -2,6 +2,7 @@ import type { InferSelectModel } from "drizzle-orm";
 import type {
   author,
   blog,
+  blogCategory,
   contactQuery,
   idea,
   pageContent,
@@ -22,3 +23,7 @@ export type ContactQueryType = InferSelectModel<typeof contactQuery>;
 export type AuthorType = InferSelectModel<typeof author>;
 
 export type BlogAuthor = Pick<AuthorType, "id" | "name" | "bio" | "image">;
+
+export type BlogCategoryType = InferSelectModel<typeof blogCategory>;
+
+export type BlogCategoryRef = Pick<BlogCategoryType, "id" | "name" | "slug">;

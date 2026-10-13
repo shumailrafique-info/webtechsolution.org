@@ -5,7 +5,6 @@ export type NavLink = {
 
 export type NavItem = NavLink & {
   children?: NavLink[];
-  allLabel?: string;
 };
 
 export const SERVICES: NavLink[] = [

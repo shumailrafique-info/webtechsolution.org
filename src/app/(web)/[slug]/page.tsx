@@ -213,7 +213,7 @@ export default async function Page({
                       referrerPolicy="no-referrer"
                       width={40}
                       height={40}
-                      className="size-10 rounded-full object-cover ring-2 ring-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]"
+                      className="size-10 rounded-full  object-cover  ring-2 ring-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]"
                     />
                   ) : (
                     <span
@@ -239,7 +239,7 @@ export default async function Page({
                 <img
                   src={post.cover_image.url}
                   alt={post.image_alt}
-                  className="aspect-video w-full rounded-[24px] border border-neutral-200 object-cover shadow-[0_30px_70px_-40px_rgba(30,20,10,0.45)]"
+                  className="aspect-video w-full rounded-[24px] border border-neutral-200 object-left object-cover shadow-[0_30px_70px_-40px_rgba(30,20,10,0.45)]"
                 />
               </div>
             ) : null}

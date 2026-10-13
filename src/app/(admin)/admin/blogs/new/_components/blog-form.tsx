@@ -23,20 +23,42 @@ import { toast } from "@/components/ui/toast";
 import type { BlogType } from "@/drizzle/types";
 import { useAuthors } from "@/lib/react-query/hooks/use-authors";
 import { useBlogCreate, useBlogUpdate } from "@/lib/react-query/hooks/use-blog";
-import { useBlogCategories } from "@/lib/react-query/hooks/use-blog-categories";
+import { useCategoryOptions } from "@/lib/react-query/hooks/use-blog-categories";
+import {
+  useMyBlogCreate,
+  useMyBlogUpdate,
+} from "@/lib/react-query/hooks/use-my-blogs";
 import {
   type BlogSchemaValues,
   blogSchema,
 } from "@/lib/validation/zod/blog.schema";
 
-const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
+const BlogForm = ({
+  blog,
+  scope = "admin",
+}: {
+  blog: BlogType | undefined;
+  scope?: "admin" | "author";
+}) => {
   const [isUploadingImage, setIsUploadingImage] = useState(false);
-  const { mutate: createPost, isPending } = useBlogCreate();
-  const { mutate: updatePost, isPending: isUpdating } = useBlogUpdate();
+  const adminCreate = useBlogCreate();
+  const adminUpdate = useBlogUpdate();
+  const authorCreate = useMyBlogCreate();
+  const authorUpdate = useMyBlogUpdate();
+  const isAuthor = scope === "author";
+  const { mutate: createPost, isPending } = isAuthor
+    ? authorCreate
+    : adminCreate;
+  const { mutate: updatePost, isPending: isUpdating } = isAuthor
+    ? authorUpdate
+    : adminUpdate;
+  const listPath = isAuthor ? "/authors" : "/admin/blogs";
   const router = useRouter();
-  const { data: authors, isPending: authorsLoading } = useAuthors();
+  const { data: authors, isPending: authorsLoading } = useAuthors({
+    enabled: !isAuthor,
+  });
   const { data: categories, isPending: categoriesLoading } =
-    useBlogCategories();
+    useCategoryOptions();
   const form = useForm<BlogSchemaValues>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
@@ -64,7 +86,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
         {
           onSuccess: () => {
             toast.add({ title: "Blog updated successfully" });
-            router.push("/admin/blogs");
+            router.push(listPath);
           },
           onError: (err) => {
             toast.add({ title: err?.message || "Failed to update blog" });
@@ -75,7 +97,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
       await createPost(data, {
         onSuccess: () => {
           toast.add({ title: "Blog created successfully" });
-          router.push("/admin/blogs");
+          router.push(listPath);
         },
         onError: (err) => {
           toast.add({ title: err?.message || "Failed to create blog" });
@@ -293,51 +315,53 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
           )}
         />
 
-        <Controller
-          name="author_id"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid} className="gap-2">
-              <FieldLabel>Author</FieldLabel>
-              <Select
-                value={field.value ?? "none"}
-                onValueChange={(value) =>
-                  field.onChange(value === "none" ? null : value)
-                }
-                items={[
-                  { value: "none", label: "No author" },
-                  ...(authors ?? []).map((item) => ({
-                    value: item.id,
-                    label: item.name,
-                  })),
-                ]}
-              >
-                <SelectTrigger
-                  aria-invalid={fieldState.invalid}
-                  className="w-full"
-                  disabled={authorsLoading}
+        {isAuthor ? null : (
+          <Controller
+            name="author_id"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="gap-2">
+                <FieldLabel>Author</FieldLabel>
+                <Select
+                  value={field.value ?? "none"}
+                  onValueChange={(value) =>
+                    field.onChange(value === "none" ? null : value)
+                  }
+                  items={[
+                    { value: "none", label: "No author" },
+                    ...(authors ?? []).map((item) => ({
+                      value: item.id,
+                      label: item.name,
+                    })),
+                  ]}
                 >
-                  <SelectValue placeholder="Select author" />
-                </SelectTrigger>
+                  <SelectTrigger
+                    aria-invalid={fieldState.invalid}
+                    className="w-full"
+                    disabled={authorsLoading}
+                  >
+                    <SelectValue placeholder="Select author" />
+                  </SelectTrigger>
 
-                <SelectContent>
-                  <SelectItem value="none">No author</SelectItem>
-                  {(authors ?? []).map((item) => (
-                    <SelectItem key={item.id} value={item.id}>
-                      {item.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {fieldState.invalid && (
-                <FieldError
-                  errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-destructive"
-                />
-              )}
-            </Field>
-          )}
-        />
+                  <SelectContent>
+                    <SelectItem value="none">No author</SelectItem>
+                    {(authors ?? []).map((item) => (
+                      <SelectItem key={item.id} value={item.id}>
+                        {item.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {fieldState.invalid && (
+                  <FieldError
+                    errors={[fieldState.error]}
+                    className="mt-1 text-[11px] text-destructive"
+                  />
+                )}
+              </Field>
+            )}
+          />
+        )}
 
         <Controller
           name="category_id"

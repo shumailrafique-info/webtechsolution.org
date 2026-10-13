@@ -3,7 +3,7 @@
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { v4 as uuid } from "uuid";
-import { ensureAdminAccess } from "@/lib/auth/guards";
+import { ensureBlogWriterAccess } from "@/lib/auth/guards";
 import { BUCKET, REGION, s3 } from "@/lib/aws";
 import { acceptedTypes } from "@/lib/utils";
 
@@ -19,9 +19,9 @@ export async function getSignedURL(
   checksum: string,
   name: string,
 ) {
-  const guard = await ensureAdminAccess();
+  const guard = await ensureBlogWriterAccess();
   if (!guard.session) {
-    return { success: false, error: "Admin access required." };
+    return { success: false, error: "Sign in to upload files." };
   }
 
   if (!acceptedTypes.includes(type)) {

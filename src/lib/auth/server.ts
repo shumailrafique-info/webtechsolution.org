@@ -2,8 +2,9 @@ import { APIError, type BetterAuthOptions, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { openAPI } from "better-auth/plugins";
+import { eq } from "drizzle-orm";
 import { db } from "@/drizzle/db";
-import { userRoleEnum } from "@/drizzle/schema";
+import { userRoleEnum, user as userTable } from "@/drizzle/schema";
 import type { UserRoleType } from "@/drizzle/types";
 import { serverEnv } from "@/env/server";
 
@@ -12,12 +13,17 @@ const ALLOWED_ROLES = userRoleEnum.enumValues;
 const options = {
   appName: "Dineri",
   advanced: {
-    cookiePrefix: process.env.NEXT_PUBLIC_SESSION_COOKIE_NAME ?? "dineri",
+    cookiePrefix: process.env.NEXT_PUBLIC_SESSION_COOKIE_NAME ?? "webtech",
   },
   user: {
     additionalFields: {
       role: { required: false, type: ALLOWED_ROLES, input: false },
     },
+  },
+  emailAndPassword: {
+    enabled: true,
+    disableSignUp: true,
+    minPasswordLength: 8,
   },
   socialProviders: {
     google: {
@@ -30,6 +36,36 @@ const options = {
     provider: "pg",
   }),
   databaseHooks: {
+    session: {
+      create: {
+        before: async (session, context) => {
+          const [owner] = await db
+            .select({ role: userTable.role })
+            .from(userTable)
+            .where(eq(userTable.id, session.userId))
+            .limit(1);
+
+          if (!owner) return false;
+
+          const viaPassword = context?.path === "/sign-in/email";
+          const isAuthor = owner.role === "author";
+
+          if (isAuthor && !viaPassword) {
+            throw new APIError("FORBIDDEN", {
+              message: "Authors sign in with their email and password.",
+              code: "AUTHOR_PASSWORD_ONLY",
+            });
+          }
+
+          if (!isAuthor && viaPassword) {
+            throw new APIError("FORBIDDEN", {
+              message: "Please sign in with Google.",
+              code: "GOOGLE_ONLY",
+            });
+          }
+        },
+      },
+    },
     user: {
       create: {
         before: async (user) => {

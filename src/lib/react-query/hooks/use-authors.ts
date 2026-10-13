@@ -6,14 +6,20 @@ import {
 } from "@/app/(admin)/admin/authors/actions";
 import {
   createAuthor,
+  resetAuthorPassword,
   updateAuthor,
 } from "@/app/(admin)/admin/authors/new/actions";
-import type { AuthorSchemaValues } from "@/lib/validation/zod/author.schema";
+import type {
+  AuthorPasswordSchemaValues,
+  AuthorSchemaValues,
+  NewAuthorSchemaValues,
+} from "@/lib/validation/zod/author.schema";
 
 export const QUERY_KEY_AUTHORS = "authors" as const;
 
-export function useAuthors() {
+export function useAuthors({ enabled = true }: { enabled?: boolean } = {}) {
   return useQuery({
+    enabled,
     queryKey: [QUERY_KEY_AUTHORS],
     queryFn: async () => {
       const result = await getAuthors();
@@ -31,7 +37,7 @@ export function useAuthorCreate() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (input: AuthorSchemaValues) => {
+    mutationFn: async (input: NewAuthorSchemaValues) => {
       const result = await createAuthor(input);
 
       if (!result.success) {
@@ -110,6 +116,26 @@ export function useAuthorDelete() {
 
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY_AUTHORS] });
+    },
+  });
+}
+
+export function useAuthorPasswordReset() {
+  return useMutation({
+    mutationFn: async ({
+      id,
+      payload,
+    }: {
+      id: string;
+      payload: AuthorPasswordSchemaValues;
+    }) => {
+      const result = await resetAuthorPassword(id, payload);
+
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+
+      return result.data;
     },
   });
 }

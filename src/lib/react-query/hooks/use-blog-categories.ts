@@ -3,6 +3,7 @@ import {
   type BlogCategoryListItem,
   deleteBlogCategory,
   getBlogCategories,
+  getCategoryOptions,
 } from "@/app/(admin)/admin/categories/actions";
 import {
   createBlogCategory,
@@ -17,6 +18,21 @@ export function useBlogCategories() {
     queryKey: [QUERY_KEY_BLOG_CATEGORIES],
     queryFn: async () => {
       const result = await getBlogCategories();
+
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+
+      return result.data;
+    },
+  });
+}
+
+export function useCategoryOptions() {
+  return useQuery({
+    queryKey: [QUERY_KEY_BLOG_CATEGORIES, "options"],
+    queryFn: async () => {
+      const result = await getCategoryOptions();
 
       if (!result.success) {
         throw new Error(result.error);

@@ -15,12 +15,25 @@ export const getPublishedPost = cache(
     const post = await db.query.blog.findFirst({
       where: and(eq(blog.slug, slug), eq(blog.status, "PUBLISHED")),
       with: {
-        author: { columns: { id: true, name: true, bio: true, image: true } },
+        author: { columns: { id: true, name: true, bio: true, avatar: true } },
         category: { columns: { id: true, name: true, slug: true } },
       },
     });
 
-    return post ?? null;
+    if (!post) return null;
+
+    const { author, ...rest } = post;
+    return {
+      ...rest,
+      author: author
+        ? {
+            id: author.id,
+            name: author.name,
+            bio: author.bio,
+            image: author.avatar,
+          }
+        : null,
+    };
   },
 );
 

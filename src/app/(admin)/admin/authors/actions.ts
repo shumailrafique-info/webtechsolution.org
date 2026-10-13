@@ -1,14 +1,20 @@
 "use server";
 
-import { asc, count, eq } from "drizzle-orm";
+import { and, asc, count, eq } from "drizzle-orm";
 import { db } from "@/drizzle/db";
-import { author, blog } from "@/drizzle/schema";
-import type { AuthorType } from "@/drizzle/types";
+import { blog, user } from "@/drizzle/schema";
 import { ensureAdminAccess } from "@/lib/auth/guards";
 import { revalidateAuthorPosts } from "@/server/revalidate";
 import type { ApiResponse } from "@/types/global";
 
-export type AuthorListItem = AuthorType & { posts: number };
+export type AuthorListItem = {
+  id: string;
+  name: string;
+  email: string;
+  bio: string;
+  avatar: typeof user.$inferSelect.avatar;
+  posts: number;
+};
 
 export async function getAuthors(): Promise<ApiResponse<AuthorListItem[]>> {
   const guard = await ensureAdminAccess();
@@ -18,16 +24,21 @@ export async function getAuthors(): Promise<ApiResponse<AuthorListItem[]>> {
 
   try {
     const rows = await db
-      .select({ author, posts: count(blog.id) })
-      .from(author)
-      .leftJoin(blog, eq(blog.author_id, author.id))
-      .groupBy(author.id)
-      .orderBy(asc(author.name));
+      .select({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        bio: user.bio,
+        avatar: user.avatar,
+        posts: count(blog.id),
+      })
+      .from(user)
+      .leftJoin(blog, eq(blog.author_id, user.id))
+      .where(eq(user.role, "author"))
+      .groupBy(user.id)
+      .orderBy(asc(user.name));
 
-    return {
-      success: true,
-      data: rows.map((row) => ({ ...row.author, posts: row.posts })),
-    };
+    return { success: true, data: rows };
   } catch (error) {
     console.error("getAuthors failed", error);
     return { success: false, error: "Could not load authors." };
@@ -49,9 +60,9 @@ export async function deleteAuthor(
       .where(eq(blog.author_id, id));
 
     const [deleted] = await db
-      .delete(author)
-      .where(eq(author.id, id))
-      .returning({ id: author.id });
+      .delete(user)
+      .where(and(eq(user.id, id), eq(user.role, "author")))
+      .returning({ id: user.id });
 
     if (!deleted) {
       return { success: false, error: "That author no longer exists." };

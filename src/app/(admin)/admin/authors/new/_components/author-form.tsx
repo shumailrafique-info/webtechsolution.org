@@ -12,41 +12,41 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
-import type { AuthorType } from "@/drizzle/types";
+import type { UserType } from "@/drizzle/types";
 import {
   useAuthorCreate,
   useAuthorUpdate,
 } from "@/lib/react-query/hooks/use-authors";
 import {
-  type AuthorSchemaValues,
-  authorSchema,
+  editAuthorFormSchema,
+  type NewAuthorSchemaValues,
+  newAuthorSchema,
 } from "@/lib/validation/zod/author.schema";
 
-const toSlug = (value: string) =>
-  value
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+export type EditableAuthor = Pick<
+  UserType,
+  "id" | "name" | "email" | "bio" | "avatar"
+>;
 
-const AuthorForm = ({ author }: { author: AuthorType | undefined }) => {
+const AuthorForm = ({ author }: { author: EditableAuthor | undefined }) => {
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const { mutate: createAuthor, isPending } = useAuthorCreate();
   const { mutate: updateAuthor, isPending: isUpdating } = useAuthorUpdate();
   const router = useRouter();
-  const form = useForm<AuthorSchemaValues>({
-    resolver: zodResolver(authorSchema),
+  const form = useForm<NewAuthorSchemaValues>({
+    resolver: zodResolver(author ? editAuthorFormSchema : newAuthorSchema),
     defaultValues: {
       name: author?.name ?? "",
-      slug: author?.slug ?? "",
+      email: author?.email ?? "",
+      password: "",
       bio: author?.bio ?? "",
-      image: author?.image ? [author.image] : [],
+      image: author?.avatar ? [author.avatar] : [],
     },
   });
 
   const busy = isPending || isUpdating || isUploadingImage;
 
-  function onSubmit(data: AuthorSchemaValues) {
+  function onSubmit(data: NewAuthorSchemaValues) {
     const handlers = {
       onSuccess: () => {
         toast.add({
@@ -61,8 +61,10 @@ const AuthorForm = ({ author }: { author: AuthorType | undefined }) => {
       },
     };
 
-    if (author) updateAuthor({ id: author.id, payload: data }, handlers);
-    else createAuthor(data, handlers);
+    if (author) {
+      const { password: _password, ...payload } = data;
+      updateAuthor({ id: author.id, payload }, handlers);
+    } else createAuthor(data, handlers);
   }
 
   return (
@@ -112,12 +114,6 @@ const AuthorForm = ({ author }: { author: AuthorType | undefined }) => {
               </FieldLabel>
               <Input
                 {...field}
-                onChange={(event) => {
-                  field.onChange(event);
-                  if (!author && !form.getFieldState("slug").isDirty) {
-                    form.setValue("slug", toSlug(event.target.value));
-                  }
-                }}
                 placeholder="e.g. Fawad Malik"
                 aria-invalid={fieldState.invalid}
               />
@@ -132,18 +128,23 @@ const AuthorForm = ({ author }: { author: AuthorType | undefined }) => {
         />
 
         <Controller
-          name="slug"
+          name="email"
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-2">
               <FieldLabel>
-                Slug <span className="ml-0.5 text-[#6e6e6e]">*</span>
+                Email <span className="ml-0.5 text-[#6e6e6e]">*</span>
               </FieldLabel>
               <Input
                 {...field}
-                placeholder="fawad-malik"
+                type="email"
+                autoComplete="off"
+                placeholder="author@example.com"
                 aria-invalid={fieldState.invalid}
               />
+              <p className="text-xs text-muted-foreground">
+                The author signs in at /authors/sign-in with this email.
+              </p>
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
@@ -153,6 +154,33 @@ const AuthorForm = ({ author }: { author: AuthorType | undefined }) => {
             </Field>
           )}
         />
+
+        {author ? null : (
+          <Controller
+            name="password"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="gap-2">
+                <FieldLabel>
+                  Password <span className="ml-0.5 text-[#6e6e6e]">*</span>
+                </FieldLabel>
+                <Input
+                  {...field}
+                  type="text"
+                  autoComplete="new-password"
+                  placeholder="At least 8 characters"
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && (
+                  <FieldError
+                    errors={[fieldState.error]}
+                    className="mt-1 text-[11px] text-destructive"
+                  />
+                )}
+              </Field>
+            )}
+          />
+        )}
 
         <Controller
           name="bio"

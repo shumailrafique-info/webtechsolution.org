@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { BlogType } from "@/drizzle/types";
 import { useBlogs } from "@/lib/react-query/hooks/use-blog";
+import { useMyBlogs } from "@/lib/react-query/hooks/use-my-blogs";
 import DeleteBlogDialog from "./delete-blog-dialog";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -34,7 +35,9 @@ function StatusBadge({ status }: { status: BlogType["status"] }) {
   );
 }
 
-const BlogsList = () => {
+const BlogsList = ({ scope = "admin" }: { scope?: "admin" | "author" }) => {
+  const isAuthor = scope === "author";
+  const basePath = isAuthor ? "/authors" : "/admin/blogs";
   const [term, setTerm] = useState("");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -44,7 +47,11 @@ const BlogsList = () => {
     return () => clearTimeout(timer);
   }, [term]);
 
-  const { data, isPending, isError, error, refetch } = useBlogs(search, page);
+  const adminQuery = useBlogs(search, page, !isAuthor);
+  const authorQuery = useMyBlogs(search, page, isAuthor);
+  const { data, isPending, isError, error, refetch } = isAuthor
+    ? authorQuery
+    : adminQuery;
   const blogs = data?.rows ?? [];
 
   return (
@@ -52,7 +59,7 @@ const BlogsList = () => {
       <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border px-6 py-6 sm:px-8">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-foreground">
-            Blog posts
+            {isAuthor ? "My posts" : "Blog posts"}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {isPending
@@ -66,7 +73,7 @@ const BlogsList = () => {
         <Button
           nativeButton={false}
           size="lg"
-          render={<Link href="/admin/blogs/new" />}
+          render={<Link href={`${basePath}/new`} />}
         >
           <PlusIcon />
           New post
@@ -147,7 +154,7 @@ const BlogsList = () => {
                 size="sm"
                 className="mt-2"
                 nativeButton={false}
-                render={<Link href="/admin/blogs/new" />}
+                render={<Link href={`${basePath}/new`} />}
               >
                 <PlusIcon />
                 New post
@@ -233,14 +240,16 @@ const BlogsList = () => {
                           variant="ghost"
                           size="sm"
                           className="text-muted-foreground hover:bg-accent hover:text-primary"
-                          render={
-                            <Link href={`/admin/blogs/edit/${item.id}`} />
-                          }
+                          render={<Link href={`${basePath}/edit/${item.id}`} />}
                         >
                           <PencilIcon />
                           Edit
                         </Button>
-                        <DeleteBlogDialog id={item.id} title={item.title} />
+                        <DeleteBlogDialog
+                          id={item.id}
+                          title={item.title}
+                          scope={scope}
+                        />
                       </div>
                     </td>
                   </tr>

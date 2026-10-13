@@ -4,7 +4,7 @@ import { asc, count, eq } from "drizzle-orm";
 import { db } from "@/drizzle/db";
 import { blog, blogCategory } from "@/drizzle/schema";
 import type { BlogCategoryType } from "@/drizzle/types";
-import { ensureAdminAccess } from "@/lib/auth/guards";
+import { ensureAdminAccess, ensureBlogWriterAccess } from "@/lib/auth/guards";
 import { revalidateCategoryContent } from "@/server/revalidate";
 import type { ApiResponse } from "@/types/global";
 
@@ -67,5 +67,25 @@ export async function deleteBlogCategory(
   } catch (error) {
     console.error("deleteBlogCategory failed", error);
     return { success: false, error: "Could not delete the category." };
+  }
+}
+
+export async function getCategoryOptions(): Promise<
+  ApiResponse<Pick<BlogCategoryType, "id" | "name">[]>
+> {
+  const guard = await ensureBlogWriterAccess();
+  if (!guard.session) {
+    return { success: false, error: "Sign in to manage posts." };
+  }
+
+  try {
+    const rows = await db
+      .select({ id: blogCategory.id, name: blogCategory.name })
+      .from(blogCategory)
+      .orderBy(asc(blogCategory.name));
+    return { success: true, data: rows };
+  } catch (error) {
+    console.error("getCategoryOptions failed", error);
+    return { success: false, error: "Could not load categories." };
   }
 }

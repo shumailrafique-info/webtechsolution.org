@@ -31,7 +31,7 @@ export const blogSchema = z.object({
 
   status: z.enum(["DRAFT", "PUBLISHED"]),
 
-  author_id: z.string().uuid().nullable(),
+  author_id: z.string().min(1).nullable(),
 
   category_id: z.string().uuid().nullable(),
 });

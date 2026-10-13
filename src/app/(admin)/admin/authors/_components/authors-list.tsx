@@ -65,7 +65,8 @@ const AuthorsList = () => {
               No authors yet
             </p>
             <p className="max-w-sm text-sm text-muted-foreground">
-              Add an author and choose them on any blog post.
+              Add an author with an email and password. They sign in at
+              /authors/sign-in and manage their own posts.
             </p>
             <Button
               size="sm"
@@ -105,13 +106,13 @@ const AuthorsList = () => {
                   >
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
-                        <AuthorAvatar name={item.name} url={item.image?.url} />
+                        <AuthorAvatar name={item.name} url={item.avatar?.url} />
                         <div className="min-w-0">
                           <p className="truncate font-medium text-foreground">
                             {item.name}
                           </p>
                           <p className="truncate text-xs text-muted-foreground">
-                            {item.slug}
+                            {item.email}
                           </p>
                         </div>
                       </div>

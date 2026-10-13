@@ -67,3 +67,30 @@ export async function ensureAuthenticatedUser(): Promise<AuthGuardResult> {
 
   return { session, response: null, json: null };
 }
+
+async function ensureRole(
+  allowed: readonly string[],
+  error: string,
+): Promise<AuthGuardResult> {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session || !allowed.includes(session.user.role ?? "")) {
+    return {
+      session: null,
+      response: NextResponse.json({ success: false, error }, { status: 403 }),
+      json: { success: false, error },
+    };
+  }
+
+  return { session, response: null, json: null };
+}
+
+export function ensureAuthorAccess(): Promise<AuthGuardResult> {
+  return ensureRole(["author"], "Author access required.");
+}
+
+export function ensureBlogWriterAccess(): Promise<AuthGuardResult> {
+  return ensureRole(["admin", "author"], "Sign in to manage posts.");
+}

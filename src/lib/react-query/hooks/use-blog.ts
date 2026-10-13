@@ -60,8 +60,9 @@ export function useBlogUpdate() {
   });
 }
 
-export function useBlogs(search: string, page = 1) {
+export function useBlogs(search: string, page = 1, enabled = true) {
   return useQuery({
+    enabled,
     queryKey: [QUERY_KEY_BLOG, { search, page }],
     queryFn: async () => {
       const result = await getBlogs(search, page);

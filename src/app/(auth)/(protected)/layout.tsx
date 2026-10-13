@@ -21,6 +21,8 @@ export default function Layout({
         router.replace(redirect);
       } else if (session.user.role === "admin") {
         router.replace("/admin");
+      } else if (session.user.role === "author") {
+        router.replace("/authors");
       } else {
         router.replace("/");
       }

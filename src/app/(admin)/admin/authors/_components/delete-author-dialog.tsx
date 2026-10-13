@@ -65,7 +65,7 @@ const DeleteAuthorDialog = ({
           <AlertDialogTitle>Delete this author?</AlertDialogTitle>
           <AlertDialogDescription>
             <span className="font-medium text-foreground">{name}</span> will be
-            permanently removed.
+            permanently removed and can no longer sign in.
             {posts > 0
               ? ` Their ${posts} ${posts === 1 ? "post" : "posts"} will stay published without an author.`
               : ""}

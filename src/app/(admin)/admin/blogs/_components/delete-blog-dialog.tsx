@@ -17,10 +17,22 @@ import {
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/toast";
 import { useBlogDelete } from "@/lib/react-query/hooks/use-blog";
+import { useMyBlogDelete } from "@/lib/react-query/hooks/use-my-blogs";
 
-const DeleteBlogDialog = ({ id, title }: { id: string; title: string }) => {
+const DeleteBlogDialog = ({
+  id,
+  title,
+  scope = "admin",
+}: {
+  id: string;
+  title: string;
+  scope?: "admin" | "author";
+}) => {
   const [open, setOpen] = useState(false);
-  const { mutate: removeBlog, isPending } = useBlogDelete();
+  const adminDelete = useBlogDelete();
+  const authorDelete = useMyBlogDelete();
+  const { mutate: removeBlog, isPending } =
+    scope === "author" ? authorDelete : adminDelete;
 
   function onConfirm() {
     removeBlog(id, {

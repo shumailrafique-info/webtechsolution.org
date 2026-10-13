@@ -22,7 +22,9 @@ import {
 
 export function NavMain({
   items,
+  label = "Platform",
 }: {
+  label?: string;
   items: {
     title: string;
     url: string;
@@ -37,13 +39,13 @@ export function NavMain({
   const pathname = usePathname();
 
   const isCurrent = (url: string) =>
-    url === "/admin"
+    url === "/admin" || url === "/authors"
       ? pathname === url
       : pathname === url || pathname.startsWith(`${url}/`);
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>{label}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
           const active = isCurrent(item.url);

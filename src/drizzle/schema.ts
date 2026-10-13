@@ -1,5 +1,4 @@
 export * from "./schemas/auth-schema";
-export * from "./schemas/author-schema";
 export * from "./schemas/blog-category-schema";
 export * from "./schemas/blog-schema";
 export * from "./schemas/contact-query-schema";

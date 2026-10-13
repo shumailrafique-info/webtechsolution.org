@@ -1,5 +1,14 @@
 import { relations } from "drizzle-orm";
-import { boolean, index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  index,
+  jsonb,
+  pgTable,
+  text,
+  timestamp,
+} from "drizzle-orm/pg-core";
+import type { UploadedFile } from "@/components/shared/image-upader";
+import { blog } from "./blog-schema";
 import { userRoleEnum } from "./role-enum";
 
 export const user = pgTable("user", {
@@ -14,6 +23,8 @@ export const user = pgTable("user", {
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
   role: userRoleEnum().notNull(),
+  bio: text("bio").notNull().default(""),
+  avatar: jsonb("avatar").$type<UploadedFile>(),
 });
 
 export const session = pgTable(
@@ -78,6 +89,7 @@ export const verification = pgTable(
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
   accounts: many(account),
+  posts: many(blog),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({

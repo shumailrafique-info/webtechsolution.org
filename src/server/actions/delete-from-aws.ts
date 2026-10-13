@@ -1,5 +1,6 @@
 "use server";
 import { DeleteObjectCommand } from "@aws-sdk/client-s3";
+import { ensureBlogWriterAccess } from "@/lib/auth/guards";
 import { BUCKET, s3 } from "@/lib/aws";
 
 export async function deleteS3Objects(inputs: string[]): Promise<{
@@ -7,6 +8,11 @@ export async function deleteS3Objects(inputs: string[]): Promise<{
   deleted: string[];
   failed: string[];
 }> {
+  const guard = await ensureBlogWriterAccess();
+  if (!guard.session) {
+    return { success: false, deleted: [], failed: inputs };
+  }
+
   console.log("Attempting to delete from S3:", inputs);
   const keys = inputs.filter(Boolean).map((input) => {
     try {
